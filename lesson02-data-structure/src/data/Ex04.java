@@ -12,6 +12,7 @@ public class Ex04 {
 		System.out.println("i age: " + age);
 		
 		Integer salary = 20;
+<<<<<<< HEAD
 		PrintUtils.hash("hash salary 20", salary);
 		salary = 22;
 		PrintUtils.hash("hash salary 22", salary);
@@ -20,5 +21,18 @@ public class Ex04 {
 		PrintUtils.hash("1. ipunt", input);
 		input = 30;
 		PrintUtils.hash("2. ipunt", input);
+=======
+		PrintUtils.hash("hash salary", salary);
+		
+		salary = 30;
+		PrintUtils.hash("hash salary 22", salary);
+
+
+	}
+	private static void increase(Integer input) {
+		PrintUtils.hash("1. input", input);
+		input = 30;
+		PrintUtils.hash("2. input", input);
+>>>>>>> ba78b3a (lesson02-03 02.05.2021)
 	}
 }
