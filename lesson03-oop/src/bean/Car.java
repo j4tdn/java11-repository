@@ -42,5 +42,15 @@ public class Car {
 	public String toString() {
 		return "Car [serial=" + serial + ", model=" + model + ", color=" + color + "]";
 	}
-
+	@Override
+	public boolean equals(Object o) {
+		if(this == o) {
+			return true;
+		}
+		if(!(o instanceof Car)) {
+			return false;
+		}
+		Car that = (Car) o;
+		return this.getSerial().equals(that.getSerial());
+	}
 }

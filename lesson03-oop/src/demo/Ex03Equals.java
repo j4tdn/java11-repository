@@ -17,7 +17,7 @@ public class Ex03Equals {
 		printEquals(c2, c3);
 	}
 	public static void printEquals(Car c1, Car c2) {
-		System.out.println(c1 == c2);
+		System.out.println(c1.equals(c2));
 	}
 	private static void hash(String text,Car c) {
 		System.out.println(text+ ": " + System.identityHashCode(c));
