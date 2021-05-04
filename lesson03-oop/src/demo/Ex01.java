@@ -1,4 +1,6 @@
-package bean;
+package demo;
+
+import bean.Rectangle;
 
 public class Ex01 {
 	public static void main(String[] args) {
