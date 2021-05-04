@@ -13,5 +13,9 @@ public class Ex01 {
 		// r2: w6 h3
 		Rectangle r2 = new Rectangle(9, 7);
 		System.out.println("r2: " + r2);
+		
+		// class, object
+		// constructor, getter, setter
+		// this, toString 
 	}
 }
