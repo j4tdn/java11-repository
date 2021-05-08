@@ -5,6 +5,7 @@
 *.project
 *.classpath
 *.settings
+*/.gitignore
 
 # Compiled class file
 *.class
