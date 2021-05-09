@@ -4,14 +4,14 @@ public class Item {
 	private String id;
 	private String os;
 	private String color;
-	private double cost ;
-	
+	private double cost;
+
 	public Item() {
-		
+
 	}
 
 	public Item(String id, String os, String color, double cost) {
-		
+
 		this.id = id;
 		this.os = os;
 		this.color = color;
@@ -54,6 +54,5 @@ public class Item {
 	public String toString() {
 		return "Item [id=" + id + ", os=" + os + ", color=" + color + ", cost=" + cost + "]";
 	}
-	
-	
+
 }

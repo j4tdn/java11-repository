@@ -3,13 +3,13 @@ package shopping;
 public class ItemDetail {
 	private Item item;
 	private int quantity;
-	
+
 	public ItemDetail() {
-		
+
 	}
 
 	public ItemDetail(Item item, int quantity) {
-		
+
 		this.item = item;
 		this.quantity = quantity;
 	}
@@ -34,5 +34,5 @@ public class ItemDetail {
 	public String toString() {
 		return "ItemDetail [item=" + item + ", quantity=" + quantity + "]";
 	}
-	
+
 }
