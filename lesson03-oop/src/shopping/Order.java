@@ -1,18 +1,19 @@
 package shopping;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 public class Order {
 	private Customer customer;
-	private ItemDetail itemDetail;
+	private ItemDetail[] itemDetails;
 	private LocalDateTime orderDate;
 
 	public Order() {
 	}
 
-	public Order(Customer customer, ItemDetail itemDetail, LocalDateTime orderDate) {
+	public Order(Customer customer, ItemDetail[] itemDetails, LocalDateTime orderDate) {
 		this.customer = customer;
-		this.itemDetail = itemDetail;
+		this.itemDetails = itemDetails;
 		this.orderDate = orderDate;
 	}
 
@@ -24,12 +25,12 @@ public class Order {
 		this.customer = customer;
 	}
 
-	public ItemDetail getItemDetail() {
-		return itemDetail;
+	public ItemDetail[] getItemDetails() {
+		return itemDetails;
 	}
 
-	public void setItemDetail(ItemDetail itemDetail) {
-		this.itemDetail = itemDetail;
+	public void setItemDetails(ItemDetail[] itemDetails) {
+		this.itemDetails = itemDetails;
 	}
 
 	public LocalDateTime getOrderDate() {
@@ -42,13 +43,8 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [customer=" + customer + ", itemDetail=" + itemDetail + ", orderDate=" + orderDate + "]";
-	}
-
-	public double export() {
-		double totoOfMoney = 0;
-		ItemDetail[] ids = getItemDetail();
-		
+		return "Order [customer=" + customer + ", itemDetails=" + Arrays.toString(itemDetails) + ", orderDate="
+				+ orderDate + "]";
 	}
 
 }
