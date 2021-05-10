@@ -1,6 +1,5 @@
 package demo;
 
-
 import bean.CarAd;
 
 public class Ex04Static {

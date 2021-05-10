@@ -4,7 +4,7 @@ public class CarAd {
 	// class's scope
 	public static String model;
 	
-	// objects scopoe
+	// objects scope
 	private String color;
 	
 	public CarAd(String color) {
