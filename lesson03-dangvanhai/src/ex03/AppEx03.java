@@ -14,16 +14,17 @@ public class AppEx03 {
 
 	public static void main(String[] args) {
 		inputMatrix();
-		MatrixUtils.findSaddlePoint(mat, rowMatrix, columnMatrix);
-		if (Result.exist) {
-			System.out.println("Saddle point: " + Result.value); // 1 2 3 4 5 6 7 8 9
-		} else {
+		Integer result = MatrixUtils.findSaddlePoint(mat, rowMatrix, columnMatrix);
+		if (result == null) {
 			System.out.println("Not exist saddle point"); // 1 -2 3 -6 5 -4 7 -8 9
+
+		} else {
+			System.out.println("Saddle point: " + result); // 1 2 3 4 5 6 7 8 9
 		}
 	}
 
 	private static void inputMatrix() {
-		System.out.println("Nhap ma tran " + rowMatrix + "x" + columnMatrix + ":");
+		System.out.println("Enter Matrix " + rowMatrix + "x" + columnMatrix + ":");
 		for (int i = 0; i < rowMatrix; i++) {
 			for (int j = 0; j < columnMatrix; j++) {
 				mat[i][j] = scanner.nextInt();

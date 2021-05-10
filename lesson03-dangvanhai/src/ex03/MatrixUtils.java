@@ -1,7 +1,7 @@
 package ex03;
 
 public class MatrixUtils {
-	public static void findSaddlePoint(int[][] mat, int rowMatrix, int columnMatrix) {
+	public static Integer findSaddlePoint(int[][] mat, int rowMatrix, int columnMatrix) {
 		for (int i = 0; i < rowMatrix; i++) {
 
 			// Find the minimum element of row i
@@ -22,14 +22,12 @@ public class MatrixUtils {
 					break;
 				}
 				if (j == rowMatrix - 1) {
-					Result.exist = true;
-					Result.value = valueMaxOfCol;
-					return;
+					return valueMaxOfCol;
 				}
 			}
 		}
 
 		// Not exist saddle point for matrix
-		Result.exist = false;
+		return null;
 	}
 }
