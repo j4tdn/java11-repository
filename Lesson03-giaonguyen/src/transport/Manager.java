@@ -1,8 +1,5 @@
 package transport;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class Manager {
 		
 	private User user;
