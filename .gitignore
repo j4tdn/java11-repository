@@ -1,3 +1,6 @@
+# Ignore .gitignore in project
+*/.gitignore
+
 # Ignore .metadata folder
 .metadata
 
