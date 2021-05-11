@@ -1,6 +1,5 @@
 package exercises;
 
-import java.awt.geom.CubicCurve2D;
 import java.util.Scanner;
 
 public class Ex01ValidNumber {
