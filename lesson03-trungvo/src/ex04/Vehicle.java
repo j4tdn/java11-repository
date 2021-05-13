@@ -1,19 +1,20 @@
-package ex02;
+package ex04;
 
 public class Vehicle {
-	private String peopleName;
-	private String bikeName;
+	public String peopleName;
+	private String carName;
 	private int cc;
 	private long price;
 	private long tax;
+	
 	public Vehicle() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Vehicle(String peopleName, String bikeName, int cc, long price) {
+	public Vehicle(String peopleName, String carName, int cc, long price) {
 		super();
 		this.peopleName = peopleName;
-		this.bikeName = bikeName;
+		this.carName = carName;
 		this.cc = cc;
 		this.price = price;
 		this.tax = tax(cc,price);
@@ -27,12 +28,12 @@ public class Vehicle {
 		this.peopleName = peopleName;
 	}
 
-	public String getBikeName() {
-		return bikeName;
+	public String getCarName() {
+		return carName;
 	}
 
-	public void setBikeName(String bikeName) {
-		this.bikeName = bikeName;
+	public void setCarName(String carName) {
+		this.carName = carName;
 	}
 
 	public int getCc() {
@@ -61,21 +62,17 @@ public class Vehicle {
 
 	@Override
 	public String toString() {
-		return  peopleName +"\t\t" +  bikeName  + "\t\t" +  cc + "\t\t"  + price +"\t\t" 
-				 + tax ;
+		return "Vehicle [peopleName=" + peopleName + ", carName=" + carName + ", cc=" + cc + ", price=" + price
+				+ ", tax=" + tax + "]";
 	}
 	
 	public static long tax(int cc, long price) {
-		long tax = 0;
-		if(cc < 100 ) {
-			return tax = (long) (price*0.01);
-		}else if(cc > 100 && cc < 200) {
-			return tax = (long) (price*0.03);
+		long tax =0;
+		if (cc < 100) {
+			return tax = (long) (price*0.01);	
+		} else if(cc < 200) {
+			return tax =(long) (price*0.03);
 		}
-		return  tax = (long) (price*0.05);
+		return tax =(long) (price*0.05);
 	}
-	
-	
 }
-
-
