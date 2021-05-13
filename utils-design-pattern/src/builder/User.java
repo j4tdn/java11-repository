@@ -74,5 +74,9 @@ public class User {
 			this.address = address;
 			return this;
 		}
+		
+		public User build() {
+			return new User(this);
+		}
 	}
 }
