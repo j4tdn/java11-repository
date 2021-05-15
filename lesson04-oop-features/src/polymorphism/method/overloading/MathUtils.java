@@ -1,4 +1,4 @@
-package poymorphism.method.overloading;
+package polymorphism.method.overloading;
 
 public class MathUtils {
 
