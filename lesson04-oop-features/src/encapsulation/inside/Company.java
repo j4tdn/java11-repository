@@ -5,5 +5,4 @@ public class Company {
 	public String name;
 	protected double fund;
 	String address;
-	
 }

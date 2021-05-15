@@ -1,24 +1,18 @@
 package builder;
 
 /**
- * The builder pattern, as name implies, is an alternative way to construct complex objects. 
- * This should be used only when you want to build different immutable objects using same object building process
- *
+ * Singleton is a creational design pattern that lets you ensure that a class
+ * has only one instance, while providing a global access point to this instance
  */
 public class User {
+
 	private String firstName;
 	private String lastName;
 	private int age;
 	private String phone;
 	private String address;
 
-	private User() {
-
-	}
-
-	// User u1 = b1.build();
-	// this -> u1
-	private User(Builder builder) {
+	public User(Builder builder) {
 		this.firstName = builder.firstName;
 		this.lastName = builder.lastName;
 		this.age = builder.age;
@@ -26,10 +20,21 @@ public class User {
 		this.address = builder.address;
 	}
 
-	public static Builder builder(String firstName, String lastName) {
-		return new Builder(firstName, lastName);
+	public User(String firstName, String lastName, int age, String phone, String address) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.phone = phone;
+		this.address = address;
 	}
 
+	public static Builder builder(String firsName, String lastName) {
+		return new Builder(firsName, lastName);
+	}
+
+//	public User build(Builder builder) {
+//		return new User();
+//	}
 	// getter
 	public String getFirstName() {
 		return firstName;
@@ -57,13 +62,6 @@ public class User {
 				+ ", address=" + address + "]";
 	}
 
-	// Builder b1 = new Builder().firstName("Teo").lastName("Le").address("Da
-	// Nang").age(20).build();
-	// b1 => u1
-	// User u1 = b1.build();
-	// nested class
-	
-	// Builder to build User object
 	public static class Builder {
 		private String firstName;
 		private String lastName;
@@ -96,5 +94,4 @@ public class User {
 			return new User(this);
 		}
 	}
-
 }

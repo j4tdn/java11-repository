@@ -1,14 +1,23 @@
 package singleton;
 
+/**
+ * The builder pattern, as name implies, is an alternative way to construct
+ * complex objects. This should be used only when you want to build different
+ * immutable objects using same object building process
+ *
+ */
 public class Sglc {
-
-	/**
-	 * Singleton is a creational design pattern that lets you ensure that a class has only one instance, 
-	 * while providing a global access point to this instance
-	 */
-	private static Sglc instance = null;
-
 	private String value;
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	private static Sglc instance = null;
 
 	public static Sglc getInstance() {
 		if (instance == null) {
@@ -19,13 +28,5 @@ public class Sglc {
 
 	private Sglc() {
 
-	}
-
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
 	}
 }
