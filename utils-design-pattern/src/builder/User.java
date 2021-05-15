@@ -25,8 +25,6 @@ public class User {
 		return new Builder(firstName, lastName);
 	}
 
-
-
 	public String getFirstName() {
 		return firstName;
 	}
@@ -46,8 +44,13 @@ public class User {
 	public String getAddress() {
 		return address;
 	}
-
 	
+	@Override
+	public String toString() {
+		return "User [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + ", phone=" + phone
+				+ ", address=" + address + "]";
+	}
+
 	public static class Builder {
 		private String firstName;
 		private String lastName;

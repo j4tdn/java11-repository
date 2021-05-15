@@ -5,7 +5,7 @@ public class BdApp {
 		User u1 = User.builder("Adam", "Kate")
 				      .age(29) // builder
 				      .address("US") // builder
-				      .build();
+				      .build(); // User
 		System.out.println(u1);
 		
 		User u2 = User.builder("Kann", "Oliver").build();
