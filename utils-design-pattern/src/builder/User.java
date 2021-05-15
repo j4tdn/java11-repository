@@ -22,7 +22,7 @@ public class User {
 		this.lastName = builder.lastName;
 		this.agel = builder.agel;
 		this.phone = builder.phone;
-		this.address = builder.adress;
+		
 		
 	}
 	public static Builder builder(String firstName, String lastName) {
