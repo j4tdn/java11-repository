@@ -8,6 +8,9 @@ public class MathUtils {
 	// + ! number of parameters
 	// + ! input parameter type
 	//==> overloading
+	public static int sum2so(int a,int b) {
+		return a + b;
+	}
 
 	
 	public static float sum2so(float a,float b) {
