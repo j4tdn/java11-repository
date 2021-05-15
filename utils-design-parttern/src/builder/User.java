@@ -6,6 +6,7 @@ public class User {
 	private int  age;
 	private String phone;
 	private String address;
+	
 	public User() {
 		
 	}
