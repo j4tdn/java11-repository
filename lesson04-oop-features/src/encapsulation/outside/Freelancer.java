@@ -1,6 +1,7 @@
 package encapsulation.outside;
 
 import encapsulation.inside.Company;
+import encapsulation.inside.Developer;
 
 public class Freelancer extends Developer {
 	Company comp = new Company();
