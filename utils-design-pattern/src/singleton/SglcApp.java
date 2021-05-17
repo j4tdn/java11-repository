@@ -15,8 +15,8 @@ public class SglcApp {
 		
 		// Can we create a type with private constructor?
 		//1. Enumeration
-		//2. Utility
-		//3. Singleton
+		//2. Utility class
+		//3. Singleton pattern
 	}
 
 }
