@@ -29,7 +29,7 @@ public class Ex02_sort {
 		Arrays.sort(arr);
 		int count7 = 0;
 		for (int i = 0; i < n; i++) {
-			if ((arr[i] % 7) == 0) {
+			if ((arr[i] % 7) == 0 && (arr[i] % 5)!=0) {
 				int tmp = arr[i];
 				arr[i] = arr[count7];
 				arr[count7] = tmp;
@@ -39,7 +39,7 @@ public class Ex02_sort {
 		}
 		int count5 = n - 1;
 		for (int i = 0; i < count5; i++) {
-			if ((arr[i] % 5) == 0) {
+			if ((arr[i] % 5) == 0 && (arr[i] %7)!=0) {
 				int tmp = arr[i];
 				arr[i] = arr[count5];
 				arr[count5] = tmp;
