@@ -9,6 +9,7 @@ public class People {
 	private float hscv;
 
 	public People() {
+
 	}
 
 	public People(int id, String name, float hsl, float hscv) {

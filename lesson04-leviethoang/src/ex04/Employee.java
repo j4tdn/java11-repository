@@ -1,6 +1,6 @@
 package ex04;
 
-public class Employment extends People {
+public class Employee extends People {
 
 	@Override
 	public double salary() {

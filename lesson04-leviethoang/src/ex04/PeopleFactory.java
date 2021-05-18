@@ -28,7 +28,7 @@ public class PeopleFactory {
 	}
 
 	private static People createEmployment() {
-		return new Employment();
+		return new Employee();
 	}
 
 	private static People createManager() {

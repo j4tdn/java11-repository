@@ -33,7 +33,7 @@ public class Ex02Main {
 		int tmp = 0;
 		for (int i = 0; i < n - 1; i++) {
 			for (int j = i + 1; j < n; j++) {
-				if (a[j] % 7 == 0) {
+				if (a[j] % 7 == 0 && a[j] % 5 != 0) {
 					tmp = a[j];
 					a[j] = a[i];
 					a[i] = tmp;
@@ -43,7 +43,7 @@ public class Ex02Main {
 
 		for (int i = n - 1; i > 0; i--) {
 			for (int j = i - 1; j > 0; j--) {
-				if (a[j] % 5 == 0) {
+				if (a[j] % 5 == 0 && a[j] % 7 != 0) {
 					tmp = a[j];
 					a[j] = a[i];
 					a[i] = tmp;
