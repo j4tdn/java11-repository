@@ -1,4 +1,4 @@
-package inheritance;
+package inheritance.demo;
 
 public class ChildIrt extends ParentIrt {
 //	@Override ( Chỉ ghi được khi hàm đó đã có ở class cha ) 
