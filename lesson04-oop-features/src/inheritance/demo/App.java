@@ -1,4 +1,9 @@
-package inheritance;
+package inheritance.demo;
+
+import inheritance.superclass.AbstractEmail;
+import inheritance.superclass.StandardEmail;
+import inheritance.superclass.SubTransformer;
+import inheritance.superclass.Transformer;
 
 public class App {
 	public static void main(String[] args) {
@@ -13,5 +18,11 @@ public class App {
 		
 		ChildIrt c = new ChildIrt();
 		System.out.println("isHappy: " + c.isHappy);
+		
+		Transformer t1 = new SubTransformer();
+		t1.send("content");
+		
+		AbstractEmail a1 = new StandardEmail();
+		// a1.login();
 	}
 }
