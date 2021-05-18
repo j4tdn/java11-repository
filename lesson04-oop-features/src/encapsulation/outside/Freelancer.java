@@ -11,5 +11,5 @@ public class Freelancer extends Developer {
 	//comp.address="pasteur" //defaulf F
 	
 	Freelancer f1=new Freelancer();
-	f1.getSkills();
+	//f1.getSkills();
 }
