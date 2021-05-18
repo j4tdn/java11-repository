@@ -1,4 +1,4 @@
-package inheritance;
+package inheritance.demo;
 
 public class ChildIrt extends ParentIrt{
 	boolean isHappy = true;
