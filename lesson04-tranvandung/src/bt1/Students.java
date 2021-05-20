@@ -62,19 +62,19 @@ public class Students {
 	public void input() {
 		Scanner ip = new Scanner(System.in);
 
-		System.out.println("nhap thong tin SV 3");
+		System.out.println("Nhap Thong Tin SV Thu 3");
 
-		System.out.println("maSV 3: ");
+		System.out.println("MaSV thu 3: ");
 		setMaSV(ip.nextInt());
 		ip.nextLine();
 
-		System.out.println("name 3: ");
+		System.out.println("Ho Ten SV Thu 3: ");
 		setName(ip.nextLine());
 
-		System.out.println("diemLT 3: ");
+		System.out.println("DiemLT SV Thu 3: ");
 		setDiemLT(ip.nextFloat());
 
-		System.out.println("diemTH 3: ");
+		System.out.println("DiemTH SV Thu 3: ");
 		setDiemTH(ip.nextFloat());
 
 	}

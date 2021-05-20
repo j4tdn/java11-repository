@@ -7,22 +7,22 @@ public class GiamDoc extends People {
 	@Override
 	public void input() {
 		Scanner ip = new Scanner(System.in);
-		System.out.println("nhap ho ten giam doc:");
+		System.out.print("Nhap Ho Ten Giam Doc: ");
 		setHoTen(ip.nextLine());
 
-		System.out.println("nhap nam sinh:");
+		System.out.print("Nhap Nam Sinh: ");
 		setNamSinh(ip.nextInt());
 
-		System.out.println("nhap he so luong:");
+		System.out.print("Nhap He So Luong: ");
 		setHeSoLuong(ip.nextInt());
 
-		System.out.println("nhap he so chuc vu:");
+		System.out.print("Nhap He So Chuc Vu: ");
 		setHeSoChucVu(ip.nextInt());
 	}
 
 	@Override
 	double luong() {
-		return (getHeSoLuong() + getHeSoChucVu() * 3000000);
+		return (getHeSoLuong() + getHeSoChucVu()) * 3000000;
 	}
 
 	@Override

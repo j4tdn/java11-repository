@@ -5,27 +5,27 @@ import java.util.Scanner;
 public class Bt2 {
 	public static void main(String[] args) {
 		Scanner ip = new Scanner(System.in);
-		System.out.print("Nhap So Luong Phan tu: ");
+		System.out.print("Nhap So Luong Phan Tu Day So: ");
 		int n = ip.nextInt();
-		int[] arr = new int[n];
+		int[] Arr = new int[n];
 		for (int i = 0; i < n; i++) {
 			System.out.printf("a[%d] = ", i);
-			arr[i] = ip.nextInt();
+			Arr[i] = ip.nextInt();
 		}
 		int[] Sort = new int[n];
 		int start = 0;
 		int end = 1;
-		for (int i = 0; i < arr.length; i++) {
-			if (arr[i] % 7 == 0 && arr[i] % 5 != 0) {
-				Sort[start] = arr[i];
+		for (int i = 0; i < Arr.length; i++) {
+			if (Arr[i] % 7 == 0 && Arr[i] % 5 != 0) {
+				Sort[start] = Arr[i];
 				start++;
-			} else if (arr[i] % 5 == 0 && arr[i] % 7 != 0) {
-				Sort[arr.length - end] = arr[i];
+			} else if (Arr[i] % 5 == 0 && Arr[i] % 7 != 0) {
+				Sort[Arr.length - end] = Arr[i];
 				end++;
 			}
 		}
 
-		for (int i : arr) {
+		for (int i : Arr) {
 			if (i % 7 == 0 && i % 5 == 0 || (i % 7 != 0 && i % 5 != 0)) {
 				Sort[start++] = i;
 			}

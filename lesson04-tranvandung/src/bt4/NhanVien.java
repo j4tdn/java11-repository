@@ -24,28 +24,28 @@ public class NhanVien extends People {
 	@Override
 	public void input() {
 		Scanner ip = new Scanner(System.in);
-		System.out.println("nhap ho ten nhan vien: ");
+		System.out.print("Nhap Ho Ten Nhan Vien: ");
 		setHoTen(ip.nextLine());
 
-		System.out.println("nhap nam sinh: ");
+		System.out.print("Nhap Nam Sinh: ");
 		setNamSinh(ip.nextInt());
 		ip.nextLine();
 
-		System.out.println("nhap he so luong: ");
+		System.out.print("Nhap He So Luong: ");
 		setHeSoLuong(ip.nextInt());
 
-		System.out.println("nhap he so chuc vu: ");
+		System.out.print("Nhap He So Chuc Vu: ");
 		setHeSoChucVu(ip.nextInt());
 		ip.nextLine();
 
-		System.out.println("nhap ten don vi(phong/ban): ");
+		System.out.print("nhap ten don vi(phong/ban): ");
 		setDonVi(ip.nextLine());
 
 	}
 
 	@Override
 	double luong() {
-		return (getHeSoLuong() + getHeSoChucVu() * 1250000);
+		return (getHeSoLuong() + getHeSoChucVu()) * 1250000;
 	}
 
 	@Override
