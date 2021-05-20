@@ -37,8 +37,6 @@ public class People {
 	public void setNamsinh(int namsinh) {
 		this.namsinh = namsinh;
 	}
-
-	
 	public double getHesol() {
 		return hesol;
 	}

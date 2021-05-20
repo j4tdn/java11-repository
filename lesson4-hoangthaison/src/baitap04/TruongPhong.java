@@ -10,7 +10,6 @@ public class TruongPhong extends People {
 		// TODO Auto-generated constructor stub
 	}
 
-	
 
 	public TruongPhong(String hoTen,int namSinh,double heSol, int sonhanvien) {
 		super(hoTen,namSinh,heSol);

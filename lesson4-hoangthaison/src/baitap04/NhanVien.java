@@ -37,8 +37,6 @@ public class NhanVien extends People{
 		setTendonvi(sc.nextLine());
 	}
 	
-	
-	
 
 	
 	

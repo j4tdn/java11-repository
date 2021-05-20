@@ -13,8 +13,6 @@ public class App {
 		System.out.println(sv1.MSSV + " \t " + sv1.NameSV + " \t " + sv1.DiemLT +" \t " + sv1.DiemTH + " \t " + TB(sv1.DiemLT,sv1.DiemTH));
 		System.out.println(sv2.MSSV + " \t " + sv2.NameSV + " \t " + sv2.DiemLT +" \t " + sv2.DiemTH + " \t " + TB(sv2.DiemLT,sv2.DiemTH));
 		System.out.println(sv3.MSSV + " \t " + sv3.NameSV + " \t " + sv3.DiemLT +" \t " + sv3.DiemTH + " \t " + TB(sv3.DiemLT,sv3.DiemTH));
-			
-		
 		
 	}
 	private static SinhVien Nhap () {

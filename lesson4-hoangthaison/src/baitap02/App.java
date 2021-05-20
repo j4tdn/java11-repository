@@ -10,7 +10,6 @@ public class App {
 		int n = Integer.parseInt(sc.nextLine());
 		Nhap(n);
 		
-		
 	}
 	private  static void Nhap(int n) {
 		

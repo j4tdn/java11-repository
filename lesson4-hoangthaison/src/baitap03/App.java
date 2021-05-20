@@ -10,9 +10,7 @@ public class App {
 		System.out.println("Nhập n ");
 		int n = Integer.parseInt(sc.nextLine());
 		int [][]a = new int [100][100];
-		
-		
-		
+			
 		for( i = 0; i < n; i++) {
 			for( j = 0; j <= i ; j++) {
 				if(i == j || j == 0) {

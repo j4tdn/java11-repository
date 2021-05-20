@@ -13,8 +13,7 @@ public class SinhVien {
 		MSSV = mSSV;
 		NameSV = nameSV;
 		DiemLT = diemLT;
-		DiemTH = diemTH;
-		
+		DiemTH = diemTH;	
 	}
 
 	

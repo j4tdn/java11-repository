@@ -41,7 +41,5 @@ public class GiamDoc extends People {
 		System.out.println("Hệ số công việc ");
 		setHesocv(Double.parseDouble(sc.nextLine()));
 	}
-
-	
 	
 }
