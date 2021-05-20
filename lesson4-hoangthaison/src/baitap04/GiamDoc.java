@@ -26,10 +26,13 @@ public class GiamDoc extends People {
 		this.hesocv = hesocv;
 	}
 
+	public  double luong() {
+		return (hesol+hesocv)* 3000000;
+	}
 
 	@Override
 	public String toString() {
-		return "GiamDoc ["+super.toString()+ ", hesocv=" + hesocv + "]";
+		return "GiamDoc ["+super.toString()+ ", hesocv=" + hesocv + +luong()+ "]" ;
 	}
 	@Override
 	public void Nhap() {
@@ -39,5 +42,6 @@ public class GiamDoc extends People {
 		setHesocv(Double.parseDouble(sc.nextLine()));
 	}
 
+	
 	
 }

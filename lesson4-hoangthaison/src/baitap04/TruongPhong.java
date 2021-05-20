@@ -18,9 +18,12 @@ public class TruongPhong extends People {
 		this.sonhanvien = sonhanvien;
 	}
 
+	public double luong() {
+		return hesol*2200000;
+	}
 	@Override
 	public String toString() {
-		return "TruongPhong [" + super.toString()+ "sonhanvien" + sonhanvien + "]";
+		return "TruongPhong [" + super.toString()+ "sonhanvien" + sonhanvien + luong() +"]";
 	} 
 
 	@Override
@@ -31,13 +34,12 @@ public class TruongPhong extends People {
 		setSonhanvien(Integer.parseInt(sc.nextLine()));
 	}
 
-
-
 	public int getSonhanvien() {
 		return sonhanvien;
 	}
 
 
+	
 
 	public void setSonhanvien(int sonhanvien) {
 		this.sonhanvien = sonhanvien;

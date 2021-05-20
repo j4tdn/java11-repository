@@ -14,6 +14,7 @@ public class SinhVien {
 		NameSV = nameSV;
 		DiemLT = diemLT;
 		DiemTH = diemTH;
+		
 	}
 
 	

@@ -8,6 +8,7 @@ public class People {
 	public int namsinh;
 	public double hesol;
 	
+	
 	public People() {
 		// TODO Auto-generated constructor stub
 	}
@@ -37,6 +38,7 @@ public class People {
 		this.namsinh = namsinh;
 	}
 
+	
 	public double getHesol() {
 		return hesol;
 	}
@@ -44,6 +46,7 @@ public class People {
 	public void setHesol(double hesol) {
 		this.hesol = hesol;
 	}
+	
 
 
 	@Override

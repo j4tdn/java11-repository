@@ -15,6 +15,7 @@ public class App {
 		System.out.println(sv3.MSSV + " \t " + sv3.NameSV + " \t " + sv3.DiemLT +" \t " + sv3.DiemTH + " \t " + TB(sv3.DiemLT,sv3.DiemTH));
 			
 		
+		
 	}
 	private static SinhVien Nhap () {
 		Scanner sc =  new Scanner(System.in);
