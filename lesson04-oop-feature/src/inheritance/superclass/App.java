@@ -6,6 +6,7 @@ public class App {
 		t1.send("content");
 		System.out.println("Runtime: " + t1.getClass().getSimpleName());
 
+		//anonymous class
 //		Transformer t2 = new Transformer() {
 //			
 //			@Override
