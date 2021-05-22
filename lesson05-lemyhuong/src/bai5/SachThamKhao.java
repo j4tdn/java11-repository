@@ -1,4 +1,4 @@
-package bai05;
+package bai5;
 
 public class SachThamKhao {
 	private String ms;

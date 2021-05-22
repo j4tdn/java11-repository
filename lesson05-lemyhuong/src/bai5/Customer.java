@@ -1,4 +1,4 @@
-package bai05;
+package bai5;
 
 public class Customer {
 	private String id;
