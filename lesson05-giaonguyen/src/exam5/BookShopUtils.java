@@ -2,7 +2,7 @@ package exam5;
 
 public class BookShopUtils {
 	public static void findBookByPubCom(Book book) {
-		if (book.getPubCompany() == "Nhi Dong") {
+		if (book.getPubCompany().equals("Nhi Dong")) {
 			System.out.print(book.getBookId() + "\t");
 		}
 	}
@@ -24,8 +24,8 @@ public class BookShopUtils {
 		double cost = 0.0d;
 		for (Book bk : book) {
 			String[] parts = bk.getBookId().split("-");
-			System.out.println(parts[0] + " " + bk.getStatus());	
-			if (parts[0] == "SGK") {
+	
+			if (parts[0].equals("SGK")) {
 				if (bk.getStatus() == "old")
 				{
 					cost += bk.getBill()*0.7;

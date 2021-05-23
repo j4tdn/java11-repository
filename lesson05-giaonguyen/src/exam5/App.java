@@ -30,7 +30,7 @@ public class App {
 		System.out.println("\n");
 		
 		System.out.println("Total bill is: " + BookShopUtils.exportTotalBill(new Book[] {new Textbook("SGK-1", 10, "Nhi Dong", "old"),
-				new RefBook("STK-4", 300, "ABC", 0.1 )
+				new RefBook("STK-4", 300, "ABC", 0.15 )
 		}));
 	}
 }
