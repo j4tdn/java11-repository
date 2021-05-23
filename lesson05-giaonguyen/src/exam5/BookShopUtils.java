@@ -26,7 +26,7 @@ public class BookShopUtils {
 			String[] parts = bk.getBookId().split("-");
 	
 			if (parts[0].equals("SGK")) {
-				if (bk.getStatus() == "old")
+				if (bk.getStatus().equals("old"))
 				{
 					cost += bk.getBill()*0.7;
 				}
