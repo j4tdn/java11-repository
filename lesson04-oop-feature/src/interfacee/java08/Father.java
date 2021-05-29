@@ -11,5 +11,8 @@ public interface Father {
 	static void drinkAlcohol(int qty) {
 		System.out.println(qty > 3 ? "Drunk" : "Continue");
 	}
-
+	
+	private void test () {
+		
+	}
 }
