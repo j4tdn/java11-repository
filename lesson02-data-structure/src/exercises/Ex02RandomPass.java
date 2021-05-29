@@ -41,11 +41,6 @@ public class Ex02RandomPass {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
-		String a = "";
-		Integer b = 10;
-		
-		Integer c = 10;
 	}
 	
 	private static boolean contains(String[] data, int nonNullSize, String text) {
