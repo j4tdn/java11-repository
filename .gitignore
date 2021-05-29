@@ -1,3 +1,6 @@
+#Ignore Macbook file
+.DS_Store
+
 # Ignore .metadata folder
 .metadata
 
