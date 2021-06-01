@@ -15,4 +15,5 @@ public class Freelancer extends Developer {
 		Freelancer f1 = new Freelancer();
 		f1.getSkills();
 	}
+	
 }
