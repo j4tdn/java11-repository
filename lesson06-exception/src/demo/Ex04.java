@@ -6,11 +6,11 @@ import java.io.IOException;
 public class Ex04 {
  public static void main(String[] args) {
 	System.out.println("Main start");
-	 
-	File file = new File("exception.if");
 	
+	// throws CompileException >> handle exception
+	File file = new File("exception.info");
+	// IOEException
 	try {
-		// IOEException
 		file.createNewFile();
 	} catch (IOException e) {
 		e.printStackTrace();
