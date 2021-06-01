@@ -1,7 +1,7 @@
 package inheritance.superclass;
 
 public interface Transformer {
-	//defaut access modifier: public
+	//default access modifier: public
 	void send(String message);
 	
 }

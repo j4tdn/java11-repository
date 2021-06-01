@@ -14,6 +14,8 @@ public class App {
 		b1.send("business email");
 		System.out.println("RUntime: " + b1.getClass().getSimpleName());
 		
+		
+//		anonymous class
 //		Transformer t2 = new Transformer() {
 //			
 //			@Override

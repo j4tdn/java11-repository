@@ -17,6 +17,7 @@ public class Child implements Father, Mother  {
 		//ham nonstatic moi dung ke thua, con static lay class cham
 		Father.super.playSports();
 		Mother.super.playSports();
+		Father.drinkBeer(2);
 	}
 
 	 
