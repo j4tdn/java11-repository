@@ -1,4 +1,4 @@
-package strategy;
+package functional;
 
 @FunctionalInterface
 public interface Functional {
