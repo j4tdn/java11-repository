@@ -6,6 +6,7 @@ public class Ex04 {
 		System.out.println("Main start");
 		File file = new File("exception.info");
 		try {
+			// throws CompileException >> handle exception
 			file.createNewFile();
 		} catch (IOException e) {
 			e.printStackTrace();
