@@ -9,11 +9,10 @@ public class Ex04 {
 		
 		File file = new File("exception.info");
 		
+		// throws CompileException >> handale exceptio
 		try {
-			// IOException
 			file.createNewFile();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
