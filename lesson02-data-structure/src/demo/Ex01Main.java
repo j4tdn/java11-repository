@@ -23,17 +23,18 @@ class Ex02main {
 	public static void main(String[] args) {
 		System.out.println("hello 03");
 		//access modifier: private, public, protected 
-		//private: used in own class scope
+		//private: used in own class scope (chi dc sd ben trong pham vi class cua no)
 		Ex01Main.publicStacticMethod();
+		
 
 		//static, non-static
-		//method, attribute 
-		//+static: class scope 
-		//+non-static: object scope
-		//object: instance of class 
-		//Employee: class => Emp A: object
+		//method, attribute (ham, va bien)
+		//+static: class scope (neu la static thi thuoc pham vi cua class)
+		//+non-static: object scope (thuoc pham vi cua doi tuong)
+		//object: instance of class (la 1 instance cua class) 
+		//Employee: class => Emp A: object (nhan vien A la 1 object)
 		Ex01Main.privateStacticMethod();
-		//create an object for class Ex01Main
+		//create an object for class Ex01Main (tao doi tuong cho Ex01Main, tao 1 ham, 1 bien k phai la static)
 		Ex01Main ex01Object = new Ex01Main();
 		ex01Object.publicMethod();
 	}

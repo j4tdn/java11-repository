@@ -28,10 +28,5 @@ public class Ex01 {
 				+"\nName: " +name
 		);
 		
-		
-		
-	
-	
-	
 	}
 }
