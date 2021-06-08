@@ -1,17 +1,17 @@
 package bai5;
 
-public class Customer {
+public class Huong_Customer {
 	private String id;
-	private String fullName;
+	private String fullname;
 	private String phone;
 	private String address;
 	
-	public Customer() {
+	public Huong_Customer() {
 	}
 
-	public Customer(String id, String fullname, String phone, String address) {
+	public Huong_Customer(String id, String fullname, String phone, String address) {
 		this.id = id;
-		this.fullName = fullName;
+		this.fullname = fullname;
 		this.phone = phone;
 		this.address = address;
 	}
@@ -25,11 +25,11 @@ public class Customer {
 	}
 
 	public String getFullname() {
-		return fullName;
+		return fullname;
 	}
 
-	public void setFullname(String fullName) {
-		this.fullName = fullName;
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
 	}
 
 	public String getPhone() {
@@ -50,6 +50,8 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", fullname=" + fullName + ", phone=" + phone + ", address=" + address + "]";
+		return "Customer [id=" + id + ", fullname=" + fullname + ", phone=" + phone + ", address=" + address + "]";
 	}
+	
+	
 }

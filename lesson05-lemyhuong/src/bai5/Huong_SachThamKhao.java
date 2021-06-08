@@ -1,22 +1,21 @@
 package bai5;
 
-public class SachGiaoKhoa {
+public class Huong_SachThamKhao {
 	private String ms;
 	private double price;
 	private String nxb;
-	private String status;
+	private double tax;
 	
-	public SachGiaoKhoa() {
+	public Huong_SachThamKhao() {
 	}
 
-	public SachGiaoKhoa(String ms, double price, String nxb, String status) {
-		this.ms = "SGK" + ms;
+	public Huong_SachThamKhao(String ms, double price, String nxb, double tax) {
+		this.ms = "STK" + ms;
 		this.price = price;
 		this.nxb = nxb;
-		this.status = status;
+		this.tax = tax;
 	}
 
-	
 	public String getMs() {
 		return ms;
 	}
@@ -41,18 +40,18 @@ public class SachGiaoKhoa {
 		this.nxb = nxb;
 	}
 
-	public String getStatus() {
-		return status;
+	public double getTax() {
+		return tax;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setTax(double tax) {
+		this.tax = tax;
 	}
 
 	@Override
 	public String toString() {
-		return "SachGiaoKhoa [ms=" + ms + ", price=" + price + ", nxb=" + nxb + ", status=" + status + "]";
+		return "SachThamKhao [ms=" + ms + ", price=" + price + ", nxb=" + nxb + ", tax=" + tax + "]";
 	}
 	
+	
 }
-
