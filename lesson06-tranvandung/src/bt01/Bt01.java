@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Bt01 {
 	public static void main(String[] args) {
 		Scanner ip = new Scanner(System.in);
-		System.out.println("giai pt ax + b = 0");
+		System.out.println("Giai pt ax + b = 0");
 		double a, b;
 		while (true) {
 			try {

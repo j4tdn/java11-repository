@@ -8,9 +8,8 @@ public class Bt03 {
 	public static void main(String[] args) {
 		Scanner ip = new Scanner(System.in);
 		String input;
-
-		String regex = "^\\w*+@{1}+\\w*+.com$";
-
+		String regex = "^\\w+@{1}\\w+.com$";
+		//Format email: ki tu + @ + ki tu + .com 
 		while (true) {
 			try {
 				System.out.print("Enter mail: ");
@@ -20,7 +19,7 @@ public class Bt03 {
 				if (matcher.find()) {
 					System.out.println("Valid email");
 					break;
-				}else {
+				} else {
 					System.out.println("Invalid email, try again");
 				}
 			} catch (Exception e) {
