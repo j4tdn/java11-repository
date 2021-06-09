@@ -13,4 +13,9 @@ public class Freelancer extends Developer {
 		Freelancer fr = new Freelancer();
 		fr.getItSkills();
 	}
+	
+	@Override
+	protected String getItSkills() {
+		return "HTML, CSS, SCSS, JS";
+	}
 }
