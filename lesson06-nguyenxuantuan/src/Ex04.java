@@ -29,8 +29,8 @@ public class Ex04 {
 		System.out.printf("Nhập số thứ " + i +": ");
 		String input = sc.nextLine();
 		while (!input.matches(INPUT_PATTERN)) {
-			System.out.println("Nhập số (0<=x<=999)");
-			System.out.printf("Nhập lại số thứ " + i +": ");
+			System.out.print("Nhập số (0 <= x <= 999)");
+			System.out.print("Nhập lại số thứ " + i +": ");
 			input = sc.nextLine();
 		}
 		return input;
