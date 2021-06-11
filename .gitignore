@@ -12,6 +12,7 @@
 # Compiled class file
 */bin/
 *.class
+*/ bin/
 
 # Log file
 *.log
