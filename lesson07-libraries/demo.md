@@ -17,6 +17,9 @@ Ex02: Chuyển đổi kiểu dữ liệu với SimpleDateFormat
 Ex03: Đếm xem tháng hiện tại có bao nhiêu ngày chủ nhật
 Ex04: Tìm khoảng thời gian 2 người quen nhau với TimeUnit
 
+Born: 23.12.2003 > today => year, months, days, minutes, seconds, milliseconds
+Hint: Epoch
+
 Package: localdatetime
 Ex01: Giới thiệu LocalDate và Period
       ChronoUnit.DAYS.between 
