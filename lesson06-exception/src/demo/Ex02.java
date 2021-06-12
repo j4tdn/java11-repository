@@ -25,6 +25,7 @@ public class Ex02 {
 		}
 		System.out.println("return a / b");
 		return a / b;
+
 	}
 
 }
