@@ -59,7 +59,7 @@ public class Ex01 {
 			dayIndex++;
 		}
 		c.set(Calendar.YEAR, 2020);
-		System.out.println("isLeapYear: " + DateUtils.IsLeapYear(c.get(Calendar.YEAR)));
+		System.out.println("isLeapYear: " + DateUtils.isLeapYear(c.get(Calendar.YEAR)));
 		
 		
 		System.out.println("FROM EPOCH: " + c.getTimeInMillis());
