@@ -10,7 +10,7 @@ import utils.DateUtils;
 
 public class Ex01 {
 	
-	private static DateFormat df = new SimpleDateFormat("dd/MM/yyy EEE");
+	private static DateFormat df = new SimpleDateFormat("dd/MM/yyyy EEEE");
 	
 	public static void main(String[] args) {
 		Date date = new Date();
