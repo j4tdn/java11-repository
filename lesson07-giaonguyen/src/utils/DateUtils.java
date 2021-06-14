@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class DateUtils {
 	private static final String DATE_PATTERN = "dd/MM/yyyy";
 	private static final String DATE_TIME_PATTERN = "dd/MM/yyyy HH:mm:ss EEEE";
-	private static String[] months = { "JAN", "FEB", "FEB", "MAR", "APR", "MAY", "JUNE", "JULY", "AUG", "SEP", "OCT",
+	private static String[] months = { "JAN", "FEB", "MAR", "APR", "MAY", "JUNE", "JULY", "AUG", "SEP", "OCT",
 			"NOV", "DEC" };
 	private static String[] weekdays = { "SUN", "MON", "TUE", "WEB", "THUR", "FRI", "SAT" };
 	private static DateFormat df = new SimpleDateFormat(DATE_PATTERN);
@@ -31,6 +31,13 @@ public class DateUtils {
 		//
 		//
 		return weekdays[weekDayAsNumber - 1];
+	}
+	
+	public static String getMonthAsString(int monthAsNumber) {
+		// 0 - 11
+		//
+		//
+		return months[monthAsNumber];
 	}
 
 	public static Date toDate(Calendar c) {
@@ -133,6 +140,62 @@ public class DateUtils {
 		}
 		
 		System.out.println("Total of Sundays in year: " + count);
+	}
+	
+	public static void getAllWeekDaysInMonth (Calendar c, int weekday) {
+		Calendar dayStart = Calendar.getInstance();
+		int year = c.get(Calendar.YEAR);
+		int month = c.get(Calendar.MONTH);
+		int dayMax = c.getActualMaximum(Calendar.DAY_OF_MONTH);
+		dayStart.set(year, month, 1);
+		
+		Calendar dayEnd = Calendar.getInstance();
+		dayEnd.set(year, month, dayMax);	
+		
+		int count = 0;
+		
+		while (!dayStart.after(dayEnd)) {
+			if (dayStart.get(Calendar.DAY_OF_WEEK) == weekday) {
+//				System.out.println(toString(dayStart.getTime()));
+				dayStart.add(Calendar.DAY_OF_MONTH, 7);
+				count++;
+			}
+			else {
+				dayStart.add(Calendar.DAY_OF_MONTH, 1);
+			}
+			
+			if ((dayStart.get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH)) && (dayStart.get(Calendar.MONTH) == c.get(Calendar.MONTH))) {
+				int t_count = ++count;
+				System.out.println("it is " + getWeekDayAsString(weekday) + " number " + t_count + " out of 4 in " + getMonthAsString(month) + " " + year);
+			}	
+		}
+	}
+	
+	public static void getIndexDayOfyear (Calendar c, int weekday) {
+		Calendar dayStart = Calendar.getInstance();
+		int year = c.get(Calendar.YEAR);
+		dayStart.set(year, 0, 1);
+		
+		Calendar dayEnd = Calendar.getInstance();
+		dayEnd.set(year, 11, 31);	
+		
+		int count = 0;
+		
+		while (!dayStart.after(dayEnd)) {
+			if (dayStart.get(Calendar.DAY_OF_WEEK) == weekday) {
+//				System.out.println(toString(dayStart.getTime()));
+				dayStart.add(Calendar.DAY_OF_YEAR, 7);
+				count++;
+			}
+			else {
+				dayStart.add(Calendar.DAY_OF_YEAR, 1);
+			}
+			
+			if ((dayStart.get(Calendar.DAY_OF_MONTH) == c.get(Calendar.DAY_OF_MONTH)) && (dayStart.get(Calendar.MONTH) == c.get(Calendar.MONTH))) {
+				int t_count = ++count;
+				System.out.println("it is " + getWeekDayAsString(weekday) + " number " + t_count + " of 52 in " + year );
+			}	
+		}
 	}
 	
 	public static void printDaysLove(String dayLove) {
