@@ -34,7 +34,7 @@ public class Ex03 {
 		while(!dayStart.after(dayEnd)) {
 			int tmp = dayStart.get(Calendar.DAY_OF_WEEK);
 			if (tmp == weekday) {
-				count++;
+				//count++;
 				dayStart.add(Calendar.DAY_OF_MONTH, 7);
 			} else {
 				dayStart.add(Calendar.DAY_OF_MONTH, 1);

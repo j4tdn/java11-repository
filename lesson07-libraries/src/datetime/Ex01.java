@@ -55,6 +55,7 @@ public class Ex01 {
 		System.out.println("fdow: " + fdow);
 		
 		// fdow_number = current_Date + fdow - current_dow
+		System.out.println("c: " + c);
 		c.add(Calendar.DAY_OF_MONTH, fdow - c.get(Calendar.DAY_OF_WEEK));
 		System.out.println("c: " + c);
 		// fdow_num = 6.6.2021
