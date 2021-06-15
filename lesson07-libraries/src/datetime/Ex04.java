@@ -7,17 +7,20 @@ import utils.DateUtils;
 
 public class Ex04 {
 	public static void main(String[] args) {
-		Calendar born = DateUtils.toCalendar(2021, Calendar.JUNE, 19);
+		
+		// Epoch
+		Calendar born = DateUtils.getCalendar(2021, Calendar.JUNE, 5);
+		born.set(Calendar.HOUR_OF_DAY, 20);
 		Calendar today = Calendar.getInstance();
 		
-		if(born.after(today)) {
+		if (born.after(today)) {
 			throw new RuntimeException("born cannot greated than today!");
 		}
 		
 		long bornInMils = born.getTimeInMillis();
 		long todayInMils = today.getTimeInMillis();
 		
-		// milliseconds => days, hour, minutes, seconds, milliseconds
+		// miliseconds => days, hours, minutes, seconds, milliseconds
 		long duration = todayInMils - bornInMils;
 		
 		long days = TimeUnit.MILLISECONDS.toDays(duration);
@@ -32,10 +35,11 @@ public class Ex04 {
 		long seconds = TimeUnit.MILLISECONDS.toSeconds(duration);
 		duration -= TimeUnit.SECONDS.toMillis(seconds);
 		
-		System.out.println(days + " D"
-						+ hours + " H"
-						+ minutes + "M"
-						+ seconds + "S"
-						+ duration + "MS");
+		System.out.println(days    + " D " + 
+						   hours   + " H " + 
+						   minutes + " M " +
+						   seconds + " S " +
+						   duration + "MS"
+						   );
 	}
 }
