@@ -9,17 +9,14 @@ import java.util.GregorianCalendar;
 import java.util.Objects;
 
 public class DateUtils {
-
 	private static final String DATE_PATTERN = "dd/MM/yyyy";
 	private static final String DATE_TIME_PATTERN = "dd/MM/yyy HH:mm:ss EEEE";
-	private static String[] weekdays = { "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT" };
-
+	private static String[] weekdays = { "SUN", "MON", "TUE", "WED", "THUR", "PRI", "SAT" };
 	private static GregorianCalendar gc = new GregorianCalendar();
 	private static DateFormat df = new SimpleDateFormat(DATE_PATTERN);
-	private static DateFormat dtf = new SimpleDateFormat(DATE_TIME_PATTERN);
+	private static DateFormat dft = new SimpleDateFormat(DATE_TIME_PATTERN);
 
 	private DateUtils() {
-
 	}
 
 	public static boolean isLeapYear(int year) {
@@ -30,21 +27,20 @@ public class DateUtils {
 		// 1 - 7
 		// SUN - SAT
 		// i0 - 6
-		return weekdays[weekDayAsNumber];
-
+		return weekdays[weekDayAsNumber - 1];
 	}
 
 	/**
 	 * Convert to Date from given text with format dd/MM/yyyy
 	 * 
-	 * @param text input
-	 * @return converted Date
+	 * @param text
+	 * @return
 	 */
 	public static Date toDate(String text) {
-
 		if (text == null || text.isEmpty()) {
 			throw new IllegalArgumentException();
 		}
+
 		Date date = null;
 		try {
 			date = df.parse(text);
@@ -55,10 +51,11 @@ public class DateUtils {
 	}
 
 	/**
-	 * Convert to Date from given text with format dd/MM/yyyy
+	 * Convert to date from give calendar. e.g: 10.10.1990 >> Epoch time >>
+	 * 01.01.1970 >> Date Calendar
 	 * 
-	 * @param c input
-	 * @return converted Date
+	 * @param today
+	 * @return converter Calendar
 	 */
 	public static Date toDate(Calendar c) {
 		Objects.requireNonNull(c);
@@ -66,13 +63,12 @@ public class DateUtils {
 	}
 
 	/**
-	 * Convert to Calendar form give date E.g 10.10.1990 >> Epoch time. 01.01.1970
-	 * Date Calendar
+	 * Convert to Calendar from give date. e.g: 10.10.1990 >> Epoch time >>
+	 * 01.01.1970 >> Date Calendar
 	 * 
-	 * @param date input
-	 * @return converted Calendar
+	 * @param today
+	 * @return converter Calendar
 	 */
-
 	public static Calendar toCalendar(Date date) {
 		Objects.requireNonNull(date);
 		Calendar c = Calendar.getInstance();
@@ -83,25 +79,25 @@ public class DateUtils {
 	/**
 	 * Get calendar from given year, month, day
 	 * 
-	 * @param year
-	 * @param month
-	 * @param day
-	 * @return
+	 * @param year  given year
+	 * @param month given month
+	 * @param day   given day
+	 * @return calendar
 	 */
-	public static Calendar toCalendar(int year, int month, int day) {
+	public static Calendar getCalendar(int year, int month, int day) {
 		Calendar c = Calendar.getInstance();
 		c.set(year, month, day);
 		return c;
 	}
 
 	/**
-	 * Convert to String give date with format dd/MM/yyy HH:mm:ss EEEE
+	 * Convert to String from give date with format dd/MM/yyy HH:mm:ss EEEE
 	 * 
-	 * @param date
-	 * @return
+	 * @param date input
+	 * @return converted String
 	 */
 	public static String toString(Date date) {
 		Objects.requireNonNull(date);
-		return dtf.format(date);
+		return dft.format(date);
 	}
 }
