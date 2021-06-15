@@ -16,7 +16,7 @@ public class Ex01 {
 		Date date = new Date();
 		System.out.println("date: " + date);
 		
-//		Locale.setDefault(Locale.FRANCE);
+        //Locale.setDefault(Locale.FRANCE);
 		Calendar c = Calendar.getInstance();
 		System.out.println("calendar: " + c);
 		System.out.println("===============");
@@ -59,5 +59,7 @@ public class Ex01 {
 		
 		c.set(Calendar.YEAR, 2020);
 		System.out.println("isLeapYear: " + DateUtils.isLeapYear(c.get(Calendar.YEAR)));
+		System.out.println("FROM EPOCH: " + c.getTimeInMillis());
+		
 	}
 }
