@@ -80,9 +80,8 @@ public class DateUtils {
 	}
 	public static Calendar getCalendar(int year, int mont, int day) {
 		Calendar c = Calendar.getInstance();
-		c.setTime();
 		return c;
-	}
+}
 	/**
 	 * Convert to String  from given date with  format dd/MM/yyyy HH:mm:ss EEEE
 	 * @param date input
