@@ -1,4 +1,4 @@
-package Ex04;
+package ex04;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
