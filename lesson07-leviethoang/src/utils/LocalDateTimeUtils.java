@@ -1,7 +1,5 @@
 package utils;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -9,18 +7,11 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.time.Period;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Objects;
-import java.util.TimeZone;
 
 public class LocalDateTimeUtils {
-	private static String[] weekday = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-	private static String[] months = { "January", "February", "March", "April", "May", "June", "July", "August",
-			"September", "October", "November", "December" };
 	private static final String DATE_PATTERN = "dd/MM/yyyy KK:mm:ss a EEEE";
 	private static final String DATE_PATTERN_DAY = "dd/MM/yyyy EEEE";
 	private static final String DATE_PATTERN_TIME = "KK:mm:ss a EEEE";
@@ -30,14 +21,6 @@ public class LocalDateTimeUtils {
 
 	private LocalDateTimeUtils() {
 
-	}
-
-	public static String getMonthAsString(int month) {
-		return months[month];
-	}
-
-	public static String getWeekDayAsString(int weekDayAsNumber) {
-		return weekday[weekDayAsNumber - 1];
 	}
 
 	public static String toString(LocalDateTime date) {

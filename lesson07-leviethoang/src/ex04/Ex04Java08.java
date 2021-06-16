@@ -2,15 +2,13 @@ package ex04;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-
-import utils.DateUtils;
 import utils.LocalDateTimeUtils;
 
 public class Ex04Java08 {
 	public static void main(String[] args) {
 		LocalDateTime date = LocalDateTime.now();
 		System.out.println("Time now : " + LocalDateTimeUtils.toString(date));
-		
+
 		LocalDateTime dateInNY = LocalDateTime.now(ZoneId.of("America/New_York"));
 		System.out.println("Time in New York now : " + LocalDateTimeUtils.toString(dateInNY));
 

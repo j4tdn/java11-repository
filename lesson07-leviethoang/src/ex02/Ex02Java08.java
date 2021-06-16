@@ -2,9 +2,6 @@ package ex02;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
-
-import utils.DateException;
-import utils.DateUtils;
 import utils.LocalDateTimeUtils;
 
 public class Ex02Java08 {
