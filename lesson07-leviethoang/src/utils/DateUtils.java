@@ -35,9 +35,30 @@ public class DateUtils {
 	public static String toString(Date date) {
 		return dft.format(date);
 	}
-	
+
 	public static String toStringYMH(Date date) {
 		return df.format(date);
+	}
+
+	public static Date[] getAllWeekdaysInYear(int year, int weekday) {
+		Date[] arrDate = new Date[100];
+
+		Calendar dayStart = Calendar.getInstance();
+		dayStart.set(year, Calendar.JANUARY, 1);
+
+		Calendar dayEnd = Calendar.getInstance();
+		dayEnd.set(year, Calendar.DECEMBER, dayEnd.getActualMaximum(Calendar.DAY_OF_MONTH));
+		int index = 0;
+
+		while (!dayStart.after(dayEnd)) {
+			if (dayStart.get(Calendar.DAY_OF_WEEK) == weekday) {
+				arrDate[index++] = dayStart.getTime();
+				dayStart.add(Calendar.DAY_OF_MONTH, 7);
+			} else {
+				dayStart.add(Calendar.DAY_OF_MONTH, 1);
+			}
+		}
+		return Arrays.copyOfRange(arrDate, 0, index);
 	}
 	
 	public static Date getLastSunday(int year, int weekday) {
@@ -197,27 +218,6 @@ public class DateUtils {
 
 	}
 
-	public static Date[] getAllWeekdaysInYear(int year, int weekday) {
-		Date[] arrDate = new Date[100];
-
-		Calendar dayStart = Calendar.getInstance();
-		dayStart.set(year, Calendar.JANUARY, 1);
-
-		Calendar dayEnd = Calendar.getInstance();
-		dayEnd.set(year, Calendar.DECEMBER, dayEnd.getActualMaximum(Calendar.DAY_OF_MONTH));
-		int index = 0;
-
-		while (!dayStart.after(dayEnd)) {
-			if (dayStart.get(Calendar.DAY_OF_WEEK) == weekday) {
-				arrDate[index++] = dayStart.getTime();
-				dayStart.add(Calendar.DAY_OF_MONTH, 7);
-			} else {
-				dayStart.add(Calendar.DAY_OF_MONTH, 1);
-			}
-		}
-		return Arrays.copyOfRange(arrDate, 0, index);
-	}
-
 	public static Date[] nofWeekDays(int year, int month, int weekday) {
 		Date[] days = new Date[100];
 		Calendar dayStart = Calendar.getInstance();
@@ -258,7 +258,7 @@ public class DateUtils {
 		date.set(Calendar.DAY_OF_MONTH, lastDay);
 		System.out.println("lastDayOfMonth : " + df.format(date.getTime()));
 	}
-	
+
 	public static void FirstLastDaysInW(Calendar date) {
 		date = Calendar.getInstance();
 		int dow = date.get(Calendar.DAY_OF_WEEK);
@@ -270,7 +270,7 @@ public class DateUtils {
 		date.add(Calendar.DAY_OF_MONTH, 7);
 		System.out.println("Last day of Week now : " + df.format(date.getTime()));
 	}
-	
+
 	public static int countWeek(Calendar date) {
 		date = Calendar.getInstance();
 		Calendar dayStart = Calendar.getInstance();
@@ -310,13 +310,13 @@ public class DateUtils {
 		date.add(Calendar.HOUR_OF_DAY, hour);
 		System.out.println("ADD " + hour + " hours to the current day : " + dft.format(date.getTime()));
 	}
-	
-	public static void addD(Calendar date , int day) {
+
+	public static void addD(Calendar date, int day) {
 		date = Calendar.getInstance();
 		date.add(Calendar.DAY_OF_MONTH, day);
-		System.out.println("Add " +  day + " days to the current day : " + df.format(date.getTime()));
+		System.out.println("Add " + day + " days to the current day : " + df.format(date.getTime()));
 	}
-	
+
 	public static void distanceDate(Calendar a, Calendar b) {
 		while (true) {
 			try {
@@ -334,14 +334,13 @@ public class DateUtils {
 
 		DateUtils.DatingInformation(a, b);
 	}
-	
-	
+
 	public static int remainMonthInY(Calendar date) {
-		return Calendar.DECEMBER -  date.get(Calendar.MONTH);
+		return Calendar.DECEMBER - date.get(Calendar.MONTH);
 	}
-	
+
 	public static int age(Calendar date, int yearBirthday) {
-		if(yearBirthday > date.get(Calendar.YEAR)) {
+		if (yearBirthday > date.get(Calendar.YEAR)) {
 			throw new DateException("YearBirthday cannot be  greater than current year !!!");
 		}
 		return date.get(Calendar.YEAR) - yearBirthday;

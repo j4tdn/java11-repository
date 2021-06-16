@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 import utils.DateUtils;
 
-public class Ex04 {
+public class Ex04Java07 {
 
 	public static void main(String[] args) {
 		Calendar c = Calendar.getInstance();
@@ -16,7 +16,7 @@ public class Ex04 {
 		Calendar cal = Calendar.getInstance();
 		DateUtils.dateOfNY(cal);
 		System.out.println("============================");
-		System.out.println("Number days of Month : " + DateUtils.nubDaysOfMonth(c));
+		System.out.println("Number days in Month : " + DateUtils.nubDaysOfMonth(c));
 		DateUtils.lastDayOfMonth(c);
 		DateUtils.FirstLastDaysInW(c);
 		System.out.println("The current week is the " + DateUtils.countWeek(c) + " week");

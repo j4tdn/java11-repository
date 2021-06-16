@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 import utils.DateUtils;
 
-public class Ex01 {
+public class Ex01Java07 {
 
 	public static void main(String[] args) {
 		DateUtils.showAllWeekday(2021, Calendar.SUNDAY);
