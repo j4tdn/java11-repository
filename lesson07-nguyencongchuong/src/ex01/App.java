@@ -7,7 +7,7 @@ import utils.DateUtils;
 public class App {
 	public static void main(String[] args) {
 		getAllSundaysInYear(2021);
-		getLastSunday(2021);
+		getLastSunday(2023);
 	}
 
 	private static void getAllSundaysInYear(int year) {
@@ -32,6 +32,7 @@ public class App {
 			int tmp = dayEnd.get(Calendar.DAY_OF_WEEK);
 			if(tmp == Calendar.SUNDAY) {
 				System.out.println("Last Sunday of the year: " + DateUtils.toString(dayEnd.getTime()));
+				break;
 			}
 			dayEnd.add(Calendar.DAY_OF_WEEK, -1);
 		}
