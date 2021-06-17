@@ -30,7 +30,7 @@ public class DateUtils {
 		// 1 - 7
 		// SUN - SAT
 		// i0 - 6
-		return weekdays[weekDayAsNumber];
+		return weekdays[weekDayAsNumber -1];
 
 	}
 

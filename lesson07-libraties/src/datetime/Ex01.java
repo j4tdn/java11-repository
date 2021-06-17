@@ -24,7 +24,7 @@ public class Ex01 {
 		System.out.println("d/m/y: " + day + "-" + months[month] + "-" + year);
 		
 		int hour12 = c.get(Calendar.HOUR);
-		int hour24 = c.get(Calendar.HOUR_OF_DAY);
+		//int hour24 = c.get(Calendar.HOUR_OF_DAY);
 		int minute = c.get(Calendar.MINUTE);
 		int second = c.get(Calendar.SECOND);
 		
