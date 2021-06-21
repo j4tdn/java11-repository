@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
 import utils.DateUtils;
 
 public class Ex04 {
-	public static void main(String[] args) {
 		public static void main(String[] args) {
 			// Epoch
 			Calendar born = DateUtils.setCalendar(1999, Calendar.MAY, 24);

@@ -12,14 +12,13 @@ public class DateUtils {
 
 	private static final String DATE_PATTERN = "dd/MM/yyyy";
 	private static final String DATE_TIME_PATTERN = "dd/MM/yyyy HH:mm:ss EEEE";
-	// private static String[] months = {"JAN", "FEB", "MAR", "APR", "MAY", "JUNE",
-	// "JULY", "AUG", "SEP", "OCT", "NOV", "DEC"};
+	private static String[] months = {"JAN", "FEB", "MAR", "APR", "MAY", "JUNE", "JULY", "AUG", "SEP", "OCT", "NOV", "DEC"};
 	private static String[] weekdays = { "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT" };
 
 	private static GregorianCalendar gc = new GregorianCalendar();
 	private static DateFormat df = new SimpleDateFormat(DATE_PATTERN);
 	private static DateFormat dtf = new SimpleDateFormat(DATE_TIME_PATTERN);
-
+	
 	private DateUtils() {
 
 	}
@@ -86,7 +85,7 @@ public class DateUtils {
 	 * @param day
 	 * @return
 	 */
-	public static Calendar toCalendar(int year, int month, int day) {
+	public static Calendar setCalendar(int year, int month, int day) {
 		Calendar c = Calendar.getInstance();
 		c.set(year, month, day);
 		return c;
