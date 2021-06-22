@@ -4,17 +4,16 @@ import hashutils.JvmUtils;
 
 public class Ex01 {
 	public static void main(String[] args) {
-		//String: Immutable Mutable;
-		//Immutable: Literal, Object
+		// String: Immutable, Mutable
+		// Immutable: Literal, Object
 		
-		String l1 = "welcome";
-		JvmUtils.hash(l1);
-		System.out.println("l1: " + l1);
+		String o1 = "welcome";
+		JvmUtils.hash("o1: ", o1);
+		System.out.println("l1: " + o1);
+		o1 = "weareone";
+		JvmUtils.hash("o1: ", o1);
+		System.out.println("l1: " + o1);
 		
-		l1 = "weareone";
-		JvmUtils.hash(l1);
-		System.out.println("l1: " + l1);
+		// deamon thread: garbage collection
 	}
-
-
 }
