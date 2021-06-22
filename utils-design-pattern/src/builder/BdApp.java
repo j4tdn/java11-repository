@@ -3,7 +3,7 @@ package builder;
 public class BdApp {
 	public static void main(String[] args) {
 		User u1 = User.builder("Adam", "Kate")
-				      .age(29) // builder
+				       .age(29) // builder
 				      .address("US") // builder
 				      .build();
 		System.out.println(u1);

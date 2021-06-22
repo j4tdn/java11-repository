@@ -57,11 +57,12 @@ public class Order {
 //		double totalOfMoney = 0;
 //		
 //		ItemDetail[] ids = getItemDetails();
-////		for(int i = 0; i< ids.length; i++) {
+////		//duyen theo chi so for index
+		//for(int i = 0; i< ids.length; i++) {
 ////			ItemDetail id = ids[i];
 ////		}
 //		
-//		//for each
+//		//for each duyen tung phan tu
 //		for(ItemDetail id: ids) {
 //			Item item = id.getItem();
 //			int quantity = id.getQuantity();

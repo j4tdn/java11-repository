@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 public class App {
 	public static void main(String[] args) {
 		/**
+		 *  c1: KH1, adam, 123, DA NANG
+ 			c2: KH2, trung, 345, newyork	
 		 * i1: SS10+, Android, Black, 600
  			i2: SS20U, Android, Green, 800
  			i3: IP4, IOS, Black, 300

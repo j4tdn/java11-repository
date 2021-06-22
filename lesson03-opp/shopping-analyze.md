@@ -1,7 +1,8 @@
 +Class: 
 Customer: id,name, phone, address
 Item: id, os, color, price
-
+=> ItemDetail:  item, quantity
+=> Order: customer, item_details[], datetime
 B1: Create list of customers 
 B2: Create array of items in store 
 B3: Shopping function 
@@ -9,8 +10,8 @@ B3: Shopping function
 + List of items
 + Amount of each item
 + Buying time 
-=> Order: customer, items[], datetime
-=> ItemDetail:  item, quantity
+
+
  ==========================
  B. Object
  c1: KH1, adam, 123, DA NANG

@@ -25,13 +25,13 @@ public class Ex02 {
 		
 		//So sanh 
 		//==(stack-variable)
-		//Object #equals (default -stack-variable -being override)
-		//Comparable # compare 
+		//Object #equals (default -stack-variable -being override- value)
+		//Comparable # compare  = > <
 		
 		
 		System.out.println("s1 == s2: " + (s1==s2)); //T
 		System.out.println("s1 == s3: " + s1==s3);	//T
-		System.out.println("s1 == o1: " + s1==o1);	//T
+		System.out.println("s1 == o1: " + s1==o1);	//F
 		System.out.println("o1 == o3: " + o1==o2);	//F
 		System.out.println("o1 == 03: " + o1==o3);	//F
 		System.out.println("=============================");
@@ -39,8 +39,8 @@ public class Ex02 {
 		System.out.println("s1 eq s3: " + s1.equals(s3));	//T
 		System.out.println("s1 eq o1: " + s1.equals(o1));	//F
 		System.out.println("o1 eq o3: " + o1.equals(o2));	//F
-		System.out.println("o1 eq 03: " + o1.equals(o3));	//F
-		System.out.println("o2 eq 03: " + o2.equals(o3));	//T
+		System.out.println("o1 eq o3: " + o1.equals(o3));	//F
+		System.out.println("o2 eq o3: " + o2.equals(o3));	//T
 		
 		System.out.println("===============================");
 		System.out.println("s1 cp s2: " + (s1.compareTo(s2))); //so sanh gia tri (tung ki tu)

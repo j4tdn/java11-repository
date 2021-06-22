@@ -12,7 +12,7 @@ public class Ex01 {
 		Locale locale = Locale.US;
 		
 		NumberFormat nf = NumberFormat.getInstance();  //getInstance(truyen locale vao)
-	//	NumberFormat nfg = NumberFormat.getCurrencyInstance(locale);  
+	//	NumberFormat nf = NumberFormat.getCurrencyInstance(locale);  
 		System.out.println("value: " + nf.format(value));
 	}
 }
