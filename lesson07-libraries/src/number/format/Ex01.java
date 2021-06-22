@@ -9,7 +9,7 @@ public class Ex01 {
 		
 		Locale locale = new Locale("vi", "VN");
 		
-		NumberFormat nf = NumberFormat.getCurrencyInstance(locale);
+		NumberFormat nf = NumberFormat.getInstance(locale);
 		System.out.println("value : " + nf.format(value));
 	}
 }
