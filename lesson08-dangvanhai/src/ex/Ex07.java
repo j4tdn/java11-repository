@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class Ex07 {
 	public static void main(String[] args) {
 		String line = "aaabaaabbaaaaa";
-
 		System.out.println("min: " + minTrueSubSequence(line));
 		System.out.println("max: " + maxTrueSubSequence(line));
 	}
@@ -35,6 +34,6 @@ public class Ex07 {
 			}
 		}
 		arr[index] = count;
-		return Arrays.copyOfRange(arr, 0, count);
+		return Arrays.copyOfRange(arr, 0, index+1);
 	}
 }

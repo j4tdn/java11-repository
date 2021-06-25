@@ -7,7 +7,7 @@ public class Ex01 {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter: ");
 //		String line = scanner.nextLine();	
-		String line = "Bạn có thể chỉ định ngôn ngữ tìm kiếm của mình trong Tùy ch�?n";
+		String line = "Bạn có thể chỉ định ngôn ngữ tìm kiếm của mình trong Tùy chọn";
 		scanner.close();
 		printCharacters(line);
 		printWords(line);
