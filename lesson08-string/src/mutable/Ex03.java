@@ -16,7 +16,7 @@ public class Ex03 {
 		tB.join();
 		
 		System.out.println("length: " + task.length());
-		
+			
 	}
 	
 	public static class MutableTask implements Runnable {
