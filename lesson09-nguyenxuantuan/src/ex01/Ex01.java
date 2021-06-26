@@ -24,7 +24,7 @@ public class Ex01 {
 		
 		
 		System.out.println("Những học sinh tham gia học lại môn cấu trúc dữ liệu trong năm 2021 là:");
-        studentsLearnAgain(students);
+                studentsLearnAgain(students);
 		
 	}
 	private static void studentsGetA(Student[] students) {
