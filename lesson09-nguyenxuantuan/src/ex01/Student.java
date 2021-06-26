@@ -19,7 +19,7 @@ public class Student {
 	}
 
 	public void setId(String mssv) {
-		this.id = mssv;
+		this.id = id;
 	}
 
 	public String getName() {
