@@ -6,7 +6,7 @@ public class App {
 	public static void main(String[] args) {
 		Student[] students =getAll();
 		Student[] studentA = getStudent(students, Grade.A);
-		show(students);
+		show(studentA);
 	}
 
 	private static Student[] getStudent(Student[] students, Grade grade) {
