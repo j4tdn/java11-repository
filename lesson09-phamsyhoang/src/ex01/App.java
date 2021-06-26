@@ -6,6 +6,7 @@ public class App {
 	public static void main(String[] args) {
 		Student[] students =getAll();
 		Student[] studentA = getStudent(students, Grade.A);
+		System.out.println("===List of students who have achieved A grade===");
 		show(studentA);
 	}
 
