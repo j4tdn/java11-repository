@@ -23,17 +23,17 @@ public class Ex03 {
 		// share data: StringBuilder, StringBuffer
 
 		// private StringBuffer mutable;
-		private StringBuilder mutable;
+		private StringBuffer mutable;
 		private int count = 50000;
 
 		public MutableTask() {
 			// mutable = new String Buffer();
-			mutable = new StringBuilder();
+			mutable = new StringBuffer();
 		}
 
 		@Override
 		public void run() {
-			System.out.println(Thread.currentThread().getName() + "is running...");
+			System.out.println(Thread.currentThread().getName() + " is running...");
 			for (int i = 1; i <= count; i++) {
 				mutable.append("a");
 			}
