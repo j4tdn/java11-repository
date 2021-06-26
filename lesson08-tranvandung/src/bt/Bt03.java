@@ -1,42 +1,25 @@
 package bt;
 
+import java.text.Normalizer;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Bt03 {
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter name: ");
-		String name = null;
-		do {
-			name = scanner.nextLine();
-			try {
-				if (isValidName(name)) {
-					break;
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} while (true);
-		scanner.close();
-
-		System.out.println("==> " + transform(name));
+		Scanner ip = new Scanner(System.in);
+		System.out.println("Enter String: ");
+		String s = ip.nextLine();
+		System.out.println("String After Convert: " + covertToString(s));
 	}
 
-	private static String transform(String name) {
-		if (name == null) {
-			return null;
+	public static String covertToString(String s) {
+		try {
+			String temp = Normalizer.normalize(s, Normalizer.Form.NFD);
+			Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+			return pattern.matcher(temp).replaceAll("");
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
-		String a[] = name.split(" ");
-		for (int i = 0; i < a.length; i++) {
-			a[i] = a[i].substring(0, 1).toUpperCase() + a[i].substring(1).toLowerCase();
-		}
-		return new String().join(" ", a);
-	}
-
-	private static boolean isValidName(String name) {
-		if (!name.matches("[A-Za-z\\s]+")) {
-			throw new RuntimeException("Enter again!");
-		}
-		return true;
+		return null;
 	}
 }
