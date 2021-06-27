@@ -8,10 +8,6 @@ public class Ex02 {
 		//default: single thread -thread main 
 		System.out.println("Exmain -start");
 		
-<<<<<<< HEAD
-=======
-		//de biet thread nao dang thuc thi
->>>>>>> e260eec (lesson08-string 22.06.2021)
 		System.out.println(Thread.currentThread().getName() +	" is running.........");
 		
 	//	Task task = new Task();

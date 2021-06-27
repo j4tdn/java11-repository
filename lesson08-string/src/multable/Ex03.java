@@ -13,10 +13,6 @@ public class Ex03 {
 		tB.start();
 		
 		//make sure thread A finish then go on with thread main 
-<<<<<<< HEAD
-=======
-		//doi thread A xong thi moi chay tiep thread main
->>>>>>> e260eec (lesson08-string 22.06.2021)
 		tA.join();
 		tB.join();
 		

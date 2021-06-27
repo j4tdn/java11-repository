@@ -19,13 +19,8 @@ public class Ex05 {
 	
 	private static Student transformer(String line) {
 		Student student = null;
-<<<<<<< HEAD
 		String[] elements = line.split(",");
 		if(elements.length == 4) {
-=======
-		String[] elements = line.split(",\\s");
-		if(elements.length == 4) {	
->>>>>>> e260eec (lesson08-string 22.06.2021)
 			 student = new Student(elements[0], elements[1], "male".equalsIgnoreCase(elements[2]), elements[3]); 
 		}
 		return student;
