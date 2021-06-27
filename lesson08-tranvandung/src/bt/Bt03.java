@@ -17,8 +17,8 @@ public class Bt03 {
 			String temp = Normalizer.normalize(s, Normalizer.Form.NFD);
 			Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
 			return pattern.matcher(temp).replaceAll("");
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return null;
 	}
