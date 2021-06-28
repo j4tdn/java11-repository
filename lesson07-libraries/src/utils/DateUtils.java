@@ -14,6 +14,18 @@ public class DateUtils {
 		
 	}
 	
+	public static Calendar getDateTime(int year, int month, int day, int hour, int minute, int second) {
+		Calendar c = Calendar.getInstance();
+		c.set(year, month, day, hour, minute, second);
+		return c;
+	}
+	
+	public static Calendar getDate(int year, int month, int day) {
+		Calendar c = Calendar.getInstance();
+		c.set(year, month, day);
+		return c;
+	}
+	
 	public static boolean isLeapYear(int year) {
 		return gc.isLeapYear(year);
 	}
@@ -28,6 +40,6 @@ public class DateUtils {
 		Objects.requireNonNull(c);
 		
 		DateFormat df = new SimpleDateFormat(ddMMyyyy);
-	return df.formar(c.getTime());
+	return df.format(c.getTime());
 	}
 }
