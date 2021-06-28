@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 public class Ex02 {
 	
-	private static final String PATTERN = "#,###,00000";
+	private static final String PATTERN = "#,###.00000";
 	
 	public static void main(String[] args) {
 		double number = 12576824.2346;
