@@ -3,35 +3,31 @@ package ex02;
 import java.util.Scanner;
 
 public class App {
-	
-	private static String FULL_NAME_PATTERN ="[A-Za-z\\s]+";
-	
+	private static String FULL_NAME_PATTERN = "^[\\p{L} .'-]+$";
+
 	public static void main(String[] args) {
-		String s;
-		while(true) {
+		while (true) {
 			Scanner ip = new Scanner(System.in);
 			System.out.print("Enter full name: ");
-			s = ip.nextLine();
-			if(s.matches(FULL_NAME_PATTERN)) {
+			String s = ip.nextLine();
+			if (s.matches(FULL_NAME_PATTERN)) {
+				convert(s);
 				break;
 			}
-			System.out.println("Invalid name! Please enter again!");
+			else {
+				System.out.println("Invalid! Please enter again!");
+			}
 		}
-		Convert(s);
 	}
-	
-	private static void Convert(String s) {
-		String[] words = s.split("\\s");
-		for(String w:words) {
-			String w1= w.substring(0, 1);
-			w1=w1.toUpperCase();
+
+	private static void convert(String s) {
+		for (String w : s.split(" ")) {
+			String w1 = w.substring(0, 1);
+			w1 = w1.toUpperCase();
 			String w2 = w.substring(1);
-			w2=w2.toLowerCase();
-			w=w1+w2;
-			System.out.print(w + " ");
+			w2 = w2.toLowerCase();
+			System.out.print(w1 + w2 + " ");
 		}
 	}
-	
-	
-	
+
 }
