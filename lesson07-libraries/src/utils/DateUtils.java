@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Objects;
+import java.util.TimeZone;
 
 public class DateUtils {
 	private static final String PATTERN = "dd/MM/yyyy HH:mm:ss a EEE";
@@ -41,6 +42,19 @@ public class DateUtils {
 		Objects.requireNonNull(c);
 
 		DateFormat df = new SimpleDateFormat(PATTERN);
+		return df.format(c.getTime());
+	}
+	
+	/**
+	 * Convert Calendar to formated string with dd/MM/yyyy pattern
+	 * 
+	 * @param c given calendar
+	 * @return formated calendar as string
+	 */
+	public static String format(Calendar c, TimeZone timezone) {
+		Objects.requireNonNull(c);
+		DateFormat df = new SimpleDateFormat(PATTERN);
+		df.setTimeZone(timezone);
 		return df.format(c.getTime());
 	}
 	
