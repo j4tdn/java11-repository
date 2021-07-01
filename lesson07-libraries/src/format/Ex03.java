@@ -10,5 +10,6 @@ public class Ex03 {
 		// Rounding 
 		digit = digit.setScale(5, RoundingMode.HALF_UP);
 		System.out.println(digit);
+		System.out.println();
 	}
 }
