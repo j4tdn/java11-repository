@@ -10,6 +10,7 @@ public class Pk1Ex01 {
 		
 	}
 	
+	
 	protected void protectedMethod() {
 		
 	}
