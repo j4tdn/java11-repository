@@ -1,6 +1,9 @@
  package datetime;
 
 import java.util.Calendar;
+import java.util.Date;
+
+import utils.DateUtils;
 
 public class Ex03 {
 	public static void main(String[] args) {
@@ -20,12 +23,14 @@ public class Ex03 {
 		printWeekdays(c);
 		printDaysInMonth(c);
 		
+		Date date = DateUtils.to("27/01/2020 03:51:17 AM Mon");
+		System.out.println("date: " + date);
 	}
 	
 	private static void printWeekdays(Calendar c) {
 		int day = 1;
 		while(day <= 7) {
-			System.out.println(c); // dd/MM//yyyy HH:mm:ss
+			System.out.println(DateUtils.format(c)); // dd/MM//yyyy HH:mm:ss
 			c.add(Calendar.DAY_OF_MONTH, 1);
 			day++;
 		}
