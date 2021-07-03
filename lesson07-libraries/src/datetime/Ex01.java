@@ -2,7 +2,6 @@ package datetime;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -13,7 +12,6 @@ public class Ex01 {
 	
 	private static String[] months = {"JAN", "FEB", "MAR", "APR", "MAY", "JUNE", "JULY", "AUG", "SEP", "OCT", "NOV", "DEC"};
 	private static DateFormat df = new SimpleDateFormat("dd/MM/yy EEEE");
-	
 	
 	public static void main(String[] args) {
 		// JAVA07: Month 0 - 11 <<=>> JAN - DEC
@@ -33,7 +31,7 @@ public class Ex01 {
 		System.out.println("d-m-y: " + day + "-" + months[month] + "-" + year);
 		
 		int hour12 = c.get(Calendar.HOUR);
-		int hour24 = c.get(Calendar.HOUR_OF_DAY);
+		// int hour24 = c.get(Calendar.HOUR_OF_DAY);
 		int minute = c.get(Calendar.MINUTE);
 		int second = c.get(Calendar.SECOND);
 		System.out.println("h:m:s >> " + hour12 + ":" + minute + ":" + second );
