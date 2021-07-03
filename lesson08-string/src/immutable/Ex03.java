@@ -14,7 +14,7 @@ import java.util.Iterator;
 			for (int i = 0; i < s1.length(); i++) {
 				char tmp = s1.charAt(i);
 				if(Character.isDigit(tmp)) {  //neu tmp truyen vao la so thi in ra
-				System.out.println(tmp);
+				System.out.println("tmp: " + tmp);
 			}
 		
 		}

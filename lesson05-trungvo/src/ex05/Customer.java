@@ -10,7 +10,6 @@ public class Customer {
 	}
 
 	public Customer(String id, String fullname, String phone, String adress) {
-		super();
 		this.id = id;
 		this.fullname = fullname;
 		this.phone = phone;

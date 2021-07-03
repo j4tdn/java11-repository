@@ -21,7 +21,8 @@ public class ReferenceBook extends Book {
 
 	@Override
 	public String toString() {
-		return "ReferenceBook [tax=" + tax + "]";
+		//return "ReferenceBook [tax=" + tax + "]";
+		return super.toString() + ">> " +tax;
 	}
 	
 	

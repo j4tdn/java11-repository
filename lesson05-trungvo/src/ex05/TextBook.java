@@ -21,7 +21,8 @@ public class TextBook extends Book{
 
 	@Override
 	public String toString() {
-		return "TextBook [status=" + status + "]";
+		//return "TextBook [status=" + status + "]";
+		return super.toString() + ">> " + status;
 	}
 	
 	
