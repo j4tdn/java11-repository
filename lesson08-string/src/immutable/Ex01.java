@@ -12,6 +12,17 @@ public class Ex01 {
 		hash("l2", l2);
 		hash("l3", l3);
 		
+		
+		// Immutable: Bat bien = ko the thay doi gia tri
+		// Reality: Immutable for string value in heap
+		System.out.println("=========Immutable==========");
+		
+		String i1 = "one";
+		hash("i1", i1);
+		i1 = "two";
+		hash("i1", i1);
+		System.out.println("i1: " + i1);
+		
 		System.out.println("===================");
 		//object: heap(normal)
 		String o1 = new String("hello");
