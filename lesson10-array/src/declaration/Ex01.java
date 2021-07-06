@@ -20,7 +20,7 @@ public class Ex01 {
 		
 		System.out.println("numbers's class: " + numbers.getClass() );
 		
-		//for index lopp end to start
+		//for index loop end to start
 		for(int i = numbers.length-1; i>=0; i--) {
 			System.out.println("index " + i + ": " + numbers[i]);
 		}
