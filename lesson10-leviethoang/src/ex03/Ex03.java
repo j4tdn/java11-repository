@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Ex03 {
 	public static void main(String[] args) {
-		String[] strings = { "-2", "-6", "10", null, "4", "8", null, "Special", "a", "c", "b", "xx" };
+		String[] strings = { "-2", "-6", "10", null, "4", "8","Special", null, "Special", "a", "c", "b", "xx" };
 		print(strings);
 		System.out.println("========================");
 		sort(strings);
@@ -23,11 +23,12 @@ public class Ex03 {
 
 	private static void sort(String[] strings) {
 		int length = strings.length - 1;
+		int first = 0;
 		for (int i = 0; i < length - 1; i++) {
 			if ("Special".equals(strings[i])) { // Special First
 				String tmp = strings[i];
-				strings[i] = strings[0];
-				strings[0] = tmp;
+				strings[i] = strings[first];
+				strings[first++] = tmp;
 			}
 
 			if (strings[i] == null) { // null last
@@ -37,7 +38,7 @@ public class Ex03 {
 			}
 		}
 
-		String[] newStrings = Arrays.copyOfRange(strings, 1, length + 1);
+		String[] newStrings = Arrays.copyOfRange(strings, first, length + 1);
 		Arrays.sort(newStrings);
 
 		Integer[] tmp = new Integer[newStrings.length];
@@ -55,8 +56,8 @@ public class Ex03 {
 			newStrings[i] = digits[i].toString(); // -6 -2 4 8 10 a b c xx
 		}
 
-		for (int i = 1; i < length + 1; i++) {
-			strings[i] = newStrings[i - 1];
+		for (int i = first; i < length + 1; i++) {
+			strings[i] = newStrings[i - first];
 		}
 	}
 
