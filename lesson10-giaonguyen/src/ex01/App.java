@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class App {
 	public static void main(String[] args) {
-		int[] origin = {1,3,4,4,2,3,1,7,5,1,5,7};
+		int[] origin = {1,3,4,4,2,3,2,7,5,6,5,7};
 		
 		int[] result = removeDupl(origin);
 		
@@ -24,16 +24,19 @@ public class App {
 		int count = 0;
 		int[] result = new int[origin.length];
 		Arrays.sort(origin);
+		
+		if (origin[0] != origin[1]) 
+			result[count++] = origin[0];
+		
 		for (int i = 1; i < origin.length - 1; i++) {
-			if (origin[i] == origin[i-1]) {
-				continue;
-			}
-			else if ((origin[i] != origin[i-1]) && (origin[i] != origin[i+1])) {
+			if (origin[i] == origin[i-1]) 
+				continue;		
+			else if ((origin[i] != origin[i-1]) && (origin[i] != origin[i+1]))
 				result[count++] = origin[i];
-			}	
 		}
 		
-		if (origin[origin.length - 1] != origin[origin.length - 2]) result[count++] = origin[origin.length - 1];
+		if (origin[origin.length - 1] != origin[origin.length - 2])
+			result[count++] = origin[origin.length - 1];
 		
 		return Arrays.copyOfRange(result, 0, count);
 	}
@@ -46,14 +49,17 @@ public class App {
 		}
 		sumStAvg = sumStAvg / (origin.length/2);
 		
-		for (int i = origin.length/2 + 1; i < origin.length; i++) {
+		for (int i = origin.length/2 + 1; i < origin.length; i++) 
 			sumNdAvg += origin[i];
-		}
+		
 		sumNdAvg = sumNdAvg / (origin.length - origin.length/2);
 		
-		if (sumStAvg == sumNdAvg) System.out.println(sumStAvg + " = " + sumNdAvg);
-		else if (sumStAvg > sumNdAvg) System.out.println(sumStAvg + " > " + sumNdAvg);
-		else System.out.println(sumStAvg + " < " + sumNdAvg);
+		if (sumStAvg == sumNdAvg) 
+			System.out.println(sumStAvg + " = " + sumNdAvg);
+		else if (sumStAvg > sumNdAvg) 
+			System.out.println(sumStAvg + " > " + sumNdAvg);
+		else 
+			System.out.println(sumStAvg + " < " + sumNdAvg);
 		
 	}
 	
@@ -62,13 +68,11 @@ public class App {
 		int count = 1;
 		Arrays.sort(origin);
 		for (int i = origin.length -1 ; i > 0; i--) {
-			if (origin[i] == origin[i-1]) {
+			if (origin[i] == origin[i-1]) 
 				continue;
-			}
-			else {
+			else 
 				count++;
-			}
-			
+	
 			if (count == pos) {
 				num = origin[i-1];
 				break;
