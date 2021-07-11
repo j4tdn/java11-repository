@@ -41,8 +41,9 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "(" + x + "," + y + "," + z + "," + t + ")";
+		return "Item [id=" + id + ", name=" + name + ", price=" + price + "]";
 	}
+
 	
 
 }
