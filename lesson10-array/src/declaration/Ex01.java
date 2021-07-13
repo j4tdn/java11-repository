@@ -40,11 +40,11 @@ public class Ex01 {
 	//	items[0].setId(10);
 	//	System.out.println("items[0] = " + items[0]);
 		
-		Item[] preItems = {
-				new Item(10, "A", 200), new Item(12, "B", 200),new Item(13, "C", 225)
-		};
-		System.out.println("preItems[1]" + preItems[1]);
-		System.out.println("item[0] name: " + preItems[0].getName());
-		System.out.println("item[0] price: " + NumberFormat.getInstance().format(preItems[0].getPrice()));
+		//Item[] preItems = {
+		//		new Item(10, "A", 200), new Item(12, "B", 200),new Item(13, "C", 225)
+		//};
+	//	System.out.println("preItems[1]" + preItems[1]);
+		//System.out.println("item[0] name: " + preItems[0].getName());
+		//System.out.println("item[0] price: " + NumberFormat.getInstance().format(preItems[0].getPrice()));
 	}
 }
