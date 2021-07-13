@@ -1,23 +1,28 @@
 package bean;
 
 public class Item {
-	private int id;
+	private int storeId;
+	private int itemId;
 	private String name;
 	private double price;
 
 	public Item() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Item(int id, String name, double price) {
-		super();
-		this.id = id;
+		this.itemId = id;
+		this.name = name;
+		this.price = price;
+	}
+	public Item(int storeId,int id, String name, double price) {
+		this.storeId = storeId;
+		this.itemId = id;
 		this.name = name;
 		this.price = price;
 	}
 
-	public int getId() {
-		return id;
+	public int getItemId() {
+		return itemId;
 	}
 
 	public String getName() {
@@ -28,8 +33,8 @@ public class Item {
 		return price;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setItemId(int id) {
+		this.itemId = id;
 	}
 
 	public void setName(String name) {
@@ -39,10 +44,24 @@ public class Item {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	public int getStoreId() {
+		return storeId;
+	}
+	public void setStoreId(int storeId) {
+		this.storeId = storeId;
+	}
+	public int compareTo(Item item) {
+		if(getStoreId() > item.getStoreId()) {
+			return 1;
+		}
+		if(getStoreId() == item.getStoreId()) {
+			return item.getItemId() - getItemId();
+		}
+		return 0;
+	}
 
 	@Override
 	public String toString() {
-		return "Iteam [id=" + id + ", name=" + name + ", price=" + price + "]";
+		return "Item [storeId=" + storeId +", itemId=" + itemId + ", name=" + name + ", price=" + price + "]";
 	}
-
 }
