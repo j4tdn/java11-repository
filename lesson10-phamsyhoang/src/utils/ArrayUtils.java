@@ -28,4 +28,12 @@ public class ArrayUtils {
 		System.out.println();
 	}
 	
+	public static void printf(Object[] object) {
+		for (int i = 0; i < object.length; i++) {
+			System.out.print(object[i] + " ");
+		}
+		System.out.println();
+		
+	}
+	
 }
