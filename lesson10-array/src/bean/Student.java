@@ -1,7 +1,8 @@
 package bean;
 
 public class Student {
-	private int id;
+	private int schoolI;
+	private int StudentId;
 	private String name;
 	private int age;
 
@@ -9,17 +10,32 @@ public class Student {
 	}
 
 	public Student(int id, String name, int age) {
-		this.id = id;
+		this.StudentId = id;
 		this.name = name;
 		this.age = age;
 	}
 
-	public int getId() {
-		return id;
+	public Student(int schoolI, int studentId, String name, int age) {
+		this.schoolI = schoolI;
+		this.StudentId = studentId;
+		this.name = name;
+		this.age = age;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getSchoolI() {
+		return schoolI;
+	}
+
+	public void setSchoolI(int schoolI) {
+		this.schoolI = schoolI;
+	}
+
+	public int getStudentId() {
+		return StudentId;
+	}
+
+	public void setStudentId(int id) {
+		this.StudentId = id;
 	}
 
 	public String getName() {
@@ -37,10 +53,10 @@ public class Student {
 	public void setAge(int age) {
 		this.age = age;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", age=" + age + "]";
+		return "Student [schoolId=" + schoolI + ", StudentId=" + StudentId + ", name=" + name + ", age=" + age + "]";
 	}
 
 }

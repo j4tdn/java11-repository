@@ -1,14 +1,30 @@
 package utils;
 
+import bean.Student;
+
 public class ArrayUtils {
 	private ArrayUtils() {
 	}
-	
+
 	public static void printf(int[] elements) {
-		System.out.println();
 		for (int element : elements) {
 			System.out.print(element + " ");
 		}
+		System.out.println();
 	}
 	
+	public static void printf(String[] elements) {
+		for (String element : elements) {
+			System.out.print(element + " ");
+		}
+		System.out.println();
+	}
+	
+	public static void printf(Student[] elements) {
+		for (Student element : elements) {
+			System.out.println(element);
+		}
+		System.out.println();
+	}
+
 }
