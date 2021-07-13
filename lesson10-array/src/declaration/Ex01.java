@@ -47,18 +47,11 @@ public class Ex01 {
 //		items[0].setId(10); // NPE
 		System.out.println("items[0] = " + items[0]);
 		
-		Item[] preItems = {new Item(10, "A", 200), new Item(12, "B", 300)};
+		Item[] preItems = {new Item(10, 10, "A", 200), new Item(12, 12, "B", 300)};
 		System.out.println("preItems[1] => " + preItems[1]);
 		System.out.println("items[0] name: " + preItems[0].getName());
 		System.out.println("items[1] name: " + new DecimalFormat("#,###.00").format(preItems[1].getPrice()));
 		System.out.println("items[1] name: " + NumberFormat.getInstance().format(preItems[1].getPrice()));
-		
-		
-		
-		
-		
-		
-		
 		
 	}
 }
