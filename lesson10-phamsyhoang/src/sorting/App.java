@@ -78,6 +78,7 @@ public class App {
 		for (int i = 0; i < students.length; i++) {
 			ages[i] = students[i].getAge();
 		}
+		System.out.println();
 		System.out.print("Ascending By Age: ");
 		objectSort(ages, 1);
 		System.out.print("Decending By Age: ");
