@@ -20,7 +20,7 @@ public class ex01 {
 		result[k] = newElement;
 		
 		for(int i = k + 1; i < result.length; i++) {
-			result[k] = digits[i-1];
+			result[i] = digits[i-1];
 		}
 		
 		return result;

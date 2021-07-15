@@ -1,6 +1,5 @@
 package declaration;
-
-import java.awt.Dimension;
+import bean.Dimension;
 
 public class Ex03 {
 	public static void main(String[] args) {
@@ -16,7 +15,7 @@ public class Ex03 {
 			}
 			System.out.println();
 		}
-		Dimension[] dims = {new Dimension(1, 2, 4, 5), new Dimension(1, 2, 4, 5), new Dimension(1, 2, 4, 5)};
+		Dimension[] dims = {new Dimension(1, 2, 4 ,5), new Dimension(1, 2, 4 ,5), new Dimension(1, 2, 4 ,5)};;
 		for(Dimension dim: dims) {
 			System.out.println(dim);
 		}
