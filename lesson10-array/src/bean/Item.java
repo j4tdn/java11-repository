@@ -1,7 +1,8 @@
 package bean;
 
 public class Item {
-	private int id;
+	private int storeId;
+	private int itemId;
 	private String name;
 	private double price;
 		
@@ -9,19 +10,36 @@ public class Item {
 		
 	}
 
-	public Item(int id, String name, double price) {
+	public Item(int itemId, String name, double price) {
 		super();
-		this.id = id;
+		this.itemId = itemId;
 		this.name = name;
 		this.price = price;
 	}
+	
+	
 
-	public int getId() {
-		return id;
+	public Item(int storeId, int itemId, String name, double price) {
+		super();
+		this.storeId = storeId;
+		this.itemId = itemId;
+		this.name = name;
+		this.price = price;
+	}
+	
+	public int getItemId() {
+		return itemId;
+	}
+
+	public int getstoreId() {
+		return itemId;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.storeId = id;
+	}
+	public void setStoreId(int storeId) {
+		this.storeId = storeId;
 	}
 
 	public String getName() {
@@ -39,12 +57,22 @@ public class Item {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	//this: items[j]
+	//item: items[j+1]
+	public int compareTo(Item item) {
+		if(getstoreId() > item.getstoreId()) {
+			return 1;
+		}
+		if(getstoreId() == item.getstoreId()) {
+			return item.getItemId() - getItemId();
+	}
+		return 0;
+}
 
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", name=" + name + ", price=" + price + "]";
+		return "Item [storeId=" + storeId +", itemId=" + itemId + ", name=" + name + ", price=" + price + "]";
 	}
 	
-	
-	
-}
+	}
