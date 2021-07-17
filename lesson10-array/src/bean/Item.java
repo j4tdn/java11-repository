@@ -1,6 +1,6 @@
 package bean;
 
-public class Item {
+public class Item  implements Comparable<Item>{
 	private int storeId;
 	private int itemId;
 	private String name;
@@ -56,22 +56,25 @@ public class Item {
 		this.price = price;
 	}
 
-	
+	@Override
 	public int compareTo(Item item) {
-		if(getStoreId() > item.getStoreId()) {
+		if(this.getStoreId() > item.getStoreId()) {
 			return 1;
 		}
-		
-		if(getStoreId() == item.getStoreId()) {
-		return getItemId() - item.getItemId();
+		if(this.getStoreId() == item.getStoreId()) {
+			if(this.getItemId() > item.getItemId()) {
+				return 1;
+			}
 		}
 		
-		return 0;
+		return -1;
 	}
 	
 	@Override
 	public String toString() {
 		return "Item [storeId = " + storeId + ", id=" + itemId + ", name=" + name + ", price=" + price + "]";
 	}
+
+
 
 }
