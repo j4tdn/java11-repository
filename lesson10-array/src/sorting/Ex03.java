@@ -28,6 +28,10 @@ public class Ex03 {
 		ArrayUtils.printf(items);
 		
 	}
+	
+	private static int compare(Item i1, Item i2) {
+		return i1.compareTo(i2);
+	}
 	private static Item[] getItems() {
 		return new Item[] {
 				new Item(1, 28, "A", 278),
