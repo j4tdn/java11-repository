@@ -21,7 +21,7 @@ public class Ex03 {
 				}
 			}
 		}
-		
+		 
 		ArrayUtils.printf(st);
 	}
 	

@@ -1,6 +1,6 @@
 package bean;
 
-public class Student {
+public class Student implements Comparable<Student>{
 	private int schoolI;
 	private int StudentId;
 	private String name;
@@ -57,6 +57,11 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [schoolId=" + schoolI + ", StudentId=" + StudentId + ", name=" + name + ", age=" + age + "]";
+	}
+
+	@Override
+	public int compareTo(Student student) {
+		return Integer.compareUnsigned(student.getAge(), getAge());
 	}
 
 }
