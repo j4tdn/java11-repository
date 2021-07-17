@@ -1,35 +1,28 @@
 package sorting;
 
+import static java.util.Comparator.comparing;
+import static java.util.Comparator.reverseOrder;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
 import bean.Item;
 import utils.ArrayUtils;
 
-public class Ex03 {
+public class Ex07 {
 	public static void main(String[] args) {
 		Item[] items = getItem();
 		
-		// bubble sort
-		for(int i = 0; i < items.length; i++) {
-			for(int j = 0; j < items.length - i -1; j++) {
-				if(compare(items[j], items[j + 1]) > 0) {
-				swap(items, j, j + 1);
-			}
-		}
-	}
 		
+		Arrays.sort(items, comparing(i -> i.getName()));
+		
+		ArrayUtils.printf(items);
+		System.out.println("===============");
+		Comparator<Item> comparator = comparing(i -> i.getStoreId());
+		Arrays.sort(items, comparator.thenComparing(i -> i.getItemId()).reversed());
 		ArrayUtils.printf(items);
 }
 	
-	public static int compare(Item i1, Item i2) {
-		return i1.compareTo(i2);
-	}
-	
-	private static void swap(Item[] items, int i, int j) {
-		Item tmp = items[i];
-		items[i] = items[j];
-		items[j] = tmp;
-		
-	}
-
 	private static Item[] getItem() {
 		return new Item[] {
 			new Item(1, 12, "a", 278),
