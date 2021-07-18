@@ -2,6 +2,8 @@ package Ex01;
 
 import java.util.Arrays;
 
+import utils.ArrayUtils;
+
 public class ManipulatingWithArray {
 
 	public static void main(String[] args) {
@@ -62,12 +64,9 @@ public class ManipulatingWithArray {
 	}
 
 	private static int find3rdMax(int[] digits3) {
-		int num = 0;
-
 		Arrays.sort(digits3);
 
 		int[] newArray = RemoveDuplicateElements(digits3);
-
 
 		return newArray[newArray.length-3];
 	}

@@ -1,13 +1,8 @@
 package Ex04;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 import java.util.Random;
 
-import Ex01.ArrayUtils;
+import utils.ArrayUtils;
 
 public class Sorting {
 	public static void main(String[] args) {
@@ -17,16 +12,23 @@ public class Sorting {
 			arr[i] = 1 + rd.nextInt(99);
 		}
 
-		// bubleSort(arr);
+		bubleSort(arr);
 		// selectionSort(arr);
 		// insertionSort(arr);
 		// shellSort(arr);
 		// mergeSort(arr, 0, arr.length-1);
-		quickSort(arr, 0, arr.length - 1);
+		// quickSort(arr, 0, arr.length - 1);
 		ArrayUtils.printf((arr));
 
-		Student[] students = new Student[] { new Student("1", "Nguyen", 7), new Student("2", "Tran", 4),
-				new Student("3", "Van", 9), new Student("4", "Truong", 1) };
+
+		Student[] students = new Student[] { 
+				new Student("1", "A", 7), 
+				new Student("2", "B", 8),
+				new Student("3", "D", 9), 
+				new Student("4", "C", 1) };
+
+		objectSort(students);
+		ArrayUtils.printf((students));
 
 	}
 
@@ -61,6 +63,20 @@ public class Sorting {
 				j = j - 1;
 			}
 			arr[j + 1] = key;
+		}
+	}
+
+	private static void objectSort(Student[] students) {
+		for (int i = 0; i < students.length; i++) {
+			for (int j = 0; j < students.length - i - 1; j++) {
+//				if(students[i].getName().compareTo(students[j+1].getName())<0) {
+
+				if (students[i].getAge() > students[j + 1].getAge()) {
+					Student tmp = students[j];
+					students[j] = students[j + 1];
+					students[j + 1] = tmp;
+				}
+			}
 		}
 	}
 
