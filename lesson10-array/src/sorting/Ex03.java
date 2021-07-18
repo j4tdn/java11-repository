@@ -18,7 +18,7 @@ public class Ex03 {
 		for (int i = 0; i < items.length; i++) {
 			for (int j = 0; j < items.length - 1 - i; j++) {
 				if (items[j].getStoreId() == items[j + 1].getStoreId()) {
-					if (items[j].getId() < items[j + 1].getId()) {
+					if (items[j].getItemId() < items[j + 1].getItemId()) {
 						swap(items, j, j + 1);
 						
 					}
