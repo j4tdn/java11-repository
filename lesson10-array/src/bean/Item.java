@@ -1,27 +1,33 @@
 package bean;
 
-public class Item {
-	private int id;
+public class Item implements Comparable<Item>{
+	private int itemId;
+	private int storeId;
 	private String name;
 	private double price;
-	
+
 	public Item() {
-		
 	}
 
 	public Item(int id, String name, double price) {
-		super();
-		this.id = id;
+		this.itemId = id;
 		this.name = name;
 		this.price = price;
 	}
 
-	public int getId() {
-		return id;
+	public Item(int storeId, int itemId, String name, double price) {
+		this.itemId = itemId;
+		this.storeId = storeId;
+		this.name = name;
+		this.price = price;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(int id) {
+		this.itemId = id;
 	}
 
 	public String getName() {
@@ -40,9 +46,27 @@ public class Item {
 		this.price = price;
 	}
 
+	public int getStoreId() {
+		return storeId;
+	}
+
+	public void setStoreId(int storeId) {
+		this.storeId = storeId;
+	}
+
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", name=" + name + ", price=" + price + "]";
-	} 
+		return "Item [storeId=" + storeId + ", itemId=" + itemId + ", name=" + name + ", price=" + price + "]";
+	}
+
+	// this: items[j]
+	// item: items[j+1]
+	@Override
+	public int compareTo(Item item) {
+		if(this.getStoreId() == item.getStoreId()) {
+			return Double.compare(this.getStoreId(), item.getStoreId());
+		}
+		return Double.compare(this.getPrice(), item.getPrice());
+	}
 	
 }
