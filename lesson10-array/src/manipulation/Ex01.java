@@ -69,7 +69,7 @@ public class Ex01 {
 		}
 		return Arrays.copyOfRange(tmp, 0, origin.length-1);
 	}
-	private static void reverse(int[] digits) {
+	public void reverse(int[] digits) {
 		for (int i = 0; i < digits.length/2; i++) {
 			int tmp = digits[i];
 			digits[i] = digits[digits.length-1-i];
