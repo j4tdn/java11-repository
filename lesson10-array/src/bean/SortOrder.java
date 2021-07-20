@@ -1,5 +1,5 @@
 package bean;
 
 public enum SortOrder {
-	ASC, DESC
+	ASC,DESC
 }

@@ -1,15 +1,17 @@
 package bean;
 
-public class Item implements Comparable<Item> {
+public class Item implements Comparable<String> {
 	private int storeId;
 	private int itemId;
 	private String name;
 	private double price;
-	
+
 	public Item() {
+
 	}
-	
+
 	public Item(int itemId, String name, double price) {
+		super();
 		this.itemId = itemId;
 		this.name = name;
 		this.price = price;
@@ -34,8 +36,8 @@ public class Item implements Comparable<Item> {
 		return itemId;
 	}
 
-	public void setItemId(int itemId) {
-		this.itemId = itemId;
+	public void setItemId(int id) {
+		this.itemId = id;
 	}
 
 	public String getName() {
@@ -53,12 +55,10 @@ public class Item implements Comparable<Item> {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+	// this: items[j]
+	// item: item[j+1]
 	
-	
-	
-	// o1: this: item[j]
-	// o2: item: item[j+1]
-	@Override
 	public int compareTo(Item item) {
 		return Double.compare(getPrice(), item.getPrice());
 	}
@@ -67,5 +67,11 @@ public class Item implements Comparable<Item> {
 	public String toString() {
 		return "Item [storeId=" + storeId + ", itemId=" + itemId + ", name=" + name + ", price=" + price + "]";
 	}
-	
+
+	@Override
+	public int compareTo(String o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
