@@ -1,6 +1,6 @@
 package bean;
 
-public class Tuple {
+public class Tuple implements Comparable<Tuple>{
 	private int a;
 	private int b;
 	
@@ -31,5 +31,12 @@ public class Tuple {
 	@Override
 	public String toString() {
 		return a + ", " + b;
+	}
+
+	// pre: this
+	// suf: o
+	@Override
+	public int compareTo(Tuple o) {
+		return getA() - o.getA();
 	}
 }
