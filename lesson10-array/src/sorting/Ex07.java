@@ -2,6 +2,8 @@ package sorting;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.function.Function;
+
 import static java.util.Comparator.*;
 
 
@@ -11,13 +13,19 @@ public class Ex07 {
 	public static void main(String[] args) {
 		Item[] items = getItems();
 		
+		Item itemX = new Item(1, "AAA", 12.5);
+		
 //		//cách 1: dùng lambda tự viết
 //		Comparator<Item> comp = (c1,c2) -> c1.getItemId() - c2.getItemId();
 //		Arrays.sort(items,comp);
 		
 		//cách 2: dùng hàm viết sẵn của java (comparator.comparing)
-		Comparator<Item> comparator = comparing(i -> i.getStoreId()); 
-		Arrays.sort(items, comparator.thenComparing(i -> i.getItemId(), reverseOrder()).reversed()); //getStoreID (xếp tăng dần) bằng nhau thì so sánh tiếp getItemID (reverse -> giảm dần)
+		//Comparator<Item> comparator = comparing(i -> i.getStoreId()); 
+		
+		Function<Item, Integer> f3 = Item::getStoreId;
+		System.out.println("f3: " + f3.apply(itemX));
+		Comparator<Item> comp = comparing(Item::getStoreId); 
+		Arrays.sort(items, comp.thenComparing(i -> i.getItemId(), reverseOrder()).reversed()); //getStoreID (xếp tăng dần) bằng nhau thì so sánh tiếp getItemID (reverse -> giảm dần)
 																									// sau đó reverse toàn bộ mảng (xếp giảm dần)
 //		//cách 3:
 //		Arrays.sort(items,new Comparator<Item>() {
