@@ -5,20 +5,16 @@ public class Dimension {
 	private int y;
 	private int z;
 	private int t;
-	
+
 	public Dimension() {
-		// TODO Auto-generated constructor stub
 	}
-	
 
 	public Dimension(int x, int y, int z, int t) {
-		super();
 		this.x = x;
 		this.y = y;
 		this.z = z;
 		this.t = t;
 	}
-
 
 	public int getX() {
 		return x;
@@ -51,7 +47,7 @@ public class Dimension {
 	public void setT(int t) {
 		this.t = t;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "(" + x + "," + y + "," + z + "," + t + ")";

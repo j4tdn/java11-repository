@@ -1,44 +1,45 @@
 package sorting;
 
-import utils.ArrayUtils;
+import untils.ArrayUtils;
 
 public class Ex02 {
-
 	public static void main(String[] args) {
-		String[] sequences = {"a", "B",null,  "c",null, "0", "2", "D"};
-		
-		//bubble sort
-		for(int i = 0; i < sequences.length; i++) {
-			for(int j = 0; j < sequences.length - i - 1; j++) {
-				//null last
-				
-				if(sequences[j] == null  && sequences[j+1] != null) {
-					swap(sequences ,j , j+1);
-					continue;
-				}
-				if(sequences[j+1] == null) {
+		String[] sequences = { "a", "B", "c", null, null, "C", "B", null, "2", "0", "1" };
+		for (int i = 0; i < sequences.length; i++) {
+			for (int j = 0; j < sequences.length - i - 1; j++) {
+				// last null
+//				if (sequences[j] == null) {
+//					swap(sequences, j, j + 1);
+//					continue;
+//				}
+//
+//				if (sequences[j + 1] == null) {
+//					continue;
+//				}
+
+				// first null
+				if (sequences[j] == null) {
 					continue;
 				}
 
-				// null first
-				/*if(sequences[j] == null && sequences[j+1] != null) {
+				if (sequences[j + 1] == null && sequences[j] != null) {
+					swap(sequences, j, j + 1);
 					continue;
 				}
-				if(sequences[j+1] == null) {
-					swap(sequences, j, j+1);
-					continue;
-				}*/
-				// default
-				if(sequences[j].compareTo(sequences[j+1]) > 0) {
-					swap(sequences, j, j+1);
+
+				if (sequences[j].compareTo(sequences[j + 1]) > 0) {
+					swap(sequences, j, j + 1);
 				}
+
 			}
 		}
+
 		ArrayUtils.printf(sequences);
 	}
-	public static void swap(String str[], int i, int j) {
-		String tmp = str[i];
-		str[i] = str[j];
-		str[j] = tmp;
+
+	private static void swap(String[] a, int i, int j) {
+		String temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
 	}
 }

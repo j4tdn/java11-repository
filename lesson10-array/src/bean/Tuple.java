@@ -3,9 +3,13 @@ package bean;
 public class Tuple {
 	private int a;
 	private int b;
-	
+
 	public Tuple() {
-		// TODO Auto-generated constructor stub
+	}
+
+	public Tuple(int a, int b) {
+		this.a = a;
+		this.b = b;
 	}
 
 	public int getA() {
@@ -24,16 +28,9 @@ public class Tuple {
 		this.b = b;
 	}
 
-	public Tuple(int a, int b) {
-		super();
-		this.a = a;
-		this.b = b;
-	}
-
 	@Override
 	public String toString() {
-		return a + ", " + b + "";
+		return a + ", " + b;
 	}
-	
 
 }
