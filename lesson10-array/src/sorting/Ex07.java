@@ -4,6 +4,7 @@ import static java.util.Comparator.*;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.function.Function;
 
 import bean.Item;
 import utils.ArrayUtils;
@@ -11,18 +12,33 @@ import utils.ArrayUtils;
 public class Ex07 {
 	public static void main(String[] args) {
 		Item[] items = getItems();
-		// ... variables
-		// sort by price
-		// sort by storeId
 		
-		Arrays.sort(items, comparing(i -> i.getName()));
+		// lambda expression
+		// Funtion<T, R>  >> t -> t.X();
+		// t: instance of T
+		// X: T's method return R
+		
+		Item itemX = new Item(111, "AAA", 333);
+		
+		Function<Item, String> f1 = (Item item) -> item.getName();
+		System.out.println("f1: " + f1.apply(itemX));
+		
+		// method reference
+		Function<Item, Integer> f2 = Item::getItemId;
+		System.out.println("f2: " + f2.apply(itemX));
+		
+		// Arrays.sort(items, comparing(i -> i.getName())
+		Arrays.sort(items, comparing(Item::getName));
 		ArrayUtils.printf(items);
 		
 		System.out.println("==============");
 		
-		Comparator<Item> x = comparing(i -> i.getStoreId());
+		Function<Item, Integer> f3 = Item::getStoreId;
+		System.out.println("f3: " + f3.apply(itemX));
 		
-		Arrays.sort(items,x.thenComparing(i -> i.getItemId()));
+		Comparator<Item> comparator = comparing(Item::getStoreId, reverseOrder());
+		
+		Arrays.sort(items,comparator.thenComparing(Item::getItemId).reversed());
 		ArrayUtils.printf(items);
 	}
 	
