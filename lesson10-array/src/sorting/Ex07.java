@@ -19,9 +19,9 @@ public class Ex07 {
 		System.out.println("=========================");
 		ArrayUtils.printf(items);
 
-		Comparator<Item> comparator = Comparator.comparing(i -> i.getStoreId());
+		Comparator<Item> comparator = Comparator.comparing(Item::getStoreId);
 		
-		Arrays.sort(items, comparator.thenComparing(item -> item.getItemId()).reversed());
+		Arrays.sort(items, comparator.thenComparing(Item::getItemId).reversed());
 		
 //		Arrays.sort(items, Comparator.comparing(i -> i.getStoreId()));
 
