@@ -1,5 +1,7 @@
 package sorting;
 
+import java.util.Comparator;
+
 import bean.Item;
 import utils.ArrayUtils;
 
@@ -7,26 +9,26 @@ public class Ex03 {
 	public static void main(String[] args) {
 		Item[] items = getItems();
 		// bubble sort
-		for(int i = 0; i < items.length; i++) {
-			for(int j = 0 ; j < items.length -i -1; j++) {
-				if(items[j].compareTo(items[j+1]) > 0) {
-					swap(items, j, j+1);
-				}
-				/*
-				if(items[j].getStoreId() > items[j+1].getStoreId()) {
-					swap(items, j, j+1);
-					continue;
-				}
-				if(items[j].getStoreId() == items[j+1].getStoreId()) {
-					if(items[j].getItemId() > items[j+1].getItemId()) {
+		Comparator<Item> comparator = new Comparator<Item>() {
+			
+			@Override
+			public int compare(Item o1, Item o2) {
+				// TODO Auto-generated method stub
+				return o1.compareTo(o2);
+			}
+		};
+		sort(items, comparator);
+		
+	}
+	private static void sort(Item[] items, Comparator<Item> comparator) {
+		// bubble sort
+			for(int i = 0; i < items.length; i++) {
+				for(int j = 0 ; j < items.length -i -1; j++) {
+					if(comparator.compare(items[j], items[j+1]) > 0) {
 						swap(items, j, j+1);
 					}
 				}
-				*/
 			}
-		}
-		ArrayUtils.printf(items);
-		
 	}
 	
 	private static int compare(Item i1, Item i2) {
