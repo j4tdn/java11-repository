@@ -69,8 +69,12 @@ public class Item implements Comparable<Item> {
 //		if (getStoreId() == item.getStoreId()) {
 //			return item.getItemId() - getItemId();
 //		}
-		
-		return Double.compare(getPrice(), item.getPrice());
+// 		 return 0;
+	
+//	    return Double.compare(item.getPrice(), getPrice());// giam dan
+		return Double.compare(getPrice(), item.getPrice());// tang dan
+	
+	
 	}
 
 	@Override
