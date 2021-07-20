@@ -22,7 +22,7 @@ public class Ex06 {
 				}
 
 				if (o2 == null) {
-					return 11;
+					return 1;
 				}
 
 				// TODO Auto-generated method stub
