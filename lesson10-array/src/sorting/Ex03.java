@@ -12,12 +12,16 @@ public class Ex03 {
 		// bubble sort
 		for (int i = 0; i < items.length; i++) {
 			for (int j = 0; j < items.length - i - 1; j++) {
-				if (items[j].compareTo(items[j+1])>0) {
+				if (compare(items[j],items[j+1])>0) {
 					swap(items, j, j + 1);
 				}
 			}
 		}
 		ArrayUtils.printf(items);
+	}
+	
+	private static int compare(Item i1, Item i2) {
+		return i1.compareTo(i2)*(-1);
 	}
 
 	private static Item[] getItems() {
