@@ -1,6 +1,6 @@
 package bean;
 
-public class Item {
+public class Item implements Comparable<Item>{
 	private int storeId;
 	private int itemId;
 	private String name;
@@ -58,6 +58,10 @@ public class Item {
 			return item.getItemId() - getItemId();
 		}
 		return 0;
+	}
+
+	public int comparaTo(Item item) {
+		return Double.compare(item.getPrice(), getPrice());
 	}
 
 	@Override
