@@ -18,6 +18,12 @@ public class Item implements Comparable<Item>{
 		this.price = price;
 	}
 
+
+
+	public Item(int i, String string, int j) {
+		
+	}
+
 	public int getItemId() {
 		return itemId;
 	}

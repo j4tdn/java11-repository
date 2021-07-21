@@ -3,6 +3,7 @@ package sorting;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
+import static java.util.Comparator.*;
 import java.util.function.Function;
 
 import bean.Item;
@@ -48,13 +49,26 @@ public class Ex07 {
 		c31.thenComparing(i -> i.getStoreId(), Comparator.reverseOrder()); // Giam dan vi reverseOrder()
 
 		// Function<T, R> >> R apply(T t)
+		// Function<T, R> >> t -> t.X()
+		// t: instance of T
+		// X: T's method return R
 		// comparing
 		// (c1, c2) -> keyExtractor.apply(c1).compareTo(keyExtractor.apply(c2));
+		
+		Function<Item, String> f1 = item -> item.getName();
+		Function<Item, String> f2 = Item::getName;
+		Function<Item, Integer> f3 = Item::getItemId;
+		
+		Item itemX = new Item(111, "AAA", 333);
+		Function<Item, String> f4 = Item::getName;
+		System.out.println("f4: " + f4.apply(itemX));
+		ArrayUtils.printf(items);
 		
 		// Using comparator with lambda
 		Arrays.sort(items, c31);
 		Arrays.sort(items, Comparator.comparing(i -> i.getItemId()));
-		Arrays.sort(items, Comparator.comparing(i -> i.getItemId()));
+		Arrays.sort(items, comparing(Item::getName));
+		Arrays.sort(items, comparing(Item::getName, reverseOrder()));
 		ArrayUtils.printf(items);
 	}
 
