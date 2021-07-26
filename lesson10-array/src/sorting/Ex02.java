@@ -4,7 +4,7 @@ import utils.ArrayUtils;
 
 public class Ex02 {
 	public static void main(String[] args) {
-		String[] sequences = {"a", "B", "c","0",null,null, "2","b",null, "1", null};
+		String[] sequences = {"a", "B", "z","0",null,null, "2","b",null, "1", null};
 		
 		//bubble sort
 		//null first, null last
@@ -24,7 +24,7 @@ public class Ex02 {
 			//null first
 			if(sequences[j] == null && sequences[j+1]!= null) {
 				continue;
-			}
+			} 
 			if(sequences[j+1] == null) {
 				swap(sequences, j, j+1);
 				continue;

@@ -6,7 +6,7 @@ import java.text.NumberFormat;
 import bean.Item;
 
 public class Ex01 {
-	
+	 
 	
 	public static void main(String[] args) {
 		//digits ={0,0,0,0}
@@ -46,7 +46,7 @@ public class Ex01 {
 		
 		
 		Item[] items = new Item[2];
-		try {items[0].setId(10); //NPE
+		try {items[0].setItemId(10); //NPE
 			
 		} catch (NullPointerException e) {
 			System.out.println("items[0] = " + items[0]);

@@ -32,11 +32,11 @@ public class Item {
 	}
 
 	public int getstoreId() {
-		return itemId;
+		return storeId;
 	}
 
-	public void setId(int id) {
-		this.storeId = id;
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
 	}
 	public void setStoreId(int storeId) {
 		this.storeId = storeId;
