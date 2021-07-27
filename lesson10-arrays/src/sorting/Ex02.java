@@ -1,5 +1,7 @@
 package sorting;
 
+import java.util.Comparator;
+
 import utils.ArrayUtils;
 
 public class Ex02 {
@@ -40,5 +42,9 @@ public class Ex02 {
 		}
 		
 		ArrayUtils.printf(sequences);
+	}
+	
+	private static void sort(String[] sequences, Comparator<String> comparator) {
+		
 	}
 }
