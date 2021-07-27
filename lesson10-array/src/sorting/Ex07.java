@@ -15,15 +15,15 @@ public class Ex07 {
 
 		ArrayUtils.printf(items);
 
-		Arrays.sort(items, (o1, o2) -> o1.getStoreId() - o2.getStoreId());
+//		Arrays.sort(items, (o1, o2) -> o1.getStoreId() - o2.getStoreId());
 		System.out.println("=========================");
-		ArrayUtils.printf(items);
+//		ArrayUtils.printf(items);
 
 		Comparator<Item> comparator = Comparator.comparing(Item::getStoreId);
 		
-		Arrays.sort(items, comparator.thenComparing(Item::getItemId).reversed());
+//		Arrays.sort(items, comparator.thenComparing(Item::getItemId).reversed());
 		
-//		Arrays.sort(items, Comparator.comparing(i -> i.getStoreId()));
+		Arrays.sort(items,Comparator.comparing(Item::getName, String.CASE_INSENSITIVE_ORDER));
 
 		System.out.println("=========================");
 		ArrayUtils.printf(items);

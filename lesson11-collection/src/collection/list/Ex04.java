@@ -1,6 +1,8 @@
 package collection.list;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
@@ -22,7 +24,7 @@ public class Ex04 {
 			System.out.println(str);
 		}
 		
-		
+	
 		
 //		Iterator<String> iterator = elements.iterator();
 //		while(iterator.hasNext()) {
