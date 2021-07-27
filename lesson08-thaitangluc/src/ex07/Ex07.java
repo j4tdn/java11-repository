@@ -31,6 +31,5 @@ public class Ex07 {
 		String maxS = s.substring(endMax - max + 1, endMax + 1);
 		System.out.println("Độ dài lớn nhất của dãy con đúng : " + max + " " + maxS);
 		System.out.println("Độ dài nhỏ nhất của dãy con đúng : " + min + " " + minS);
-		
 	}
 }
