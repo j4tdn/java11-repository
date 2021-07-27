@@ -9,8 +9,11 @@ public class Ex06 {
 		List<Integer> first = init(1,2,3,4);
 		List<Integer> second = init(5,3,4);
 		
+		
 		first.addAll(second);
-		first.removeAll(second);
+		first.removeAll(second); //remove phan tu Giao
+		first.retainAll(second); //remove phần tử Hiệu
+		
 		show(first);
 		show(second);
 	}

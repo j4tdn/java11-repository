@@ -47,6 +47,21 @@ public class Item {
 	public void setStoreId(int storeId) {
 		this.storeId = storeId;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		
+		if (!(obj instanceof Item)) {
+			return false;
+		}
+		
+		Item that = (Item)obj;
+		
+		return getStoreId() == that.getStoreId() && getItemId() == that.getItemId();
+	}
 
 	@Override
 	public String toString() {
