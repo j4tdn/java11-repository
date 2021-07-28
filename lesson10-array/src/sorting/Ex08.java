@@ -11,20 +11,20 @@ public class Ex08 {
 		// Sorting with String special case
 		// CASE SENSITIVE CS || CASE INSENSITIVE CI
 		// SIGN || UNSIGN
-		// A a B b Á à
+		// A a B b Ã� Ã 
 
 		// CASE INSENSITIVE
-		// A Á a à B b
-		// a à A Á b B
+		// A Ã� a Ã  B b
+		// a Ã  A Ã� b B
 
 		// A: 65
 		// a: 92
 		// CASE SENSITIVE
-		// A Á B a à b
+		// A Ã� B a Ã  b
 
 		// SIGN
-		// A B Á a b à
-		String[] text = { "b", "B", "A", "a", "Á", "ấ", "ê", "ề", "c", "C" };
+		// A B Ã� a b Ã 
+		String[] text = { "b", "B", "A", "a", "Ã�", "áº¥", "Ãª", "á»�", "c", "C" };
 
 		// unicode: CASE SENSITIVE >> SIGN
 		Arrays.sort(text);
@@ -37,7 +37,7 @@ public class Ex08 {
 			public int compare(String o1, String o2) {
 				return o1.compareToIgnoreCase(o2);
 			}
-		});
+		}); 
 		ArrayUtils.printf(text);
 		System.out.println("===================");
 
