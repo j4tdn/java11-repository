@@ -19,7 +19,7 @@ public class Ex05 {
 		
 		Collections.shuffle(elements);
 		
-		CollectionUtils.pritf(elements);
+		CollectionUtils.printf(elements);
 		
 		
 

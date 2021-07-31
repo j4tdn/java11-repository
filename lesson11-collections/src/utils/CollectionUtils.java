@@ -20,9 +20,9 @@ public class CollectionUtils {
 		return result;
 	}
 
-	public static void pritf(List<String> elements) {
+	public static void printf(List<String> elements) {
 		for (String element : elements) {
-			System.out.println(element + " ");
+			System.out.print(element + " ");
 		}
 	}
 	
