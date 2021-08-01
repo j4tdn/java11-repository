@@ -14,7 +14,7 @@ public interface IList<E> {
 
 	boolean add(E e);
 
-	boolean remove(int i);
+	E remove(int i);
 
 	E get(int i);
 
@@ -23,4 +23,6 @@ public interface IList<E> {
 	void show();
 	
 	int count(Condition<E> condition);
+	
+	boolean remove(Object o);
 }
