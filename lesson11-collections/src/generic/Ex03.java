@@ -5,6 +5,12 @@ public class Ex03 {
 		IList<String> sequences = new JavaList<>();
 		sequences.add("How are you");
 		sequences.add("Enjoy our page");
+		sequences.add("First commit");
+		sequences.add("Change your life");
+		sequences.add("Passed mission");
+		sequences.add("Narration voice");
+		sequences.add("Mandela effect");
+		sequences.add("Little Caesar");
 		sequences.show();
 		System.out.println("size: " + sequences.size());
 
@@ -17,13 +23,11 @@ public class Ex03 {
 		};
 
 		int count = sequences.count(cond1);
-		count = sequences.count(e -> e.startsWith("How"));
 		System.out.println("count: " + count);
 
 		int countFilter = sequences.countFilter(e -> e.startsWith("En"));
 		System.out.println("count Filter: " + countFilter);
 
-		sequences.add("Monkey");
 		String removed = sequences.remove(sequences.size() - 1);
 		System.out.println("Removed element: " + removed);
 		System.out.println("size: " + sequences.size());

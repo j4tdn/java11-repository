@@ -39,32 +39,26 @@ public class JavaList<E> implements IList<E> {
 	public void add(E e) {
 		if (size < initialCapacity) {
 			elements[size++] = e;
+		} else {
+			// new array
+			elements = grow(e);
 		}
-
-		// new array
-		elements = grow(e);
 	}
 
 	@Override
 	public E remove(int i) {
-		if (i < 0 | i >= size) {
+		if (i < 0 || i >= size) {
 			throw new ArrayIndexOutOfBoundsException("Array index out of range [0," + (size - 1) + "]");
 		}
 		E removedElement = elements[i];
 
-		// Copy the elements be not removed to new Array
-		E[] newElements = create(--size);
-		for (int index = 0; index < i; index++) {
-			newElements[index] = elements[index];
+		// Remove the element at index = i
+		for (int index = i; index < size - 1; index++) {
+			this.elements[index] = this.elements[index + 1];
 		}
-		for (int index = i; index < size; i++) {
-			newElements[index] = elements[i + 1];
-		}
+		size--;
 
-		// Save to my list
-		elements = newElements;
-
-		// return the removed element
+		// Return the removed element
 		return removedElement;
 	}
 
@@ -86,9 +80,11 @@ public class JavaList<E> implements IList<E> {
 
 	@Override
 	public void show() {
-		for (int i = 0; i < size; i++) {
-			System.out.println(elements[i] + " ");
+		System.out.printf("[");
+		for (int i = 0; i < size -1; i++) {
+			System.out.printf(elements[i] + ", ");
 		}
+		System.out.println(elements[size -1] + "]");
 	}
 
 	@SuppressWarnings("unchecked")
@@ -102,6 +98,7 @@ public class JavaList<E> implements IList<E> {
 			newElements[i] = elements[i];
 		}
 		newElements[size] = e;
+		size++;
 		return newElements;
 	}
 
@@ -126,5 +123,5 @@ public class JavaList<E> implements IList<E> {
 		}
 		return count;
 	}
-
+	
 }
