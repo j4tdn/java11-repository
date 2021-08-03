@@ -10,7 +10,7 @@ public class JavaList<E> implements IList<E>{
 	private E[] elements;
 
 	public JavaList() {
-		elements = create(initialCapacity);
+		elements = create(initialCapacity); 
 	}
 	
 	public JavaList(int capacity) {
