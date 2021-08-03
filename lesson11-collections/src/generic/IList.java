@@ -1,4 +1,4 @@
-ackage generic;
+package generic;
 
 import java.util.function.Predicate;
 
