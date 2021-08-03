@@ -14,12 +14,12 @@ public class Ex02 {
 		List<CharSequence> charsList = Arrays.asList("x", "y");
 		
 		printf(intList);
-		printf(floatList);
-		printf(doubleList);
+//		printf(floatList);
+//		printf(doubleList);
 		printf(numberList);
-		
-		printf(stringList);
-		printf(charsList);
+//		
+//		printf(stringList);
+//		printf(charsList);
 
 	}
 	
