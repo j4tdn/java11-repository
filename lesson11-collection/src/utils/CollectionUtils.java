@@ -15,10 +15,12 @@ public class CollectionUtils {
 		return result;
 	}
 	
-	public static void printf(List<String> elements) {
-		for (String element: elements) {
+	public static <E> void printf(List<E> elements) {
+		for (E element: elements) {
 			System.out.print(element + " ");
+			System.out.println();
 		}
+		System.out.println();
 	}
 	
 	public static void show(List<Integer> elements) {

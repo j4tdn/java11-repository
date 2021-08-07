@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.Objects;
+
 public class Item {
 	private int storeId;
 	private int itemId;
@@ -68,6 +70,11 @@ public class Item {
 	@Override
 	public String toString() {
 		return "Item [storeId=" + storeId +", itemId=" + itemId + ", name=" + name + ", price=" + price + "]";
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(storeId);
 	}
 
 }
