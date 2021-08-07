@@ -1,21 +1,24 @@
 package collection.list;
 
 import java.util.List;
-import static utils.CollectionUtils.*;
 
+import utils.CollectionUtils;
+
+import static utils.CollectionUtils.*;
 
 public class Ex06 {
 	public static void main(String[] args) {
-		List<Integer> first = init(1,2,3,4);
-		List<Integer> second = init(3,4,5,6);
+		List<Integer> first = init(1, 2, 3, 4);
+		List<Integer> second = init(3, 4, 5, 6);
 		
-		// addAll: hợp
-		// removeAll: remove Giao
-		// retainAll: Hiệu
-		first.removeAll(second);
+		// addAll: Hợp
+		// retailAll: remove Giao
+		// retainAll: remove Hiệu
 		
-		show(first);
-		show(second);
+		first.retainAll(second);
 		
+		CollectionUtils.printf(first);
+		CollectionUtils.printf(second);
 	}
+
 }
