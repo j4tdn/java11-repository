@@ -2,6 +2,8 @@ package collection.list;
 
 import java.util.List;
 
+import utils.CollectionUtils;
+
 import static utils.CollectionUtils.*;
 
 public class Ex06 {
@@ -13,7 +15,8 @@ public class Ex06 {
 		// retailAll: remove Hiệu
 		first.retainAll(second);
 
-		show(first);
-		show(second);
+	CollectionUtils.printf(first);
+	CollectionUtils.printf(second);
+		
 	}
 }
