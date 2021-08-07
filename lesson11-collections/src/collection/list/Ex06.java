@@ -15,7 +15,7 @@ public class Ex06 {
 
 		first.removeAll(second);
 
-		CollectionUtils.show(first);
+		CollectionUtils.printf(first);
 
 	}
 
