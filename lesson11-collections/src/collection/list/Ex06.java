@@ -14,8 +14,8 @@ public class Ex06 {
 		// retailAll: Giao
 		
 		first.retainAll(second);
-		show(first);
-		show(second);
+		//show(first);
+		//show(second);
 		
 	}
 	
