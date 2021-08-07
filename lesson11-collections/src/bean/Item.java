@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.Objects;
+
 public class Item {
 	private int itemId;
 	private int storeId;
@@ -61,6 +63,12 @@ public class Item {
 		Item that = (Item)obj;
 		
 		return getStoreId() == that.getStoreId() && getItemId() == that.getItemId();
+	}
+	
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return Objects.hash(storeId, itemId);
 	}
 
 	@Override

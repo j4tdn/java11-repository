@@ -14,7 +14,7 @@ public class Ex06 {
 		first.removeAll(second); //remove phan tu Giao
 		first.retainAll(second); //remove phần tử Hiệu
 		
-		show(first);
-		show(second);
+		printf(first);
+		printf(second);
 	}
 }
