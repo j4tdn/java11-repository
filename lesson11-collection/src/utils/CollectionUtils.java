@@ -1,7 +1,5 @@
 package utils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CollectionUtils {
@@ -9,24 +7,10 @@ public class CollectionUtils {
 		
 	}
 	
-	public static void printf(List<String> elements) {
-		for(String e : elements) {
-			System.out.print(e + " ");
+	public static <E> void printf(List<E> elements) {
+		for(E e : elements) {
+			System.out.println(e);				
 		}
-		System.out.println();
-	}
-	
-	public static void show(List<Integer> elements) {
-		for(Integer e : elements) {
-			System.out.print(e + " ");
-		}
-		System.out.println();
-	}
-	
-	public static List<Integer> init(Integer ...elements){
-		List<Integer> result = new ArrayList<>();
-		result.addAll(Arrays.asList(elements));
 		
-		return result;
 	}
 }
