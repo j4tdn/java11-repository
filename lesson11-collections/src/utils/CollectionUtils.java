@@ -17,17 +17,10 @@ public class CollectionUtils {
 		return result;
 	}
 	
-	public static void printf(List<String> elements) {
-		for (String element: elements) {
-			System.out.print(element + " ");
+	public static <E> void printf(List<E> elements) {
+		for (E element: elements) {
+			System.out.println(element);
 		}
-		System.out.println();
 	}
 	
-	public static void show(List<Integer> elements) {
-		for (Integer element: elements) {
-			System.out.print(element + " ");
-		}
-		System.out.println();
-	}
 }

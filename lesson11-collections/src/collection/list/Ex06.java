@@ -2,6 +2,8 @@ package collection.list;
 
 import java.util.List;
 
+import utils.CollectionUtils;
+
 import static utils.CollectionUtils.*;
 
 public class Ex06 {
@@ -15,8 +17,8 @@ public class Ex06 {
 		
 		first.retainAll(second);
 		
-		show(first);
-		show(second);
+		CollectionUtils.printf(first);
+		CollectionUtils.printf(second);
 	}
 
 }
