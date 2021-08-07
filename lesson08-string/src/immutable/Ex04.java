@@ -27,13 +27,13 @@ public class Ex04 {
 		System.out.println("i6: " + chars[6]);
 		System.out.println("c6: " + parent.charAt(6));
 		
-		String[] employee = {"EMP01", "Adma", " 2500", "Newyork"};
+		String[] employee = {"EMP01", "Adma", "2500", "Newyork"};
 		String result = "";
 		for (String attribute: employee) {
 			result += "-" + attribute;
 		}
 		System.out.println("result 1: " + result);
-		result = String.join("-", "EMP01", "Adma", " 2500", "Newyork");
+		result = String.join("-", employee);
 		System.out.println("result 2: " + result);
 		
 	}

@@ -38,6 +38,7 @@ public class Ex08 {
 				return o1.compareToIgnoreCase(o2);
 			}
 		}); 
+		
 		ArrayUtils.printf(text);
 		System.out.println("===================");
 

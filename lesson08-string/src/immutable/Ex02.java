@@ -23,7 +23,7 @@ public class Ex02 {
 		JvmUtils.hash("o2", o2);
 		JvmUtils.hash("o3", o3);
 
-		// So sánh:
+		// So sÃ¡nh:
 		// ==(stack-variable)
 		// Object#equals(default-stack-variable, being override-value)
 		// Comparable#comparaTo = > <

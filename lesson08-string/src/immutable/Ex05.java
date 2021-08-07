@@ -17,7 +17,7 @@ public class Ex05 {
 	
 	private static Student transfomer(String line) {
 		Student student = null;
-		String [] elements = line.split(",");
+		String[] elements = line.split(",");
 		System.out.println("============");
 		if (elements.length == 4) {
 			student = new Student(elements[0], elements[1], "male".equalsIgnoreCase(elements[2]), elements[3]);

@@ -8,7 +8,7 @@ public class CollectionUtils {
 	private CollectionUtils() {
 
 	}
-	
+
 	// ... variables
 	public static List<Integer> init(Integer... elements) {
 		List<Integer> result = new ArrayList<>();
@@ -16,16 +16,9 @@ public class CollectionUtils {
 		return result;
 	}
 
-	public static void printf(List<String> elements) {
-		for (String element : elements) {
-			System.out.print(element + " ");
-		}
-		System.out.println();
-	}
-
-	public static void show(List<Integer> elements) {
-		for (Integer element : elements) {
-			System.out.print(element + " ");
+	public static void printf(List<?> elements) {
+		for (var element : elements) {
+			System.out.println(element);
 		}
 		System.out.println();
 	}
