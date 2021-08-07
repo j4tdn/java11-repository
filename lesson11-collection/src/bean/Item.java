@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.Objects;
+
 public class Item {
 	private int storeId;
 	private int itemId;
@@ -66,7 +68,10 @@ public class Item {
 		
 		return getStoreId() == that.getStoreId() && getItemId() == that.getItemId(); 
 	}
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(storeId, itemId);
+	}
 	
 	@Override
 	public String toString() {
