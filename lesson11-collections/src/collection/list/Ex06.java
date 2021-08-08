@@ -14,7 +14,7 @@ public class Ex06 {
 		// retainAll: remove Hiệu
 		first.retainAll(second);
 
-		show(first);
-		show(second);
+		printf(first);
+		printf(second);
 	}
 }

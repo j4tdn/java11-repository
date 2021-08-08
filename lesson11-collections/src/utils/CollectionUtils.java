@@ -3,6 +3,7 @@ package utils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class CollectionUtils {
 	private CollectionUtils() {
@@ -16,8 +17,15 @@ public class CollectionUtils {
 		return result;
 	}
 
-	public static void printf(List<?> elements) {
-		for (var element : elements) {
+	public static <E> void printf(List<E> elements) {
+		for (E element : elements) {
+			System.out.println(element);
+		}
+		System.out.println();
+	}
+	
+	public static <E> void printf(Set<E> elements) {
+		for (E element : elements) {
 			System.out.println(element);
 		}
 		System.out.println();
