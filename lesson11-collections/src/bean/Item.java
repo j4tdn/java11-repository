@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.Objects;
+
 public class Item {
 	private int storeId;
 	private int itemId;
@@ -9,10 +11,9 @@ public class Item {
 	public Item() {
 	}
 
-	public Item(int storeId, int id, String name, double price) {
-		super();
+	public Item(int storeId, int itemId, String name, double price) {
 		this.storeId = storeId;
-		this.itemId = id;
+		this.itemId = itemId;
 		this.name = name;
 		this.price = price;
 	}
@@ -51,11 +52,11 @@ public class Item {
 	
 	@Override
 	public boolean equals(Object o) {
-		if(this == o) {
+		if (this == o) {
 			return true;
 		}
 		
-		if(!(o instanceof Item)) {
+		if (!(o instanceof Item)) {
 			return false;
 		}
 		
@@ -63,7 +64,12 @@ public class Item {
 		
 		return getStoreId() == that.getStoreId() && getItemId() == that.getItemId();
 	}
-
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(storeId, itemId);
+	}
+	
 	@Override
 	public String toString() {
 		return "Item [storeId=" + storeId + ", itemId=" + itemId + ", name=" + name + ", price=" + price + "]";
