@@ -45,7 +45,6 @@ public class Ex02 {
 	 * @param behavior  given condition
 	 * @return output data
 	 */
-
 	// Lambda expression is a instance of Functional Interface
 	// Functional interface
 	private static List<Apple> filterApples(List<Apple> inventory, Strategy<Apple> strategy) {
