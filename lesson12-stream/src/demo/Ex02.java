@@ -39,7 +39,7 @@ public class Ex02 {
 	// class >> abtract class
 	// Lambda expression is a instance of Functional Interface
 	// Functional Interface 
-	private static List<Apple> filterApples(List<Apple> inventory, Strategy strategy){
+	private static List<Apple> filterApples(List<Apple> inventory, Strategy<Apple> strategy){
 		List<Apple> result = new ArrayList<>();
 		for (Apple apple : inventory) {
 			if (strategy.behavior(apple)) {
