@@ -5,7 +5,13 @@ import java.util.Set;
 
 public class Dictionary {
 	public static void main(String[] args) {
-		Set<WordEnglish> words = new HashSet<>();
+		Set<WordEnglish> words = getWord();
+		add(words, new WordEnglish("bird", "noun", null));
+		printf(words);
+
+		System.out.println("<<=== Word Find ===>>");
+		WordEnglish word = search(words, "chicken");
+		System.out.println(word);
 	}
 
 	private static boolean add(Set<WordEnglish> words, WordEnglish word) {
@@ -21,4 +27,19 @@ public class Dictionary {
 		return null;
 	}
 
+	private static Set<WordEnglish> getWord() {
+		Set<WordEnglish> words = new HashSet<>();
+		words.add(new WordEnglish("buffalo", "noun", null));
+		words.add(new WordEnglish("chicken", "noun", null));
+		words.add(new WordEnglish("go", "verd", null));
+		words.add(new WordEnglish("swim", "verd", null));
+		words.add(new WordEnglish("beautiful", "adj", null));
+		return words;
+	}
+
+	private static <E> void printf(Set<E> elements) {
+		for (E e : elements) {
+			System.out.println(e);
+		}
+	}
 }
