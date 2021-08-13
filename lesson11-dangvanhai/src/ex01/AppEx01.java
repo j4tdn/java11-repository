@@ -3,10 +3,6 @@ package ex01;
 import static utils.ArrayUtils.*;
 
 public class AppEx01 {
-	enum Direction {
-		LEFT, RIGHT, TOP, BOTTOM;
-	}
-
 	private static final int n = 4;
 
 	public static void main(String[] args) {
@@ -15,34 +11,24 @@ public class AppEx01 {
 	}
 
 	private static int[][] draw(int n) {
-		int len = 2 * n - 1;
-		int[][] arr = new int[len][len];
-		fill(arr, n - 1, n - 1, Direction.LEFT);
-		fill(arr, n - 1, n - 1, Direction.RIGHT);
+		int[][] arr = new int[2 * n - 1][2 * n - 1];
+		fill(arr, n - 1, n - 1);
 		return arr;
 	}
 
-	private static void fill(int[][] arr, int i, int j, Direction direction) {
+	private static void fill(int[][] arr, int i, int j) {
 		// Validate
-		if (i < 0 | i >= arr.length) {
-			return;
-		}
-		if (j < 0 | j >= arr[i].length) {
+		if ((i < 0 || i >= arr.length) || (j < 0 || j >= arr[i].length)) {
 			return;
 		}
 
-		// Fill this
+		// Fill here and the flip horizontal position
 		arr[i][j] = j + 1;
+		arr[i][arr.length - 1 - j] = arr.length - j;
 
-		// Fill boxes which near this by direction
-		if (direction == Direction.LEFT) {
-			fill(arr, i - 1, j - 1, direction);
-			fill(arr, i, j - 1, direction);
-			fill(arr, i + 1, j - 1, direction);
-		} else if (direction == Direction.RIGHT) {
-			fill(arr, i - 1, j + 1, direction);
-			fill(arr, i, j + 1, direction);
-			fill(arr, i + 1, j + 1, direction);
-		}
+		// Fill in the three nearest positions of left
+		fill(arr, i - 1, j - 1);
+		fill(arr, i, j - 1);
+		fill(arr, i + 1, j - 1);
 	}
 }

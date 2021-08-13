@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.function.Function;
 
 /**
- * Approach: Clone HashMap + develop filter and sorting extension
+ * Approach: Clone HashMap + Develop filter and sorting features
  * 
  * @author hai
  *
