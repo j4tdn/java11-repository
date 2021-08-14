@@ -1,7 +1,11 @@
 package demo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 import bean.Apple;
@@ -36,6 +40,26 @@ public class Ex02 {
 		System.out.println("======== Weight and Country Apples =======");
 		List<Apple> applesBy = filterApples(inventory, c -> "Vietnam".equals(c.getCountry()));
 		CollectionUtils.printf(applesBy);
+
+		System.out.println("======= Map Apples ========");
+		// Lambda expressions
+		// Get List of origin countries of apples
+		Set<String> countries = map(inventory, a -> a.getColor());
+		CollectionUtils.printf(countries);
+		//
+		List<String> texts = Arrays.asList("a", "abc", "acdkdj", "asjdkfjskdf");
+		Set<Integer> lengths =  map(texts, s -> s.length());
+		CollectionUtils.printf(lengths);
+	}
+
+	private static <T, R> Set<R> map(List<T> ts, Function<T, R> function) {
+		Set<R> result = new HashSet<>();
+
+		for (T t : ts) {
+			result.add(function.apply(t));
+		}
+
+		return result;
 	}
 
 	/**
