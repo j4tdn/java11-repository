@@ -1,8 +1,11 @@
 package bt04;
 
 import java.util.Set;
+import java.util.stream.Collectors;
+
 import utils.Utils;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -16,7 +19,7 @@ public class DictionaryDemo {
 		voc.add(new Vocabulary("Sad", "Buon", "Adj", "S +  O + adj"));
 		voc.add(new Vocabulary("Work", "Lam", "V", "S + V "));
 		voc.add(new Vocabulary("Dog", "Con Cho ", "N", "S+v"));
-
+		
 		// 1: add vocabulary
 		Vocabulary v1 = new Vocabulary("i", "Choi", "V", "none");
 		Vocabulary v2 = new Vocabulary("k", "Choi", "V", "none");
@@ -28,6 +31,8 @@ public class DictionaryDemo {
 		Scanner ip = new Scanner(System.in);
 		System.out.print("Enter your work you need find:");
 		String find = ip.nextLine();
-		System.out.println(voc.stream().filter(obj -> obj.getWord().toUpperCase().contains(find.toUpperCase())).findFirst().get());
+		List<Vocabulary> op = voc.stream().filter(a -> a.getWord().contains(find.toUpperCase())).collect(Collectors.toList());
+		op.forEach(System.out::println);
+		
 	}
 }
