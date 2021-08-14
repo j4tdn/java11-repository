@@ -1,7 +1,11 @@
 package demo;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 import bean.Apple;
 import bean.Condition;
@@ -16,8 +20,27 @@ public class Ex02 {
 		
 		System.out.println("=====================");
 		CollectionUtils.printf(apples);
+		
+		// Lambda expressions 
+		// Get list of origin countries of applet
+		
+		System.out.println("======================");
+		Set<String> countries = map(inventory, a -> a.getCountry());
+		CollectionUtils.printf(countries);
+		
 	}
 	
+	private static <T, R> Set<R> map(List<T> ts, Function<T, R> function){
+		Set<R> result = new HashSet<>();
+		
+		// behavior(T = Apple): R
+		for (T t : ts) {
+			// apple -> country, weight, id
+			result.add(function.apply(t));
+		}
+		
+		return result;
+	}
 	
 
 	/**
