@@ -1,48 +1,61 @@
 package demo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.function.Function;
 
-import bean.*;
-import utils.*;
+import bean.Apple;
+import bean.Strategy;
+import utils.AppleUtils;
+import utils.CollectionUtils;
 
 public class Ex02 {
 	public static void main(String[] args) {
 		List<Apple> inventory = AppleUtils.getAll();
-		
-		List<Apple> greenApple = filterApples(inventory, apple -> 
-				 "green".equals(apple.getColor()));
-		
-		List<Apple> redApple = filterApples(inventory,apple ->
-				 "red".equals(apple.getColor())); 
-		System.out.println("====== Green Apples ======");
-		CollectionUtils.printf(greenApple);
-		
-		System.out.println("====== red Apples ======");
-		CollectionUtils.printf(redApple);
+
+		List<Apple> greenApples = filterApples(inventory, a -> "green".equals(a.getColor()));
+
+		List<Apple> redApples = filterApples(inventory, (a) -> "red".equals(a.getColor()));
+
+		List<Apple> heavyApples = filterApples(inventory, (a) -> a.getWeight() > 200);
+
+		System.out.println("==== Green Apples ====");
+		CollectionUtils.printf(greenApples);
+
+		System.out.println("==== Red Apples ====");
+		CollectionUtils.printf(redApples);
+
+		System.out.println("==== Heavy Apples ====");
+		CollectionUtils.printf(heavyApples);
+
+		// Lambda expressions
+		// Get list of origin countries of apples
+		Set<String> countries = map(inventory, Apple::getColor);
+		CollectionUtils.printf(countries);
+
+		List<String> texts = Arrays.asList("abc", "abcde", "bcd", "fbdxza");
+		Set<Integer> lengths = map(texts, s -> s.length());
+		CollectionUtils.printf(lengths);
 	}
-	/*
-	 * get Apple with given condition
-	 * 
-	 * @param inventory input data
-	 * @param behavior given condition
-	 * @return output data
-	 */
-	
-	// class >> abstract class
-	// Lambda expression is a instance
-	private static List<Apple> filterApples(List<Apple> inventory, Strategy strategy){
-		List<Apple> result = new ArrayList<>();
-		for(Apple apple: inventory) {
-			if(strategy.behavior(apple)) {
-				result.add(apple);
-			}
-			
+
+	private static <T, R> Set<R> map(List<T> ts, Function<T, R> func) {
+		Set<R> result = new HashSet<>();
+		for (T t : ts) {
+			result.add(func.apply(t));
 		}
 		return result;
 	}
-	private static boolean behavior(Apple apple) {
-		return apple.getWeight() > 300;
-	}
 
+	private static List<Apple> filterApples(List<Apple> inventory, Strategy strategy) {
+		List<Apple> result = new ArrayList<Apple>();
+		for (Apple apple : inventory) {
+			if (strategy.behavior(apple)) {
+				result.add(apple);
+			}
+		}
+		return result;
+	}
 }
