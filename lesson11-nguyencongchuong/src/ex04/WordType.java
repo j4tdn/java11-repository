@@ -1,0 +1,5 @@
+package ex04;
+
+public enum WordType {
+	NOUN, VERD, ADJECTIVE, ADVERD, PREPOSITION, CONJUNCTION, INTERJECTION
+}
