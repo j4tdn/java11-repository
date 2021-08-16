@@ -16,7 +16,7 @@ public class CollectionUtils {
 			System.out.println(e);
 		}
 	}
-	
+
 	public static <T, R> Set<R> map(List<T> ts, Function<T, R> function) {
 		Set<R> result = new HashSet<>();
 
