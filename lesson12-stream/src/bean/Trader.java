@@ -1,9 +1,10 @@
 
 package bean;
 
+
 public class Trader {
-	private final String name;
-	private final String city;
+	private String name;
+	private String city;
 
 	public Trader(String n, String c) {
 		this.name = n;
@@ -12,6 +13,23 @@ public class Trader {
 
 	public String getName() {
 		return this.name;
+	}
+	
+	//Using constructor references
+	public Trader(String line) {
+		String[] tokens  = line.split("-");
+		if(tokens.length == 2) {
+			this.name = tokens[0];
+			this.city = tokens[1];
+		}
+	}
+	public static Trader transfer(String line) {
+		Trader trader = null;
+		String[] tokens = line.split("-");
+		if(tokens.length == 2) {
+			trader = new Trader(tokens[0], tokens[1]);
+		}
+		return trader;
 	}
 
 	public String getCity() {

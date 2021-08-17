@@ -20,6 +20,11 @@ public class Apple {
 		return id;
 	}
 
+	public Apple(int id, String country) {
+		this.id = id;
+		this.country = country;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
