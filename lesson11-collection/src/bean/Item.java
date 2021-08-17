@@ -1,6 +1,8 @@
 package bean;
 
-public class Item implements Comparable<Item>{
+import java.util.Objects;
+
+public class Item {
 	private int storeId;
 	private int itemId;
 	private String name;
@@ -16,12 +18,6 @@ public class Item implements Comparable<Item>{
 		this.itemId = itemId;
 		this.name = name;
 		this.price = price;
-	}
-
-
-
-	public Item(int i, String string, int j) {
-		
 	}
 
 	public int getItemId() {
@@ -57,27 +53,28 @@ public class Item implements Comparable<Item>{
 	}
 	
 	@Override
+	public boolean equals(Object o) {
+		// same address
+		if (this == o) {
+			return true;
+		}
+		
+		// different address
+		if (!(o instanceof Item)) {
+			return false;
+		}
+		Item that = (Item) o;
+		return getStoreId() == that.getStoreId() && getItemId() == that.getItemId();
+	}
+	
+	@Override
 	public String toString() {
 		return "Item [storeId=" + storeId +", itemId=" + itemId + ", name=" + name + ", price=" + price + "]";
 	}
 	
-	// this: items[j]
-	// item: items[j+1]
-//	@Override
-//	public int compareTo(Item item) {
-//		if (getStoreId() > item.getStoreId()) {
-//			return 1;
-//		}
-//		if (getStoreId() == item.getStoreId()) {
-//			return item.getItemId() - getItemId();
-//		}
-//		return 0;
-//		// return getItemId() - item.getItemId();
-//	}
-	
 	@Override
-	public int compareTo(Item item) {
-		return Double.compare(item.getPrice(), this.getPrice());
+	public int hashCode() {
+		return Objects.hashCode(storeId);
 	}
 
 }
