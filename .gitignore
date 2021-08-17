@@ -6,11 +6,20 @@
 *.classpath
 *.settings
 
+<<<<<<< HEAD
 # Ignore .gitignore in project
 */.gitignore
 
 # Compiled class file
 */bin/
+=======
+#Ignore .gitignore in project
+*/.gitignore
+
+
+# Compiled class file
+*./bin/
+>>>>>>> dbc1029 (Upadate .gitinore)
 *.class
 
 # Log file
