@@ -1,7 +1,11 @@
 package demo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.function.Function;
 
 import bean.Apple;
 import bean.Strategy;
@@ -46,7 +50,32 @@ public class Ex02 {
 		
 		System.out.println("============Heavy Apple============");
 		CollectionUtils.printf(heaveApple);
+		
+		
+		System.out.println("==========Map of Apple==============");
+		//Lambda Expression
+		//Get list of origin countries of apples 
+		//de luu phan tu k trung nhau dung Set
+		Set<String> color = map(inventory, a -> a.getColor());
+		CollectionUtils.printf(color);
+		
+		System.out.println("=========Map String ================");
+		List<String> texts = Arrays.asList("abc", "abcd", "ab", "abcdef");
+		//k dam bao vi tri phan tu dua vao
+		Set<Integer> lengths = map(texts, s -> s.length());
+		CollectionUtils.printf(lengths);
+		
+	}
 	
+	private static <T, R> Set<R> map(List<T> elements, Function<T, R> function) {
+		Set<R> result = new HashSet<>();
+		
+		//behavior(T =Apple) : R >> apple.getCountry();
+		for(T element : elements ) {
+			//truyen vao apple -> country(String) || weight(Double) || id
+			result.add(function.apply(element));
+		}
+		return result;
 	}
 	
 	private static List<Apple> fiApples(List<Apple> inventory, Strategy<Apple> strategy){
