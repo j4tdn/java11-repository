@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 import utils.CollectionUtils;
 
@@ -71,6 +72,32 @@ public class App {
 		trc.sort(Comparator.comparing(Trader::getCity, Comparator.reverseOrder()));
 		CollectionUtils.printf(trc);
 		
+		// Q5 
+		Set<String> traderName = new TreeSet<>();
+		for (Trader trader: traders) {
+			traderName.add(trader.getName());
+		}
+		String s = traderName.toString();
+		System.out.println(s);
+
+		// Q6 
+		List<String> cityName = new ArrayList<>();
+		boolean result = true;
+		for(Trader trader: traders) {
+			if (!trader.getCity().equals("Milan")) {
+				result = false;
+			}
+		}
+		
+		// Q7 
+		int countTrader = 0;
+		for(Trader trader: traders) {
+			if (trader.getCity().equals("Milan")) {
+				++countTrader;
+			}
+		}
+		
+		// Q8 
 	}
 
 }
