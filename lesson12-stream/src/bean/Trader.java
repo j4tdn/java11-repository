@@ -8,7 +8,7 @@ public class Trader {
 		this.name = n;
 		this.city = c;
 	}
-
+	
 	public Trader(String line) {
 		String[] tokens = line.split("-");
 		if(tokens.length == 2) {

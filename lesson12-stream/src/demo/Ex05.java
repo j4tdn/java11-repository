@@ -9,6 +9,7 @@ import functional.BuFunction;
 public class Ex05 {
 	public static void main(String[] args) {
 		// constructor reference
+		// empty constructor ()->new Apple = Apple::new
 		
 		Supplier<Apple> supplier = Apple::new;
 		Apple apple = supplier.get();

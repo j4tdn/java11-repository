@@ -9,6 +9,7 @@ import utils.FileUtils;
 
 public class Ex06 {
 	public static void main(String[] args) {
+		
 		List<String> lines = FileUtils.readLines("trader.txt");
 		lines.forEach(System.out::println);
 		
