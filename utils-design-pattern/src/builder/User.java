@@ -46,7 +46,7 @@ public class User {
 	}
 	//Builder b1 = new Builder().first(" ").....build();
 	//b1 => u1
-	//nested class  -- java do not nested func
+	//nested class  -- java do not nested function
 	
 	@Override
 	public String toString() {
@@ -61,7 +61,7 @@ public class User {
 		private String phone;
 		private String address;
 		
-		//mandatory firstname, lastname
+		//mandatory first name, last name
 		private Builder(String firstName, String lastName) { // this
 			this.firstName = firstName;
 			this.lastName = lastName;
