@@ -27,7 +27,7 @@ public class Ex08 {
 	/*	List<Integer> numbers = Arrays.asList(1,2,1,3,3,2,4);
 		
 		Set<Integer> evenNumbers = numbers.stream()
-				 					.filter(nbr -> nbr %2 == 0)
+				 					.filter(n -> n %2 == 0)
 				 					.collect(Collectors.toSet());
 		System.out.println("runtime: " + evenNumbers.getClass().getSimpleName());
 		collectionUtils.printf(evenNumbers);
