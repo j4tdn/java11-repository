@@ -1,14 +1,31 @@
 package bean;
 
+import java.util.function.Function;
+
 public class Trader {
-	private final String name;
-	private final String city;
+	private String name;
+	private String city;
 
 	public Trader(String n, String c) {
 		this.name = n;
 		this.city = c;
 	}
-
+	
+	public static Trader transfer(String line) {
+		Trader trader = null;
+		String[] tokens = line.split("-");
+		if (tokens.length == 2) {
+			trader = new Trader(tokens[0], tokens[1]);
+		}
+		return trader;
+	}
+	public Trader(String line) {
+		String[] tokens = line.split("-");
+		if (tokens.length == 2) {
+			this.name = tokens[0];
+			this.city = tokens[1];
+		}
+	}
 	public String getName() {
 		return this.name;
 	}

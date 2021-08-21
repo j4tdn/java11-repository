@@ -47,6 +47,7 @@ public class Ex04 {
 		
 		// Example 03
 		Function<String, Integer> f1 = s -> Integer.parseInt(s);
+		Function<String, Integer> f2 = Integer::parseInt;
 		
 		// List<Apple> la2 // acbb
 				// la1 == la2
