@@ -9,6 +9,11 @@ public class Apple {
 	public Apple() {
 	}
 	
+	public Apple(int id, String country) {
+		this.id = id;
+		this.country = country;
+	}
+	
 	public Apple(int id, String color, double weight, String country) {
 		this.id = id;
 		this.color = color;
@@ -52,5 +57,4 @@ public class Apple {
 	public String toString() {
 		return "Apple [id=" + id + ", color=" + color + ", weight=" + weight + ", country=" + country + "]";
 	}
-
 }

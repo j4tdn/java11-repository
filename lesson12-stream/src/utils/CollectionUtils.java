@@ -8,18 +8,16 @@ import java.util.function.Function;
 
 public class CollectionUtils {
 	private CollectionUtils() {
-
 	}
-
+	
 	public static <E> void printf(Collection<E> elements) {
-		for (E e : elements) {
-			System.out.println(e);
+		for (E element : elements) {
+			System.out.println(element);
 		}
 	}
 	
-	public static <T, R> Set<R> map(List<T> ts, Function<T, R> function) {
+	public static <T, R> Set<R> map(List<T> ts, Function<T, R> function ) {
 		Set<R> result = new HashSet<>();
-
 		for (T t : ts) {
 			result.add(function.apply(t));
 		}
