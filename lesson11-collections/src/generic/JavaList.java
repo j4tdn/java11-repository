@@ -1,15 +1,16 @@
 package generic;
 
 import java.lang.reflect.Array;
+import java.util.function.Predicate;
 
 public class JavaList<E> implements IList<E> {
-
-	private int initialCapacity = 3;
+	
+	private int initialCapacity = 4;
 	private int size;
 	private E[] elements;
-
+	
 	public JavaList() {
-		elements = create(0);
+		elements = create(initialCapacity);
 	}
 
 	public JavaList(int capacity) {
@@ -21,15 +22,10 @@ public class JavaList<E> implements IList<E> {
 		}
 		elements = create(initialCapacity);
 	}
-
-	@SuppressWarnings("unchecked")
-	private E[] create(int size) {
-		return (E[]) Array.newInstance(Object.class, size);
-	}
-
+	
 	@Override
 	public int size() {
-		return 0;
+		return size;
 	}
 
 	@Override
@@ -43,33 +39,62 @@ public class JavaList<E> implements IList<E> {
 			elements[size++] = e;
 			return true;
 		}
-
-		E[] newElements = create(size + 1);
-
-		for (int i = 0; i < size; i++) {
-			newElements[i] = elements[i];
-		}
-		newElements[size++] = e;
-		elements = newElements;
+		
+		elements = grow(e);
 		return true;
 	}
-
+	
 	@Override
-	public boolean remove() {
+	public boolean remove(int i) {
 		return false;
 	}
 
 	@Override
 	public E get(int i) {
-		if(i<0||i>=size) {
-			throw new ArrayIndexOutOfBoundsException("Index "+ i +"out of");
+		if (i < 0 || i >= size) {
+			throw new ArrayIndexOutOfBoundsException("Index " + i + "out of bounds exception ");
 		}
-		return null;
+		return elements[i];
 	}
 
 	@Override
-	public void set(int i, E t) {
-		
+	public void set(int i, E e) {
+		if (i < 0 || i >= size) {
+			throw new ArrayIndexOutOfBoundsException("Index " + i + "out of bounds exception ");
+		}
+		elements[i] = e;
+	}
+	
+	@Override
+	public void show() {
+		for(int i = 0; i < size; i++) {
+			System.out.println(elements[i]);
+		}
+	}
+	
+	@Override
+	public int count(Predicate<E> cond) {
+		int count = 0;
+		for (int i = 0 ; i < size; i++) {
+			if (cond.test(elements[i])) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private E[] create(int size) {
+		return (E[])Array.newInstance(Object.class, size);
+	}
+	
+	private E[] grow(E e) {
+		E[] newElements = create(size+1);
+		for (int i = 0; i < size; i++) {
+			newElements[i] = elements[i];
+		}
+		newElements[size++] = e;
+		return newElements;
 	}
 
 }

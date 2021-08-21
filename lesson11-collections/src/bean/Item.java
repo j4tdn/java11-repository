@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.Objects;
+
 public class Item {
 	private int storeId;
 	private int itemId;
@@ -7,21 +9,15 @@ public class Item {
 	private double price;
 
 	public Item() {
+
 	}
 
 	public Item(int storeId, int itemId, String name, double price) {
+		super();
 		this.storeId = storeId;
 		this.itemId = itemId;
 		this.name = name;
 		this.price = price;
-	}
-
-	public int getStoreId() {
-		return storeId;
-	}
-
-	public void setStoreId(int storeId) {
-		this.storeId = storeId;
 	}
 
 	public int getItemId() {
@@ -30,6 +26,14 @@ public class Item {
 
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
+	}
+
+	public void setStoreId(int storeId) {
+		this.storeId = storeId;
+	}
+
+	public int getStoreId() {
+		return storeId;
 	}
 
 	public String getName() {
@@ -47,22 +51,30 @@ public class Item {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-
+	
 	@Override
 	public boolean equals(Object o) {
-		if(this==o) {
+		// same address
+		if (this == o) {
 			return true;
 		}
-		if(!(o instanceof Item)) {
+		
+		// different address
+		if (!(o instanceof Item)) {
 			return false;
 		}
-		Item that = (Item)o;
-		return getStoreId()==that.getStoreId() && getItemId() == that.getItemId();
+		Item that = (Item) o;
+		return getStoreId() == that.getStoreId() && getItemId() == that.getItemId();
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Item [storeId=" + storeId + ", itemId=" + itemId + ", name=" + name + ", price=" + price + "]";
+		return "Item [storeId=" + storeId +", itemId=" + itemId + ", name=" + name + ", price=" + price + "]";
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(storeId);
 	}
 
 }
