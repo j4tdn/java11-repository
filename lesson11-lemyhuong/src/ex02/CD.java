@@ -1,4 +1,4 @@
-package ex01;
+package ex02;
 
 public class CD {
 	private int id;
