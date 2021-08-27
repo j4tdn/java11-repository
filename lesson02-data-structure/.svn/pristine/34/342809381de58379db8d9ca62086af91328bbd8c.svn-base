@@ -2,7 +2,6 @@ package data;
 
 public class Digit {
 	// attributr
-	public int a;
 	public int value;
 	public Digit(int input) {
 		// current reference
