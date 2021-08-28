@@ -68,4 +68,17 @@ public class Dish {
     public String toString() {
         return id + ", " + name + ", " + calories + ", " + kind + ", " + vegetarian;
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+    	if (this == obj) {
+    		return true;
+    	}
+    	
+    	if (!(obj instanceof Dish)) {
+    		return false;
+    	}
+    	Dish dish = (Dish) obj;
+    	return getCalories() == dish.getCalories();
+    }
 }
