@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -40,9 +41,11 @@ public class Ex08 {
 		CollectionUtils.printf(uniqueNbrs);
 		
 		numberss.stream()
-		.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+		.collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
 		.entrySet()
 		.stream()
-		.map(null)
+		.filter(entry -> entry.getValue() == 1)
+		.map(Entry::getKey).collect(Collectors.toList())
+		.forEach(System.out::println);
 	}
 }
