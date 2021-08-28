@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.Objects;
+
 public class Dish {
 	
 	public enum Kind {
@@ -62,6 +64,23 @@ public class Dish {
 
     public void setVegetarian(boolean vegetarian) {
         this.vegetarian = vegetarian;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+    	if(obj == this) {
+    		return true;
+    	}
+    	if(!(obj instanceof Dish)){
+    		return false;
+    	}
+    	
+    	Dish that = (Dish) obj;
+    	return getCalories() == that.getCalories();
+    }
+    @Override
+    public int hashCode() {
+    	return Objects.hash(getCalories());
     }
     
     @Override
