@@ -3,7 +3,10 @@ package demo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import utils.ArraysUtils;
@@ -26,5 +29,18 @@ public class Ex08 {
 				.collect(Collectors.toSet());
 		
 		CollectionUtils.printf(evenNumbers);
+		
+		
+		List<Integer> numberss = Arrays.stream(digits).boxed().collect(Collectors.toList());
+		
+		numberss.stream()
+		.collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
+		.entrySet()
+		.stream()
+		.filter(entry -> entry.getValue() == 1)
+		.map(Entry::getKey).collect(Collectors.toList())
+		.forEach(System.out::println);
+		
+		
 	}
 }
