@@ -21,7 +21,7 @@ public class Trader {
 		Trader trader = null;
 		String[] tokens = line.split("-");
 		if (tokens.length == 2) {
-			trader = new Trader(tokens[0], tokens[0]);
+			trader = new Trader(tokens[0], tokens[1]);
 		}
 		return trader;
 	}

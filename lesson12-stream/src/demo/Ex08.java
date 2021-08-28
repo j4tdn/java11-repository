@@ -2,7 +2,9 @@ package demo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import utils.ArrayUtils;
@@ -27,5 +29,20 @@ public class Ex08 {
 							  .toArray();
 		
 		ArrayUtils.printf(evenNum);
+		
+		// convert int[] to List<Integer>
+		List<Integer> numberss = Arrays.stream(digits).boxed().collect(Collectors.toList());
+		
+		List<Integer> uniqueNbrs = numberss.stream()
+				.filter(nbr -> Collections.frequency(numberss, nbr) == 1)
+				.collect(Collectors.toList());
+		
+		CollectionUtils.printf(uniqueNbrs);
+		
+		numberss.stream()
+		.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+		.entrySet()
+		.stream()
+		.map(null)
 	}
 }
