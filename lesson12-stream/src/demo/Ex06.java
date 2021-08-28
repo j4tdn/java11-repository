@@ -8,27 +8,26 @@ import bean.Trader;
 import utils.FileUtils;
 
 public class Ex06 {
-	public static void main(String[] args) {
-		List<String> lines = FileUtils.readLines("Trader.txt");
-		
-		lines.forEach(System.out::println);
-		// lines >> name-city
-//		List<Trader> traders = FileUtils.convert(lines, Trader::new);
-		List<Trader> traderss = FileUtils.convert(lines, Trader::tranfer);
-		
-		
-		
-//		for(String line : lines) {
-//			String[] tokens = line.split("-");
-//			if(tokens.length == 2) {
-//				Trader trader = new Trader(tokens[0], tokens[1]);
-//				traders.add(trader);
-//			}
-//		}
-		
-		System.out.println("================Traders================");
-//		traders.forEach(System.out::println);
-		traderss.forEach(System.out::println);
-	}
+public static void main(String[] args) {
+	List<String> lines = FileUtils.readlines("trader.txt");
+	lines.forEach(System.out::println);
 	
+	System.out.println("===============");
+	// line >> name-city
+	//List<Trader> traders = convert(lines, Trader::new);
+	List<Trader> traders = convert(lines, Trader::transfer);
+		traders.forEach(System.out::println);
+	}
+private static <T> List<T> convert(List<String> lines,Function<String, T> function){
+	List<T> result = new  ArrayList<>();
+	
+	for(String line: lines) {
+		T t = function.apply(line);
+		if(t != null) {
+			result.add(t);
+		}
+	}
+	return result;
+	
+}
 }
