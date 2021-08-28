@@ -1,6 +1,10 @@
 package utils;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.function.Function;
 
 public class CollectionUtils {
 	public static void main(String[] args) {
@@ -11,5 +15,15 @@ public class CollectionUtils {
 		for	(E element: elements) {
 			System.out.println(element);
 		}
+	}
+	
+	public static <T, R> Set<R> map(List<T> ts, Function<T, R> function) {
+		Set<R> result = new HashSet<>();
+
+		for (T t: ts) {
+			result.add(function.apply(t));
+		}
+
+		return result;
 	}
 }

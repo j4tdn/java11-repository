@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import bean.Dish;
 import utils.ArrayUtils;
 import utils.CollectionUtils;
+import utils.DishUtils;
 
 public class Ex08 {
 	public static void main(String[] args) {
@@ -28,5 +30,7 @@ public class Ex08 {
 											.filter(a -> a%2==0)
 											.collect(Collectors.toSet());
 		CollectionUtils.printf(evenNumbers);
+		
+		List<Dish> dish = DishUtils.getAll();
 	}
 }

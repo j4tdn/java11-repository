@@ -25,20 +25,12 @@ public class Ex02 {
 
 		// Lambda expressions
 
-		Set<String> countries = map(inventory, apple -> apple.getCountry());
+		Set<String> countries = CollectionUtils.map(inventory, apple -> apple.getCountry());
 		CollectionUtils.printf(countries);
 
 	}
 
-	private static <T, R> Set<R> map(List<T> ts, Function<T, R> function) {
-		Set<R> result = new HashSet<>();
 
-		for (T t: ts) {
-			result.add(function.apply(t));
-		}
-
-		return result;
-	}
 
 	/**
 	 * Get apple with given condition
