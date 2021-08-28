@@ -13,6 +13,11 @@ public class JavaList<E> implements IList<E>{
 		elements = create(initialCapacity);
 	}
 	
+	@SuppressWarnings("unchecked")
+	public E[] create(int size) {
+		return (E[])Array.newInstance(Object.class, size);
+	}
+	
 	public JavaList(int capacity) {
 		if (capacity < 0) {
 			throw new IllegalArgumentException("Capacity should be greater than 0");
@@ -22,11 +27,7 @@ public class JavaList<E> implements IList<E>{
 		}
 		elements = create(initialCapacity);
 	}
-	
-	@SuppressWarnings("unchecked")
-	public E[] create(int size) {
-		return (E[])Array.newInstance(Object.class, size);
-	}
+
 	
 	@Override
 	public int size() {
@@ -47,6 +48,15 @@ public class JavaList<E> implements IList<E>{
 		E[] newElements = grow(e);
 		elements = newElements;
 		return true;
+	}
+	
+	public E[] grow( E e) {
+		E[] newElements = create(size + 1);
+		for (int i = 0; i < size; i++) {
+			newElements[i] = elements[i];
+		}
+		newElements[size++] = e;
+		return newElements;
 	}
 
 	@Override
@@ -75,15 +85,6 @@ public class JavaList<E> implements IList<E>{
 		}
 	}
 	
-	public E[] grow( E e) {
-		E[] newElements = create(size + 1);
-		for (int i = 0; i < size; i++) {
-			newElements[i] = elements[i];
-		}
-		newElements[size++] = e;
-		return newElements;
-	}
-
 	@Override
 	public int count(Predicate<E> cond) {
 		int count = 0;
