@@ -1,6 +1,8 @@
 package demo;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 import utils.ArrayUtils;
 
@@ -27,5 +29,15 @@ public class Ex08 {
 				                           .collect(Collectors.toSet());
 		System.out.println(evenNumbers.getClass().getSimpleName());
 		CollectionUtils.printf(evenNumbers);*/
+
+		
+		System.out.println("==========");
+		
+		// Stream<T> --> collect(Collectors.toList())
+		// IntStream --> Stream<Integer> --> 
+		System.out.println("==========");
+		
+		
+
 	}
 }
