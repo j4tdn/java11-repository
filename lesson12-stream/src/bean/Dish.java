@@ -81,4 +81,8 @@ public class Dish {
     	Dish dish = (Dish) obj;
     	return getCalories() == dish.getCalories();
     }
+    
+	public static Dish maxClr(Dish d1, Dish d2) {
+		return d1.getCalories() < d2.getCalories() ? d1 : d2;
+	}
 }
