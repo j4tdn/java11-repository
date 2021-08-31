@@ -42,7 +42,7 @@ public class Ex01 {
 		model.put(43, "Da Nang");
 		model.put(null, "Khanh Hoa");
 		model.putIfAbsent(43, "Da Nang 01");
-		model.put(75, "Hue");
+		model.put(75, "Hue");	
 		model.put(74, "Quang Tri");
 		
 		String v1 = model.get(88);

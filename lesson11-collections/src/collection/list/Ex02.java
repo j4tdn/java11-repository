@@ -16,6 +16,9 @@ public class Ex02 {
 		
 		digits.add(123);
 		digits.add(234);
+		sequences.add("vo");
+		sequences.add("dinh");
+		sequences.add("trung ");
 		
 		for(Integer digit: digits) {
 			System.out.println("double: " + (digit*2) );
@@ -24,6 +27,9 @@ public class Ex02 {
 //			System.out.println("double: " + digits.get(i) * 2);
 //		}
 		
+		for(String element: sequences) {
+			System.out.println(element);
+		}
 		
 	}
 }

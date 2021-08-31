@@ -20,7 +20,7 @@ public class Ex01 {
 	//E: generic type
 	//E: declaration, E's scope: method
 	//E[]: using
-	//Generic: extends: Upper Bound Type
+	//Generic: extends: Upper Bound Type gioi han lai pham vi sd
 	private static <E extends Number> void printf(E[] elements) {
 		for(E element: elements) {
 			System.out.print(element +  " ");

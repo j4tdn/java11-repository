@@ -17,7 +17,7 @@ public class Ex03 {
 		sequences.show();
 
 		
-//		
+		
 //	Predicate<String> cond = e -> e.startsWith("how");
 //	 	int count = sequences.count(cond);
 //	 	System.out.println("count :" + count);

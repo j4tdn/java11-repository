@@ -16,6 +16,7 @@ public class CollectionUtils {
 		
 		result.addAll(Arrays.asList(elements));
 		
+		
 		return result;
 	}
 	
