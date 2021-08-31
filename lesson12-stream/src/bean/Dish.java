@@ -76,9 +76,13 @@ public class Dish {
     	
     	return getCalories() == dish.getCalories();
     }
+    
 
     @Override
     public String toString() {
         return id + ", " + name + ", " + calories + ", " + kind + ", " + vegetarian;
+    }
+    public static Dish max(Dish d1, Dish d2) {
+    	return d1.getCalories() > d2.getCalories() ? d1:d2;
     }
 }
