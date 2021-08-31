@@ -20,4 +20,7 @@ public class DishUtils {
 				new Dish("6", "D6", 480, Kind.MEAT, false),
 				new Dish("7", "D7", 818, Kind.MEAT, false));
 	}
+	public static Dish maxCalories( Dish d1, Dish d2) {
+		return d1.getCalories() > d2.getCalories() ? d1: d2;
+	}
 }

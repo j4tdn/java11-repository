@@ -25,6 +25,22 @@ public class Ex07 {
 		// Stream: SOURCE - [INTERMEDIATE OPERATIONS -TERMINAL OPERATIONS] - TARGET
 		// Steps: menu-source -> stream -> intermediate operation -> stream -> stream -> terminal operation -> non-stream type
 		
+		// Intermediate operations >> return type: Stream<T>
+		// Terminal Operations     >> return type: Non-Stream. E.g Array, List, Set, Map, Long, Integer
+		//						   >> count, collect(Collectors.toList(), toMap, toSet), forEach, toArray
+		
+		// Steps: menu-source  -> stream  -> intermediate operation -> stream -> terminal operations -> non-stream type
+		// Features:
+		/*
+		 * 1. Traversable once only
+		 * 2. Stream & Collections
+		 * Same: Can store and manipulate with data
+		 * Diff: Collection: Focus on store data
+		 * 		 Stream    : Focus on manipulate data,
+		 * 3. Intermediate operations will do nothing until a terminal operation invoked
+		 * 4. Internal iteration
+		 * 5. Express a query than ad hoc implementation
+		 */
 		
 	}
 }
