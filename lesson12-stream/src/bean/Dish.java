@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.Objects;
+
 public class Dish {
 	
 	public enum Kind {
@@ -68,4 +70,19 @@ public class Dish {
     public String toString() {
         return id + ", " + name + ", " + calories + ", " + kind + ", " + vegetarian;
     }
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) {
+    		return true;
+    	}
+    	
+    	if (!(o instanceof Dish)) {
+    		return false;
+    	}
+    	return this.getCalories() == ((Dish) o).getCalories();
+    }
+    
+	public static Dish maxCalories(Dish d1, Dish d2) {
+		return d1.getCalories() < d2.getCalories() ? d1 : d2;
+	}
 }
