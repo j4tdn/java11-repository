@@ -81,4 +81,8 @@ public class Dish {
     	}
     	return this.getCalories() == ((Dish) o).getCalories();
     }
+    
+	public static Dish maxCalories(Dish d1, Dish d2) {
+		return d1.getCalories() < d2.getCalories() ? d1 : d2;
+	}
 }
