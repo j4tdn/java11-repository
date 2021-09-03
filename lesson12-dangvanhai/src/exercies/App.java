@@ -28,7 +28,7 @@ public class App {
 		//	4. Find all traders from Cambridge and sort them by name desc.
 		List<Trader> q4 =  transactions.stream()
 				.filter(e -> "Cambridge".equals(e.getTrader().getCity()))
-				.map(Transaction::getTrader).sorted(comparing(Trader::getCity))
+				.map(Transaction::getTrader).sorted(comparing(Trader::getName).reversed())
 				.collect(toList());
 		
 		//	5. Return a string of all traders’ names sorted alphabetically.
