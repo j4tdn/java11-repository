@@ -7,13 +7,8 @@ import bean.Apple;
 public class Ex05 {
 	public static void main(String[] args) {
 		// Constructor reference
-		
-		 Supplier<Apple> supplier = new Supplier<Apple>() {
-			
-			@Override
-			public Apple get() {
-				return new Apple();
-			}
-		};
+		// Empty construcotr () -> new Apple() = Apple::new
+		Supplier<Apple> supplier = Apple::new;
+		 
 	}
 }
