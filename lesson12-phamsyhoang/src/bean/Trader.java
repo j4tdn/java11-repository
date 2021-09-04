@@ -12,25 +12,6 @@ public class Trader {
 		this.city = city;
 	}
 
-	/*public Trader(String line) {
-
-		String[] token = line.split("-");
-		if (token.length == 2) {
-			this.name = token[0];
-			this.city = token[1];
-		}
-	}
-
-	public static Trader transfer(String line) {
-		Trader trader = null;
-		String[] tokens = line.split("-");
-		if (tokens.length == 2) {
-			trader = new Trader(tokens[0], tokens[1]);
-
-		}
-		return trader;
-	}*/
-
 	public String getName() {
 		return name;
 	}
