@@ -42,12 +42,6 @@ public class Ex04 {
 		// s -> Integer.parseInt(s); >> Integer::parseInt
 		Function<String, Integer> f1 = Integer::parseInt;
 
-		// List<Apple> la1 // abcd
-		// List<Apple> la2 // acbb
-		// la1 == la2
-
-		Function<Apple, Integer> func = Apple::getId;
-
 		compare(Collections.emptyList(), Collections.emptyList(), Apple::getId);
 	}
 
