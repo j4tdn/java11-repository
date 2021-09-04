@@ -65,6 +65,18 @@ public class Dish {
     }
     
     @Override
+    public boolean equals(Object obj) {
+    	if(this == obj) {
+    		return true;
+    	}
+    	if(!(obj instanceof Dish)) {
+    		return true;
+    	}
+    	Dish dish  = (Dish)obj;
+    	return getCalories() == dish.getCalories();
+    }
+    
+    @Override
     public String toString() {
         return id + ", " + name + ", " + calories + ", " + kind + ", " + vegetarian;
     }

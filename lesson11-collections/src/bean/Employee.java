@@ -52,6 +52,7 @@ public class Employee {
 	}
 	
 	//List #contains #remove 
+	//Map
 	
 	@Override
 	public boolean equals(Object o) {
@@ -68,9 +69,10 @@ public class Employee {
 	//hash: Input la data >> Ap dung cong thuc de hash du lieu va return integer
 	//VD: GIT - 1 commit 
 	//Map, Set >> HashCode
+	//Cùng equals -> bắt buộc cùng hashCode, cùng hashCode -> chưa chắc equals
 	@Override
 	public int hashCode() {
-		//boxing
+		//boxing B30: 55:00
 		return Objects.hash(id);
 	}
 
@@ -78,7 +80,5 @@ public class Employee {
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", managerId=" + managerId + "]";
 	}
-	
-	
-	
+
 }

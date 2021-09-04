@@ -16,15 +16,18 @@ public class Ex13 {
 		List<Dish> menu  = DishUtils.getAll();
 		
 		double sumOfCalories = menu.stream()
-									.map(Dish::getCalories)
+									.map(Dish::getCalories) //Stream<Double>
 									.reduce(0d, Double::sum);
 		System.out.println("sumOf Calories: " + sumOfCalories);
 		
 		//Primitive Stream: IntStream, LongStream, DoubleStream
-		double priSumOfCalories = menu.stream() //Stream<Double>
-									  
+		double priSumOfCalories = menu.stream() //Stream<Dish>
+									  .mapToDouble(Dish::getCalories) //DoubleStream
+									  .sum();
+		System.out.println("priSumOfCalories: " + priSumOfCalories);
+		
 		//How to find dish with maximum calories 
-		Optional<Dish> dishOpt = menu.stream().reduce(Dish::maxClr);
+		Optional<Dish> dishOpt = menu.stream().reduce(Dish::maxClr); //maxClr trong class Dish
 			dishOpt.ifPresent(System.out::println);
 
 	

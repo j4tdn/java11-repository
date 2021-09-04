@@ -1,6 +1,7 @@
 package functional;
 
 @FunctionalInterface
-public class Calculator {
-
+public interface Calculator {
+	
+	Integer perform(Integer a, Integer b);
 }

@@ -12,7 +12,8 @@ public class Ex02 {
 		items.add(new Item(102, 2, "B", 150));
 		items.add(new Item(103, 3, "C", 200));
 		
-		items.add(new Item(101, 1, "C", 120));
+		items.add(new Item(101, 1, "C", 120)); 
+		//để k add phần tử này vào thì phải override lại hashcode và equals
 	
 	System.out.println("size: " + items.size());
 	}
