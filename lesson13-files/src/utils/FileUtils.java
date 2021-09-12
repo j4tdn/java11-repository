@@ -4,19 +4,89 @@ import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import common.Extension;
+import common.FileHandler;
+import common.Trader;
 
 public class FileUtils {
 	private static final Random rd = new Random();
 	
 	private FileUtils() {
 		
+	}
+	
+	public static void writeObjects(File file, Object object) {
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+		
+		try {
+			fos = new FileOutputStream(file);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(object);
+			oos.close();
+			fos.close();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static <T> List<T> readObject(File file) {
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		try {
+			fis = new FileInputStream(file);
+			ois = new ObjectInputStream(fis);
+			return safeList(ois.readObject());
+		} catch(IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return Collections.emptyList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	private static <T> List<T> safeList(Object object) {
+		return (List<T>) object;
+	}
+	
+	public static <T extends common.FileHandler> void writeLines(Path path, List<T> list, OpenOption option) {
+		List<String> lines = list.stream() 
+				    .map(T::toLine) 
+				    .collect(Collectors.toList());
+		try {
+			Files.write(path, lines, option);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static <R> List<R> readLines(Path path, Function<String, R> func) {
+		try {
+			List<String> lines = Files.readAllLines(path);
+			return lines.stream()
+						.map(func)
+						.collect(Collectors.toList());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return Collections.emptyList();
 	}
 	
 	public static void printf(File ... files) {
@@ -26,13 +96,14 @@ public class FileUtils {
 	}
 	
 	public static File create(String path) {
-		boolean isValid = false;
+		boolean isValid = true;
 		File file = new File(path);
 		if (!file.exists()) {
 			File parent = file.getParentFile();
-			if (!parent.exists()) {
+			if (parent != null && !parent.exists()) {
 				parent.mkdirs();
 			}
+			isValid = createFile(file);
 		}
 		return isValid ? file : null;
 	}

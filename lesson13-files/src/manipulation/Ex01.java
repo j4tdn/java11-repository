@@ -12,8 +12,6 @@ public class Ex01 {
 	private static final String path = "data/readme.txt";
 	public static void main(String[] args) throws IOException {
 		File file = new File(path);
-		
 		FileUtils.read(file);
-
 	}
 }

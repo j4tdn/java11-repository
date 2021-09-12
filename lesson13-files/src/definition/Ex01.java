@@ -46,7 +46,6 @@ public class Ex01 {
 			public boolean accept(File file) {
 				return file.isDirectory() && file.getName().endsWith(Extension.txt.val());
 			}
-				
 		});
 		FileUtils.printf(filess);
 		
@@ -57,8 +56,6 @@ public class Ex01 {
 				File file = new File("path");
 				return false;
 			}
-			
 		};
-		
 	}
 }

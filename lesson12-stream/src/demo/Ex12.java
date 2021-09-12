@@ -64,6 +64,6 @@ public class Ex12 {
 			// min << result = digit < result ? digit : result;
 			result = c.perform(result, digit);
 		}
-		return initial;
+		return result;
 	}
 }
