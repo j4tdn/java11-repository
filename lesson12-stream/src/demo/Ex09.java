@@ -20,7 +20,7 @@ import utils.DishUtils;
 public class Ex09 {
 	public static void main(String[] args) {
 		List<Dish> menu = DishUtils.getAll();
-		List<Dish> uniqueDish = menu.stream().filter(Dish -> Collections.frequency(menu, Dish) == 1)
+		List<Dish> uniqueDish = menu.stream().filter(Dish -> Collections.frequency(menu, Dish) == 2)
 				.collect(Collectors.toList());
 		CollectionUtils.printf(uniqueDish);
 

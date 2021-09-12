@@ -19,7 +19,7 @@ public class Ex13 {
 		double priSumOfCalories = menu.stream()
 									  .mapToDouble(Dish::getCalories)
 									  .sum();
-		
+		System.out.println("priSumOfCalories: " + priSumOfCalories);
 		
 	}
 }
