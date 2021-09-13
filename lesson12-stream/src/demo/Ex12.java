@@ -2,6 +2,7 @@ package demo;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import functional.Calculator;
 
@@ -22,6 +23,11 @@ public class Ex12 {
 		System.out.println("total: " + totalAll);
 		System.out.println("max: " + maxAll);
 		System.out.println("min: " + minAll);
+		
+		System.out.println("=============");
+		
+		Optional<Integer> opInt = digits.stream().reduce(Integer::max);
+		opInt.ifPresent(value -> System.out.println("max: " + value));
 	}
 	
 	private static Integer operate(Integer initial, List<Integer> digits, Calculator c) {
