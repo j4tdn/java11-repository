@@ -7,7 +7,6 @@ public class Rectangle {
 	
 	// default: empty constructor
 	public Rectangle() {
-		
 	}
 	
 	// constructor with 2 parameters
@@ -21,13 +20,13 @@ public class Rectangle {
 		this.width = width;
 	}
 	
+	public void setHeight(int height) {
+		this.height = height;
+	}
+	
 	// getter
 	public int getWidth() {
 		return width;
-	}
-	
-	public void setHeight(int height) {
-		this.height = height;
 	}
 	
 	public int getHeight() {
