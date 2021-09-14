@@ -1,4 +1,4 @@
-package manupulation;
+package manipulation;
 
 import java.io.File;
 import utils.FileUtils;
