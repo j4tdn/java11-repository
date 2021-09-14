@@ -3,7 +3,7 @@ package thread.core;
 import static utils.ThreadUtils.*;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeUnit.*;
+import static java.util.concurrent.TimeUnit.*;
 
 
 public class Ex04 {
@@ -37,7 +37,7 @@ public class Ex04 {
 		@Override
 		public void run() {
 			startThread();
-			doTask(3, TimeUnit.SECONDS);
+			doTask(time, unit);
 			System.out.println(getThreadName() + " tooks " + (System.currentTimeMillis() - start) + "ms");
 		}
 	}
