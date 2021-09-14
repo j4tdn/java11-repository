@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 import common.Extension;
 import common.FileHandler;
 import common.Trader;
+import common.Transaction;
 
 public class FileUtils {
 
@@ -56,17 +57,17 @@ public class FileUtils {
 		ObjectOutputStream oos = null;
 
 		try {
-			fos = new FileOutputStream(file);
+			fos = new FileOutputStream(file, true);
 			oos = new ObjectOutputStream(fos);
 
 			oos.writeObject(object);
-			oos.close();
-			fos.close();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			close(oos,fos);
 		}
 	}
-
+	
 	public static <T extends FileHandler> void writeLines(Path path, List<T> list, OpenOption option) {
 		List<String> lines = list.stream().map(T::toLine).collect(Collectors.toList());
 
@@ -77,7 +78,7 @@ public class FileUtils {
 		}
 
 	}
-
+	
 	public static <R> List<R> readLines(Path path, Function<String, R> func) {
 		try {
 			List<String> lines = Files.readAllLines(path);
@@ -193,4 +194,5 @@ public class FileUtils {
 			e.printStackTrace();
 		}
 	}
+
 }

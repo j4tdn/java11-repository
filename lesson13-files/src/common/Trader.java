@@ -14,7 +14,8 @@ import java.io.Serializable;
 public class Trader implements FileHandler, Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private transient String name;
+	// private transient String name;
+	private String name;
 	private  String city;
 	
 	public Trader() {
@@ -38,9 +39,17 @@ public class Trader implements FileHandler, Serializable{
 	public String getName() {
 		return this.name;
 	}
-
+	
+	public void setName(String n) {
+		this.name = n;
+	}
+	
 	public String getCity() {
 		return this.city;
+	}
+	
+	public void setCity(String c) {
+		this.city = c;
 	}
 	
 	@Override
@@ -50,7 +59,7 @@ public class Trader implements FileHandler, Serializable{
 	
 	
 	public String toString() {
-		return "Trader:" + this.name + " in " + this.city + "\n";
+		return "Trader: " + this.name + " in " + this.city;
 	}
 	
 	public static Trader toObject(String line) {
