@@ -1,5 +1,9 @@
 package ex01;
 
+import java.io.File;
+import java.io.OutputStream;
+import java.nio.file.Files;
+
 import common.Extension;
 import utils.FileUtils;
 
@@ -36,6 +40,9 @@ public class App {
 		
 		// Delete file .txt
 		FileUtils.deleteFiles(path, Extension.txt);
+		
+
 			
 	}
+	
 }
