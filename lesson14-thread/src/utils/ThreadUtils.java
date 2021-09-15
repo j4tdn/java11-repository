@@ -8,11 +8,11 @@ public class ThreadUtils {
 	}
 
 	public static void printCurrentThreadName() {
-		System.out.println(">> thread #" + Thread.currentThread().getName());
+		System.out.println(">> thread #" + getThreadName());
 	}
 
 	public static void strartThread() {
-		System.out.println(Thread.currentThread().getName() + " is running...");
+		System.out.println(getThreadName() + " is running...");
 	}
 	
 	public static String getThreadName() {
