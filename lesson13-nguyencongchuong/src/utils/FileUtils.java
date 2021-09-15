@@ -62,6 +62,20 @@ public class FileUtils {
 		
 		return result;
 	}
+	public static boolean[] createFileImages(String dirPath, int nof,Extension[] exts) {
+		boolean[] result = new boolean[nof];
+		File dirFile = new File(dirPath);
+		if(!dirFile.exists()) {
+			dirFile.mkdirs();
+		}
+		for(int i = 0; i < nof; i++) {
+			String name = "" + System.currentTimeMillis()+ rd.nextInt(10) + exts[rd.nextInt(2)].val();
+			File file = new File(dirFile, name);
+			result[i] = createFile(file);
+		}
+		
+		return result;
+	}
 	
 	public static void moveFiles(String pathBefore, String pathAfter, Extension exts) {
 		File moveFiles = new File(pathBefore);
@@ -76,6 +90,21 @@ public class FileUtils {
 		
 		for (File file : files) {
 			file.renameTo(new File(pathAfter, file.getName()));
+		}
+	}
+	
+	public static void renameFiles(String path, Extension exts) {
+		File moveFiles = new File(path);
+		
+		File[] files = moveFiles.listFiles(new FileFilter() {
+			
+			@Override
+			public boolean accept(File file) {
+				return file.isFile() && file.getName().endsWith(exts.val());
+			}
+		});
+		for (int i = 0; i < files.length; i++) {
+			files[i].renameTo(new File(path ,"" + (i + 1) + exts.val()));
 		}
 	}
 	
@@ -94,4 +123,6 @@ public class FileUtils {
 			file.delete();
 		}
 	}
+
+
 }
