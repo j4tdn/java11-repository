@@ -1,9 +1,11 @@
 package utils;
 
+import java.awt.Desktop;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,6 +14,8 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import common.Extension;
 
 public class FileUtils {
 	private static final Random RD = new Random();
@@ -29,17 +33,58 @@ public class FileUtils {
 			fr = new FileReader(file);
 			br = new BufferedReader(fr);
 			String line;
-			line = br.readLine();
 			while ((line = br.readLine()) != null) {
 				result.add(line);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			close(br, fr);
 		}
-		
+
 		return result;
 	}
+
+	public static <T> void writeFile(File file, List<T> list) {
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+
+		try {
+			fw = new FileWriter(file);
+			bw = new BufferedWriter(fw);
+			for (T t : list) {
+				bw.write(t.toString());
+				bw.newLine();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			close(bw, fw);
+		}
+
+		open(file);
+	}
 	
+	public static void open(File file) {
+		try {
+			Desktop.getDesktop().open(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void close(AutoCloseable... autoCloseables) {
+		for (AutoCloseable autoCloseable : autoCloseables) {
+			if (autoCloseable != null) {
+				try {
+					autoCloseable.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
 	public static boolean[] createMultipleFile(String dirPath, int nof, Extension[] ext) {
 		boolean[] result = new boolean[nof];
 		int length = ext.length;
@@ -56,7 +101,20 @@ public class FileUtils {
 		}
 		return result;
 	}
-
+	
+	public static File create(String path) {
+		boolean isValid = true;
+		File file = new File(path);
+		if (!file.exists()) {
+			File paFile = file.getParentFile();
+			if (paFile != null && !paFile.exists()) {
+				paFile.mkdirs();
+			}
+			isValid = createFile(file);
+		}
+		return isValid ? file : null;
+	}
+	
 	public static boolean createFile(File file) {
 		boolean isValid = false;
 		try {
@@ -66,7 +124,16 @@ public class FileUtils {
 		}
 		return isValid;
 	}
-
+	
+	public static boolean createDirectory(String path) {
+		boolean isValid = false;
+		File dir = new File(path);
+		if (!dir.exists()) {
+			isValid = dir.mkdirs();
+		}
+		return isValid;
+	}
+	
 	public static void copyFile(String source, String target, Extension ext) {
 		File sourceFile = new File(source);
 		File[] files = sourceFile.listFiles(file -> file.isFile() && file.getName().endsWith(ext.val()));

@@ -1,4 +1,4 @@
-package utils;
+package common;
 
 public enum Extension {
 	png(".png"), jpg(".jpg"), jpeg(".jpeg"), mp3(".mp3"),

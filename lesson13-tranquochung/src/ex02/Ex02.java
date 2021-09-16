@@ -1,10 +1,12 @@
 package ex02;
 
 import java.io.File;
-import static utils.FileUtils.*;
-import utils.Extension;
 
-public class Main {
+import common.Extension;
+
+import static utils.FileUtils.*;
+
+public class Ex02 {
 	private static final String PATH = "images/";
 
 	public static void main(String[] args) {
