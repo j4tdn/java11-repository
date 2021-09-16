@@ -18,12 +18,13 @@ import java.util.stream.Collectors;
 public class Ex04 {
 	private static final Random RD = new Random();
 	private static final String PATH = "readme.txt";
+	
 	static Scanner ip = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		System.out.println("=== Enter Row ===");
 		int row = input();
-		System.out.println("===Enter Colum ===");
+		System.out.println("=== Enter Column ===");
 		int col = input();
 		int[][] array = new int[row][col];
 
@@ -64,7 +65,7 @@ public class Ex04 {
 			fw = new FileWriter(file);
 			bw = new BufferedWriter(fw);
 
-			bw.write("row: " + array.length + " || " + array[0].length);
+			bw.write("row: " + array.length + " || colum: " + array[0].length);
 			for (int row = 0; row < array.length; row++) {
 				String str = "";
 				for (int col = 0; col < array[row].length; col++) {

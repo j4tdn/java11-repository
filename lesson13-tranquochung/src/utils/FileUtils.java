@@ -157,14 +157,9 @@ public class FileUtils {
 	public static void moveFile(String source, String target, Extension ext) {
 		File sourceFile = new File(source);
 		File[] files = sourceFile.listFiles(file -> file.isFile() && file.getName().endsWith(ext.val()));
-		for (int i = 0; i < files.length; i++) {
-			Path sourcePath = Paths.get(source + "/" + files[i].getName());
-			Path targetPath = Paths.get(target + "/" + files[i].getName());
-			try {
-				Files.move(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		
+		for (File file : files) {
+			file.renameTo(new File(target, file.getName()));
 		}
 	}
 

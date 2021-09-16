@@ -21,10 +21,10 @@ public class Ex01 {
 		createDirectory(SYSTEM);
 		createDirectory(CODING);
 
-		boolean[] fileCreated = createMultipleFile(PATH, 20, Extension.values());
-		for (boolean b : fileCreated) {
-			System.out.println(b);
-		}
+//		boolean[] fileCreated = createMultipleFile(PATH, 20, Extension.values());
+//		for (boolean b : fileCreated) {
+//			System.out.println(b);
+//		}
 
 		Extension[] musicExts = { Extension.mp3, Extension.mp4 };
 		Extension[] imageExts = { Extension.png, Extension.jpg, Extension.jpeg };

@@ -7,7 +7,7 @@ import common.Extension;
 import static utils.FileUtils.*;
 
 public class Ex02 {
-	private static final String PATH = "images/";
+	private static final String PATH = "images";
 
 	public static void main(String[] args) {
 		Extension[] musicExtensions = {Extension.jpg, Extension.png};
@@ -27,7 +27,7 @@ public class Ex02 {
 	public static void renameMultipleFile(Extension ext, File[] file) {
 		for (int i = 0; i < file.length; i++) {
 			String path = file[i].getParent();
-			file[i].renameTo(new File(path + "/" + i + ext.val()));
+			file[i].renameTo(new File(path , i + ext.val()));
 		}
 	}
 }
