@@ -1,21 +1,26 @@
+
 package definition;
 
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.Arrays;
 
 import common.Extension;
 import utils.FileUtils;
 
 public class Ex01 {
-
-	private static final String path = "data/readme.txt";
-	public static final String dirPath = "data/random.txt";
+	// relative path
+	// absolute path
+	private static final String path = "data.txt";
+	private static final String dirPath = "data/random";
 
 	public static void main(String[] args) throws IOException {
+		File file = FileUtils.create(path);
+		System.out.println("is success: " + (file != null));
+
+		boolean[] files = FileUtils.create(dirPath, 20, Extension.values());
+
 		// relative path
 		// absolute path
 
@@ -30,18 +35,17 @@ public class Ex01 {
 //			isValid = dir.mkdirs();
 //		}
 //		System.out.println(isValid);
-		 boolean[]  files = FileUtils.create(dirPath, 20, Extension.values());
-		 System.out.println(files);
-		 
-		 File dirFile = new File(dirPath);
-		 File[] list = dirFile.listFiles(new FileFilter() {
-			
+		System.out.println(Arrays.toString(files));
+
+		// filter
+		File dirFile = new File(dirPath);
+
+		File[] listFiles = dirFile.listFiles(new FileFilter() {
 			@Override
-			public boolean accept(File pathname) {
-				return pathname.isFile() && pathname.getName().endsWith(Extension.txt.val());
+			public boolean accept(File file) {
+				return file.isFile() && file.getName().endsWith(Extension.txt.val());
 			}
 		});
-		 FileUtils.printf(list);
-
+		FileUtils.print(listFiles);
 	}
 }
