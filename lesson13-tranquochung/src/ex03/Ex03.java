@@ -31,7 +31,9 @@ public class Ex03 {
 			String[] listNumbers = lines.get(i).split("[^0-9]+");
 			OptionalInt optInt = Arrays.stream(listNumbers).filter(item -> !item.isEmpty()).mapToInt(Integer::parseInt)
 					.max();
-			result.add(optInt.getAsInt());
+			if (optInt.isPresent()) {
+				result.add(optInt.getAsInt());
+			} 
 		}
 		result.sort(Comparator.comparing(Function.identity()));
 		return result;

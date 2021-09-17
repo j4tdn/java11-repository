@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class Ex04 {
 	private static final Random RD = new Random();
 	private static final String PATH = "readme.txt";
-	
+
 	static Scanner ip = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -46,9 +46,7 @@ public class Ex04 {
 		List<String> lines = readFile(file);
 		for (int i = 1; i < lines.size(); i++) {
 			String[] items = lines.get(i).split("\\s+");
-			List<Integer> list = Arrays.stream(items)
-					.filter(item -> !item.isEmpty())
-					.map(Integer::parseInt)
+			List<Integer> list = Arrays.stream(items).filter(item -> !item.isEmpty()).map(Integer::parseInt)
 					.collect(Collectors.toList());
 			for (int number : list) {
 				System.out.print(number + " ");
@@ -67,12 +65,10 @@ public class Ex04 {
 
 			bw.write("row: " + array.length + " || colum: " + array[0].length);
 			for (int row = 0; row < array.length; row++) {
-				String str = "";
-				for (int col = 0; col < array[row].length; col++) {
-					str += array[row][col] + " ";
-				}
 				bw.newLine();
-				bw.write(str);
+				for (int col = 0; col < array[row].length; col++) {
+					bw.write(array[row][col] + " ");
+				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
