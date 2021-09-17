@@ -1,16 +1,13 @@
 package ex03;
 
-import static utils.FileUtils.create;
-import static utils.FileUtils.readFile;
-import static utils.FileUtils.writeFile;
+import static utils.FileUtils.*;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
 import java.util.OptionalInt;
-import java.util.function.Function;
 
 public class Ex03 {
 	private static final String OUT = "output.txt";
@@ -33,9 +30,9 @@ public class Ex03 {
 					.max();
 			if (optInt.isPresent()) {
 				result.add(optInt.getAsInt());
-			} 
+			}
 		}
-		result.sort(Comparator.comparing(Function.identity()));
+		Collections.sort(result);
 		return result;
 	}
 }
