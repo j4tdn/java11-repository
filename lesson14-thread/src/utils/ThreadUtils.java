@@ -15,6 +15,14 @@ public class ThreadUtils {
 		System.out.println(Thread.currentThread().getName() + " is running ...");
 	}
 	
+	public static void startThread(long time) {
+		System.out.println(Thread.currentThread().getName() + " is running ... " + time );
+	}
+	
+	public static void endThread(long start) {
+		System.out.println(Thread.currentThread().getName() + " took" + (System.currentTimeMillis()- start));
+	}
+	
 	public static void doTask(long time, TimeUnit unit) {
 		try {
 			unit.sleep(2);
