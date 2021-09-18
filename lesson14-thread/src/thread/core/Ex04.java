@@ -33,8 +33,13 @@ public class Ex04 {
 		@Override
 		public void run() {
 			startThread();
-			doTask(3,TimeUnit.SECONDS);
+			doTask(time, unit);
+			demoSync();
 			System.out.println(getThreadName() + " tooks " + (System.currentTimeMillis() - start) + "ms");
+		}
+		public synchronized void demoSync() {
+			System.out.println(getThreadName() + "accessed synchronized method");
+			System.out.println("end synchronized method");
 		}
 	}
 }
