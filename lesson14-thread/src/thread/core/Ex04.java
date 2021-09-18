@@ -1,7 +1,7 @@
 package thread.core;
-import static utils.ThreadUtils.*;
 import java.util.concurrent.TimeUnit;
-
+import static utils.ThreadUtils.*;
+import utils.ThreadUtils;
 import static java.util.concurrent.TimeUnit.*;
 
 public class Ex04 {
@@ -38,8 +38,14 @@ public class Ex04 {
 		@Override
 		public void run() {
 			startThread();
-			doTask(3, TimeUnit.SECONDS);
+			doTask(time, unit);
+		    demoSync();
 			System.out.println("tooks " + (System.currentTimeMillis() - start) + "ms");
 		}
+	}
+	
+	public synchronized static void demoSync() {
+		System.out.println(getThreadName() + "accessed synchronized method");
+		System.out.println("end synchronized medthod");
 	}
 }
