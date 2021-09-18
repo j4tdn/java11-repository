@@ -49,5 +49,11 @@ public class Ex04 {
 			System.out.println(getThreadName() + " tooks: " + (System.currentTimeMillis() - start) + "ms");
 		}
 		
+		// synchronized data
+		// synchronized method
+		public synchronized void demoSync() {
+			System.out.println(getThreadName() + "accessed synchronized method");
+			System.out.println("end synchronized method");
+		}
 	}
 }
