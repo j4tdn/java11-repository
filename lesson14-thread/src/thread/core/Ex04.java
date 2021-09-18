@@ -41,9 +41,16 @@ public class Ex04 {
 
 		@Override
 		public void run() {
-			strartThread();
+			strartThread(0);
 			doTask(time, unit);
 			System.out.println(getThreadName() + "tooks " + (System.currentTimeMillis() - start) + "ms");
+		}
+		
+		// synchronized data
+		// synchronized method
+		public synchronized void demoSync() {
+			System.out.println(getThreadName() + "accessed synchronized method");
+			System.out.println("end synchronized method");
 		}
 	}
 }

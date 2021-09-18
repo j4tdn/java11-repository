@@ -11,10 +11,13 @@ public class ThreadUtils {
 		System.out.println(">> thread #" + getThreadName());
 	}
 
-	public static void strartThread() {
-		System.out.println(getThreadName() + " is running...");
+	public static void strartThread(int rand) {
+		System.out.println(getThreadName() + " is running..." + rand);
 	}
 	
+	public static void enThread(long start) {
+		System.out.println(Thread.currentThread().getName() + " took " + (System.currentTimeMillis() - start));
+	}
 	public static String getThreadName() {
 		return Thread.currentThread().getName();
 	}
