@@ -41,7 +41,15 @@ public class Ex04 {
 		public void run() {
 			startThread();
 			doTask(3, TimeUnit.SECONDS);
+			demoSync();
 			System.out.println(getThredName() + "tooks" + (System.currentTimeMillis()- start));;
+		}
+		
+		// synchronized data
+		// synchronized method
+		public synchronized void demoSync() {
+			System.out.println(getThredName() + " accessed synchronized method");
+			System.out.println(getThredName() + " end synchronized");
 		}
 	}
 }
