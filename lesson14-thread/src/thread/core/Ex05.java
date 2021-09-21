@@ -13,8 +13,8 @@ public class Ex05 {
 			@Override
 			public void run() {
 				System.out.println("#thread1 is running ...");
-				couter++;
-				System.out.println("#thread1 couter: " + couter);
+				counter++;
+				System.out.println("#thread1 couter: " + counter);
 			}
 		}, "thread1");
 		t1.start();
@@ -24,14 +24,14 @@ public class Ex05 {
 			@Override
 			public void run() {
 				System.out.println("#thread2 is running ...");
-				couter *=2 ;
-				System.out.println("#thread2 couter: " + couter);
+				counter *=2 ;
+				System.out.println("#thread2 couter: " + counter);
 			}
 		}, "thread2");
 		t2.start();
 		
-		couter += 2;
-		System.out.println("#main couter: " + couter);
+		counter += 2;
+		System.out.println("#main couter: " + counter);
 		System.out.println("Thread main end");
 	}
 }
