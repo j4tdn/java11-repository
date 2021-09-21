@@ -72,10 +72,10 @@ public class StoreService {
     
     public static List<Store> stepOne (List<Store> data	) {
     	List<Store> selectStore = data.stream()
-    			.filter(store -> store.getExpectedSales().equals(null))
+    			.filter(store -> store.getExpectedSales() == null)
     			.collect(Collectors.toList());
-    	
-		return data;
+		return selectStore;
+    
     }
 
 }
