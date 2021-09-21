@@ -1,49 +1,51 @@
 package thread.pool;
 
+import static utils.ThreadUtils.startThread;
+
 import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
-import java.util.concurrent.TimeUnit;
-import static utils.ThreadUtils.*;
-import static java.util.concurrent.TimeUnit.*;
-
-import javax.tools.DocumentationTool.DocumentationTask;
-
-import utils.ThreadUtils;
 
 public class Ex03 {
 	private static Random rd = new Random();
+	
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
-		// thread, Runnable
+		// Thread , Runable 
+		// Thread Pool 
+		// + pool size 
+		// + blocking queue
 		
-		// thread Pool
-		// + Blocking Queue
-		// + Threads
+		// Thread pool
+		// + >> execute(Runable) : void
+		// + >> submit(Callable<T>) : Future<T>
 		
-		// Thread Pool
-		// + >> execute(Runnable): void
-		// + >> submit(Callable<T>): Future<T>
+		// FutureTask
+		// + Callable<T> >> task
+		// + Future<T> >> return value
 		
-		ExecutorService service = Executors.newSingleThreadExecutor();
-		
+		ExecutorService service =  Executors.newSingleThreadExecutor();
 		FutureTask<Integer> futureTask = new FutureTask<>(new Task());
-
+		
+		// submit task >>  set return value to FutureTask
 		service.submit(futureTask);
-		System.out.println(futureTask.get());
+		
+		// return 
+		System.out.print(futureTask.get());
+		
+		service.shutdown();
 	}
-	private static class Task implements Callable<Integer>{
-
+	
+private static class Task  implements Callable<Integer> { 
+		
 		@Override
 		public Integer call() throws Exception {
+			// tasks random number from 10 to 20
 			int rand = 10 + rd.nextInt(11);
-			
-			ThreadUtils.startThread(rand);
-			doTask(2, TimeUnit.SECONDS);
+			startThread(rand);
 			return rand;
 		}
-		
 	}
 }
