@@ -1,6 +1,5 @@
 package collection.map;
 
-import java.util.AbstractMap.SimpleEntry;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
