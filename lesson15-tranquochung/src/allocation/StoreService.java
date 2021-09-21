@@ -96,7 +96,7 @@ public class StoreService {
 	
 	private static Map<Long, Integer> stepThree(Map<Store, BigDecimal> stepTwo, int whAllocationAmount) {
 		Map<Long, Integer> result = new HashMap<>();
-		BigDecimal sumStockPrevious = null;
+		BigDecimal sumStockPrevious = BigDecimal.valueOf(0);
 		for (BigDecimal b : stepTwo.values()) {
 			sumStockPrevious = b.add(sumStockPrevious);
 		}
@@ -112,7 +112,7 @@ public class StoreService {
 	
 	private static Map<Store, BigDecimal> stepTwo(Map<Store, BigDecimal> stepOne) {
 		Map<Store, BigDecimal> result = new HashMap<>();
-		BigDecimal sum = null;
+		BigDecimal sum = BigDecimal.valueOf(0);
 		for (BigDecimal b : stepOne.values()) {
 			sum = b.add(sum);
 		}
