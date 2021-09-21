@@ -50,6 +50,7 @@ public class Ex03 {
 		Period period = Period.between(dateStart, dateEnd);
 		Duration duration = Duration.between(dtStart, dtEnd);
 		
+		
 		if (timeEnd.isBefore(timeStart)) {
 			duration = duration.plusDays(1);
 			period = period.minusDays(1);

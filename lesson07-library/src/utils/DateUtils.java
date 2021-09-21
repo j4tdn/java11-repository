@@ -14,8 +14,8 @@ public class DateUtils {
 
 	private static String[] weekdays = { "Sun", "Mon", " Tue", "Wed", "Thur", "Fri", "Sat" };
 	private static GregorianCalendar gc = new GregorianCalendar();
-	private static DateFormat df = new SimpleDateFormat(DATE_PATTERN);
-	private static DateFormat dtf = new SimpleDateFormat(DATE_TIME_PATTERN);
+		private static DateFormat df = new SimpleDateFormat(DATE_PATTERN);
+		private static DateFormat dtf = new SimpleDateFormat(DATE_TIME_PATTERN);
 
 	private DateUtils() {
 

@@ -24,7 +24,7 @@ public class Ex01 {
 		int day = c.get(Calendar.DAY_OF_MONTH);
 		int month = c.get(Calendar.DAY_OF_WEEK_IN_MONTH);
 		int year = c.get(Calendar.YEAR);
-
+		
 		// 8-june-2021
 		System.out.println("d/m/y: " + day + "/" + months[month] + "/" + year);
 		
@@ -54,6 +54,7 @@ public class Ex01 {
 		System.out.println("c: " + c);
 		// fdow_num = 6.6.2021
 		
+		c.set(Calendar.DATE, 1);
 		int dayIndex = 1;
 		while(dayIndex <= 7) {
 			System.out.println(df.format(c.getTime()));
