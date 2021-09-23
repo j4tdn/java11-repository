@@ -18,18 +18,15 @@ public class AppEx02 {
 		}
 		createFiles(imagesFolder.toPath(), 30, new FileFormat[]{FileFormat.jpg, FileFormat.png});
 
-
 		// Rename png files
 		int fileName = 1;
 		List<File> pngFiles = Arrays.asList(imagesFolder.list())
 			.stream().map(e -> new File(imagesFolder.toString(), e))
 			.filter(e -> "png".equals(getExtension(e)))
-			// bug sorted
 			.collect(Collectors.toList());
 		pngFiles.sort((a,b) -> a.getName().compareTo(b.getName()));
 		
 		for(File file : pngFiles) {
-//			System.out.println(file.getName());
 			rename(file, "" + fileName++);
 		}
 		
@@ -37,7 +34,6 @@ public class AppEx02 {
 		List<File> jpgFiles = Arrays.asList(imagesFolder.list())
 				.stream().map(e -> new File(imagesFolder.toString(), e))
 				.filter(e -> "jpg".equals(getExtension(e)))
-				// bug sorted
 				.sorted((a,b) -> a.getName().compareTo(b.getName()))
 				.collect(Collectors.toList());
 			

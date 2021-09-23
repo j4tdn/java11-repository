@@ -1,11 +1,18 @@
 package utils;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Random;
 
 import ex01.FileFormat;
@@ -15,7 +22,14 @@ public class FileUtils {
 
 	private FileUtils() {
 	}
-
+	
+	/**
+	 * Create random files base format
+	 * 
+	 * @param path - Path of directories
+	 * @param nof - Number of file
+	 * @param formats - List format files
+	 */
 	public static void createFiles(Path path, int nof, FileFormat[] formats) {
 		File dirFolder = new File(path.toString());
 		if (!dirFolder.exists()) {
@@ -29,7 +43,14 @@ public class FileUtils {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Create a random file
+	 * 
+	 * @param path - directories path
+	 * @param formats - list file formats
+	 * @return a newly file be created
+	 */
 	public static File createRandomFile(Path path, FileFormat[] formats) {
 		String namePathFile = path + "/" + System.currentTimeMillis()
 				+ formats[rd.nextInt(formats.length)].getExtension();
@@ -41,6 +62,13 @@ public class FileUtils {
 		return newFile;
 	}
 
+	/**
+	 * Move all file from source directories to target directories on the condition
+	 * 
+	 * @param sourceDir - source directories contains file
+	 * @param targetDir - target directories contains
+	 * @param filter - condition for file moved
+	 */
 	public static void moveFiles(Path sourceDir, Path targetDir, FileFilter filter) {
 		String[] nameFiles = sourceDir.toFile().list();
 		for (String name : nameFiles) {
@@ -52,6 +80,12 @@ public class FileUtils {
 		}
 	}
 
+	/**
+	 * Move a file to target directoriess
+	 * 
+	 * @param file
+	 * @param targetDir
+	 */
 	public static void moveFile(File file, Path targetDir) {
 		try {
 			Path newPath = Path.of(targetDir + "/" + file.getName());
@@ -60,7 +94,13 @@ public class FileUtils {
 			e1.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Delete all files in directories on the condition
+	 * 
+	 * @param pathDir
+	 * @param filter
+	 */
 	public static void deleteFile(Path pathDir, FileFilter filter) {
 		String[] nameFiles = pathDir.toFile().list();
 		for (String name : nameFiles) {
@@ -75,7 +115,14 @@ public class FileUtils {
 			}
 		}
 	}
-
+	
+	/**
+	 * Naming the file's suffix name and keep extension file
+	 * 
+	 * @param file
+	 * @param suffixName
+	 * @return
+	 */
 	public static boolean rename(File file, String suffixName) {
 		String name = file.getName();
 		int index = name.lastIndexOf('.');
@@ -94,6 +141,13 @@ public class FileUtils {
 		return null;
 	}
 
+	/**
+	 * Check file formats
+	 * 
+	 * @param file
+	 * @param formats
+	 * @return
+	 */
 	public static boolean ofFormats(File file, FileFormat[] formats) {
 		for (FileFormat format : formats) {
 			if (file.getName().endsWith(format.getExtension())) {
@@ -102,5 +156,67 @@ public class FileUtils {
 		}
 		return false;
 	}
+	
+	/**
+	 * Read a file
+	 * @param file
+	 * @return array contains text lines of file
+	 */
+	public static List<String> readFile(File file) {
+		List<String> lines = new ArrayList<>();
+		FileReader reader = null;
+		BufferedReader bufferedReader = null;
+		try {
+			reader = new FileReader(file);
+			bufferedReader = new BufferedReader(reader);
+			while(true) {
+				String line;
+				if((line = bufferedReader.readLine()) == null) {
+					break;
+				} else {
+					lines.add(line);
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			close(reader, bufferedReader);
+		}
+		return lines;
+	}
+	
+	/**
+	 * Write file
+	 * 
+	 * @param path
+	 * @param lines
+	 */
+	public static void writeFile(Path path, Collection<?> lines) {
+		if(!Files.exists(path, LinkOption.NOFOLLOW_LINKS)) {
+			try {
+				Files.createFile(path);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		StringBuilder sequence = new StringBuilder();
+		lines.forEach(line -> sequence.append(line).append("\n"));
+		try {
+			Files.writeString(path, sequence.toString().trim(), StandardOpenOption.WRITE);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static void close(AutoCloseable... closeables) {
+		for(AutoCloseable closeable : closeables) {
+			try {
+				closeable.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 
 }

@@ -1,17 +1,14 @@
 package ex01;
 
+import static utils.FileUtils.createFiles;
+import static utils.FileUtils.deleteFile;
+import static utils.FileUtils.moveFiles;
+import static utils.FileUtils.ofFormats;
+
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 import java.util.List;
-
-import utils.FileUtils;
-
-import static utils.FileUtils.*;
 
 public class AppEx01 {
 	private static final String PATH_ROOT;
