@@ -30,25 +30,32 @@ public class StoreService {
     	// Dữ liệu vào
     	final Integer whAllocationAmount = 300;
     	final List<Store> data = getStores();
+    	
+    	// Như này là giống như em đang query data từ database 2 lần
     	final List<Store> temp_data = getStores();
     	
-    	List<Store> data1 = data.stream().filter(store -> store.getSelected() == true)
+    	// Tương tự ở đây
+    	// Đặt tên biến khó hiểu :(
+    	List<Store> data1 = data.stream().filter(store -> store.getSelected())
     							.collect(Collectors.toList());
-    	
-    	List<Store> temp = temp_data.stream().filter(store -> store.getSelected() == true)
+    	List<Store> temp = temp_data.stream().filter(store -> store.getSelected())
 				.collect(Collectors.toList());
     	
-    	Map<String, BigDecimal> allocationKey = new HashMap<>();
+    	BigDecimal interpolatedSalesAvg = sumAvg(temp);
+    	
     	//step one
     	for (Store d: data1) {
+    		// Em nên kiểm tra store có expected sales bằng null trước khi kiểm tra referenceStore của nó
+    		// Mình chỉ quan tâm đến reference store khi own store có expected sales = null
     		if (d.getReferenceStoreId() != null) {
     			String index = Long.toString(d.getReferenceStoreId() - 1);
 
     			if (!isNullExpectedSales(temp, Integer.parseInt(index))) {
     				d.setExpectedSales(data1.get(Integer.parseInt(index)).getExpectedSales());
-    			}	
-    		    else {
-    				d.setExpectedSales(sumAvg(temp));
+    			} else {
+    				// Giá trị trung bình của tất cả các các own store chỉ có 1
+    				// Em nên đưa tính sum này ra ngoài for
+    				d.setExpectedSales(interpolatedSalesAvg);
     			}   				
     		}
     	}
@@ -56,6 +63,7 @@ public class StoreService {
     	data1.stream().forEach(System.out::println);
     	
     	//step two
+    	Map<String, BigDecimal> allocationKey = new HashMap<>();
     	BigDecimal sum = sum(data1);
     	System.out.println(sum);
     	int count = 0;
