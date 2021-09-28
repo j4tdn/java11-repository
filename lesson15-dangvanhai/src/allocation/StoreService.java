@@ -74,7 +74,8 @@ public class StoreService {
     	// Clear Data
     	data = data.stream().filter(e -> e.getSelected() != Boolean.FALSE)
     		.collect(Collectors.toList());
-    	boolean isValid = false;
+    	
+    	/* boolean isValid = false;
     	for(Store store : data) {
     		if(store.getExpectedSales() == null) {
     			isValid = true;
@@ -84,6 +85,13 @@ public class StoreService {
     		System.out.println("Expected sales cannot be calculated. Please add a\r\n" + 
     				"reference store or include stores with expected sales for interpolation");
     		return null;
+    	}*/
+    	// Từ dòng 78 đến 89 >> Em có thể thay thế bằng allMatch
+    	boolean allNullExpectedSales = data.stream().allMatch(store -> store.getExpectedSales() == null);
+    	if (allNullExpectedSales) {
+    		System.out.println("Expected sales cannot be calculated. Please add a\r\n" + 
+    				"reference store or include stores with expected sales for interpolation");
+    		throw new IllegalArgumentException();
     	}
     	
     	// Step 1: Filling in missing Expected Sales
@@ -92,13 +100,14 @@ public class StoreService {
     	printf(data);
     	
     	// Step 2: Calculate Allocation Key
-    	Map<Store, BigDecimal> allocationKeys = step02(whAllocationAmount, data);
+    	Map<Store, BigDecimal> allocationKeys = step02(data);
     	System.out.println("======== Step 2 ==========");
     	for(var entry : allocationKeys.entrySet()) {
     		System.out.println(entry);
     	}
     	
-    	// Step 3: Calculate Allocation Amout
+    	// Step 3: Calculate Allocation Amount
+    	// Kết quả chưa đúng
     	Map<Long, Integer> AllocationAmout = step03(allocationKeys, whAllocationAmount);
     	System.out.println("======== Step 3 ==========");
     	for(var entry : AllocationAmout.entrySet()) {
@@ -110,16 +119,19 @@ public class StoreService {
     
     private static Map<Long, Integer> step03(Map<Store, BigDecimal> allocationKeys, Integer whAllocationAmount) {
     	Map<Long, Integer> map = new LinkedHashMap<>();
-    	BigDecimal AllocationAmount = new BigDecimal(whAllocationAmount);
+    	// Tên biết đặt theo camel case, viết thường chữ đầu tiên
+    	BigDecimal allocationAmount = new BigDecimal(whAllocationAmount);
+    	
     	// sum stock previous day
-    	BigDecimal sum = bd(0);
+    	// Sử dụng reduce(BigDecimal::add) để tính tổng
+    	BigDecimal stockPreDayInTotal = bd(0);
     	for(var entry : allocationKeys.entrySet()) {
-    		sum.add(entry.getKey().getStorePreviousDay());
+    		stockPreDayInTotal.add(entry.getKey().getStorePreviousDay());
     	}
     	
     	// Calculate
     	for(var entry : allocationKeys.entrySet()) {
-    		BigDecimal temp =  entry.getValue().multiply((AllocationAmount.add(sum))).subtract(entry.getKey().getStorePreviousDay());
+    		BigDecimal temp =  entry.getValue().multiply((allocationAmount.add(stockPreDayInTotal))).subtract(entry.getKey().getStorePreviousDay());
     		int result = temp.intValue();
     		if(result < 0) {
     			result = 0;
@@ -129,13 +141,14 @@ public class StoreService {
     	return map;
 	}
 
-	private static Map<Store, BigDecimal> step02(Integer whAllocationAmount, List<Store> data) {
+	private static Map<Store, BigDecimal> step02(List<Store> data) {
     	
     	// Calculate Sum
     	BigDecimal sum = data.stream().map(store -> store.getExpectedSales())
     		.reduce(bd(0), (init, current) -> init.add(current));
     	
     	// Calculate Allocation key and put into Map
+    	// Sử dụng Collectors.toMap để làm code gọn hơn
     	Map<Store, BigDecimal> map = new LinkedHashMap<>();
     	for(Store store : data) {
     		BigDecimal key = store.getExpectedSales().divide(sum, 10, RoundingMode.HALF_UP);
@@ -145,17 +158,20 @@ public class StoreService {
     	return map;
 	}
 
+	// Tổng quan a hiểu cách làm. Nhưng chỗ set interpolatedSales cho null expected sales 
+	// hơi nhiều vòng for.
 	private static List<Store> step01(List<Store> data) {
     	// Calculate Average
     	List<Store> newData = data.stream().filter(e -> (e.getExpectedSales() != null))
     			.collect(Collectors.toList());
     	BigDecimal sum = newData.stream().map(e -> e.getExpectedSales())
     		.reduce(bd(0), (init, current) -> init.add(current));
-    	BigDecimal average = sum.divide(bd(newData.size()));
-    	average = average.setScale(1, RoundingMode.HALF_UP);
     	
+    	// Short version
+    	BigDecimal average = sum.divide(bd(newData.size()), 1, RoundingMode.HALF_UP);
     	
     	// Filter store is null Expected
+    	// Đặt tên biến hơi khó hiểu :(
     	final List<Store> tempData = data.stream().filter(e -> e.getExpectedSales() == null
     				&& e.getReferenceStoreId() != null)
     			.collect(Collectors.toList());
@@ -189,7 +205,6 @@ public class StoreService {
     	return data;
     }
     
-    @SuppressWarnings("unused")
 	private static void printf(Collection<?> list) {
     	list.forEach(System.out::println);
     }
