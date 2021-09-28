@@ -40,7 +40,8 @@ public class StoreService {
     	
     	for (Store store : missingExpectedSales) {
 			if (store.getReferenceStoreId() != null && store.getSelected() == true) {
-				
+				// Chị đang bí chỗ này à :-)
+				// Rồi sửa bài em nói idea
 			}
 		}
     	
