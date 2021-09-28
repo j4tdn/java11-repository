@@ -12,24 +12,24 @@ import java.util.stream.Collectors;
 public class StoreService {
 
 	/**
-	 * Toán tử: + - * / BigDecimal a = BigDecimal.valueOf(10); BigDecimal b =
+	 * ToÃ¡n tá»­: + - * / BigDecimal a = BigDecimal.valueOf(10); BigDecimal b =
 	 * BigDecimal.valueOf(20); BigDecimal result = a.multiply(b); BigDecimal result
 	 * = a.divide(b); BigDecimal result = a.add(b); BigDecimal result =
 	 * a.subtract(b);
 	 * 
-	 * Làm tròn số BigDecimal a = BigDecimal.valueOf(15.23657123648); a =
-	 * a.setScale(4, RoundingMode.HALF_UP); Kết quả: a = 15.2366
+	 * LÃ m trÃ²n sá»‘ BigDecimal a = BigDecimal.valueOf(15.23657123648); a =
+	 * a.setScale(4, RoundingMode.HALF_UP); Káº¿t quáº£: a = 15.2366
 	 */
 
 	public static void main(String[] args) {
-		// Dữ liệu vào
+		// Dá»¯ liá»‡u vÃ o
 		final Integer whAllocationAmount = 300;
 		final List<Store> data = getStores();
 
-		// Thực hiện tính toán
+		// Thá»±c hiá»‡n tÃ­nh toÃ¡n
 		Map<Long, Integer> storeAllocatedAmouts = doAllocation(whAllocationAmount, data);
 
-		// Kết quả
+		// Káº¿t quáº£
 		storeAllocatedAmouts.entrySet().stream().forEach(System.out::println);
 	}
 
@@ -79,6 +79,9 @@ public class StoreService {
 						if (data.get(i).getReferenceStoreId() == data.get(j).getStoreId()
 								&& data.get(j).getExpectedSales() != null) {
 							newData.put(data.get(i).getReferenceStoreId(),
+									// Em đang bị NullPointerException chỗ này
+									// Vì expected sales có thể bị null mà em chấm intValueExact >> NPE
+									// Đoạn này if else và code hơi rối. Submit code lại a sẽ review sau
 									data.get(i).getExpectedSales().intValueExact());
 						}
 					}
