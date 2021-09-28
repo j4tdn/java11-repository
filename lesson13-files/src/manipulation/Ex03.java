@@ -9,6 +9,7 @@ import utils.FileUtils;
 public class Ex03 {
 	private static final String TRADER_PATH = "trader.txt";
 	
+	// thread main
 	public static void main(String[] args) {
 		File file = new File(TRADER_PATH);
 		

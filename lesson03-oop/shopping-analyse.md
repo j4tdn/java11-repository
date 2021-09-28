@@ -4,7 +4,6 @@ Item    : id, os, color, cost
 => ItemDetail: item, quantity
 => Order: customer, item_details[], date_time
 
-
 B1: Create list of customers
 B2: Create array of items in store
 B3: Shopping function
@@ -15,7 +14,6 @@ B3: Shopping function
 => Order: customer, item_details[], quantity, date_time
 => ItemDetail: item, quantity
 
-==============================
 B. Object
 c1: KH1, Adam, 123, NewYork
 c1: KH2, Kate, 243, California
