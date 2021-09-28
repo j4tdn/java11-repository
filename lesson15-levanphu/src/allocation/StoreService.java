@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class StoreService {
 	
 	/**
-	 * Toán tử: + - * /
+	 * ToÃ¡n tá»­: + - * /
 	 * BigDecimal a = BigDecimal.valueOf(10); 
 	 * BigDecimal b = BigDecimal.valueOf(20);
 	 * BigDecimal result = a.multiply(b); 
@@ -20,21 +20,23 @@ public class StoreService {
 	 * BigDecimal result = a.add(b); 
 	 * BigDecimal result = a.subtract(b); 
 	 * 
-	 * Làm tròn số
+	 * LÃ m trÃ²n sá»‘
 	 * BigDecimal a = BigDecimal.valueOf(15.23657123648); 
 	 * a = a.setScale(4, RoundingMode.HALF_UP);
-	 * Kết quả: a = 15.2366
+	 * Káº¿t quáº£: a = 15.2366
 	 */
 	
     public static void main(String[] args) {
-    	// Dữ liệu vào
+    	// Dá»¯ liá»‡u vÃ o
     	final Integer whAllocationAmount = 300;
     	final List<Store> data = getStores();
     	
-    	// Thực hiện tính toán
+    	// Thá»±c hiá»‡n tÃ­nh toÃ¡n
     	Map<Long, Integer> storeAllocatedAmouts = doAllocation(whAllocationAmount, data);
     	
-    	// Kết quả
+    	// Káº¿t quáº£
+    	// Em code chưa xong dưới hàm doAllocation nên nó đang bị NullPointerException
+    	// A ko đọc được trình tự code e gọi. Nên để lúc sửa bài a nói luôn nha
     	storeAllocatedAmouts.entrySet().stream().forEach(System.out::println);
     }
 
@@ -115,14 +117,11 @@ public class StoreService {
 		BigDecimal avarage = BigDecimal.valueOf(sumES / count);
 		return avarage.setScale(1, RoundingMode.HALF_UP);
 	}
-    private static
-    
-    
     
     private static BigDecimal bd(long value) {
         return BigDecimal.valueOf(value);
     }
-
+    
     /**
      * Do Allocation.
      * 
