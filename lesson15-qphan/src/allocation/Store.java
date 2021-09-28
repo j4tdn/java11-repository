@@ -7,7 +7,7 @@ public class Store {
 
     private Long storeId;
     private Long referenceStoreId;
-    private BigDecimal storePreviousDay;
+    private BigDecimal stockPreviousDay;
     private BigDecimal expectedSales;
     private Boolean isSelected;
 
@@ -15,10 +15,10 @@ public class Store {
 
     }
 
-    public Store(final Long storeId, final Long referenceStoreId, final BigDecimal storePreviousDay, final BigDecimal expectedSales, final Boolean isSelected) {
+    public Store(final Long storeId, final Long referenceStoreId, final BigDecimal stockPreviousDay, final BigDecimal expectedSales, final Boolean isSelected) {
         this.storeId = storeId;
         this.referenceStoreId = referenceStoreId;
-        this.storePreviousDay = storePreviousDay;
+        this.stockPreviousDay = stockPreviousDay;
         this.expectedSales = expectedSales;
         this.isSelected = isSelected;
     }
@@ -39,12 +39,12 @@ public class Store {
         this.referenceStoreId = referenceStoreId;
     }
 
-    public BigDecimal getStorePreviousDay() {
-        return storePreviousDay;
+    public BigDecimal getStockPreviousDay() {
+        return stockPreviousDay;
     }
 
-    public void setStorePreviousDay(final BigDecimal storePreviousDay) {
-        this.storePreviousDay = storePreviousDay;
+    public void setStorePreviousDay(final BigDecimal stockPreviousDay) {
+        this.stockPreviousDay = stockPreviousDay;
     }
 
     public BigDecimal getExpectedSales() {
@@ -86,7 +86,7 @@ public class Store {
 
 	@Override
 	public String toString() {
-		return "Store [storeId=" + storeId + ", referenceStoreId=" + referenceStoreId + ", storePreviousDay="
-				+ storePreviousDay + ", expectedSales=" + expectedSales + ", isSelected=" + isSelected + "]";
+		return "Store [storeId=" + storeId + ", referenceStoreId=" + referenceStoreId + ", stockPreviousDay="
+				+ stockPreviousDay + ", expectedSales=" + expectedSales + ", isSelected=" + isSelected + "]";
 	}
 }
