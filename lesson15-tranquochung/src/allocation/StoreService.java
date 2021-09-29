@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Optional;
-import java.util.OptionalInt;
+import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class StoreService {
@@ -16,10 +16,19 @@ public class StoreService {
 	public static void main(String[] args) {
 		// Dữ liệu vào
 		final Integer whAllocationAmount = 300;
-		final List<Store> data = getStores();
+		final List<Store> selectedStores = getStores().stream()
+				.filter(store -> Boolean.TRUE.equals(store.getSelected())).collect(Collectors.toList());
 
+		// Validation
+		if (selectedStores.size() != 0) {
+			boolean hasNonNullExpectedSales = selectedStores.stream()
+					.anyMatch(store -> store.getExpectedSales() != null);
+			if (hasNonNullExpectedSales != true) {
+				return;
+			}
+		}
 		// Thực hiện tính toán
-		Map<Long, Integer> storeAllocatedAmouts = doAllocation(whAllocationAmount, data);
+		Map<Long, Integer> storeAllocatedAmouts = doAllocation(whAllocationAmount, selectedStores);
 
 		// Kết quả
 		storeAllocatedAmouts.entrySet().stream().forEach(System.out::println);
@@ -53,167 +62,59 @@ public class StoreService {
 	 * 
 	 * @return map of storeId, storeAllocatedAmount
 	 */
-	private static Map<Long, Integer> doAllocation(Integer whAllocationAmount, List<Store> data) {
-		List<Store> filData = data.stream().filter(s -> s.getSelected() == true).collect(Collectors.toList());
-		Map<Store, BigDecimal> stepOne = stepOne(filData);
-		Map<Store, BigDecimal> allocationKey = stepTwo(stepOne);
-		Map<Long, Integer> allocationAmount = stepThree(allocationKey, whAllocationAmount);
-		while (true) {
-			Integer realAllocationAmount = allocationAmount.entrySet().stream().mapToInt(Entry::getValue).sum();
-			if (realAllocationAmount.equals(whAllocationAmount)) {
-				break;
-			}
-			stepFour(allocationAmount, stepOne, whAllocationAmount, realAllocationAmount);
-		}
-		return allocationAmount;
+	private static Map<Long, Integer> doAllocation(Integer whAllocationAmount, List<Store> stores) {
+		// Step 1: Filling in missing expected sales
+		Map<Long, BigDecimal> interpolatedExpectedSalesMap = fillMissingExpectedSales(stores);
+		
+		// Step 2: Calculate Allocation Key
+		Map<Long, BigDecimal> allocationKeyMap = calculateAllocationKey(interpolatedExpectedSalesMap); 
+		
+		// Step 3: Calculate Allocated Amount
+		
+		return null;
 	}
 
-	private static void stepFour(Map<Long, Integer> allocationKey, Map<Store, BigDecimal> stepOne,
-			Integer whAllocationAmount, Integer realAllocationAmount) {
-		// calculate demand store
-		Map<Long, Integer> demandMap = new HashMap<>();
-		for (Entry<Store, BigDecimal> entry : stepOne.entrySet()) {
-			BigDecimal value = entry.getValue().subtract(entry.getKey().getStorePreviousDay());
-			demandMap.put(entry.getKey().getStoreId(), value.intValue());
-		}
-
-		// calculate differences Amount Allocated and Demand
-		Map<Long, Integer> diff = new HashMap<>();
-		for (Entry<Long, Integer> entry : allocationKey.entrySet()) {
-			Integer value = entry.getValue() - demandMap.get(entry.getKey());
-			diff.put(entry.getKey(), value);
-		}
-
-		// fix rounding issues
-		OptionalInt option;
-		if (whAllocationAmount < realAllocationAmount) {
-			option = diff.entrySet().stream().mapToInt(Entry::getValue).max();
-		} else {
-			option = diff.entrySet().stream().mapToInt(Entry::getValue).min();
-		}
-		if (option.isPresent()) {
-			List<Long> listDiff = diff.entrySet().stream().filter(e -> e.getValue() == option.getAsInt())
-					.map(Entry::getKey).collect(Collectors.toList());
-			if (listDiff.size() == 1) {
-				if(whAllocationAmount < realAllocationAmount) {
-					allocationKey.put(listDiff.get(0), allocationKey.get(listDiff.get(0)).intValue() - 1);
-				} else {
-					allocationKey.put(listDiff.get(0), allocationKey.get(listDiff.get(0)).intValue() + 1);
-				}
-			} else {
-				Map<Long, Integer> mapDemand = new HashMap<>();
-				for (Long l : listDiff) {
-					for (Entry<Long, Integer> entry : demandMap.entrySet()) {
-						if (entry.getKey() == l) {
-							mapDemand.put(l, entry.getValue());
-						}
-					}
-				}
-				OptionalInt optionDemand;
-				if (whAllocationAmount < realAllocationAmount) {
-					optionDemand = mapDemand.entrySet().stream().mapToInt(Entry::getValue).max();
-				} else {
-					optionDemand = mapDemand.entrySet().stream().mapToInt(Entry::getValue).min();
-				}
-				List<Long> listDemand = mapDemand.entrySet().stream()
-						.filter(e -> e.getValue() == optionDemand.getAsInt()).map(Entry::getKey)
-						.collect(Collectors.toList());
-				if (listDemand.size() == 1) {
-					if(whAllocationAmount < realAllocationAmount) {
-						allocationKey.put(listDiff.get(0), allocationKey.get(listDiff.get(0)).intValue() - 1);
-					} else {
-						allocationKey.put(listDiff.get(0), allocationKey.get(listDiff.get(0)).intValue() + 1);
-					}
-				} else {
-					Map<Long, Integer> mapEx = new HashMap<>();
-					for (Long l : listDemand) {
-						for (Entry<Store, BigDecimal> entry : stepOne.entrySet()) {
-							if (entry.getKey().getStoreId() == l) {
-								mapEx.put(l, entry.getValue().intValue());
-							}
-						}
-					}
-					OptionalInt optionEs;
-					if (whAllocationAmount < realAllocationAmount) {
-						optionEs = mapDemand.entrySet().stream().mapToInt(Entry::getValue).max();
-					} else {
-						optionEs = mapDemand.entrySet().stream().mapToInt(Entry::getValue).min();
-					}
-					List<Long> listEs = stepOne.entrySet().stream()
-							.filter(e -> e.getValue().intValue() == optionEs.getAsInt())
-							.map(entry -> entry.getKey().getStoreId()).collect(Collectors.toList());
-					if (listEs.size() == 1) {
-						if(whAllocationAmount < realAllocationAmount) {
-							allocationKey.put(listEs.get(0), allocationKey.get(listDiff.get(0)).intValue() - 1);
-						} else {
-							allocationKey.put(listEs.get(0), allocationKey.get(listDiff.get(0)).intValue() + 1);
-						}
-					}
-				}
-			}
-		}
+	private static Map<Long, BigDecimal> calculateAllocationKey(Map<Long, BigDecimal> interpolatedExpectedSalesMap) {
+		Set<Entry<Long, BigDecimal>> entrySet = interpolatedExpectedSalesMap.entrySet();
+		BigDecimal sum = interpolatedExpectedSalesMap.entrySet().stream().map(Entry::getValue).reduce(BigDecimal.ZERO,
+				BigDecimal::add);
+		return entrySet.stream()
+				.collect(Collectors.toMap(Entry::getKey, e -> e.getValue().divide(sum, 10, RoundingMode.HALF_UP)));
 	}
 
-	private static Map<Long, Integer> stepThree(Map<Store, BigDecimal> stepTwo, Integer whAllocationAmount) {
-		Map<Long, Integer> result = new HashMap<>();
-		Optional<BigDecimal> sumSP = stepTwo.entrySet().stream()
-				.filter(entry -> entry.getKey().getStorePreviousDay() != null)
-				.map(entry -> entry.getKey().getStorePreviousDay()).reduce((a, b) -> a.add(b));
-		BigDecimal sumStockPrevious = sumSP.get();
-		for (Entry<Store, BigDecimal> entry : stepTwo.entrySet()) {
-			BigDecimal amountAllocated = entry.getValue().multiply(bd(whAllocationAmount).add(sumStockPrevious))
-					.subtract(entry.getKey().getStorePreviousDay()).setScale(0, RoundingMode.HALF_UP);
-			if (amountAllocated.intValue() < 0) {
-				amountAllocated = bd(0);
-			}
-			result.put(entry.getKey().getStoreId(), amountAllocated.intValue());
-		}
-		return result;
-	}
+	private static Map<Long, BigDecimal> fillMissingExpectedSales(List<Store> stores) {
+		Map<Long, BigDecimal> interpolatedExpectedMap = new HashMap<>();
 
-	private static Map<Store, BigDecimal> stepTwo(Map<Store, BigDecimal> stepOne) {
-		Map<Store, BigDecimal> result = new HashMap<>();
-		BigDecimal sumES = BigDecimal.valueOf(0);
-		for (BigDecimal es : stepOne.values()) {
-			sumES = es.add(sumES);
-		}
-		for (Entry<Store, BigDecimal> entry : stepOne.entrySet()) {
-			BigDecimal value = entry.getValue().divide(sumES, 10, RoundingMode.HALF_UP);
-			result.put(entry.getKey(), value);
-		}
-		return result;
-	}
+		List<Store> ownStores = stores.stream().filter(store -> store.getExpectedSales() != null)
+				.collect(Collectors.toList());
 
-	private static Map<Store, BigDecimal> stepOne(List<Store> stores) {
-		Map<Store, BigDecimal> result = new HashMap<>();
+		List<BigDecimal> ownExpectedSales = stores.stream().map(Store::getExpectedSales).filter(Objects::nonNull)
+				.collect(Collectors.toList());
+		BigDecimal sumExpectedSales = ownExpectedSales.stream().reduce(BigDecimal.ZERO, BigDecimal::add);
+		BigDecimal avgExpectedSales = sumExpectedSales.divide(bd(ownExpectedSales.size()), 1, RoundingMode.HALF_UP);
 
+		Map<Long, BigDecimal> ownExpectedSalesMap = ownStores.stream()
+				.collect(Collectors.toMap(Store::getStoreId, Store::getExpectedSales));
 		for (Store store : stores) {
-			// use case 1
+			BigDecimal expectedSales = store.getExpectedSales();
+			BigDecimal interpolatedExpectedSales = null;
 			if (store.getExpectedSales() != null) {
-				result.put(store, store.getExpectedSales().setScale(1, RoundingMode.HALF_UP));
-				continue;
-			}
-
-			// use case 2
-			if (store.getReferenceStoreId() != null) {
-				Optional<Store> optStore = stores.stream()
-						.filter(s -> s.getStoreId().equals(store.getReferenceStoreId())).findAny();
-				if (optStore.isPresent()) {
-					if (optStore.get().getExpectedSales() != null) {
-						result.put(store, optStore.get().getExpectedSales().setScale(1, RoundingMode.HALF_UP));
-						continue;
-					}
+				interpolatedExpectedSales = expectedSales;
+			} else {
+				// missing expected sales
+				Long referencesStoreId = store.getReferenceStoreId();
+				BigDecimal refStorexpectedSales = ownExpectedSalesMap.get(referencesStoreId);
+				if (referencesStoreId != null && refStorexpectedSales != null) {
+					interpolatedExpectedSales = refStorexpectedSales;
+				} else {
+					// average
+					interpolatedExpectedSales = avgExpectedSales;
 				}
 			}
-
-			// use case other
-			Optional<BigDecimal> optES = stores.stream().filter(s -> s.getExpectedSales() != null)
-					.map(Store::getExpectedSales).reduce((a, b) -> a.add(b));
-			long count = stores.stream().filter(s -> s.getExpectedSales() != null).count();
-			BigDecimal avgES = optES.get().divide(bd(count));
-			result.put(store, avgES.setScale(1, RoundingMode.HALF_UP));
+			interpolatedExpectedMap.put(store.getStoreId(), interpolatedExpectedSales);
 		}
-		return result;
+
+		return interpolatedExpectedMap;
 	}
 
 }
