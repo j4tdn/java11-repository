@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class StoreService {
@@ -23,8 +22,11 @@ public class StoreService {
 		if (selectedStores.size() != 0) {
 			boolean hasNonNullExpectedSales = selectedStores.stream()
 					.anyMatch(store -> store.getExpectedSales() != null);
-			if (hasNonNullExpectedSales != true) {
-				return;
+			if (!hasNonNullExpectedSales) {
+				System.out.println("Stop calculation");
+				System.out.println(
+						"Expected sales cannot be calculated. Please add a reference store or include stores with expected sales for interpolation");
+				throw new IllegalArgumentException();
 			}
 		}
 		// Thực hiện tính toán
@@ -67,19 +69,19 @@ public class StoreService {
 		Map<Long, BigDecimal> interpolatedExpectedSalesMap = fillMissingExpectedSales(stores);
 		
 		// Step 2: Calculate Allocation Key
-		Map<Long, BigDecimal> allocationKeyMap = calculateAllocationKey(interpolatedExpectedSalesMap); 
+		StoreParamDto<BigDecimal> interpolatedExpectedSales = new StoreParamDto<>(interpolatedExpectedSalesMap, BigDecimal.ZERO, BigDecimal::add);
+		Map<Long, BigDecimal> allocationKeyMap = calculateAllocationKey(interpolatedExpectedSales); 
 		
 		// Step 3: Calculate Allocated Amount
-		
-		return null;
-	}
-
-	private static Map<Long, BigDecimal> calculateAllocationKey(Map<Long, BigDecimal> interpolatedExpectedSalesMap) {
-		Set<Entry<Long, BigDecimal>> entrySet = interpolatedExpectedSalesMap.entrySet();
-		BigDecimal sum = interpolatedExpectedSalesMap.entrySet().stream().map(Entry::getValue).reduce(BigDecimal.ZERO,
-				BigDecimal::add);
-		return entrySet.stream()
-				.collect(Collectors.toMap(Entry::getKey, e -> e.getValue().divide(sum, 10, RoundingMode.HALF_UP)));
+		Map<Long, BigDecimal> stockPreviousDayMap = stores.stream()
+				.collect(Collectors.toMap(Store::getStoreId, Store::getStockPreviousDay));
+    	StoreParamDto<BigDecimal> stockPreviousDay = new StoreParamDto<>(stockPreviousDayMap, BigDecimal.ZERO, BigDecimal::add);
+    	Map<Long, Integer> allocatedAmountMap = calculateAllocatedAmount(allocationKeyMap, whAllocationAmount, stockPreviousDay);
+    	
+    	// Step 4: fix rounding issues
+    	Map<Long, Integer> fixedAllocatedAmountMap = fixRoundingIssue(whAllocationAmount, interpolatedExpectedSalesMap, stockPreviousDayMap, allocatedAmountMap);
+    	
+    	return fixedAllocatedAmountMap;
 	}
 
 	private static Map<Long, BigDecimal> fillMissingExpectedSales(List<Store> stores) {
@@ -90,8 +92,7 @@ public class StoreService {
 
 		List<BigDecimal> ownExpectedSales = stores.stream().map(Store::getExpectedSales).filter(Objects::nonNull)
 				.collect(Collectors.toList());
-		BigDecimal sumExpectedSales = ownExpectedSales.stream().reduce(BigDecimal.ZERO, BigDecimal::add);
-		BigDecimal avgExpectedSales = sumExpectedSales.divide(bd(ownExpectedSales.size()), 1, RoundingMode.HALF_UP);
+		BigDecimal avgExpectedSales = calculateAvgExpectedSales(ownExpectedSales);
 
 		Map<Long, BigDecimal> ownExpectedSalesMap = ownStores.stream()
 				.collect(Collectors.toMap(Store::getStoreId, Store::getExpectedSales));
@@ -116,5 +117,156 @@ public class StoreService {
 
 		return interpolatedExpectedMap;
 	}
+	
+	private static Map<Long, Integer> calculateAllocatedAmount(Map<Long, BigDecimal> allocationKeyMap,
+			Integer whAllocationAmount, StoreParamDto<BigDecimal> stockPreviousDay) {
+		return allocationKeyMap.entrySet().stream().collect(Collectors.toMap(Entry::getKey, e -> {
+			BigDecimal sumStockPreviousDay = stockPreviousDay.getSum();
+			BigDecimal stockPreviousPerDay = stockPreviousDay.getStoreParam(e.getKey());
+			return Math.max(e.getValue().multiply(bd(whAllocationAmount).add(sumStockPreviousDay))
+					.subtract(stockPreviousPerDay).setScale(0, RoundingMode.HALF_UP).intValueExact(), 0);
+		}));
+	}
 
+	private static Map<Long, BigDecimal> calculateAllocationKey(StoreParamDto<BigDecimal> interpolatedSale) {
+		BigDecimal sum = interpolatedSale.getSum();
+		return interpolatedSale.getStoreParamMap().stream()
+				.collect(Collectors.toMap(Entry::getKey, e -> e.getValue()
+				.divide(sum, 10, RoundingMode.HALF_UP)));
+	}
+	
+	private static Map<Long, Integer> fixRoundingIssue(Integer whAllocationAmount,
+			Map<Long, BigDecimal> interpolatedExpectedSalesMap, Map<Long, BigDecimal> stockPreviousDayMap,
+			Map<Long, Integer> allocatedAmountMap) {
+		Map<Long, Integer> fixedAllocatedAmountMap = new HashMap<>(allocatedAmountMap);
+		
+		StoreParamDto<Integer> allocatedAmount = new StoreParamDto<>(allocatedAmountMap, 0, Integer::sum);
+		Integer sumAllocatedAmount = allocatedAmount.getSum();
+		if (!sumAllocatedAmount.equals(whAllocationAmount)) {
+			Map<Long, Integer> demandMap = calculateDemand(interpolatedExpectedSalesMap, stockPreviousDayMap);
+			
+			if (sumAllocatedAmount.compareTo(whAllocationAmount) > 0) {
+				while (!sumAllocatedAmount.equals(whAllocationAmount)) {
+					fixRoundingBiggest(demandMap, fixedAllocatedAmountMap, interpolatedExpectedSalesMap);
+					sumAllocatedAmount -= 1;
+				}
+			} else {
+				while (!sumAllocatedAmount.equals(whAllocationAmount)) {
+					fixRoundingSmallest(demandMap, fixedAllocatedAmountMap, interpolatedExpectedSalesMap);
+					sumAllocatedAmount += 1;
+				}
+			}
+		}
+		
+		return fixedAllocatedAmountMap;
+	}
+	
+	private static void fixRoundingSmallest(Map<Long, Integer> demandMap, Map<Long, Integer> fixedAllocatedAmountMap,
+			Map<Long, BigDecimal> interpolatedExpectedSalesMap) {
+		
+		List<Entry<Long, Integer>> nonZeroAllocateAmount =  fixedAllocatedAmountMap.entrySet().stream()
+				.filter(entry -> entry.getValue() != 0)
+				.collect(Collectors.toList());
+		
+		Entry<Long, Integer> selectedStore = nonZeroAllocateAmount.get(0);
+		for (Entry<Long, Integer> allocationDto : nonZeroAllocateAmount) {
+			Long storeNbr = allocationDto.getKey();
+			int smallestDiff = selectedStore.getValue() - demandMap.get(selectedStore.getKey());
+			int diff = allocationDto.getValue() - demandMap.get(storeNbr);
+			if (diff < smallestDiff) {
+				selectedStore = allocationDto;
+				continue;
+			}
+			
+			if (diff == smallestDiff) {
+				int maxDemand = demandMap.get(selectedStore.getKey());
+				int demand = demandMap.get(storeNbr);
+				if (demand > maxDemand) {
+					selectedStore = allocationDto;
+					continue;
+				}
+				if (demand == maxDemand) {
+					BigDecimal maxInterpolatedSales = interpolatedExpectedSalesMap.get(selectedStore.getKey());
+					BigDecimal interpolatedSales = interpolatedExpectedSalesMap.get(storeNbr);
+					if (interpolatedSales.compareTo(maxInterpolatedSales) > 0) {
+						selectedStore = allocationDto;
+						continue;
+					}
+					
+					if (interpolatedSales.compareTo(maxInterpolatedSales) == 0) {
+						Long minStoreNbr = selectedStore.getKey();
+						
+						if (storeNbr.compareTo(minStoreNbr) < 0) {
+							selectedStore = allocationDto;
+						}
+					}
+				}
+			}
+		}
+		
+		int newValue = selectedStore.getValue() + 1;
+		selectedStore.setValue(newValue);
+		
+	}
+
+	private static void fixRoundingBiggest(Map<Long, Integer> demandMap, Map<Long, Integer> fixedAllocatedAmountMap,
+			Map<Long, BigDecimal> interpolatedExpectedSalesMap) {
+		List<Entry<Long, Integer>> nonZeroAllocateAmount =  fixedAllocatedAmountMap.entrySet().stream()
+				.filter(entry -> entry.getValue() != 0)
+				.collect(Collectors.toList());
+		
+		Entry<Long, Integer> selectedStore = nonZeroAllocateAmount.get(0);
+		for (Entry<Long, Integer> allocationDto : nonZeroAllocateAmount) {
+			Long storeNbr = allocationDto.getKey();
+			
+			int biggestDiff = selectedStore.getValue() - demandMap.get(selectedStore.getKey());
+			int diff = allocationDto.getValue() - demandMap.get(storeNbr);
+			if (diff > biggestDiff) {
+				selectedStore = allocationDto;
+				continue;
+			}
+			
+			if (diff == biggestDiff) {
+				int minDemand = demandMap.get(selectedStore.getKey());
+				int demand = demandMap.get(storeNbr);
+				if (demand < minDemand) {
+					selectedStore = allocationDto;
+					continue;
+				}
+				if (demand == minDemand) {
+					BigDecimal minInterpolatedSales = interpolatedExpectedSalesMap.get(selectedStore.getKey());
+					BigDecimal interpolatedSales = interpolatedExpectedSalesMap.get(storeNbr);
+					if (interpolatedSales.compareTo(minInterpolatedSales) < 0) {
+						selectedStore = allocationDto;
+						continue;
+					}
+					
+					if (interpolatedSales.compareTo(minInterpolatedSales) == 0) {
+						Long minStoreNbr = selectedStore.getKey();
+						
+						if (storeNbr.compareTo(minStoreNbr) < 0) {
+							selectedStore = allocationDto;
+						}
+					}
+				}
+			}
+		}
+		
+		int newValue = selectedStore.getValue() - 1;
+		selectedStore.setValue(newValue);
+	}
+
+	/////////////////////////////////////////////////
+	
+	private static Map<Long, Integer> calculateDemand(Map<Long, BigDecimal> interpolatedExpectedSalesMap,
+			Map<Long, BigDecimal> stockPreviousDayMap) {
+		return interpolatedExpectedSalesMap.entrySet().stream()
+				.collect(Collectors.toMap(Entry::getKey, 
+						e -> Math.max(e.getValue().subtract(stockPreviousDayMap.get(e.getKey())).intValue(), 0)));
+	}
+
+	private static BigDecimal calculateAvgExpectedSales(List<BigDecimal> ownExpectedSales) {
+		BigDecimal sumExpectedSales = ownExpectedSales.stream().reduce(BigDecimal.ZERO, BigDecimal::add);
+		return sumExpectedSales.divide(bd(ownExpectedSales.size()), 1, RoundingMode.HALF_UP);
+	}
 }
