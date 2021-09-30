@@ -186,7 +186,7 @@ public class StoreService {
 					selectedStore = allocationDto;
 					continue;
 				}
-				
+				//If two or more stores have the same difference: take the one with smallest Demand
 				if(demand == minDemand) {
 					BigDecimal minIExpectedSales = interpolatedExpectedSalesMap.get(selectedStore.getKey());
 					BigDecimal iExpectedSales = interpolatedExpectedSalesMap.get(storeNum);
