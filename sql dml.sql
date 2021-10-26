@@ -34,3 +34,7 @@ ADD CONSTRAINT `FK_MatHang_LoaiHang`
   REFERENCES `java11_shopping_manually`.`loaihang` (`MaLH`)
   ON DELETE CASCADE
   ON UPDATE CASCADE;
+  
+  
+SELECT *
+FROM mathang
