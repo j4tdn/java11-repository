@@ -1,5 +1,7 @@
 package collection.set;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
@@ -25,5 +27,6 @@ public class Ex01 {
 		while (each.hasNext()) {
 			System.out.println("next:" + each.next());
 		}
+		
 	}
 }

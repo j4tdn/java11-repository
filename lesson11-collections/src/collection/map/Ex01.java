@@ -29,7 +29,7 @@ public class Ex01 {
 				if (k1 == null) {
 					return 1;
 				}
-				if (k2 != null) {
+				if (k2 == null) {
 					return -1;
 				}
 				return k2.compareTo(k1);

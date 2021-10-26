@@ -42,7 +42,7 @@ public class App {
 	}
 
 	public static List<Transaction> Ex01(List<Transaction> transactions) {
-		List<Transaction> results = new ArrayList<Transaction>();
+		List<Transaction> results = new ArrayList<>();
 		for (Transaction item : transactions) {
 			if (item.getYear() == 2012) {
 				results.add(item);
@@ -64,7 +64,7 @@ public class App {
 	}
 
 	public static Set<String> Ex03(List<Trader> traders) {
-		Set<String> results = new HashSet<String>();
+		Set<String> results = new HashSet<>();
 		for (Trader trader : traders) {
 			results.add(trader.getCity());
 		}

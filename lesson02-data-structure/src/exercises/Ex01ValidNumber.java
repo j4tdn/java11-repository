@@ -13,8 +13,7 @@ public class Ex01ValidNumber {
 			if (text.matches("[0-9]+")) {
 				break;
 			}
-			count++;
-			if (count == 3) {
+			if (++count == 3) {
 				System.out.println("Wrong text excedds 3 time!");
 				return;
 			}

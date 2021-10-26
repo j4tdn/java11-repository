@@ -54,5 +54,6 @@ public class Ex02RandomPass {
 			return true;
 		return false;
 	}
+	
 
 }

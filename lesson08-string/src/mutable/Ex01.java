@@ -1,5 +1,7 @@
 package mutable;
 
+import java.util.Arrays;
+
 import utils.JvmUtils;
 
 public class Ex01 {
@@ -16,7 +18,5 @@ public class Ex01 {
 		JvmUtils.hash("m1", m);
 		m = m.append(" Pattern");
 		JvmUtils.hash("m2", m);
-		
-		System.out.println("Value m: " + m);
 	}
 }

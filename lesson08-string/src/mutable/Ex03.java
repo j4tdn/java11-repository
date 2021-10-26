@@ -27,8 +27,8 @@ public class Ex03 {
 		private int count = 50000;
 
 		public MutableTask() {
-			// mutable = new String Buffer();
-			mutable = new StringBuffer();
+			 mutable = new StringBuffer();
+			// mutable = new StringBuilder();
 		}
 
 		@Override

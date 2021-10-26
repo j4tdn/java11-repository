@@ -10,6 +10,7 @@ public class Ex04 {
 		PrintUtils.hash("hash", age);
 		increase(age);
 		System.out.println("i age: " + age);
+		PrintUtils.hash("hash", age);
 		Integer salary = 20;
 		PrintUtils.hash("hash salary",salary);
 	}

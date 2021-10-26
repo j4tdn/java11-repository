@@ -7,7 +7,6 @@ public class Ex01Scanner {
     	 //Trôi lệnh nếu
     	 //Trước: Nhập vào input là 1 kiểu khác String
     	 //Sau: Nhập vào input là String
-    	 
     	 //Khai báo 1 biến scanner
     	 Scanner ip = new Scanner(System.in);
     	 

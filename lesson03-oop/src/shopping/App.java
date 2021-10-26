@@ -23,11 +23,11 @@ public class App {
 				new ItemDetail[] { new ItemDetail(i1, 3), new ItemDetail(i4, 5), new ItemDetail(i2, 1), },
 				LocalDateTime.of(2021, 5, 8, 10, 10, 10));
 
-		Order o2 = new Order(c1,
+		Order o2 = new Order(c2,
 				new ItemDetail[] { new ItemDetail(i1, 3), new ItemDetail(i4, 5), new ItemDetail(i2, 1), },
 				LocalDateTime.of(2021, 5, 8, 10, 10, 10));
 
-		Order o3 = new Order(c1,
+		Order o3 = new Order(c2,
 				new ItemDetail[] { new ItemDetail(i1, 3), new ItemDetail(i4, 5), new ItemDetail(i2, 1), },
 				LocalDateTime.of(2021, 5, 8, 10, 10, 10));
 

@@ -4,7 +4,7 @@ public interface Father {
 	// abstract method
 	void adn();
 
-	default void playSports() {
+    default void playSports() {
 		System.out.println("Football");
 	}
 

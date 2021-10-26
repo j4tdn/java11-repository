@@ -9,7 +9,7 @@ public class Ex05 {
 		System.out.println("b: "+ b);
 	}
 	private static void swap(Integer first,Integer second) {
-		Integer tmp = first;
+		int tmp = first;
 		first = second;
 		second = tmp;
 	}

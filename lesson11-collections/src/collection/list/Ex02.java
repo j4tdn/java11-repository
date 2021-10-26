@@ -1,6 +1,7 @@
 package collection.list;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Ex02 {
@@ -10,6 +11,8 @@ public class Ex02 {
 		
 		List<Integer> digits = new ArrayList<>();
 		List<String> sequences = new ArrayList<String>();
+		List<Integer> demo = new LinkedList<Integer>();
+		
 		
 		digits.add(123);
 		digits.add(345);

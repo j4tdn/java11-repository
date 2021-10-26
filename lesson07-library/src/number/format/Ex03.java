@@ -12,6 +12,5 @@ public class Ex03 {
 
 		BigDecimal result = b1.multiply(b2).setScale(6, RoundingMode.HALF_UP);
 		System.out.println("result: " + result);
-
 	}
 }

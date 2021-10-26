@@ -11,7 +11,7 @@ public class Ex06 {
 		// null null "" "" >> null first
 		// "" "" null null >> null last
 		
-		Comparator<String> comparator = new Comparator<String>() {
+		Comparator<String> comparator = new Comparator<>() {
 
 			@Override
 			public int compare(String o1, String o2) {

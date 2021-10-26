@@ -8,7 +8,7 @@ public class Ex03 {
 		updateValues(item);
 		System.out.println("Main End");
 
-		// Innitial Array
+		// Initial Array
 		Item[] items = new Item[2];
 		for (int i = 0; i < items.length; i++) {
 			if (items[i] == null) {
