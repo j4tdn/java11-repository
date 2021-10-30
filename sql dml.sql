@@ -30,6 +30,23 @@ WHERE MaLH = 3;
 
 ROLLBACK;
 
+SELECT *
+FROM MatHang;
+
+-- Cập nhật màu sắc của tất cả các mặt hàng có loại hàng = 2 thành màu xanh
+UPDATE MatHang
+SET MauSac = 'Xanh'
+WHERE MaLH = 2;
+
+-- MERGE - saveOrUpdate
+-- INSERT - UPDATE
+
+-- saveOrUpdate(new Item(2, 'Áo sơ mi', 'Trắng', 1))
+
+-- JDBC executeQuery, executeUpdate
+-- update >> INSERT, UPDATE, DELETE
+-- select >> SELECT
+
 
 
 
