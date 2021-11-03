@@ -44,6 +44,17 @@ CONSTRAINT FK_ChiTietMatHang_KichCo FOREIGN KEY (MaKC) REFERENCES KichCo(MaKC)
 
 ALTER TABLE LoaiHang DROP COLUMN CREATED;
 
+ROLLBACK;
+
+-- MERGE - saveOrUpdate
+-- INSERT - UPDATE 
+
+
+
 -- Phân biệt Truncate(not rollback, no filter) và Delete(rollback, filter(where))
 -- Trancate hiệu xuất lớn hơn Delete không có điều kiện
-    
+
+-- JDBC executeQuery, executeUpdate
+-- update >> INSERT, UPDATE, DELETE
+-- SELECT >> SELECT
+

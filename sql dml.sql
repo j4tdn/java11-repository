@@ -35,6 +35,11 @@ ADD CONSTRAINT `FK_MatHang_LoaiHang`
   ON DELETE CASCADE
   ON UPDATE CASCADE;
   
-  
-SELECT *
+-- Giảm 15k nếu giá bán lớn hơn giá mua 30k trở lên 
+SELECT *, IF(GiaBan - GiaMua >= 30, GiaBan-15, GiaBan) AS GiaGiam
+FROM ChiTietMatHang;
+
+-- group_concat (column)
+SELECT GROUP_CONCAT(TenMH SEPARATOR '-')
 FROM mathang
+WHERE MaLH;
