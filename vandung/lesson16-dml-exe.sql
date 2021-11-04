@@ -178,6 +178,16 @@ update chitietmathang ctmh JOIN mathang mh ON ctmh.MaMH = mh.MaMH
 SET ctmh.giaBan = 200
 WHERE lh.TenLH Like 'Ao';
 
+-- 28. Backup data. Tạo table LoaiHang_BACKUP(MaLoai, TenLoai) >> Sao chép dữ liệu từ bảng LoaiHang sang LoaiHang_BACKUP ??
+CREATE TABLE LoaiHang_BACKUP(
+MaLH INT PRIMARY KEY,
+TenLH VARCHAR(255) NOT NULL);
+
+INSERT INTO LoaiHang_BACKUP(MaLH, TenLH)
+SELECT *
+FROM loaihang;
+SELECT * FROM loaihang_backup;
+
 -- 29. Tìm những mặt hàng có Mã Loại = 2 (T-Shirt) và đã được bán trong ngày 23/11
 SELECT * 
 FROM  mathang mh JOIN chitietdonhang ctdh ON mh.MaMH = ctdh.MaMH
@@ -193,7 +203,7 @@ UNION
 SELECT lh.MaLH,lh.TenLH,mh.TenMH,max(ctmh.SoLuong)
 FROM loaihang lh JOIN mathang mh ON lh.MaLH = mh.MaLH
 				JOIN chitietmathang ctmh ON ctmh.MaMH = mh.MaMH
-WHERE lh.TenLH LIKE '%Quan%'
+WHERE lh.TenLH LIKE '%Quan%';
 
 
     
