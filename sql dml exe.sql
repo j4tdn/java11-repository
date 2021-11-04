@@ -89,9 +89,10 @@ SELECT * FROM mathang
 WHERE MaLH in (SELECT MaLH FROM loaihang WHERE TenLH LIKE '%Thắt lưng%');
 
 -- Top 5 mặt hàng có giá bán cao nhất
-SELECT m.MaMH, TenMH, MAX(GiaBan) 
+SELECT m.MaMH, TenMH, GiaBan 
 FROM mathang m JOIN chitietmathang c ON m.MaMH = c.MaMH
-LIMIT 1, 5;
+ORDER BY c.GiaBan DESC
+LIMIT 5;
 
 -- 2. Đơn hàng
 -- Được bán trong ngày 28/11/2019
@@ -211,3 +212,9 @@ JOIN chitietmathang c ON m.MaMH = c.MaMH
 GROUP BY l.MaLH;
 
 -- 23. In ra 3 loại hàng có số lượng hàng còn lại nhiều nhất ở thời điểm hiện tại
+SELECT l.TenLH, c.SoLuong
+FROM loaihang l JOIN mathang m ON l.MaLH = m.MaLH
+JOIN chitietmathang c ON m.MaMH = c.MaMH
+ORDER BY c.SoLuong DESC
+LIMIT 3;
+
