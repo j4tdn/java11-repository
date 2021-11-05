@@ -8,6 +8,7 @@ WHERE TenCV LIKE 'Nhân viên giao hàng';
 DELETE FROM MatHang		
 WHERE MaLH = (SELECT MaLH FROM LoaiHang WHERE TenLH = 'Mũ');
 
+
 DELETE FROM MatHang;
 
 DELETE FROM DonHang
