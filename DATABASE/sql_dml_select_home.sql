@@ -114,15 +114,32 @@ order by giaban desc
 limit 1;
 
 -- 18. Tìm mặt hàng có giá bán cao nhất của mỗi loại hàng
-select m.mamh,tenmh,giaban
-from mathang m
-inner join chitietmathang c on m.mamh = c.mamh 
-where giaban in(
-select max(giaban) as giabancaonhat
-from mathang m
-inner join chitietmathang c on m.mamh = c.mamh
-inner join loaihang l on m.malh = l.malh
-group by l.tenlh);
+use java12_shopping;
+-- CTE: COMMON TABLE EXPRESSION
+WITH CTE_LoaiHang AS (
+	SELECT  lh.MaLH,
+			lh.TenLH,
+			MAX(ctmh.GiaBan) GiaBanCaoNhat
+	FROM LoaiHang lh
+	JOIN MatHang mh
+		ON lh.MaLH = mh.MaLH
+	JOIN ChiTietMatHang ctmh
+		ON mh.MaMH = ctmh.MaMH
+	GROUP BY lh.MaLH
+)
+SELECT lh.MaLH,
+       lh.TenLH,
+       mh.MaMH,
+       mh.TenMH,
+       ctmh.GiaBan,
+       ctmh.MaKC,
+       lh.GiaBanCaoNhat
+FROM CTE_LoaiHang lh
+JOIN MatHang mh
+	ON mh.MaLH = lh.MaLH
+JOIN ChiTietMatHang ctmh
+	ON mh.MaMH = ctmh.MaMH 
+WHERE ctmh.GiaBan = lh.GiaBanCaoNhat;
 
 -- 19. Hiển thị tổng số lượng mặt hàng của mỗi loại hàng trong hệ thống 
 select tenlh,sum(SoLuong) as TongSL
@@ -139,11 +156,40 @@ select tenlh,sum(SoLuong) as TongSL
 from mathang m
 inner join chitietmathang c on m.mamh = c.mamh
 inner join loaihang l on m.malh = l.malh
-group by l.malh; -- chưa xét đk
+group by l.malh
+having TongSL>20;
 
 -- ==============================================================
 -- 21. Hiển thị mặt hàng có số lượng nhiều nhất trong mỗi loại hàng
--- đã nghĩ nhưng k làm ra 
+
+WITH CTE_MatHang AS (
+-- Số lượng mặt hàng lớn nhất của mỗi mặt hàng
+   SELECT mh.MaMH,
+          mh.TenMH,
+          sum(ctmh.SoLuong) SoLuongMatHang
+   FROM MatHang mh
+   JOIN ChiTietMatHang ctmh
+   ON mh.MaMH = ctmh.MaMH
+   GROUP BY mh.MaMH
+),
+CTE_LoaiHang AS (
+-- Số lượng mặt hàng lớn nhất của mỗi loại hàng
+SELECT mh.MaLH,
+       max(cte.SoLuongMatHang) SoLuongCaoNhat
+FROM MatHang mh
+JOIN CTE_MatHang cte
+ON mh.MaMH = cte.MaMH
+GROUP BY mh.MaLH
+)
+
+SELECT * 
+FROM CTE_MatHang ctemh
+JOIN MatHang mh
+	ON ctemh.MaMH = mh.MaMH
+JOIN CTE_LoaiHang ctelh
+	ON mh.MaLH = ctelh.MaLH
+WHERE ctemh.SoLuongMatHang = ctelh.SoLuongCaoNhat;
+
 
 -- 22. Hiển thị giá bán trung bình của mỗi loại hàng
 select tenlh,avg(giaban) as GiabanTB
@@ -152,19 +198,28 @@ inner join chitietmathang c on m.mamh = c.mamh
 inner join loaihang l on m.malh = l.malh
 group by l.malh;
 
+
 -- 23. In ra 3 loại hàng có số lượng hàng còn lại nhiều nhất ở thời điểm hiện tại
 select m.malh,tenlh,soluong
 from mathang m
 inner join chitietmathang c on m.mamh = c.mamh
 inner join loaihang l on m.malh = l.malh
-order by soluong desc; -- chưa xong
+order by soluong desc
+limit 3; -- chưa xong
 
 -- 24. Liệt kê những mặt hàng có MaLoai = 2 và thuộc đơn hàng 100100
+select m.MaMH,m.TenMH,m.MaLH,c.MaDH
+from mathang  m 
+inner join chitietdonhang  c on m.MaMH=c.MaMH 
+where m.MaLH=2 and c.MaDH=100100;
 -- 25. Tìm những mặt hàng có Mã Loại = 2 và đã được bán trong ngày 28/11
+
 select * 
 from chitietmathang c
 inner join mathang m on c.mamh = m.mamh
 where malh=2 and cast(thoigiandathang as date) = '2020-11-28';
+
+
 -- 26. Liệt kê những mặt hàng là 'Mũ' không bán được trong ngày 14/02/2019
 select * from mathang
 where malh =(select malh from loaihang where tenlh ='Mũ')
@@ -174,7 +229,7 @@ from donhang d
 inner join ChiTietDonHang  c on d.madh - c.madh
 inner join mathang m on m.mamh = c.mamh
 inner join loaihang l on m.malh = l.malh
-where tenlh='Áo' AND cast(thoigiandathang as date) = '2020-2-14');
+where tenlh='Mũ' AND cast(thoigiandathang as date) = '2020-2-14');
 
 -- 27. Cập nhật giá bán của tất cả các mặt hàng thuộc loại hàng 'Áo' thành 199
 update chitietmathang set giaban=199
@@ -184,12 +239,50 @@ where mamh in (select mamh
 
 -- 28. Backup data. Tạo table LoaiHang_BACKUP(MaLoai, TenLoai)
 --    Sao chép dữ liệu từ bảng LoaiHang sang LoaiHang_BACKUP
+use java12_shopping;
+    CREATE TABLE LoaiHang_BACKUP(
+		Maloai int ,
+        TenLoai varchar(50)
+	);
+insert into loaihang_backup(MaLoai, TenLoai) 
+select malh, tenlh from loaihang;
 
 -- 29. Tìm những mặt hàng có Mã Loại = 2 (T-Shirt) và đã được bán trong ngày 23/11
+select m.MaMH,m.TenMH,m.MaLH,c.MaDH, cd.ThoiGian
+from mathang m
+inner join chitietdonhang c on m.MaMH=c.MaMH 
+inner join chitiettinhtrangdonhang as cd on c.MaDH=cd.MaDH  
+where m.MaLH=2 and day(cd.ThoiGian) =23 and month(cd.ThoiGian)=11;
 -- 30. Liệt kê 2 sản phẩm (có số lượng tồn kho nhiều nhất) của loại hàng 'Áo' và 'Quần'
-
+select * 
+from mathang m 
+inner join loaihang as l on m.MaLH=l.MaLH 
+inner join chitietmathang as c on m.MaMH=c.MaMH 
+where (l.TenLH='Áo' and c.SoLuong = (select max(SoLuong) 
+									from chitietmathang inner join mathang on chitietmathang.MaMH= mathang.MaMH 
+                                    inner join loaihang on mathang.MaLH=loaihang.MaLH 
+                                    where loaihang.TenLH='Áo')) 
+or (l.TenLH='Quần' and c.SoLuong = (select max(SoLuong) 
+									from chitietmathang inner join mathang on chitietmathang.MaMH= mathang.MaMH 
+									inner join loaihang on mathang.MaLH=loaihang.MaLH where loaihang.TenLH='Quần'));
 -- 31. Tính tổng tiền cho đơn hàng 02
 --    Với tổng tiền được tính bằng tổng các sản phẩm và số lượng của sản phẩm tương ứng
+select * from chitietdonhang;
+select ct.MaDH, l.TenLH,sum(c.giaban) as TongTien,sum(c.SoLuong) as TongSoLuong
+from mathang m 
+inner join chitietmathang c on m.mamh = c.mamh 
+inner join loaihang l on m.malh = l.malh 
+inner join chitietdonhang as ct on m.MaMH=ct.MaMH 
+where ct.MaDH=2  
+group by l.malh;
+
 -- 32. Xuất thông tin hóa đơn của đơn hàng 02 với thông tin như sau.
 -- 	SoDH ChiTietDonHang           TongTien
 --    02   TenMH:GiaBan:SoLuong     100
+
+select d.MaDH, concat_ws(':',m.tenmh,cm.giaban,ct.soluong) as ChiTietDonHang, (ct.soluong*cm.GiaBan) as TongTien 
+from mathang m 
+inner join chitietmathang cm on m.MaMH=cm.MaMH 
+inner join chitietdonhang ct on cm.MaMH=ct.MaMH 
+inner join donhang d on ct.MaDH=d.MaDH 
+where ct.MaDH=2;
