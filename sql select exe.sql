@@ -32,11 +32,17 @@ SELECT mathang.MaMH, mathang.TenMH, ROUND(GiaBan * 20 / 100, 2) AS GiaBan
 FROM mathang JOIN chitietmathang ON mathang.MaMH = chitietmathang.MaMH;
 
 -- 4. Giảm giá 20% tất cả các mặt hàng trong ngày 25/11/2019
-SELECT donhang.MaDH, mathang.TenMH, chitietmathang.GiaBan AS GIABANDAU, (chitietmathang.GiaBan * 20 / 100) AS GIAGIAM
+SELECT donhang.MaDH, mathang.TenMH, chitietmathang.GiaBan AS GIABANDAU, (chitietmathang.GiaBan * 0.8) AS GIAGIAM
 FROM donhang JOIN chitietdonhang ON donhang.MaDH = chitietdonhang.MaDH 
 	 JOIN mathang ON mathang.MaMH = chitietdonhang.MaMH
      JOIN chitietmathang ON chitietmathang.MaMH = mathang.MaMH
 WHERE DATE(ThoiGianDatHang) = '2020/12/18';
+--
+SELECT mh.*, ctmh.GiaBan, ctmh.GiaBan * 0.8 GiaGiam, CURDATE() NgayGiamGia
+FROM MatHang mh
+JOIN ChiTietMatHang ctmh
+ON mh.MaMH = ctmh.MaMH
+WHERE CURDATE() = '2020-12-18';
 
 -- 5. Liệt kê tất cả các màu sắc của sản phẩm có bán trong cửa hàng.
 SELECT DISTINCT MauSac
@@ -93,10 +99,15 @@ WHERE CAST(ThoiGianDatHang AS DATE) = '2019/11/23' AND TenMH= 'Giày da Nam';
 --    MaLoai  TenLoai SoLuong
 -- 	   1       Giày    20
 --     2       Áo      28
-SELECT DISTINCT loaihang.MaLH AS MaLoai, loaihang.TenLH AS TenLoai, COUNT(*) AS SoLuong
-FROM mathang JOIN loaihang ON mathang.MaLH = loaihang.MaLH
-GROUP BY loaihang.MaLH;
-
+SELECT lh.TenLH,
+	   lh.MaLH,
+       SUM(ctmh.SoLuong) SoLuongMatHang
+FROM LoaiHang lh
+JOIN MatHang mh
+	ON lh.MaLH = mh.MaLH
+JOIN ChiTietMatHang ctmh
+	ON mh.MaMH = ctmh.MaMH
+GROUP BY lh.MaLH;
 -- 17. Tìm mặt hàng có giá bán cao nhất trong loại hàng 'Giày'
 SELECT mathang.*
 FROM loaihang JOIN mathang ON loaihang.MaLH = mathang.MaLH
@@ -105,13 +116,71 @@ WHERE TenLH LIKE 'Giày'
 ORDER BY GiaBan DESC
 LIMIT 1;
 
--- 18. Tìm mặt hàng có giá bán cao nhất của mỗi loại hàng ?????
-SELECT mathang.MaLH
-FROM loaihang JOIN mathang ON loaihang.MaLH = mathang.MaLH
-	 JOIN chitietmathang ON chitietmathang.MaMH = mathang.MaMH
-GROUP BY loaihang.MaLH
-HAVING GiaBan = MAX;
+-- 18. Tìm mặt hàng có giá bán cao nhất của mỗi loại hàng 
+-- CTE: COMMON TABLE EXPRESSION
+WITH CTE_LoaiHang AS (
+	SELECT lh.TenLH,
+		   lh.MaLH,
+		   MAX(ctmh.GiaBan) GiaBan
+	FROM LoaiHang lh
+	JOIN MatHang mh
+		ON lh.MaLH = mh.MaLH
+	JOIN ChiTietMatHang ctmh
+		ON mh.MaMH = ctmh.MaMH
+	GROUP BY lh.MaLH)
+SELECT lh.TenLH,
+	   lh.MaLH,
+	   mh.TenMh,
+	   ctmh.KichCo,
+       ctmh.GiaBan GiaBanCaoNhat
+FROM CTE_LoaiHang lh
+JOIN MatHang mh
+	ON mh.MaLH = lh.MaLH
+JOIN ChiTietMatHang ctmh
+	ON mh.MaMH = ctmh.MaMH
+WHERE ctmh.GiaBan = lh.GiaBan;
+-- 
+SELECT *
+FROM ( 
+	SELECT lh.TenLH,
+		   lh.MaLH,
+		   mh.TenMh,
+		   ctmh.KichCo,
+		   MAX(ctmh.GiaBan) GiaBan
+	FROM LoaiHang lh
+	JOIN MatHang mh
+		ON lh.MaLH = mh.MaLH
+	JOIN ChiTietMatHang ctmh
+		ON mh.MaMH = ctmh.MaMH
+	GROUP BY lh.MaLH) CTE;
+SELECT * FROM CTE;
 
+-- /////////////////
+-- CTE: COMMON TABLE EXPRESSION
+WITH CTE_LoaiHang AS (
+	SELECT  lh.MaLH,
+			lh.TenLH,
+			MAX(ctmh.GiaBan) GiaBanCaoNhat
+	FROM LoaiHang lh
+	JOIN MatHang mh
+		ON lh.MaLH = mh.MaLH
+	JOIN ChiTietMatHang ctmh
+		ON mh.MaMH = ctmh.MaMH
+	GROUP BY lh.MaLH
+)
+SELECT lh.MaLH,
+       lh.TenLH,
+       mh.MaMH,
+       mh.TenMH,
+       ctmh.GiaBan,
+       ctmh.MaKC,
+       lh.GiaBanCaoNhat
+FROM CTE_LoaiHang lh
+JOIN MatHang mh
+	ON mh.MaLH = lh.MaLH
+JOIN ChiTietMatHang ctmh
+	ON mh.MaMH = ctmh.MaMH 
+WHERE ctmh.GiaBan = lh.GiaBanCaoNhat;
 -- 19. Hiển thị tổng số lượng mặt hàng của mỗi loại hàng trong hệ thống
 SELECT loaihang.MaLH, COUNT(*) AS SOLUONG
 FROM loaihang JOIN mathang ON loaihang.MaLH = mathang.MaLH
@@ -126,6 +195,31 @@ GROUP BY loaihang.MaLH
 HAVING COUNT(*) > 20;
 
 -- 21. Hiển thị mặt hàng có số lượng nhiều nhất trong mỗi loại hàng
+-- B1: Tìm tổng số lượng nhiều nhất của mỗi loại hàng
+WITH CTE_MatHang AS (
+	SELECT mh.MaMH,
+		   mh.TenMH,
+           SUM(ctmh.SoLuong) AS SoLuongMatHang
+	FROM MatHang mh
+    JOIN ChiTietMatHang ctmh
+		ON mh.MaMH = ctmh.MaMH
+	GROUP BY mh.MaMH
+),
+CTE_LoaiHang AS (
+SELECT mh.MaLH,
+	   max(cte.SoLuongMatHang) SoLuongCaoNhat
+FROM MatHang mh
+JOIN CTE_MatHang cte
+ON mh.MaMH = cte.MaMH
+GROUP BY mh.MaLH
+)
+SELECT *
+FROM CTE_MatHang ctemh
+JOIN Mathang mh
+	ON ctemh.MaMH = mh.MaMH
+JOIN CTE_LoaiHang ctelh
+	ON mh.MaLH = ctelh.MaLH
+WHERE ctelh.SoLuongCaoNhat = ctemh.SoLuongMatHang;
 
 -- 22. Hiển thị giá bán trung bình của mỗi loại hàng
 SELECT loaihang.MaLH, loaihang.TenLH, AVG(GiaBan) AS 'Giá Bán Trung Bình'
@@ -134,11 +228,16 @@ FROM loaihang JOIN mathang ON loaihang.MaLH = mathang.MaLH
 GROUP BY loaihang.MaLH;
 
 -- 23. In ra 3 loại hàng có số lượng hàng còn lại nhiều nhất ở thời điểm hiện tại
-
+SELECT *
+FROM LoaiHang lh
+JOIN MatHang mh
+	ON lh.MaLH = mh.MaLH
+JOIN ChiTietMatHang ctmh
+	ON ctmh.MaMH = mh.MaMH
+GROUP BY lh.MaLH
+ORDER BY SoLuong DESC
+LIMIT 3;
 -- 24. Liệt kê những mặt hàng có MaLoai = 2 và thuộc đơn hàng 100100
-SELECT mathang.*
-FROM mathang JOIN chitietdonhang ON mathang.MaMH = chitietdonhang.MaMH
-WHERE MaLH = 2 AND MaDH = 1;
 
 -- 25. Tìm những mặt hàng có Mã Loại = 2 và đã được bán trong ngày 28/11
 SELECT mathang.*
@@ -148,17 +247,21 @@ WHERE MaLH = 2 AND DAY(ThoiGianDatHang) = 28 AND MONTH(ThoiGianDatHang) = 11;
 
 -- 26. Liệt kê những mặt hàng là 'Mũ' không bán được trong ngày 14/02/2019
 SELECT mathang.*
-FROM mathang JOIN chitietdonhang ON mathang.MaMH = chitietdonhang.MaMH
-	 JOIN donhang ON donhang.MaDH = chitietdonhang.MaDH
-     JOIN loaihang ON loaihang.MaLH = mathang.MaLH
-WHERE TenLH LIKE 'Mũ' AND CAST(ThoiGianDatHang AS DATE) = '2019/02/14';
+FROM mathang mh 
+JOIN chitietdonhang ctdh 
+	ON mh.MaMH = ctdh.MaMH
+JOIN donhang dh 
+	ON dh.MaDH = ctdh.MaDH
+JOIN loaihang lh 
+	ON lh.MaLH = mh.MaLH
+WHERE lh.TenLH LIKE 'Mũ' AND CAST(dh.ThoiGianDatHang AS DATE) != '2019/02/14';
 
 -- 27. Cập nhật giá bán của tất cả các mặt hàng thuộc loại hàng 'Áo' thành 199
 UPDATE chitietmathang
-SET chitietmathang.GiaBan = 199
-WHERE chitietmathang.MaMH IN ( SELECT MaMH
-							   FROM mathang JOIN loaihang ON mathang.MaLH = loaihang.MaLH
-                               WHERE TenLH LIKE 'Áo');
+SET GiaBan = 199
+WHERE MaMH IN ( SELECT MaMH
+				FROM mathang JOIN loaihang ON mathang.MaLH = loaihang.MaLH
+				WHERE TenLH LIKE 'Áo');
                                
 -- 28. Backup data. Tạo table LoaiHang_BACKUP(MaLoai, TenLoai) >> Sao chép dữ liệu từ bảng LoaiHang sang LoaiHang_BACKUP ??
 CREATE TABLE LoaiHang_BACKUP(
@@ -176,12 +279,17 @@ FROM mathang JOIN donhang ON chitietdonhang.MaDH = donhang.MaDH
 WHERE MaLH = 2 AND DAY(ThoiGianDatHang) = 23 AND MONTH(ThoiGianDatHang) = 11;
 
 -- 30. Liệt kê 2 sản phẩm (có số lượng tồn kho nhiều nhất) của loại hàng 'Áo' và 'Quần' ???
-SELECT loaihang.MaLH, TenLH, SOLUONG
-FROM mathang JOIN loaihang ON mathang.MaLH = loaihang.MaLH
-	 JOIN chitietmathang ON mathang.MaMH = chitietmathang.MaMH
-WHERE TenLH LIKE 'Áo' OR TenLH LIKE 'Quần'
-GROUP BY loaihang.MaLH
-HAVING SoLuong = MAX;
+SELECT mh.MaMH,
+	   mh.TenMH,
+       SUM(ctmh.SoLuong) SoLuong
+FROM MatHang mh
+JOIN ChiTietMatHang ctmh
+	ON mh.MaMH = ctmh.MaMH
+WHERE mh.MaLH IN (SELECT MaLH FROM LoaiHang
+				  WHERE TenLH IN (Áo, Quần))
+GROUP BY mh.MaMH
+ORDER BY SoLuong DESC
+LIMIT 2;
 -- 31. Tính tổng tiền cho đơn hàng 02 >> Với tổng tiền được tính bằng tổng các sản phẩm và số lượng của sản phẩm tương ứng
 
 -- 32. Xuất thông tin hóa đơn của đơn hàng 02 với thông tin như sau.
@@ -191,5 +299,19 @@ SELECT COUNT(donhang.MaDH) AS SoDH, CONCAT(TenMH,':',':',SoLuong) AS ChiTietDonH
 FROM donhang JOIN chitietdonhang ON donhang.MaDH = chitietdonhang.MaDH
 	 JOIN mathang ON mathang.MaMH = chitietdonhang.MaMH
 WHERE donhang.MaDH = 02;
+
+SELECT dh.MaDH,
+	   GROUP_CONCAT(concat(mh.TenMH,':',ctmh.MaKC,ctmh.GiaBan,'',ctdh.SoLuong) SEPARATOR '-') ThongTinDonHang,
+	   dh.PhiVanChuyen,
+       SUM(ctdh.SoLuong * ctmh.GiaBan) + dh.PhiVanChuyen TongTien
+FROM ChiTietDonHang ctdh
+JOIN ChiTietMathang ctmh
+	ON ctdh.MaMH = ctdh.Madh
+JOIN DonHang dh
+	ON dh.MaDH = ctdh.MaDH
+JOIN MatHang mh
+	ON ctmh.MaMH = mh.MaMH
+GROUP BY dh.MaDH;
+
 
 
