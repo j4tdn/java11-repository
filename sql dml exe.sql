@@ -84,14 +84,27 @@ FROM donhang;
 USE java11_shopping;
 -- SELECT
 -- 1. Toàn bộ thông tin các loại hàng
+SELECT * FROM loaihang;
+
 -- Mặt hàng thuộc loại hàng là 'Thắt lưng'
-SELECT * FROM mathang
-WHERE MaLH in (SELECT MaLH FROM loaihang WHERE TenLH LIKE '%Thắt lưng%');
+SELECT * 
+FROM mathang
+WHERE MaLH in (SELECT MaLH 
+			   FROM loaihang 
+			   WHERE TenLH LIKE '%Thắt lưng%');
+
+SELECT *
+FROM mathang mh 
+JOIN loaihang lh 
+ON mh.MaLH = lh.MaLH
+WHERE lh.TenLH LIKE '%Thắt lưng%';
 
 -- Top 5 mặt hàng có giá bán cao nhất
-SELECT m.MaMH, TenMH, GiaBan 
-FROM mathang m JOIN chitietmathang c ON m.MaMH = c.MaMH
-ORDER BY c.GiaBan DESC
+SELECT mh.* , GiaBan 
+FROM mathang mh 
+JOIN chitietmathang ctmh 
+ON mh.MaMH = ctmh.MaMH
+ORDER BY ctmh.GiaBan DESC
 LIMIT 5;
 
 -- 2. Đơn hàng
@@ -118,6 +131,15 @@ WHERE DiaChiGiaoHang LIKE '%Hòa KHánh%';
 
 -- 3. Giá của toàn bộ các mặt hàng sau khi được khuyến mãi 20%, làm tròn 2 chữ số thập phân
 -- 4. Giảm giá 20% tất cả các mặt hàng trong ngày 25/11/2019
+SELECT mh.MaMH,
+	   ctmh.GiaBan,
+       ctmh.GiaBan * 0.8 GiaBanKhuyenMai,
+       curdate() NgayBan
+FROM mathang mh 
+JOIN chitietmathang ctmh
+ON mh.MaMH = ctmh.MaMH
+WHERE curdate() = '2019-11-25';
+
 -- 5. Liệt kê tất cả các màu sắc của sản phẩm có bán trong cửa hàng.
 SELECT DISTINCT MauSac FROM mathang;
 
@@ -169,9 +191,19 @@ WHERE TenMH LIKE '%Giày da Nam%';
 --   MaLoai  TenLoai SoLuong
 --    1       Giày    20
 --    2       Áo      28
-SELECT l.MaLH AS MaLoai, TenLH AS TenLoai, COUNT(m.MaLH) AS SoLuong
-FROM mathang m JOIN loaihang l ON m.MaLH = l.MaLH
-GROUP BY m.MaLH;
+
+SELECT lh.MaLH,
+	   lh.TenLH,
+       sum(ctmh.SoLuong) SoLuongMatHang
+       -- mh.TenMH,
+       -- ctmh.MaKC,
+       -- ctmh.SoLuong
+FROM loaihang lh
+JOIN mathang mh
+ON lh.MaLH = mh.MaLH
+JOIN chitietmathang ctmh
+ON ctmh.MaMH = mh.MaMH
+GROUP BY lh.MaLH;
 
 -- 17. Tìm mặt hàng có giá bán cao nhất trong loại hàng 'Giày'
 SELECT m.MaMH, TenMH, TenLH, MAX(GiaBan)
@@ -180,10 +212,31 @@ JOIN chitietmathang c ON m.MaMH = c.MaMH
 WHERE TenLH LIKE '%Giày%';
 
 -- 18. Tìm mặt hàng có giá bán cao nhất của mỗi loại hàng
-SELECT m.MaMH, TenMH, TenLH, MAX(GiaBan)
-FROM loaihang l JOIN mathang m ON l.MaLH = m.MaLH
-JOIN chitietmathang c ON m.MaMH = c.MaMH
-GROUP BY l.MaLH;
+-- CTE: COMMON TABLE EXPRESSION
+WITH CTE_LoaiHang AS (
+	SELECT  lh.MaLH,
+			lh.TenLH,
+			MAX(ctmh.GiaBan) GiaBanCaoNhat
+	FROM LoaiHang lh
+	JOIN MatHang mh
+		ON lh.MaLH = mh.MaLH
+	JOIN ChiTietMatHang ctmh
+		ON mh.MaMH = ctmh.MaMH
+	GROUP BY lh.MaLH
+)
+SELECT lh.MaLH,
+       lh.TenLH,
+       mh.MaMH,
+       mh.TenMH,
+       ctmh.GiaBan,
+       ctmh.MaKC,
+       lh.GiaBanCaoNhat
+FROM CTE_LoaiHang lh
+JOIN MatHang mh
+	ON mh.MaLH = lh.MaLH
+JOIN ChiTietMatHang ctmh
+	ON mh.MaMH = ctmh.MaMH 
+WHERE ctmh.GiaBan = lh.GiaBanCaoNhat;
 
 -- 19. Hiển thị tổng số lượng mặt hàng của mỗi loại hàng trong hệ thống
 SELECT TenLH, SUM(SoLuong) 
@@ -200,11 +253,33 @@ GROUP BY l.MaLH
 HAVING SUM(SoLuong) > 20;
 
 -- 21. Hiển thị mặt hàng có số lượng nhiều nhất trong mỗi loại hàng
-SELECT TenLH, MAX(SoLuong) 
-FROM loaihang l JOIN mathang m ON l.MaLH = m.MaMH
-JOIN chitietmathang c ON m.MaMH = c.MaMH
-GROUP BY l.MaLH;
-
+WITH CTE_mathang AS (
+-- SoLuongMatHang của mỗi mặt hàng
+	SELECT mh.MaMH,
+		   mh.TenMH,
+           SUM(ctmh.SoLuong) SoLuongMatHang
+    FROM mathang mh
+    JOIN chitietmathang ctmh
+    ON mh.MaMH = ctmh.MaMH
+    GROUP BY mh.MaMH
+),
+CTE_loaihang AS (
+-- Số lượng mặt hàng lớn nhất của mỗi loại hàng
+SELECT mh.MaLH,
+	   MAX(cte.SoLuongMatHang) SoLuongCaoNhat
+FROM mathang mh
+JOIN CTE_mathang cte
+ON mh.MaMH = cte.MaMH
+GROUP BY mh.MaLH
+)
+SELECT *
+FROM CTE_mathang ctemh
+JOIN mathang mh
+ON ctemh.MaMH = mh.MaMH
+JOIN CTE_loaihang ctelh
+ON ctelh.MaLH = mh.MaLH
+WHERE ctemh.SoLuongMatHang = ctelh.SoLuongCaoNhat;
+ 
 -- 22. Hiển thị giá bán trung bình của mỗi loại hàng
 SELECT m.MaMH, TenMH, TenLH, AVG(GiaBan)
 FROM loaihang l JOIN mathang m ON l.MaLH = m.MaLH
@@ -217,4 +292,17 @@ FROM loaihang l JOIN mathang m ON l.MaLH = m.MaLH
 JOIN chitietmathang c ON m.MaMH = c.MaMH
 ORDER BY c.SoLuong DESC
 LIMIT 3;
+	
+-- 26. Liệt kê những mặt hàng là 'Mũ' không bán được trong ngày 14/02/2019
+SELECT mh.*
+FROM mathang mh JOIN chitietdonhang ctdh ON mh.MaMH = ctdh.MaMH
+	 JOIN donhang dh ON dh.MaDH = ctdh.MaDH
+     JOIN loaihang lh ON lh.MaLH = mh.MaLH
+WHERE TenLH LIKE 'Mũ' AND CAST(ThoiGianDatHang AS DATE) = '2019/02/14';
 
+-- 27. Cập nhật giá bán của tất cả các mặt hàng thuộc loại hàng 'Áo' thành 199
+-- 31. Tính tổng tiền cho đơn hàng 02
+--     Với tổng tiền được tính bằng tổng các sản phẩm và số lượng của sản phẩm tương ứng
+SELECT *
+FROM 
+										
