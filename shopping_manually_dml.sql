@@ -7,3 +7,10 @@ values (1, "Sơ Mi Nam", "trắng", 1),
        
 set Foreign_Key_checks = 0;
 
+select * from mathang;
+
+select group_concat(TenMH separator '-')
+	MaLH
+    from mathang
+    group by
+
