@@ -295,10 +295,6 @@ LIMIT 2;
 -- 32. Xuất thông tin hóa đơn của đơn hàng 02 với thông tin như sau.
 --	  SoDH ChiTietDonHang           TongTien
 --    02   TenMH:GiaBan:SoLuong     100
-SELECT COUNT(donhang.MaDH) AS SoDH, CONCAT(TenMH,':',':',SoLuong) AS ChiTietDonHang, donhang.TongTien
-FROM donhang JOIN chitietdonhang ON donhang.MaDH = chitietdonhang.MaDH
-	 JOIN mathang ON mathang.MaMH = chitietdonhang.MaMH
-WHERE donhang.MaDH = 02;
 
 SELECT dh.MaDH,
 	   GROUP_CONCAT(concat(mh.TenMH,':',ctmh.MaKC,ctmh.GiaBan,'',ctdh.SoLuong) SEPARATOR '-') ThongTinDonHang,
