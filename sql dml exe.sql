@@ -100,9 +100,10 @@ SELECT *
 FROM MatHang
 WHERE MaLH = ( SELECT MaLH
 			   FROM LoaiHang
-			   WHERE TenLH = 'Thắt Lưng' );
+			   WHERE TenLH LIKE '%Thắt Lưng%' );
 -- Top 5 mặt hàng có giá bán cao nhất
-SELECT mh.*, ctmh.GiaBan
+SELECT mh.*,
+	   ctmh.GiaBan
 FROM MatHang mh 
 JOIN ChiTietMatHang ctmh
 ON mh.MaMH = ctmh.MaMH
@@ -119,13 +120,14 @@ WHERE CAST(ThoiGianDatHang AS DATE) = '2020-12-18';
 -- Được bán từ ngày 16/12/2020 đến ngày 18/12/2020
 SELECT *
 FROM DonHang
-WHERE ThoiGianDatHang BETWEEN DATE('2020-12-17')
-					  AND DATE('2020-12-19');
+WHERE CAST(ThoiGianDatHang AS DATE) BETWEEN '2020-12-17'
+					                AND '2020-12-19';
  
 -- Được bán trong tháng 12/2020
 SELECT *
 FROM DonHang
-WHERE CAST(ThoiGianDatHang AS DATE) LIKE '2020-12%';
+WHERE MONTH(ThoiGianDatHang) = '12'
+      AND YEAR(ThoiGianDatHang) = '2020';
                       
 -- Được giao hàng tại Hòa Khánh
 SELECT *
@@ -133,17 +135,23 @@ FROM DonHang
 WHERE DiaChiGiaoHang LIKE '%Hòa Khánh';
 
 -- 3. Giá của toàn bộ các mặt hàng sau khi được khuyến mãi 20%
-SELECT mh.MaMH, mh.TenMH, ctmh.GiaBan, ctmh.GiaBan * 0.8 AS GiaKhuyenMai
+SELECT mh.MaMH,
+       mh.TenMH,
+       ctmh.GiaBan,
+       ctmh.GiaBan * 0.8 AS GiaKhuyenMai
 FROM MatHang mh 
 JOIN ChiTietMatHang ctmh
 ON mh.MaMH = ctmh.MaMH;
 
 -- 4. Giảm giá 20% tất cả các mặt hàng trong ngày 18/12/2020
-SELECT mh.MaMH, ctmh.GiaBan, hd.NgayXuatHoaDon, ctmh.GiaBan * 0.8 AS TongTien
+SELECT mh.MaMH, 
+       ctmh.GiaBan,
+       ctmh.GiaBan * 0.8 AS GiaBanKhuyenMai,
+       curdate() NgayBan
 FROM MatHang mh
 JOIN ChiTietMatHang ctmh
 ON mh.MaMH = ctmh.MaMH
-WHERE CAST(dh.ThoiGianDatHang AS DATE) LIKE '2020-12-18%';
+WHERE curdate() = '2021-11-08';
 
 -- 5. Liệt kê tất cả các màu sắc của sản phẩm có bán trong cửa hàng.
 SELECT DISTINCT MauSac
@@ -211,7 +219,9 @@ WHERE mh.TenMH = 'Giày da nam';
    -- MaLoai  TenLoai SoLuong
    -- 1       Giày    20
    -- 2       Áo      28  
-SELECT lh.MaLH, lh.TenLH, SUM(ctmh.SoLuong) AS SoLuong 
+SELECT lh.MaLH,
+	   lh.TenLH,
+       SUM(ctmh.SoLuong) AS SoLuongMatHang
 FROM LoaiHang lh
 JOIN MatHang mh
 ON mh.MaLH = lh.MaLH
@@ -229,7 +239,6 @@ ON mh.MaLH = lh.MaLH
 WHERE lh.TenLH = 'Giày dép';
 
 -- 18. Tìm thông tin mặt hàng có giá bán cao nhất của mỗi loại hàng
--- CTE: COMMON TABLE EXPRESSION
 -- CTE: COMMON TABLE EXPRESSION
 WITH CTE_LoaiHang AS (
 	SELECT  lh.MaLH,
@@ -321,8 +330,8 @@ ON mh.MaLH = lh.MaLH
 JOIN ChiTietMatHang ctmh
 ON mh.MaMH = ctmh.MaMH
 GROUP BY lh.MaLH
-ORDER BY ctmh.SoLuong DESC
-LIMIT 0, 3;
+ORDER BY SoLuong DESC
+LIMIT 3;
 
 -- 24. Liệt kê những mặt hàng có MaLoai = 2 và thuộc đơn hàng 1
 SELECT dh.MaDH, mh.MaLH, GROUP_CONCAT(mh.TenMH) AS TenMH
@@ -378,17 +387,19 @@ WHERE mh.MaLH = 2 AND CAST(dh.ThoiGianDatHang AS DATE) LIKE '%12-18%'
 GROUP BY mh.MaLH; 
 
 -- 30. Liệt kê 2 sản phẩm (có số lượng tồn kho nhiều nhất) của loại hàng 'Áo' và 'Quần'
-SELECT lh.MaLH, lh.TenLH, ctmh.MaMH, mh.TenMH, MAX(ctmh.SoLuong) AS SoLuong 
+SELECT mh.MaMH, mh.TenMH, SUM(ctmh.SoLuong) SoLuong 
 FROM LoaiHang lh
 JOIN MatHang mh
+ON mh.MaLH = lh.MaLH
 JOIN ChiTietMatHang ctmh
 ON mh.MaMH = ctmh.MaMH
-ON mh.MaLH = lh.MaLH
-GROUP BY lh.MaLH
-HAVING lh.TenLH IN ('Áo', 'Quần');
+WHERE mh.MaLH IN (SELECT MaLH FROM LoaiHang WHERE TenLH IN ('Áo', 'Quần'))
+GROUP BY mh.MaMH
+ORDER BY SoLuong DESC
+LIMIT 2;
 
 -- 31. Tính tổng tiền cho đơn hàng 02
---    Với tổng tiền được tính bằng tổng các sản phẩm và số lượng của sản phẩm tương ứng
+-- Với tổng tiền được tính bằng tổng các sản phẩm và số lượng của sản phẩm tương ứng
 SELECT dh.MaDH,
        SUM(ctdh.SoLuong * ctmh.GiaBan) + dh.PhiVanChuyen TongTien
 FROM ChiTietMatHang ctmh
@@ -401,3 +412,16 @@ WHERE dh.MaDH = 2;
 -- 	SoDH ChiTietDonHang           TongTien
 --    02   TenMH:GiaBan:SoLuong     100
 --    02   TenMH:GiaBan:SoLuong     100
+SELECT dh.MaDH,
+       GROUP_CONCAT(concat(mh.TenMH,':',ctmh.MaKC,':',ctmh.GiaBan,':',ctdh.SoLuong) SEPARATOR ' - ') ThongTinDonHang, 
+       dh.PhiVanChuyen,
+       SUM(ctdh.SoLuong * ctmh.GiaBan) + dh.PhiVanChuyen TongTien
+FROM ChiTietMatHang ctmh
+JOIN ChiTietDonHang ctdh
+	ON ctmh.MaMH = ctdh.MaMH
+JOIN DonHang dh
+    ON dh.MaDH = ctdh.MaDH
+JOIN MatHang mh
+    ON mh.MaMH = ctdh.MaMH    
+WHERE dh.MaDH = 2
+GROUP BY dh.MaDH;
