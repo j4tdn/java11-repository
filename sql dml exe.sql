@@ -376,5 +376,4 @@ FROM loaihang lh JOIN mathang mh ON lh.MaLH = mh.MaLH
 				JOIN chitietmathang ctmh ON ctmh.MaMH = mh.MaMH
 WHERE lh.TenLH LIKE '%Quan%';
 
-
     
