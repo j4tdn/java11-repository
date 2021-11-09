@@ -20,3 +20,11 @@ values (3, 'Áo sơ mi nam', 'Trắng', 3),
 SET FOREIGN_KEY_CHECKS = 0;
 
 DELETE FROM MatHang where MaMH = 3;
+
+SELECT MaMH, TenMH, MauSac, concat(TenMH, ' - ', MauSac) ChiTiet, current_timestamp() ThoiGian
+FROM MatHang;
+
+-- Giảm 15k nếu giá bán lớn hơn giá mua 30k trở lên
+SELECT *, IF(GiaBan - GiaMua >=30, GiaBan - 15, GiaBan) GiaGiam
+FROM ChiTietMatHang;
+
