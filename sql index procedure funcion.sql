@@ -63,3 +63,23 @@ DELIMITER ;
 CALL addItemGroups(5);
 
 SELECT * FROM loaihang;
+
+SET GlOBAL log_bin_trust_function_creators = 1;
+
+DELIMITER $$
+CREATE FUNCTION sumOf(n int)
+RETURNS INT
+BEGIN
+	DECLARE i INT DEFAULT 1;
+	DECLARE sumOf INT DEFAULT 0;
+    
+	WHILE i <= n DO
+		SET sumOf = sumOf + i;
+        SET i = i + 1;
+	END WHILE;
+    
+    RETURN sumOf;
+END $$
+DELIMITER ;
+
+SELECT sumOf(10);
