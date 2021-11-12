@@ -51,18 +51,40 @@ WHERE MaMH =  (SELECT MaDH
 SELECT * FROM chitietmathang;
 SELECT * FROM loaihang;
 
--- 1. Toàn bộ thông tin các loại hàng
-    -- Mặt hàng thuộc loại hàng là 'Thắt lưng'
-    -- Top 5 mặt hàng có giá bán cao nhất
--- 2. Đơn hàng
-	-- Được bán trong ngày 28/11/2019
-    -- Được bán từ ngày 28/11/2019 đến ngày 02/12/2019
-    -- Được bán trong tháng 11/2019
-    -- Được giao hàng tại Hòa Khánh
--- 3. Giá của toàn bộ các mặt hàng sau khi được khuyến mãi 20%, làm tròn 2 chữ số thập phân
--- 4. Giảm giá 20% tất cả các mặt hàng trong ngày 25/11/2019
--- 5. Liệt kê tất cả các màu sắc của sản phẩm có bán trong cửa hàng.
--- 7. Liệt kê tất cả các mặt hàng (MaMH, TenMH, ThoiGianDatHang) được bán trong ngày 23/11/2019
--- 8. Liệt kê các mặt hàng có giá bán từ 100 - 300
--- 9. Liệt kê tất cả các mặt hàng thuộc loại hàng là 'Mũ' và 'Thắt lưng'
--- 10. Liệt kê các đơn hàng được đặt trong ngày (28/11/2019, 14/12/2019)
+-- 18. Tìm mặt hàng có giá bán cao nhất của mỗi loại hàng
+SELECT mh.TenMH, ctmh.GiaBan
+FROM mathang mh
+JOIN chitietmathang ctmh ON mh.MaMH = ctmh.MaMH
+WHERE ctmh.GiaBan IN (SELECT MAX(ctmh.GiaBan)
+FROM loaihang lh
+JOIN mathang mh
+	ON lh.MaLH = mh.MaLH
+JOIN chitietmathang ctmh
+	ON mh.MaMH = ctmh.MaMH
+GROUP BY lh.MaLH);
+-- 18. OUTPUT 
+-- 	   CTE: COMMON TABLE EXPRESSION
+
+WITH CTE_LoaiHang AS(
+	SELECT lh.MaLH, lh.TenLH, MAX(ctmh.GiaBan) 'GiaBanCaoNhat'
+	FROM loaihang lh
+	JOIN mathang mh
+		ON lh.MaLH = mh.MaLH
+	JOIN chitietmathang ctmh
+		ON mh.MaMH = ctmh.MaMH
+	GROUP BY lh.MaLH
+)
+SELECT lh.MaLH,
+	   lh.TenLH,
+       mh.MaMH,
+       mh.TenMH,
+       ctmh.GiaBan
+FROM CTE_LoaiHang lh
+JOIN mathang mh 
+	ON lh.MaLH = mh.MaLH
+JOIN chitietmathang ctmh 
+	ON ctmh.MaMH = mh.MaMH
+WHERE ctmh.GiaBan = lh.GiaBanCaoNhat;
+
+
+
