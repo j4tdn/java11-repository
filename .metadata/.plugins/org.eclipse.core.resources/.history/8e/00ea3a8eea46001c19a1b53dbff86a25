@@ -1,0 +1,24 @@
+package view;
+
+import java.sql.Connection;
+import java.util.Properties;
+import connection.DbManager;
+import connection.DbProvider;
+import service.ItemService;
+import service.ItemServiceImpl;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	
+	private static ItemService itemService;
+	static {
+		itemService = new ItemServiceImpl();
+	}
+	
+	public static void main(String[] args) {
+	  List<ItemGroup>  
+	}
+}

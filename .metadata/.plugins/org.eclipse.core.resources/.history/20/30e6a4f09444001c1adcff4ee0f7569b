@@ -1,0 +1,3 @@
+DRIVER = com.mysql.cj.jdbc.Driver
+URL = jdbc:mysql://localhost:3306/java11_shopping
+USERNAME=root

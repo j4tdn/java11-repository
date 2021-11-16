@@ -1,0 +1,55 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import connection.DbManager;
+import connection.DbProvider;
+import persistence.ItemGroup;
+
+public class ItemGroupDaopl implements ItemGroupDao {
+
+	private Connection connection;
+	private Statement st;
+	private ResultSet rs;
+
+	public ItemGroupDaopl() {
+		connection = DbManager.getConnection();
+	}
+
+	@Override
+	public List<ItemGroup> getAll() {
+		List<ItemGroup> result = new ArrayList<>();
+		// 1. Write down a native query
+		String sql = "Select MaLH, TenLH FROM LoaiHang";
+
+		// 2. Execute the native query and return data
+		try {
+
+			// 2.1 Initial Statement||PrepareStatement object
+			st = connection.createStatement();
+
+			// 2.2 Set native query into Statement||PrepareStatement||Call
+			// executeQuery||executeUpdate from Statement||PrepareStatement to execute
+			// native query
+			rs = st.executeQuery(sql);
+			while (rs.next()) {
+				Integer id = rs.getInt("MaLH");
+				String name = rs.getString("TenLH");
+				ItemGroup itemGroup = new ItemGroup(id, name);
+				result.add(itemGroup);
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+}

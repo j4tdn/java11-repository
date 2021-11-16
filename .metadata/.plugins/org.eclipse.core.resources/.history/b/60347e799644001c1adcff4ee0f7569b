@@ -1,0 +1,28 @@
+package connection;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DbManager {
+private static Connection connection;	
+	
+public static Connection getConnection() {
+	if(connection == null){
+	  
+		try {
+			//1.Provider driver - class in
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			
+			
+			//2.Provide database info
+			connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/java11_shopping", "root", "toidayeu");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	  
+	}
+	return connection;
+}
+}

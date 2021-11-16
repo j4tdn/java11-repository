@@ -1,0 +1,19 @@
+package utils;
+
+public class SqUtils {
+	public SqUtils() {
+		// TODO Auto-generated constructor stub
+	}
+	public static void close(AutoCloseable ...closeables) {
+  	  for(AutoCloseable closeable : closeables) {
+  		  if (closeable != null) {
+  			  try {
+					closeable.close();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+  		  }
+  	  }
+    }
+}
