@@ -24,5 +24,8 @@ public class ItemGroup {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	@Override
+	public String toString() {
+		return "ItemGroup [id=" + id + ", name=" + name + "]";
+	}
 }

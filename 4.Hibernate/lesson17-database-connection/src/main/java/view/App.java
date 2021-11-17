@@ -14,7 +14,7 @@ public class App {
 	private static ItemGroup newGroup;
 	
 	static {
-		igID=2;
+		igID=5;
 		itemgroupService = new ItemGroupServiceImpl();
 		
 		newGroup = new ItemGroup(123, "saved item group 153");

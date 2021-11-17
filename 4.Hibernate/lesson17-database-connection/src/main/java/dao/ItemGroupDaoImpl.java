@@ -51,7 +51,7 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 	public List<ItemGroup> getAll() {
 		List<ItemGroup> result = new ArrayList<>();
 		// 1. Write down a native query
-		String sql = "Select MaLH,TenLH from LoaiHang";
+		String sql = "Select * from LoaiHang";
 
 		// 2. Execute the native query and return data
 		try {
@@ -60,6 +60,7 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 			// 2.2 Set native query into statement or prepareStatement & execute native
 			// query
 			rs = st.executeQuery(sql);
+			
 			while (rs.next()) {
 				Integer id = rs.getInt("MaLH");
 				String name = rs.getString("TenLH");
