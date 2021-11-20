@@ -23,4 +23,9 @@ public class SqlUtils {
 			System.out.println(element);
 		}
 	}
+	
+	public static <Element> void print(String prefix, Element element) {
+		System.out.println(prefix + " >>> " + element);
+	}
+		
 }

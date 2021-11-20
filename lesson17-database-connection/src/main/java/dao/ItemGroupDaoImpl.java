@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,6 +16,7 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 
 	private Connection connection;
 	private Statement st;
+	private PreparedStatement pst;
 	private ResultSet rs;
 
 	public ItemGroupDaoImpl() {
@@ -46,7 +48,7 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			SqlUtils.close(rs, st, connection);
+			SqlUtils.close(rs, st);
 		}
 
 		return result;
@@ -55,8 +57,7 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 	@Override
 	public ItemGroup get(int id) {
 		ItemGroup result = null;
-		String sql = "SELECT * FROM LoaiHang\n"
-					+"WHERE MaLH = " + id;
+		String sql = "SELECT * FROM LoaiHang\n" + "WHERE MaLH = " + id;
 
 		try {
 			st = connection.createStatement();
@@ -78,19 +79,18 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 	@Override
 	public boolean save(ItemGroup itemGroup) {
 		boolean result = false;
-		
+
 		Integer id = itemGroup.getId();
 		String name = itemGroup.getName();
-		
-		// update >> insert >> delete
-		String sql = "INSERT INTO LoaiHang(MaLH, TenLH)\n"
-					+"VALUE(" + id + ", \" " + name + "\")";
+
+		// UPDATE >> INSERT, UPDATE, DELETE
+		String sql = "INSERT INTO LoaiHang (MaLH, TenLH)\n" + "VALUES(" + id + ", '" + name + "')";
 
 		try {
 			st = connection.createStatement();
-			int affectedRow = st.executeUpdate(sql);
-			
-			result = affectedRow > 0;
+			int affectedRows = st.executeUpdate(sql);
+
+			result = affectedRows > 0;
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -100,5 +100,38 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 
 		return result;
 	}
+
+	@Override
+	public boolean update(ItemGroup itemGroup) {
+		boolean result = false;
+
+		Integer id = itemGroup.getId();
+		String name = itemGroup.getName();
+
+		// UPDATE >> INSERT, UPDATE, DELETE
+		String sql = "UPDATE LoaiHang  \n"
+				   + "	 SET TenLH = ?  \n"
+				   + "WHERE MaLh = ?";
+
+		try {
+			pst = connection.prepareStatement(sql);
+
+			pst.setString(1, name);
+			pst.setInt(2, id);
+			
+			int affectedRows = pst.executeUpdate();
+
+			result = affectedRows > 0;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(pst);
+		}
+
+		return result;
+	}
+
+	
 
 }
