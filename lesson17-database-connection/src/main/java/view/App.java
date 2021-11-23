@@ -1,10 +1,14 @@
 package view;
 
+import java.time.LocalDate;
 import java.util.List;
 
+import persistence.Item;
 import persistence.ItemGroup;
 import service.ItemGroupService;
 import service.ItemGroupServiceImpl;
+import service.ItemService;
+import service.ItemServiceImpl;
 import util.SqlUtils;
 
 /**
@@ -14,13 +18,21 @@ import util.SqlUtils;
 public class App {
 	private static int igId ;
 	private static String igName;
+	private static String igNameInjection;
 	private static ItemGroup newGroup;
+	private static LocalDate orderDate;
+	
+	private static ItemService itemService;
 	private static ItemGroupService itemGroupService;
 	
 	static {
 		itemGroupService = new ItemGroupServiceImpl();
+		itemService = new ItemServiceImpl();
+		
+		orderDate =  LocalDate.of(2020, 12, 18);
 		igId = 5;
 		igName = "Áo";
+		igNameInjection = "xyz' OR '1=1";
 		newGroup = new ItemGroup(999, "Save Item Group 123");
 	}
 	
@@ -41,9 +53,16 @@ public class App {
 //		boolean saveOrUpdate = itemGroupService.saveOrUpdate(group);
 //		SqlUtils.print("saveOrUpdate", saveOrUpdate);
 		
-		System.out.println("=========== || ====================");
-		List<ItemGroup> groupsByName =  itemGroupService.get(igName);
-		SqlUtils.print(groupsByName);
+//		System.out.println("=========== || ====================");
+//		List<ItemGroup> groupsByName =  itemGroupService.get(igName);
+//		SqlUtils.print(groupsByName);
 		
+		System.out.println("=========== || ====================");
+		List<Item> itemByItems =  itemService.get(igName);
+		SqlUtils.print(itemByItems);
+		
+		System.out.println("=========== || ====================");
+		List<Item> itemByOrderDate =  itemService.get(orderDate);
+		SqlUtils.print(itemByOrderDate);
 	}
 }

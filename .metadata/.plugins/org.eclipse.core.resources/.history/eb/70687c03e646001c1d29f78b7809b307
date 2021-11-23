@@ -1,0 +1,39 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+import connection.DbManager;
+import persistence.ItemGroup;
+
+public class ItemGroupDaoImpl implements ItemGroupDao{
+	private Connection connection;
+	private Statement st;
+	
+	public ItemGroupDaoImpl() {
+		connection = DbManager.getConnection();
+	}
+	
+	@Override
+	public List<ItemGroup> getAll() {
+		// 1. Write down a native query
+		String sql = "SELECT * FROM LoaiHang";
+		
+		// 2. Execute the native query and return data
+		
+		// 2.1 Initial Statement || PrepareStatement object
+		try {
+			 st = connection.createStatement();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		// 2.2 Set native query into Statement || PrepareStatement
+		
+		// 2.3 Call executeQuery || executeUpdate from Statement ||PrepareStatement to execute native query
+		return null;
+	}
+
+}

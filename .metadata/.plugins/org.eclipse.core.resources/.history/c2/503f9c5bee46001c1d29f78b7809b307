@@ -1,0 +1,82 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import connection.DbManager;
+import persistence.ItemGroup;
+import util.SqlUtils;
+
+public class ItemGroupDaoImpl implements ItemGroupDao {
+	private Connection connection;
+	private Statement st;
+	private ResultSet rs;
+
+	public ItemGroupDaoImpl() {
+		connection = DbManager.getConnection();
+	}
+
+	@Override
+	public List<ItemGroup> getAll() {
+		List<ItemGroup> result = new ArrayList<>();
+
+		// 1. Write down a native query
+		String sql = "SELECT * FROM LoaiHang";
+
+		// 2. Execute the native query and return data
+
+		// 2.1 Initial Statement || PrepareStatement object
+		try {
+			st = connection.createStatement();
+			// 2.2 Set native query into Statement || PrepareStatement & call executeQrery||
+			// executeUpdate native query
+			rs = st.executeQuery(sql);
+			while (rs.next()) {
+				Integer id = rs.getInt("MaLH");
+				String name = rs.getString("TenLH");
+				ItemGroup itemGroup = new ItemGroup(id, name);
+				result.add(itemGroup);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, st, connection);
+		}
+
+		return result;
+	}
+
+	@Override
+	public ItemGroup get(int id) {
+		ItemGroup result = null;
+		
+		String sql = "SELECT * FROM LoaiHang\n"
+				+ "WHERE MaLH = " + id;
+
+		// 2. Execute the native query and return data
+
+		// 2.1 Initial Statement || PrepareStatement object
+		try {
+			st = connection.createStatement();
+			// 2.2 Set native query into Statement || PrepareStatement & call executeQrery||
+			// executeUpdate native query
+			rs = st.executeQuery(sql);
+			if (rs.next()) {
+				result = new ItemGroup(rs.getInt("MaLH"), rs.getString("TenLH"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, st);
+		}
+
+		return result;
+	}
+
+}

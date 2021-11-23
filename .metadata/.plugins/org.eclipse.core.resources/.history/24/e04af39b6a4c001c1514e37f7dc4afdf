@@ -1,0 +1,14 @@
+package service;
+
+import java.util.List;
+
+import persistence.Item;
+
+public class ItemServiceImpl implements ItemService{
+
+	@Override
+	public List<Item> getItems(String igName) {
+		return null;
+	}
+
+}

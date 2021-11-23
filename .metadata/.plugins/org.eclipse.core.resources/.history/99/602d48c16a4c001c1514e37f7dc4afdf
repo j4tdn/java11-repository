@@ -1,0 +1,17 @@
+package service;
+
+import java.util.List;
+
+import dao.ItemDao;
+import persistence.Item;
+
+public class ItemServiceImpl implements ItemService{
+
+	private ItemDao itemDao;
+	
+	@Override
+	public List<Item> get(String igName) {
+		return itemDao.getItems(igName);
+	}
+
+}

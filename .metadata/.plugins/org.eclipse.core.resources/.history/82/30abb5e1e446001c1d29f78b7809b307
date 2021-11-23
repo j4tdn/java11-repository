@@ -1,0 +1,17 @@
+package dao;
+
+import java.util.List;
+
+import persistence.ItemGroup;
+
+public class ItemGroupDaoImpl implements ItemGroupDao{
+
+	@Override
+	public List<ItemGroup> getAll() {
+		// 1. Write down a native query
+		String sql = "SELECT * FROM LoaiHang";
+		
+		return null;
+	}
+
+}

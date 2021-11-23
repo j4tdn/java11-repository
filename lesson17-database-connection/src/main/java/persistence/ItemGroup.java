@@ -19,7 +19,15 @@ public class ItemGroup {
 		this.name = name;
 	}
 
-	
+
+
+	public ItemGroup(Integer id, String name, List<Item> item) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.item = item;
+	}
+
 
 	public List<Item> getItem() {
 		return item;
@@ -31,12 +39,6 @@ public class ItemGroup {
 	}
 
 
-	public ItemGroup(Integer id, String name, List<Item> item) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.item = item;
-	}
 
 
 	public Integer getId() {
@@ -58,6 +60,8 @@ public class ItemGroup {
 		this.name = name;
 	}
 
+
+	
 
 	@Override
 	public String toString() {

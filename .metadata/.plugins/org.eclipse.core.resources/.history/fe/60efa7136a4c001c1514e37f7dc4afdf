@@ -1,0 +1,52 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+import com.mysql.cj.xdevapi.PreparableStatement;
+
+import connection.DbManager;
+import persistence.Item;
+import util.SqlUtils;
+
+public class ItemDaoImpl implements ItemDao {
+	private  final Connection connection;
+	private PreparedStatement pst;
+	private ResultSet rs;
+	
+	public ItemDaoImpl() {
+		connection = DbManager.getConnection();
+	}
+	
+	
+	@Override
+	public List<Item> getItems(String igName) {
+		List<Item> result = null;
+		String sql = "SELECT *\n"
+				+ "FROM MatHang mh\n"
+				+ "JOIN LoaiHang lh \n"
+				+ "	ON mh.MaLH = lh.MaLH\n"
+				+ "WHERE lh.TenLH = ?";
+		
+		try {
+			pst = connection.prepareCall(sql);
+			pst.setString(1, igName);
+			while(rs.next()) {
+				Item item = new Item();
+				result.add(item);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			SqlUtils.close(rs,pst);
+		}
+
+		return null;
+	}
+
+}

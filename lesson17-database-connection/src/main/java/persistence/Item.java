@@ -8,6 +8,13 @@ public class Item {
 	
 	public Item() {
 	}
+	
+	public Item(Integer id, String name, String color ) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.color = color;
+	}
 
 	public Item(Integer id, String name, String color, ItemGroup itemGroup) {
 		super();

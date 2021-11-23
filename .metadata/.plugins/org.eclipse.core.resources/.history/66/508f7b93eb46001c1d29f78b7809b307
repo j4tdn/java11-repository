@@ -1,0 +1,26 @@
+package view;
+
+import java.util.List;
+
+import persistence.ItemGroup;
+import service.ItemService;
+import service.ItemServiceImpl;
+import util.SqlUtils;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	private static ItemService itemService;
+	
+	static {
+		itemService = new ItemServiceImpl();
+	}
+	
+	public static void main(String[] args) {
+		List<ItemGroup> groups =  itemService.getAll();
+		SqlUtils.print(groups);
+		
+	}
+}
