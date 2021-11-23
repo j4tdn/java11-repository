@@ -1,17 +1,13 @@
 package service;
 
+import java.time.LocalDate;
 import java.util.List;
 
-import persistence.ItemGroup;
+import persistence.Item;
 
 public interface ItemService {
-	List<ItemGroup> getAll();
-
-	ItemGroup get(int id);
-
-	boolean save(ItemGroup item);
-
-	boolean update(ItemGroup itemGroup);
-
-	boolean saveOrUpdate(ItemGroup itemGroup);
+	List<Item> get(String name);
+	
+	List<Item> get(LocalDate orderDate);
+	
 }

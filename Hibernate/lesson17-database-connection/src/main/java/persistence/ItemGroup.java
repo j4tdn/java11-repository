@@ -1,9 +1,13 @@
 package persistence;
 
+import java.util.List;
+
 //Mapped with Loaihang table
 public class ItemGroup {	
 	private Integer id;
 	private String name;
+	
+	private List<Item> items;
 	
 	public ItemGroup() {
 		// TODO Auto-generated constructor stub
@@ -12,6 +16,14 @@ public class ItemGroup {
 		super();
 		this.id = id;
 		this.name = name;
+	}
+	
+	
+	public ItemGroup(Integer id, String name, List<Item> items) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.items = items;
 	}
 	public Integer getId() {
 		return id;
@@ -27,8 +39,10 @@ public class ItemGroup {
 	}
 	@Override
 	public String toString() {
-		return "ItemGroup [id=" + id + ", name=" + name + "]";
+		return "ItemGroup [id=" + id + ", name=" + name + ", items=" + items + "]";
 	}
+	
+	
 	
 	
 	

@@ -1,43 +1,27 @@
 package service;
 
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Objects;
 
-import dao.ItemGroupDao;
-import dao.ItemGroupDaoImpl;
-import persistence.ItemGroup;
+import dao.ItemDao;
+import dao.ItemDaoImpl;
+import persistence.Item;
 
-public class ItemServiceImpl implements ItemService {
-	private ItemGroupDao itemGroupDao;
-
+public class ItemServiceImpl implements ItemService{
+	private static ItemDao itemDao;
+	
 	public ItemServiceImpl() {
-		itemGroupDao = new ItemGroupDaoImpl();
-	}
-
-	@Override
-	public List<ItemGroup> getAll() {
-		return itemGroupDao.getAll();
-	}
-
-	@Override
-	public ItemGroup get(int id) {
-		return itemGroupDao.get(id);
-	}
-
-	@Override
-	public boolean save(ItemGroup item) {
-		Objects.requireNonNull(item,"itemGroup can't be null");
-		return itemGroupDao.save(item);
+		itemDao = new ItemDaoImpl();
 	}
 	
 	@Override
-	public boolean update(ItemGroup itemGroup) {
-		Objects.requireNonNull(itemGroup,"itemGroup can't be null");
-		return itemGroupDao.update(itemGroup);
+	public List<Item> get(String name) {
+		return itemDao.get(name);
 	}
+	
 	@Override
-	public boolean saveOrUpdate(ItemGroup itemGroup) {
-		Objects.requireNonNull(itemGroup,"itemGroup can't be null");
-		return get(itemGroup.getId())  != null ? update(itemGroup) :save(itemGroup);
+	public List<Item> get(LocalDate orderDate) {
+		return itemDao.get(orderDate);
 	}
+
 }

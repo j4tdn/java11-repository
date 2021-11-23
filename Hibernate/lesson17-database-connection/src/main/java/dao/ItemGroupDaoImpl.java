@@ -48,6 +48,29 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 	}
 
 	@Override
+	public List<ItemGroup> get(String name) {
+		List<ItemGroup> result = new ArrayList<>();
+		String sql = "Select MaLH,TenLH from LoaiHang where TenLH=?";
+
+		try {
+			pst = connection.prepareStatement(sql);
+			pst.setString(1, name);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				ItemGroup itemGroup = new ItemGroup(rs.getInt("MaLH"), rs.getString("TenLH"));
+				result.add(itemGroup);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, st);
+		}
+		return result;
+	}
+
+	@Override
 	public List<ItemGroup> getAll() {
 		List<ItemGroup> result = new ArrayList<>();
 		// 1. Write down a native query
@@ -79,7 +102,7 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 
 	@Override
 	public boolean save(ItemGroup itemGroup) {
-		boolean result=false;
+		boolean result = false;
 		String sql = "insert into Loaihang(MaLH ,TenLH)\n" + "values (?,?)";
 
 		// 2. Execute the native query and return data
@@ -88,8 +111,8 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 			pst = connection.prepareStatement(sql);
 			pst.setInt(1, itemGroup.getId());
 			pst.setString(2, itemGroup.getName());
-			int affectesRows= pst.executeUpdate();
-			result = affectesRows>0;
+			int affectesRows = pst.executeUpdate();
+			result = affectesRows > 0;
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -99,12 +122,11 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		}
 		return result;
 	}
+
 	@Override
 	public boolean update(ItemGroup itemGroup) {
-		boolean result=false;
-		String sql = "update loaihang \n"
-					+" set tenlh= ? \n"
-					+" where malh=?";
+		boolean result = false;
+		String sql = "update loaihang \n" + " set tenlh= ? \n" + " where malh=?";
 
 		// 2. Execute the native query and return data
 		try {
@@ -112,8 +134,8 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 			pst = connection.prepareStatement(sql);
 			pst.setString(1, itemGroup.getName());
 			pst.setInt(2, itemGroup.getId());
-			int affectesRows= pst.executeUpdate();
-			result = affectesRows>0;
+			int affectesRows = pst.executeUpdate();
+			result = affectesRows > 0;
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -123,6 +145,5 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		}
 		return result;
 	}
-
 
 }

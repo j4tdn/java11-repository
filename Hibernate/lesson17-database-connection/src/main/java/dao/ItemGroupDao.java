@@ -12,6 +12,8 @@ public interface ItemGroupDao {
 	boolean save(ItemGroup itemGroup);
 	
 	boolean update(ItemGroup itemGroup);
+
+	List<ItemGroup> get(String name);
 	
 
 
