@@ -77,6 +77,33 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 	}
 
 	@Override
+	public List<ItemGroup> get(String name) {
+		List<ItemGroup> result = new ArrayList<>();
+		// SQL Ịnjection
+		String sql = "SELECT * FROM LoaiHang\n"
+				   + "WHERE TenLH = ?";
+		// SELECT * FROM LoaiHang
+		// WHERE TenLH = '...' OR '1 = 1';
+		try {
+			pst = connection.prepareStatement(sql);
+			pst.setString(1, name);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				ItemGroup itemGroup = new ItemGroup(rs.getInt("MaLH"), rs.getString("TenLH"));
+				result.add(itemGroup);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, st);
+		}
+
+		return result;
+	}
+	
+
+	@Override
 	public boolean save(ItemGroup itemGroup) {
 		boolean result = false;
 

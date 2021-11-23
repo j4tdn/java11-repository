@@ -6,10 +6,10 @@ import persistence.ItemGroup;
 
 public interface ItemGroupService {
 	List<ItemGroup> getAll ();
-	
-	//
-	
+		
 	ItemGroup get(int id);
+	
+	List<ItemGroup> get(String name);
 	
 	boolean save(ItemGroup itemGroup);
 	

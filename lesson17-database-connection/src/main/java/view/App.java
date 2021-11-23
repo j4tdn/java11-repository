@@ -31,5 +31,12 @@ public class App {
 		
 		boolean isSaved = itemGroupService.update(newGroup);
 		SqlUtils.print("isSaved", isSaved);
+		
+		System.out.println("\n ==\\\\\\== \n");
+		List<ItemGroup> groupsByName = itemGroupService.get("'xyz' OR '1=1'");
+		SqlUtils.print(groupsByName);
+		
+		System.out.println("\n ==\\\\\\== \n");
+		
 	}
 }
