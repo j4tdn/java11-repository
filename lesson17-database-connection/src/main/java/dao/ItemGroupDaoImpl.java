@@ -10,6 +10,7 @@ import java.util.List;
 
 import connection.DBManager;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 import utils.SqlUtils;
 
 public class ItemGroupDaoImpl implements ItemGroupDao {
@@ -128,4 +129,40 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		return result;
 	}
 
+	@Override
+	public List<ItemGroupDto> getItemsByItemGroupId() {
+		// 1. Write down a native query
+		String sql = "SELECT  lh.MaLH AS "+ ItemGroupDto.ITEM_GROUP_ID +",\n"
+				+ "		lh.TenLH AS " + ItemGroupDto.ITEM_GROUP_NAME + ",\n" 
+				+ "        SUM(ctmh.SoLuong) "+ ItemGroupDto.NUMBER_OF_ITEMS + "\n" 
+				+ "        -- mh.TenMH,\n" 
+				+ "        -- ctmh.MaKC,\n"
+				+ "        -- ctmh.SoLuong\n" 
+				+ "FROM LoaiHang lh\n"
+				+ "JOIN MatHang mh\n"
+				+ "	ON lh.MaLH = mh.MaLH\n" 
+				+ "JOIN ChiTietMatHang ctmh\n" 
+				+ "	ON mh.MaMH = ctmh.MaMH\n" 
+				+ "GROUP BY lh.MaLH";
+
+		// 2. Execute the native query and return data
+		try {
+			// 2.1 Initial Statement || PrepareStatement
+			st = connection.createStatement();
+
+			// 2.2 Pass native query into Statement || Call executeQuery || executeUpdate
+			// from Statement || PrepareStatement to execute native query
+			rs = st.executeQuery(sql);
+			List<ItemGroupDto> result = new ArrayList<>();
+			while (rs.next()) {
+				result.add(ItemGroupDto.addResultTransformer(rs));
+			}
+			return result;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs,	 st);
+		}
+		return null;
+	}
 }

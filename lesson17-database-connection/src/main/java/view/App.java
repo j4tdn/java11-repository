@@ -9,6 +9,8 @@ import connection.DBManager;
 import connection.DBProvider;
 import persistence.Item;
 import persistence.ItemGroup;
+import service.EmployeeService;
+import service.EmployeeServiceImpl;
 import service.ItemGroupService;
 import service.ItemGroupServiceImpl;
 import service.ItemService;
@@ -20,8 +22,12 @@ public class App {
 	private static String igName;
 	private static String NameInjection;
 	private static LocalDate orderDate;
+	private static String email;
+	private static String password;
+	
 	private static ItemGroupService itemGroupService;
 	private static ItemService itemService;
+	private static EmployeeService employeeService;
 	
 	static {
 		itemGroupService = new ItemGroupServiceImpl();
@@ -29,6 +35,9 @@ public class App {
 		igName = "Áo";
 		NameInjection = "xyz' OR '1=1";
 		orderDate = LocalDate.of(2020,12,18);
+		email = "boywithlove@ulove.uz.cm";
+		password = "boywithlove1341";
+		employeeService = new EmployeeServiceImpl();
 	}
 	
 	public static void main(String[] args) {
@@ -59,5 +68,14 @@ public class App {
 		System.out.println("========orderDate======");
 		List<Item> itemByOrderDate = itemService.get(orderDate);
 		SqlUtils.print(itemByOrderDate);
+	
+		System.out.println("======== igDto =======");
+		SqlUtils.print(itemGroupService.getItemsByItemGroupId());
+
+		System.out.println("======== signup =======");
+		System.out.println(employeeService.signUp(email, password));
+
+		System.out.println("======== signin =======");
+		System.out.println(employeeService.signIn(email, password));
 	}
 }
