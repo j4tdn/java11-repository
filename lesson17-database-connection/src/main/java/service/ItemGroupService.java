@@ -9,7 +9,10 @@ public interface ItemGroupService {
 
 	ItemGroup get(int id);
 	
+	List<ItemGroup> get(String name);
+	
 	boolean save(ItemGroup itemGroup);
 	boolean update(ItemGroup itemGroup);
 	boolean saveOrUpdate(ItemGroup itemGroup);
+	
 }

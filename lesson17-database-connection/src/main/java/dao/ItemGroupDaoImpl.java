@@ -51,10 +51,29 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 	}
 
 	@Override
+	public List<ItemGroup> get(String name) {
+		String sql = "SELECT * FROM LoaiHang WHERE TenLH = ?";
+		List<ItemGroup> result = new ArrayList<>();
+		try {
+			pstm = connection.prepareStatement(sql);
+			pstm.setString(1, name);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				ItemGroup itemGroup = new ItemGroup(rs.getInt("MaLH"), rs.getString("TenLH"));
+				result.add(itemGroup);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, st, pstm);
+		}
+		return result;
+	}
+
+	@Override
 	public ItemGroup get(int id) {
 		ItemGroup result = null;
-		String sql = "SELECT * FROM LoaiHang "
-				+ "WHERE MaLH = " + id;
+		String sql = "SELECT * FROM LoaiHang " + "WHERE MaLH = " + id;
 		try {
 			st = connection.createStatement();
 			rs = st.executeQuery(sql);
@@ -73,10 +92,9 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 	@Override
 	public boolean save(ItemGroup itemGroup) {
 		boolean result = false;
-		
+
 		// UPDATE >> INSERT, UPDATE, DELETE
-		String sql = "INSERT INTO LoaiHang "
-				+ "VALUES(" + itemGroup.getId()+",\'" + itemGroup.getName() +  "\')";
+		String sql = "INSERT INTO LoaiHang " + "VALUES(" + itemGroup.getId() + ",\'" + itemGroup.getName() + "\')";
 		try {
 			st = connection.createStatement();
 			int affectedRows = st.executeUpdate(sql);
@@ -88,20 +106,18 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		}
 		return result;
 	}
-	
+
 	@Override
 	public boolean update(ItemGroup itemGroup) {
 		// UPDATE >> INSERT, UPDATE, DELETE
 		boolean result = false;
-		String sql = "UPDATE LoaiHang "
-				+ "SET TenLH = ? "
-				+ "WHERE MaLH = ? ";
+		String sql = "UPDATE LoaiHang " + "SET TenLH = ? " + "WHERE MaLH = ? ";
 		try {
 			// prepare statement >> represent a preCompile SQL
 			pstm = connection.prepareStatement(sql);
 			pstm.setString(1, itemGroup.getName());
 			pstm.setInt(2, itemGroup.getId());
-			
+
 			int affectedRows = pstm.executeUpdate();
 			result = affectedRows > 0;
 		} catch (SQLException e) {
@@ -111,5 +127,5 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		}
 		return result;
 	}
-	
+
 }

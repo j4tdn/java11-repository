@@ -20,6 +20,12 @@ public class ItemGroupServiceImpl implements ItemGroupService {
 	}
 
 	@Override
+	public List<ItemGroup> get(String name) {
+		Objects.requireNonNull(name, "item group cannot be null");
+		return itemGroupDao.get(name);
+	}
+	
+	@Override
 	public ItemGroup get(int id) {
 		return itemGroupDao.get(id);
 	}
@@ -41,5 +47,7 @@ public class ItemGroupServiceImpl implements ItemGroupService {
 		Objects.requireNonNull(itemGroup, "item group cannot be null");
 		return itemGroup.getId() == null ? save(itemGroup) : update(itemGroup);
 	}
+
+	
 	
 }
