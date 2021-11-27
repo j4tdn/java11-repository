@@ -10,6 +10,7 @@ import java.util.List;
 
 import connection.DbManager;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 import utils.SqlUtils;
 
 public class ItemGroupDaoImpl implements ItemGroupDao {
@@ -22,6 +23,17 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 	public ItemGroupDaoImpl() {
 		connecton = DbManager.getConnection();
 	}
+	
+	private static String Q_GET_ITEMS_BY_ITEM_GROUP_ID = 
+			  "SELECT  lh.MaLH " + ItemGroupDto.ITEM_GROUP_ID + ", \n"
+			+ "		   lh.TenLH " + ItemGroupDto.ITEM_GROUP_NAME + ", \n"
+			+ "        SUM(ctmh.SoLuong) " + ItemGroupDto.NUMBER_OF_ITEMS + " \n"
+			+ "FROM LoaiHang lh\n"
+			+ "JOIN MatHang mh\n"
+			+ "	ON lh.MaLH = mh.MaLH\n"
+			+ "JOIN ChiTietMatHang ctmh\n"
+			+ "	ON mh.MaMH = ctmh.MaMH\n"
+			+ "GROUP BY lh.MaLH";
 	
 	@Override
 	public List<ItemGroup> getALL() {
@@ -54,6 +66,7 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 
 	@Override
 	public ItemGroup get(int id) {
+
 		ItemGroup result = null;
 		String sql = "SELECT * FROM LoaiHang\n"
 				   + "WHERE MaLH = " + id;
@@ -74,6 +87,28 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		return result;
 	}
 
+	@Override
+	public List<ItemGroup> get(String name) {
+		List<ItemGroup> result = new ArrayList<>();
+		// SQL Injection
+		String sql = "SELECT * FROM LoaiHang \n"
+				   + "WHERE TenLH = ?";
+		try {
+			pst = connecton.prepareStatement(sql);
+			pst.setString(1, name);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				ItemGroup itemGroup = new ItemGroup(rs.getInt("MaLH"), rs.getString("TenLH"));
+				result.add(itemGroup);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, st);
+		}
+		return result;
+	}
+	
 	@Override
 	public boolean save(ItemGroup itemGroup) {
 		boolean result = false;
@@ -120,7 +155,7 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 			pst.setString(1, name);
 			pst.setInt(2, id);
 			
-			int affectedRows = pst.executeQUpdate();
+			int affectedRows = pst.executeUpdate();
 			result = affectedRows > 0;
 			
 		} catch (SQLException e) {
@@ -140,5 +175,25 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 	// Problem >>
 	// 1. SQL(Statement) >> complicated in case of many parameters
 	// 2. Save ==>> saveOrUpdate 
-
+	
+	@Override
+	public List<ItemGroupDto> getItemsByItemGroupId() {
+		List<ItemGroupDto> result = new ArrayList<>();
+		try {
+			st = connecton.createStatement();
+			rs = st.executeQuery(Q_GET_ITEMS_BY_ITEM_GROUP_ID);
+			while (rs.next()) {
+				try {
+					result.add(ItemGroupDto.addResultTransfomer(rs));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, st);
+		}
+		return result;
+	}
 }
