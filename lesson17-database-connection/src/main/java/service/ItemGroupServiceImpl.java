@@ -6,6 +6,7 @@ import java.util.Objects;
 import dao.ItemGroupDao;
 import dao.ItemGroupDaoImpl;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 
 public class ItemGroupServiceImpl implements ItemGroupService{
 	
@@ -23,6 +24,11 @@ public class ItemGroupServiceImpl implements ItemGroupService{
 	@Override
 	public ItemGroup get(int id) {
 		return itemGroupDao.get(id);
+	}
+	
+	@Override
+	public List<ItemGroup> get(String name) {
+		return itemGroupDao.get(name);
 	}
 
 	@Override
@@ -43,4 +49,8 @@ public class ItemGroupServiceImpl implements ItemGroupService{
 		return itemGroupDao.get(itemGroup.getId()) != null ? update(itemGroup) : save(itemGroup);
 	}
 
+	@Override
+	public List<ItemGroupDto> getItemsByItemGroupId() {
+		return itemGroupDao.getItemsByItemGroupId();
+	}
 }

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import connection.DBManager;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 import utils.SqlUtils;
 
 public class ItemGroupDaoImpl implements ItemGroupDao{
@@ -20,6 +21,17 @@ public class ItemGroupDaoImpl implements ItemGroupDao{
 	public ItemGroupDaoImpl() {
 		connection = DBManager.getConnection();
 	}
+	
+	private static String Q_GET_ITEMS_BY_ITEM_GROUP_ID = 
+					  "SELECT  lh.MaLH 			"+ ItemGroupDto.ITEM_GROUP_ID   + ",\n"
+					+ "		   lh.TenLH 		"+ ItemGroupDto.ITEM_GROUP_NAME + ",\n"
+	 				+ "        SUM(ctmh.SoLuong)"+ ItemGroupDto.NUMBER_OF_ITEMS +"\n"
+					+ "FROM LoaiHang lh\n"
+					+ "JOIN MatHang mh\n"
+					+ "	 ON lh.MaLH = mh.MaLH\n"
+					+ "JOIN ChiTietMatHang ctmh\n"
+					+ "	 ON mh.MaMH = ctmh.MaMH\n"
+					+ "GROUP BY lh.MaLH";
 	
 	@Override
 	public List<ItemGroup> getAll() {
@@ -37,6 +49,28 @@ public class ItemGroupDaoImpl implements ItemGroupDao{
 			
 			while(rs.next()) {
 				//Transformer
+				ItemGroup item = new ItemGroup(rs.getInt("MaLH"), rs.getString("TenLH"));
+				result.add(item);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, st);
+		}
+
+		return result;
+	}
+	
+	@Override
+	public List<ItemGroup> get(String name) {
+		List<ItemGroup> result = new ArrayList<>();
+		String sql = "SELECT * FROM LoaiHang\n"
+				+ "WHERE TenLH = ?";
+		try {
+			pst = connection.prepareStatement(sql);
+			pst.setString(1, name);
+			rs = pst.executeQuery();
+			while(rs.next()) {
 				ItemGroup item = new ItemGroup(rs.getInt("MaLH"), rs.getString("TenLH"));
 				result.add(item);
 			}
@@ -90,19 +124,44 @@ public class ItemGroupDaoImpl implements ItemGroupDao{
 	@Override
 	public boolean update(ItemGroup itemGroup) {
 		boolean result = false;
-		String sql = "UPDATE LoaiHang \n"
-				+ "SET TenLH = ? \n"
-				+ "WHERE MaLH = ? ";
+		
+		Integer id = itemGroup.getId();
+        String name = itemGroup.getName();
+        
+		String sql = "UPDATE LoaiHang \n" +
+                "SET TenLH = ? \n" +
+                "WHERE MaLH = ?";
 		try {
 			pst = connection.prepareStatement(sql);
-			pst.setString(1, itemGroup.getName());
-			pst.setInt(2, itemGroup.getId());
-			result = pst.executeUpdate(sql) > 0;
+			
+			pst.setString(1, name);
+			pst.setInt(2, id);
+			
+			int affectedRows = pst.executeUpdate();
+            result = affectedRows > 0;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			SqlUtils.close(st);
+			SqlUtils.close(pst);
 		}
+		return result;
+	}
+
+	@Override
+	public List<ItemGroupDto> getItemsByItemGroupId() {
+		List<ItemGroupDto> result = new ArrayList<>();		
+		try {
+			st = connection.createStatement();
+			rs = st.executeQuery(Q_GET_ITEMS_BY_ITEM_GROUP_ID);
+			while(rs.next()) {
+				result.add(ItemGroupDto.addResultTransfomer(rs));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, st);
+		}
+
 		return result;
 	}
 
