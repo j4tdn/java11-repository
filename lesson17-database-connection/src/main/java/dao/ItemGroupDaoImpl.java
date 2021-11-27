@@ -10,7 +10,9 @@ import java.util.List;
 
 import connection.DbManager;
 import persistence.ItemGroup;
-import utils.SqlUtils;
+import persistence.ItemGroupDto;
+
+import static utils.SqlUtils.*;
 
 public class ItemGroupDaoImpl implements ItemGroupDao {
 
@@ -46,7 +48,7 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			SqlUtils.close(rs, st);
+			close(rs, st);
 		}
 
 		return result;
@@ -68,12 +70,35 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			SqlUtils.close(rs, st);
+			close(rs, st);
 		}
 
 		return result;
 	}
+	
+	@Override
+	public List<ItemGroup> get(String name) {
+		List<ItemGroup> result = new ArrayList<>();
+		// SQL Injection
+		String sql = "SELECT * FROM LoaiHang\n"
+				   + "WHERE TenLH = ?";
+		try {
+			pst = connection.prepareStatement(sql);
+			pst.setString(1, name);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				ItemGroup itemGroup = new ItemGroup(rs.getInt("MaLH"), rs.getString("TenLH"));
+				result.add(itemGroup);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs, st);
+		}
 
+		return result;
+	}
+	
 	@Override
 	public boolean save(ItemGroup itemGroup) {
 		boolean result = false;
@@ -91,7 +116,7 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			SqlUtils.close(st);
+			close(st);
 		}
 
 		return result;
@@ -118,7 +143,7 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			SqlUtils.close(st);
+			close(st);
 		}
 
 		return result;
@@ -126,5 +151,35 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 
 	// 1. SQL(Statement) >> complicated in case of many parameters
 	// 2. save => saveOrUpdate
+	
+	@Override
+	public List<ItemGroupDto> getItemsByItemGroupId() {
+		List<ItemGroupDto> result = new ArrayList<>();
+		String sql = "SELECT lh.MaLH AS 					 	 "+ ItemGroupDto.ITEM_GROUP_ID 	 +",\n"
+				   + "		 lh.TenLH AS						 "+ ItemGroupDto.ITEM_GROUP_NAME +",\n"
+				   + "       SUM(ctmh.SoLuong) AS   			 "+ ItemGroupDto.NUMBER_OF_ITEMS +"\n"
+				   + "FROM LoaiHang lh\n"
+				   + "JOIN MatHang mh\n"
+				   + "	ON lh.MaLH = mh.MaLH\n"
+				   + "JOIN ChiTietMatHang ctmh\n"
+				   + "	ON mh.MaMH = ctmh.MaMH\n"
+				   + "GROUP BY lh.MaLH";
+		try {
+			st = connection.createStatement();
+			rs = st.executeQuery(sql);
+			while (rs.next()) {
+				result.add(addResultTransfomer(rs));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs, st);
+		}
+		return result;
+	}
+	
+	public static ItemGroupDto addResultTransfomer(ResultSet rs) throws SQLException {
+		return new ItemGroupDto(rs.getInt(ItemGroupDto.ITEM_GROUP_ID), rs.getString(ItemGroupDto.ITEM_GROUP_NAME), rs.getLong(ItemGroupDto.NUMBER_OF_ITEMS));
+	}
 
 }
