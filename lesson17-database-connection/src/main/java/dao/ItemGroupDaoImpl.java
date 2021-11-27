@@ -2,6 +2,7 @@ package dao;
 
 import connection.DbManager;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 import utils.SqlUtils;
 
 import java.sql.*;
@@ -18,6 +19,17 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
     public ItemGroupDaoImpl() {
         connection = DbManager.getConnection();
     }
+
+    private static String Q_GET_ITEMS_BY_GROUP_ID =
+            "SELECT lh.MaLH " + ItemGroupDto.ITEM_GROUP_ID + ",\n" +
+            "       lh.TenLH " + ItemGroupDto.ITEM_GROUP_NAME + ",\n" +
+            "       SUM(ctmh.SoLuong) " + ItemGroupDto.NUMBER_OF_ITEMS + "\n" +
+            "FROM LoaiHang lh\n" +
+            "JOIN MatHang mh\n" +
+            "ON lh.MaLH = mh.MaLH\n" +
+            "JOIN ChiTietMatHang ctmh\n" +
+            "ON mh.MaMH = ctmh.MaMH\n" +
+            "GROUP BY lh.MaLH";
 
     @Override
     public List<ItemGroup> getAll() {
@@ -65,6 +77,32 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
                 result = new ItemGroup(rs.getInt("MaLH"),
                                        rs.getString("TenLH"));
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            SqlUtils.close(rs, st);
+        }
+
+        return result;
+    }
+
+    @Override
+    public List<ItemGroup> get(String name) {
+        List<ItemGroup> result = new ArrayList<>();
+        // SQL Injection
+        String sql = "SELECT * FROM LoaiHang\n" +
+                     "WHERE TenLH = ?";
+        System.out.println(sql);
+
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setString(1, name);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                ItemGroup itemGroup = new ItemGroup(rs.getInt("MaLH"), rs.getString("TenLH"));
+                result.add(itemGroup);
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -131,4 +169,26 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
     // Problem >>
     // 1. SQL(Statement) >> complicated in case of many parameters
     // 2. save ==> saveOrUpdate
+
+    @Override
+    public List<ItemGroupDto> getItemsByItemGroupId() {
+        List<ItemGroupDto> result = new ArrayList<>();
+
+        try {
+            st = connection.createStatement();
+            rs = st.executeQuery(Q_GET_ITEMS_BY_GROUP_ID);
+            while (rs.next()) {
+                // transformer
+                result.add(ItemGroupDto.addResultTransformer(rs));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            SqlUtils.close(rs, st);
+        }
+
+        return result;
+    }
+
 }
