@@ -1,5 +1,8 @@
 package utils;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.lang.model.element.Element;
@@ -27,5 +30,14 @@ public class SqlUtils {
 	
 	public static <T> void print(String prefix, T element) {
 		System.out.println(prefix + " >>> " +element);
+	}
+	
+	public static int getGeneratedKey(PreparedStatement pst) throws SQLException {
+		int generatedKey = -1;
+		ResultSet rs = pst.getGeneratedKeys();
+		if(rs.next()) {
+			return rs.getInt(1);
+		}
+		return generatedKey;
 	}
 }
