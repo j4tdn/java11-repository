@@ -49,9 +49,9 @@ public class App {
 		List<Item> itemsBestSeller = itemService.getItemsBestSeller(yearSellest);
 		print(itemsBestSeller);
 		
-		System.out.println("\n ========== cau 4 ==\\\\\\============ \n");
-		List<Item> itemsAll = itemService.getAll();
-		print(itemsAll);
+//		System.out.println("\n ========== cau 4 ==\\\\\\============ \n");
+//		List<Item> itemsAll = itemService.getAll();
+//		print(itemsAll);
 		
 	}
 }

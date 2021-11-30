@@ -61,13 +61,13 @@ public class ItemDaoImpl implements ItemDao{
 				+ "			Join loaihang p On m.MaLH = p.MaLH\n"
 				+ "			Join chitietdonhang n On m.maMH = n.maMH\n"
 				+ "            join donhang d On n.MaDH = d.MaDH\n"
-				+ "            where thoigiandathang = \"?%\"\n"
+				+ "            where thoigiandathang like ?\n"
 				+ "            group by d.MaDH;";
 		
 		try {
 			pst = connection.prepareStatement(sql);
 			System.out.println(sql);
-			pst.setString(1,year);
+			pst.setString(1,year + "%");
 			rs = pst.executeQuery();
 			while(rs.next()) {
 				Item item = new Item(rs.getString("TenMH"));
