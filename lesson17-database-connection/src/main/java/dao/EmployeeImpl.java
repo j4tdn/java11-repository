@@ -23,17 +23,12 @@ public class EmployeeImpl implements EmployeeDao {
 
 	private static final String DEFAULT_STRING = "EMPTY";
 	private static final String DEFAULT_INT = "1";
-	private static final String Q_SIGN_UP = 
-			  "INSERT INTO NhanVien(TenNV, Email, SDT, DiaChi, MatKhau, MaCV)\n"
+	private static final String Q_SIGN_UP = "INSERT INTO NhanVien(TenNV, Email, SDT, DiaChi, MatKhau, MaCV)\n"
 			+ "VALUES(?, ?, ?, ?, ?, ?)";
-	private static final String Q_SIGN_IN = 
-			  "SELECT MaNV " + Employee.ID + ",\n"
-			+ "       TenNV" + Employee.NAME + ",\n"
-			+ "       Email" + Employee.PHONE + ",\n"
-			+ "       SDT" 	 + Employee.ADDRESS + "\n"
-			+ "FROM NhanVien\n"
-			+ "WHERE email = ?\n"
-			+ "AND MatKhau = ?";
+	private static final String Q_SIGN_IN = "SELECT MaNV AS  " + Employee.ID + ",\n" + "       TenNV AS "
+			+ Employee.NAME + ",\n" + "       Email AS " + Employee.PHONE + ",\n" + "       SDT AS   "
+			+ Employee.ADDRESS + "\n" + "FROM NhanVien\n" + "WHERE email = ?\n" + "AND MatKhau = ?";
+
 	@Override
 	public Employee signup(String email, String password) {
 		int affectedRows = 0;
@@ -49,14 +44,15 @@ public class EmployeeImpl implements EmployeeDao {
 			pst.setString(6, DEFAULT_INT);
 
 			affectedRows = pst.executeUpdate();
+			if (affectedRows > 0) {
+				int generatedKey = SqlUtils.getGeneratedKey(pst);
+				return new Employee(generatedKey, DEFAULT_STRING, email, DEFAULT_STRING, DEFAULT_STRING,
+						encryptedPassword);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			SqlUtils.close(pst);
-		}
-		if (affectedRows > 0) {
-			int generatedKey = SqlUtils.getGeneratedKey(pst);
-			return new Employee(generatedKey, DEFAULT_STRING, email, DEFAULT_STRING, DEFAULT_STRING, encryptedPassword);
 		}
 		return null;
 	}
@@ -75,7 +71,7 @@ public class EmployeeImpl implements EmployeeDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			SqlUtils.close(pst);
+			SqlUtils.close(pst, rs);
 		}
 		return result;
 	}

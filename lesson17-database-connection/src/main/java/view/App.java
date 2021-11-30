@@ -33,7 +33,7 @@ public class App {
 		itemGroupService = new ItemGroupServiceImpl();
 		itemService = new ItemServiceImpl();
 		igId = 5;
-		name = "Áo";
+		name ="Áo";
 		email = "quochung@gmail.com";
 		password = "123";
 		orderDate = LocalDate.of(2020, 12, 18);
@@ -71,9 +71,9 @@ public class App {
 		List<ItemGroupDto> igDto = itemGroupService.getItemsByItemGroupId();
 		print(igDto);
 		
-//		System.out.println("\n ============\\\\\\============ \n");
-//		Employee regEmp = employeeService.signup(email, password);
-//		print("regEmp", regEmp);
+		System.out.println("\n ============\\\\\\============ \n");
+		Employee regEmp = employeeService.signup(email, password);
+		print("regEmp", regEmp);
 		
 		System.out.println("\n ============\\\\\\============ \n");
 		Employee signingUpAccount = employeeService.signin(email, password);
