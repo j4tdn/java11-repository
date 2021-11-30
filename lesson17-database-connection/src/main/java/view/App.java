@@ -3,6 +3,7 @@ package view;
 import java.util.List;
 
 import persistence.ItemGroup;
+//import persistence.ItemGroupDto;
 import service.ItemGroupService;
 import service.ItemGroupServiceImpl;
 import utils.SqlUtils;
@@ -36,7 +37,10 @@ public class App {
 		List<ItemGroup> groupsByName = itemGroupService.get("'xyz' OR '1=1'");
 		SqlUtils.print(groupsByName);
 		
-		System.out.println("\n ==\\\\\\== \n");
+//		System.out.println("\n ==\\\\\\== \n");
+//		List<ItemGroupDto> iBIgId = itemGroupService.getItemsByItemGroupId();
+//		SqlUtils.print(iBIgId);
+		
 		
 	}
 }

@@ -10,10 +10,13 @@ import java.util.List;
 
 import connection.DbManager;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 import utils.SqlUtils;
 
 public class ItemGroupDaoImpl implements ItemGroupDao {
 
+	
+	
 	private Connection connection;
 	private Statement st;
 	private PreparedStatement pst;
@@ -22,6 +25,17 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 	public ItemGroupDaoImpl() {
 		connection = DbManager.getConnection();
 	}
+	
+	private static String Q_GET_ITEMS_BY_ITEM_GROUP_ID =
+			  "SELECT  lh.MaLH AS '" + ItemGroupDto.ITEM_GROUP_ID + "',\n"
+			+ "		   lh.TenLH AS '" + ItemGroupDto.ITEM_GROUP_NAME + "',\n"
+			+ "        SUM(ctmh.SoLuong) SoLuongMatHang AS '" + ItemGroupDto.NUMBER_OF_ITEMS + "'\n"
+			+ "FROM LoaiHang lh\n"
+			+ "JOIN MatHang mh\n"
+			+ "	ON lh.MaLH = mh.MaLH\n"
+			+ "JOIN ChiTietMatHang ctmh\n"
+			+ "	ON mh.MaMH = ctmh.MaMH\n"
+			+ "GROUP BY lh.MaLH";
 
 	public List<ItemGroup> getAll() {
 
@@ -102,7 +116,6 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		return result;
 	}
 	
-
 	@Override
 	public boolean save(ItemGroup itemGroup) {
 		boolean result = false;
@@ -159,6 +172,24 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		return result;
 	}
 
-	
+	@Override
+	public List<ItemGroupDto> getItemsByItemGroupId() {
+		List<ItemGroupDto> result = new ArrayList<>();
+		String sql = Q_GET_ITEMS_BY_ITEM_GROUP_ID;
+
+		try {
+			st = connection.createStatement();
+			rs = st.executeQuery(sql);
+			while (rs.next()) {
+				ItemGroupDto igDto = ItemGroupDto.addResultTransfomer(rs);
+				result.add(igDto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, st);
+		}
+
+		return result;	}
 
 }
