@@ -6,6 +6,7 @@ import java.util.Objects;
 import dao.ItemGroupDao;
 import dao.ItemGroupDaoImpl;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 
 public class ItemGroupServiceImpl implements ItemGroupService{
 	private ItemGroupDao itemGroupDao;
@@ -20,6 +21,12 @@ public class ItemGroupServiceImpl implements ItemGroupService{
 	public ItemGroup get(int id) {
 		return itemGroupDao.get(id);
 	}
+	
+	@Override
+	public List<ItemGroup> get(String name) {
+		return itemGroupDao.get(name);
+	}
+	
 	@Override
 	public boolean save(ItemGroup itemGroup) {
 		Objects.requireNonNull(itemGroup,"item group cannot be null");
@@ -36,6 +43,10 @@ public class ItemGroupServiceImpl implements ItemGroupService{
 		return get(itemGroup.getId()) != null ? update(itemGroup) : save(itemGroup);
 	}
 	
+	@Override
+	public List<ItemGroupDto> getItemsByItemGroupId() {
+		return itemGroupDao.getItemsByItemGroupId();
+	}
 	
 	
 }	

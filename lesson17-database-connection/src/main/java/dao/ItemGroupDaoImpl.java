@@ -8,17 +8,30 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import connection.DBManager;
+import connection.DbManager;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 import utils.SqlUtils;
 
 public class ItemGroupDaoImpl implements ItemGroupDao {
 	private Connection connection;
 	private Statement st;
 	private ResultSet rs;
-	private PreparedStatement pst; 
+	private PreparedStatement pst;
+	
+	private static String Q_GET_ITEMS_BY_ITEM_GROUP_ID=
+			"SELECT  lh.MaLH  "+ ItemGroupDto.ITEM_GROUP_ID+" ,\n"
+					+ "		 lh.TenLH  "+ ItemGroupDto.ITEM_GROUP_NAME+",\n"
+					+ "		 SUM(ctmh.SoLuong) "+ ItemGroupDto.NUMBER_OF_ITEMS+"\n"
+					+ "FROM LoaiHang lh\n"
+					+ "JOIN MatHang mh\n"
+					+ "ON lh.MaLH = mh.MaLH\n"
+					+ "JOIN ChiTietMatHang ctmh\n"
+					+ "ON mh.MaMH = ctmh.MaMH\n"
+					+ "GROUP BY lh.MaLH";;
+	
 	public ItemGroupDaoImpl() {
-		connection = DBManager.getConnection();
+		connection = DbManager.getConnection();
 	}
 
 	public List<ItemGroup> getAll() {
@@ -75,14 +88,34 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 	}
 
 	@Override
+	public List<ItemGroup> get(String name) {
+		List<ItemGroup> result = new ArrayList<>();
+		String sql = "Select * from LoaiHang\n" + "WHERE TenLH = ?";
+		try {
+			pst = connection.prepareStatement(sql);
+			pst.setString(1, name);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				ItemGroup itemGroup = new ItemGroup(rs.getInt("MaLH"), rs.getString("TenLH"));
+				result.add(itemGroup);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, st);
+		}
+		return result;
+	}
+
+	@Override
 	public boolean save(ItemGroup itemGroup) {
 		boolean result = false;
 
 		Integer id = itemGroup.getId();
 		String name = itemGroup.getName();
 
-		String sql = "INSERT INTO LoaiHang(MaLH, TenLH)\n" 
-				   + "VALUE(" + id + ", '"  + name + "')";		
+		String sql = "INSERT INTO LoaiHang(MaLH, TenLH)\n" + "VALUE(" + id + ", '" + name + "')";
 		try {
 			st = connection.createStatement();
 			int affectedRow = st.executeUpdate(sql);
@@ -104,15 +137,12 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		Integer id = itemGroup.getId();
 		String name = itemGroup.getName();
 
-		String sql = "UPDATE LoaiHang \n"
-					+" SET  TenLH = ? \n"
-					+"WHERE MALH  = ?";
+		String sql = "UPDATE LoaiHang \n" + " SET  TenLH = ? \n" + "WHERE MALH  = ?";
 		try {
 			pst = connection.prepareStatement(sql);
 			pst.setString(1, name);
 			pst.setInt(2, id);
-			
-			
+
 			int affectedRow = pst.executeUpdate();
 			result = affectedRow > 0;
 
@@ -125,6 +155,21 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		return result;
 	}
 
-	
-
+	@Override
+	public List<ItemGroupDto> getItemsByItemGroupId() {
+		List<ItemGroupDto> result = new ArrayList<>();
+		try {
+			st = connection.createStatement();
+			rs = st.executeQuery(Q_GET_ITEMS_BY_ITEM_GROUP_ID);
+			while (rs.next()) {
+				result.add(ItemGroupDto.addResultTransfomer(rs));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, st);
+		}
+		return result;
+	}
 }

@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Properties;
 
-public class DBManager {
+public class DbManager {
 	private static Connection connection;
 
 	public static Connection getConnection() {
@@ -17,8 +17,6 @@ public class DBManager {
 				connection = DriverManager.getConnection(props.getProperty("URL"),
 													props.getProperty("USERNAME"),
 													props.getProperty("PASSWORD"));
-			
-				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

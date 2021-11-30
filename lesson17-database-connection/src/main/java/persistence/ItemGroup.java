@@ -1,18 +1,28 @@
 package persistence;
 
+import java.util.List;
 
 //Map with loaihang table
 public class ItemGroup {
 	private Integer id;
 	private String name;
 	
+	// Map 1-N with Item
+	private List<Item> items;
+
 	public ItemGroup() {
-	
+
 	}
 
 	public ItemGroup(Integer id, String name) {
 		this.id = id;
 		this.name = name;
+	}
+
+	public ItemGroup(Integer id, String name, List<Item> items) {
+		this.id = id;
+		this.name = name;
+		this.items = items;
 	}
 
 	public Integer getId() {
@@ -31,8 +41,16 @@ public class ItemGroup {
 		this.name = name;
 	}
 
+	public List<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
+
 	@Override
 	public String toString() {
-		return "ItemGroup [id=" + id + ", name=" + name + "]";
+		return "ItemGroup [id=" + id + ", name=" + name + ", items=" + items + "]";
 	}
 }
