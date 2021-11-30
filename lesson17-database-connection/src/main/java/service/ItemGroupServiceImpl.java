@@ -23,6 +23,11 @@ public class ItemGroupServiceImpl implements ItemGroupService {
 	public ItemGroup get(int id) {
 		return itemGroupDao.get(id);
 	}
+	
+	@Override
+	public List<ItemGroup> get(String name) {
+		return itemGroupDao.get(name);
+	}
 
 	@Override
 	public boolean save(ItemGroup itemGroup) {

@@ -77,6 +77,24 @@ public class ItemGroupDaoImpl implements ItemGroupDao{
 	}
 	
 	@Override
+	public List<ItemGroup> get(String name) {
+		List<ItemGroup> result = new ArrayList<>();
+		String sql = "SELECT * FROM LoaiHang\n"
+					+ "WHERE TenLH = ?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, name);
+			rs = preparedStatement.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, preparedStatement);
+		}
+		
+		return result;
+	}
+	
+	@Override
 	public boolean saveOrUpdate(ItemGroup itemGroup) {
 		return get(itemGroup.getId()) == null ? update(itemGroup) : save(itemGroup);
 	}
@@ -123,5 +141,7 @@ public class ItemGroupDaoImpl implements ItemGroupDao{
 		
 		return result;
 	}
+
+	
 	
 }
