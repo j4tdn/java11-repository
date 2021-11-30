@@ -733,3 +733,4 @@
 2021-11-30 01:34:18,558 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\main\resources
 2021-11-30 01:34:18,559 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-11-30 01:34:18,559 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\test\resources
+2021-11-30 20:07:09,357 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
