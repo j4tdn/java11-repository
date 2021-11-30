@@ -26,7 +26,7 @@ public class ItemDaoIpml implements ItemDao {
 	private static String Q_GET_ITEMS_BY_ORDERTIME = 
 			  "SELECT mh.MaMH,\n"
 			+ 	  	  "mh.TenMH,\n"
-			+ 		  "dh.ThoiGianDatHang"
+			+ 		  "dh.ThoiGianDatHang\n"
 			+ "FROM MatHang mh\n"
 			+ "JOIN ChiTietDonHang ctdh\n"
 			+ "  ON mh.MaMH = ctdh.MaMH\n"
@@ -54,6 +54,6 @@ public class ItemDaoIpml implements ItemDao {
 		}
 		
 		
-		return null;
+		return result;
 	}
 }

@@ -21,14 +21,15 @@ public class ItemGroupDaoIpml implements ItemGroupDao {
 	}
 
 	private static String Q_GET_ITEMS_BY_ITEM_GROUP_ID = 
-			  "SELECT  lh.MaLH \n"
-			+ "		   lh.TenLH\n"
+			  "SELECT  lh.MaLH, \n"
+			+ "		   lh.TenLH,\n"
 			+ "        SUM(ctmh.SoLuong) SoLuongMatHang\n"
 			+ "FROM LoaiHang lh\n" 
 			+ "JOIN MatHang mh\n" 
 			+ "	ON lh.MaLH = mh.MaLH\n" 
 			+ "JOIN ChiTietMatHang ctmh\n"
-			+ "	ON mh.MaMH = ctmh.MaMH\n" + "GROUP BY lh.MaLH";
+			+ "	ON mh.MaMH = ctmh.MaMH\n" 
+			+ "GROUP BY lh.MaLH";
 
 	@Override
 	public List<ItemGroupDto> getWithNumberOf() {
@@ -47,6 +48,6 @@ public class ItemGroupDaoIpml implements ItemGroupDao {
 			SqlUtils.close(rs, st);
 		}
 
-		return null;
+		return result;
 	}
 }
