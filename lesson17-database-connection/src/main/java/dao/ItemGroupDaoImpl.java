@@ -11,6 +11,7 @@ import java.util.List;
 
 import connection.DbManager;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 import util.SqlUtils;
 
 public class ItemGroupDaoImpl implements ItemGroupDao {
@@ -23,6 +24,19 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 		connection = DbManager.getConnection();
 	}
 
+	
+	private static String Q_GETS_ITEMS_ITEM_GROUP_ID =
+						"SELECT  lh.MaLH AS "+ ItemGroupDto.ITEM_GROUP_ID + ",\n"
+					+ "		lh.TenLH AS " + ItemGroupDto.ITEM_GROUP_NAME + ",\n"
+					+ "     SUM(ctmh.SoLuong) AS " + ItemGroupDto.ITEM_GROUP_NUMBER_OF_ITEMS + "\n"
+					+ "FROM LoaiHang lh\n"
+					+ "JOIN MatHang mh\n"
+					+ "	 ON lh.MaLH = mh.MaLH\n"
+					+ "JOIN ChiTietMatHang ctmh\n"
+					+ "	 ON mh.MaMH = ctmh.MaMH\n"
+					+ "GROUP BY lh.MaLH";
+	
+	
 	@Override
 	public List<ItemGroup> getAll() {
 		List<ItemGroup> result = new ArrayList<>();
@@ -154,6 +168,28 @@ public class ItemGroupDaoImpl implements ItemGroupDao {
 			e.printStackTrace();
 		} finally {
 			SqlUtils.close(pst);
+		}
+
+		return result;
+	}
+
+	@Override
+	public List<ItemGroupDto> getItemsByItemGroupId() {
+		List<ItemGroupDto> result = new ArrayList<>();
+
+		
+		try {
+			st = connection.createStatement();
+			rs = st.executeQuery(Q_GETS_ITEMS_ITEM_GROUP_ID);
+			while (rs.next()) {
+				// transformer
+				result.add(ItemGroupDto.addResultTransformer(rs));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, st);
 		}
 
 		return result;
