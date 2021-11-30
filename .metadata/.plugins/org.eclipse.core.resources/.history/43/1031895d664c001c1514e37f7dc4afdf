@@ -1,8 +1,0 @@
-package persistence;
-
-public class Item {
-	private Integer id;
-	private String name;
-	private String color;
-	private ItemGroup itemGroup;
-}

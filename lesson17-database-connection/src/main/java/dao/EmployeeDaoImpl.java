@@ -59,15 +59,15 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	}
 
 
-	@Override
-	public Employee signin(String email, String password) {
-	
-		pst = connection.prepareStatement(Q_SIGN-IN);
-		pst.setString(1, email);
-		pst.setString(2, password);
-		
-		return null;
-	}
+//	@Override
+//	public Employee signin(String email, String password) {
+//	
+//		pst = connection.prepareStatement(Q_SIGN-IN);
+//		pst.setString(1, email);
+//		pst.setString(2, password);
+//		
+//		return null;
+//	}
 	
 
 }

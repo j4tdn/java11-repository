@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="E:\java11\Hibernate\lesson17-database-connection\src\main\java\view\App.java"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -25,10 +26,13 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.java11.lesson18_leviethoang"/>
 		</list>
 		<list key="groupId">
+			<item value="com.java11"/>
 		</list>
 		<list key="artifactId">
+			<item value="lesson18-leviethoang"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

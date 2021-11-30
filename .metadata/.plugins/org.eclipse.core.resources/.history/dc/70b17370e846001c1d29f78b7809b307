@@ -1,9 +1,0 @@
-package service;
-
-import java.util.List;
-
-import persistence.ItemGroup;
-
-public class ItemServiceImpl {
-	List<ItemGroup> getAll();
-}
