@@ -1,5 +1,0 @@
-package dao;
-
-public interface ItemGroupDao {
- List<ItemGroup> getAll();
-}

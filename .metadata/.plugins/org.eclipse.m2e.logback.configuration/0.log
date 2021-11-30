@@ -703,3 +703,33 @@
 2021-11-16 22:54:17,062 [Worker-113: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\main\resources
 2021-11-16 22:54:17,063 [Worker-113: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-11-16 22:54:17,063 [Worker-113: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\test\resources
+2021-11-17 08:15:24,778 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-11-17 08:16:06,132 [Worker-4: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-17 08:16:06,132 [Worker-4: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\main\resources
+2021-11-17 08:16:06,134 [Worker-4: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-17 08:16:06,135 [Worker-4: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\test\resources
+2021-11-17 08:16:23,589 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-17 08:16:23,589 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\main\resources
+2021-11-17 08:16:23,590 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-17 08:16:23,590 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\test\resources
+2021-11-17 08:16:24,944 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-17 08:16:24,944 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\main\resources
+2021-11-17 08:16:24,945 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-17 08:16:24,945 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\test\resources
+2021-11-17 08:16:30,801 [Worker-5: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-17 08:16:30,801 [Worker-5: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\main\resources
+2021-11-17 08:16:30,802 [Worker-5: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-17 08:16:30,802 [Worker-5: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\test\resources
+2021-11-17 08:16:38,304 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-17 08:16:38,305 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\main\resources
+2021-11-17 08:16:38,305 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-17 08:16:38,305 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\test\resources
+2021-11-30 01:10:39,890 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-11-30 01:34:13,504 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-30 01:34:13,504 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\main\resources
+2021-11-30 01:34:13,506 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-30 01:34:13,506 [Worker-25: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\test\resources
+2021-11-30 01:34:18,558 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-30 01:34:18,558 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\main\resources
+2021-11-30 01:34:18,559 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-30 01:34:18,559 [Worker-2: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Java\JavaLearnMore\4.Hibernate\lesson17-database-connection\src\test\resources

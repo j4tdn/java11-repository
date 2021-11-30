@@ -101,7 +101,6 @@ public class ItemGroupDaopl implements ItemGroupDao {
 	@Override
 	public boolean saveOrUpdate(ItemGroup itemGroup) {
 	    
-		return get(itemGroup.getId() == null ? save(itemGroup) : update(itemGroup));
+		return true;
 	}
-
 }
