@@ -42,9 +42,9 @@ public class App {
 		print(top3SaleItems);
 		
 		
-		System.out.println("\n ============Ex03============ \n");
+		System.out.println("\n ============Ex04============ \n");
 		List<DetailsItems> itemsByGroupItems = itemGroupService.getItemsByGroupItem();
-		print(top3SaleItems);
+		print(itemsByGroupItems);
 		
 		
 	}
