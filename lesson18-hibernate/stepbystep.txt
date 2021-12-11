@@ -1,0 +1,31 @@
+step 1: Create a Maven Simple || QuickStart Project
+step 2: Add dependencies
++ mysql-connector
++ hibernate-core
+step 3: configure Session Factory from Configuration
+>> Configuration
++ XML
++Java, Annotation
+step 4: Execute SQL statement
+1. Hibernate native API
+>> DAO: Session
+2. JPA       native API
+>> DAO: EntityManager
+3. Spring    Data   JPA
+>> Repository
+
+
+
+==========================================
+Session session1 = openSession();
+System.out.println("session1: " + session1);
+		
+Session session2 = openSession();
+System.out.println("session2: " + session2);
+		
+		
+Session session3 = getCurrenSession();
+System.out.println("session3: " + session3);
+		
+Session session4 = openSession();
+System.out.println("session4: " + session4);
