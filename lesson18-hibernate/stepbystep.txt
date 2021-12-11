@@ -1,0 +1,7 @@
+Step 1: Create a Maven project
+Step 2: Add dependencies
+  + mysql-connector
+  + hibernate-core	
+Step 3: Configure Session Factory from Configuration 
+>> Configuration 
+ + XML 
