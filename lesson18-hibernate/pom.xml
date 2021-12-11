@@ -5,11 +5,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.java11</groupId>
-	<artifactId>lesson17-database-connection</artifactId>
+	<groupId>com.hibernate</groupId>
+	<artifactId>lesson18-hibernate</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>lesson17-database-connection</name>
+	<name>lesson18-hibernate</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
@@ -17,6 +17,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
+		<mysql-connector.version>8.0.21</mysql-connector.version>
 	</properties>
 
 	<dependencies>
@@ -25,11 +26,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.21</version>
 		</dependency>
+
 		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-			<version>1.10</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.4.32.Final</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>

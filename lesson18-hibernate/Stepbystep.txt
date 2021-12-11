@@ -1,0 +1,17 @@
+
+
+
+A: Phân biệt openSession và getCurrentSession
+====================================================
+Session session = openSession();
+System.out.println("session: " + session);
+		
+Session session2 = openSession();
+System.out.println("session2: " + session2);
+		
+Session session3 = getCurrentSession();
+System.out.println("session3: " + session3);
+		
+Session session4 = getCurrentSession();
+System.out.println("session4: " + session4);
+		
