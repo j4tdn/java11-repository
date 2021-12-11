@@ -1,0 +1,20 @@
+Step 1 : Create  a Maven Simple || Quick-Start Project
+
+Step 2 : Add dependencies
++ mysql-connector
++ hibernate-core
+
+Step 3 : configuration Session Factory From Configuration
+>> Configuration
+ + xml
+ + java / annonimous
+ 
+ Step 4 : Execute SQL statement
+1. Hibernate native API
+DAO : Session
+
+2. JPA       native API
+>> DAO : EntityManager
+
+3. Spring    data jpa
+>> Repository

@@ -26,13 +26,10 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="com.java11.lesson18_leviethoang"/>
 		</list>
 		<list key="groupId">
-			<item value="com.java11"/>
 		</list>
 		<list key="artifactId">
-			<item value="lesson18-leviethoang"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -48,10 +45,13 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.hibernate"/>
 		</list>
 		<list key="name">
+			<item value="Lesson18 - Hibernate"/>
 		</list>
 		<list key="artifactId">
+			<item value="lesson18-hibernate"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -62,6 +62,7 @@
 			<item value="[name]"/>
 		</list>
 		<list key="version">
+			<item value="1.0-SNAPSHOT"/>
 			<item value="0.0.1-SNAPSHOT"/>
 		</list>
 	</section>
