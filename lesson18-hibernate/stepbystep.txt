@@ -1,0 +1,22 @@
+step 1: create a maven simple || quickstart project
+
+step 2: add dependencies
++ mysql - connector
++ hibernate - core
+
+================================
+Session session1 = openSession();	
+System.out.println("session: " + session1);
+		
+Session session2 = openSession();	
+System.out.println("session2: " + session2);
+		
+System.out.println("====================");
+		
+		
+Session session3 = getCurrentSession();	
+System.out.println("session2: " + session3);
+		
+Session session4 = getCurrentSession();	
+System.out.println("session2: " + session4);
+		
