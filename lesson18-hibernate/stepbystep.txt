@@ -1,0 +1,28 @@
+Step 1: Create a simple || quickstart project
+Step 2: Add dependences
++ mysql-connector
++ hibernate-core
+Step 3: Configure session Factory from Configuration
+>> configuration
++ XML
++ Java Config
+Step 4: Execute SQL statement
+1. Hibernate native API
+>>DAO: Session
+
+2. JPA		native API
+>> DAO: EntityManagement
+
+3. Spring JPA
+>> Repository
+
+
+Note: openSession vs getCurrentSession
+	Session session = openSession();
+	System.out.println("session: " + session);
+	Session session2 = openSession();
+	System.out.println("session: " + session2);
+	Session session3 = getCurrentSession();
+	System.out.println("session: " + session3);
+	Session session4 = getCurrentSession();
+	System.out.println("session: " + session4);
