@@ -1,9 +1,29 @@
 package persistence;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "MatHang")
 public class Item {
+	@Id
+	@Column(name = "MaMH")
 	private Integer id;
+	
+	@Column(name = "TenMH")
 	private String name;
+	
+	@Column(name = "MauSac")
 	private String color;
+	
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "MaLH", referencedColumnName = "MaLH")
 	private ItemGroup itemGroup;
 	
 	

@@ -1,15 +1,25 @@
 package persistence;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 // Mapped with LoaiHang table
 
 @Entity
 @Table(name = "LoaiHang")
+@NamedQueries({
+	@NamedQuery(name = ItemGroup.Q_GET_ALL, query = "FROM ItemGroup")
+})
 public class ItemGroup {
+	
+	public static final String Q_GET_ALL = "Q_GET_ALL";
 	
 	@Id
 	@Column(name = "MaLH")
@@ -17,6 +27,10 @@ public class ItemGroup {
 	
 	@Column(name = "TenLH")
 	private String name;
+	
+	@OneToMany(mappedBy = "itemGroup")
+	private List<Item> items;
+	
 	
 	
 	/**
@@ -50,6 +64,11 @@ public class ItemGroup {
 	@Override
 	public String toString() {
 		return "ItemGroup [id=" + id + ", name=" + name + "]";
+	}
+
+	public List<Item> getItems() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
