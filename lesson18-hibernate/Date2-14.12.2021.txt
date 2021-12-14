@@ -1,0 +1,15 @@
+Query: Native Query, Java Persistence Query || Hibernate Query
+
++ Native Query			>> Native SQL >> SELEC data from tables
+
++ Java Persistence Query >> JPQL		>> SELECT data from entities name
+	+ @NaemQueries >> @NamedQuery
+
++ Mapping
+>> @OneToMany(mappedBy = "")
+
+>> @ManyToOne
+   @JoinColumn(name = "FK_ClName", referenceColumnName="PK_refClName")
+   
++ Fetch Type 
+	>> Lazy || Eager

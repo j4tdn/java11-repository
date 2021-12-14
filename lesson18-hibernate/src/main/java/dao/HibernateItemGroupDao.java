@@ -1,37 +1,28 @@
 package dao;
 
 import java.util.List;
-
 import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.query.NativeQuery;
-
+import org.hibernate.query.Query;
 import persistence.ItemGroup;
 
 public class HibernateItemGroupDao extends AbstractHibernateDao implements ItemGroupDao{
 
-private String Q_GET_ALL = "SELECT MaLH,TenLH FROM LoaiHang";
+	//private String Q_GET_ALL = "SELECT MaLH,TenLH FROM LoaiHang"; //Native SQL
+	//private String Q_GET_ALL = "SELECT ig FROM ItemGroup ig"; // JPQL, HibernateQL
 	
 	public List<ItemGroup> getAll() {
-		Session session = getCurrentSession();
-		NativeQuery<ItemGroup> query = null;
-		Transaction transaction = session.beginTransaction();
+		Session session = openSession();
+		Query<ItemGroup> query = null;
+		//Transaction transaction = session.beginTransaction();
 		try {
-			
 			//Unknown entity : persistance.ItemGroup
-			query = session.createNativeQuery(Q_GET_ALL, ItemGroup.class);
+			//query = session.createQuery(Q_GET_ALL, ItemGroup.class);
+			
+			query = session.createNamedQuery(ItemGroup.Q_GET_ALL, ItemGroup.class);
 		} catch (Exception e) {
-			transaction.rollback();
+			//transaction.rollback();
+			e.printStackTrace();
 		}
 		return query.getResultList();
 	}
-	public static void main(String[] args) {
-		ItemGroupDao dao = new HibernateItemGroupDao();
-		List<ItemGroup> itemGroups = dao.getAll();
-		
-		for(ItemGroup itemGroup : itemGroups) {
-			System.out.println(itemGroup);
-		}
-	}
-
 }
