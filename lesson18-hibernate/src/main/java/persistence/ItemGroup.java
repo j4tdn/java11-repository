@@ -1,8 +1,13 @@
 package persistence;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 // Mapped with LoaiHang table
@@ -11,14 +16,25 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "LoaiHang")
+@NamedQueries({
+	@NamedQuery(name = ItemGroup.Q_GET_ALL, query = "FROM ItemGroup")
+})
 public class ItemGroup {
-
+	
+	public static final String Q_GET_ALL = "Q_GET_ALL"; 
+	
 	@Id
 	@Column(name = "MaLH")
 	private Integer id;
 
 	@Column(name = "TenLH")
 	private String name;
+	
+	@OneToMany(mappedBy = "itemGroup")
+	private List<Item> items;
+	
+	// fetch type
+	// @OneToMany : default LAZY
 
 	/**
 	 * Hibernate Empty Constructor
@@ -45,6 +61,14 @@ public class ItemGroup {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public List<Item> getItems() {
+		return items;
+	}
+	
+	public void setItems(List<Item> items) {
+		this.items = items;
 	}
 
 	@Override

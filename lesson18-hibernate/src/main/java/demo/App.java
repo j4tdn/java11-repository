@@ -1,12 +1,40 @@
 package demo;
 
-import org.hibernate.SessionFactory;
+import static utils.SqlUtils.print;
 
-import provider.HibernateProvider;
+import java.util.List;
+
+import persistence.Item;
+import persistence.ItemGroup;
+import service.ItemGroupService;
+import service.ItemGroupServiceImpl;
+import service.ItemService;
+import service.ItemServiceImpl;
+import static utils.SqlUtils.*;
 
 public class App {
+	
+	private static ItemGroupService itemGroupService;
+	private static ItemService itemService;
+	
+	static {
+		itemGroupService = new ItemGroupServiceImpl();
+		itemService = new ItemServiceImpl();
+	}
+	
 	public static void main(String[] args) {
-		SessionFactory sessionFactory = HibernateProvider.getSessionFactory();
-		System.out.println(sessionFactory);
+		List<ItemGroup> itemGroups = itemGroupService.getAll();
+		print(itemGroups);
+		
+		breakLine("itemByIgAtIdx1");
+		
+		ItemGroup itemGroup = itemGroups.get(1);
+		List<Item> itemByIgAtIdx1 = itemGroup.getItems();
+		print(itemByIgAtIdx1);
+		
+		breakLine("items");
+		
+		List<Item> items = itemService.getAll();
+		print(items);
 	}
 }

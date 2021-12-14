@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
+import persistence.Item;
 import persistence.ItemGroup;
 
 public class HibernateProvider {
@@ -38,6 +39,7 @@ public class HibernateProvider {
 			
 			// Scan Entities
 			configuration.addAnnotatedClass(ItemGroup.class);
+			configuration.addAnnotatedClass(Item.class);
 			
 			sessionFactory = configuration.setProperties(getHibernateProps()).buildSessionFactory();
 			
@@ -51,7 +53,7 @@ public class HibernateProvider {
 		props.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
 		props.put(Environment.URL, "jdbc:mysql://localhost:3306/java11_shopping");
 		props.put(Environment.USER, "root");
-		props.put(Environment.PASS, "1234");
+		props.put(Environment.PASS, "0977644453_Cuong");
 		
 		props.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
 		props.put(Environment.SHOW_SQL, "true");
