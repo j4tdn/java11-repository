@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
+import persistence.Item;
 import persistence.ItemGroup;
 
 public class HibernateProvider {
@@ -41,10 +42,14 @@ public class HibernateProvider {
 		if (sessionFactory == null) {
 			Properties properties = getHibernateProperties();
 			Configuration configuration = new Configuration();
-			sessionFactory = configuration.setProperties(properties).buildSessionFactory();
 			
 			//Scan Entities
 			configuration.addAnnotatedClass(ItemGroup.class);
+			configuration.addAnnotatedClass(Item.class);
+			
+			sessionFactory = configuration.setProperties(properties).buildSessionFactory();
+			
+			
 		}
 		
 		return sessionFactory;
