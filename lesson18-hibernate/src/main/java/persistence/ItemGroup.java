@@ -4,14 +4,17 @@ package persistence;
 // Entity: Java Class used for mapping properties with table columns
 // >> Get from Table >> Table's columns automatically set into corresponding Class's properties
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "LoaiHang")
+@NamedQueries({
+        @NamedQuery(name = ItemGroup.Q_GET_ALL, query = "FROM ItemGroup")
+})
 public class ItemGroup {
+
+    public static final String Q_GET_ALL = "Q_GET_ALL";
 
     @Id
     @Column(name = "MaLH")
@@ -21,8 +24,15 @@ public class ItemGroup {
     private String name;
 
     // Mapping 1-N with Item
-    // private List<Item> items;
+    @OneToMany(mappedBy = "itemGroup")
+    private List<Item> items;
 
+    // fetch type
+    // @OneToMany: LAZY FETCH
+
+    /**
+     * Hibernate Empty Constructor
+     */
     public ItemGroup() {
     }
 
@@ -45,6 +55,14 @@ public class ItemGroup {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 
     @Override

@@ -2,23 +2,29 @@ package dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
 import persistence.ItemGroup;
 
 import java.util.List;
 
 public class HibernateItemGroupDAO extends AbstractHibernateDAO implements ItemGroupDao {
 
-    private String Q_GET_ALL = "SELECT * FROM LoaiHang";
+    // private String Q_GET_ALL = "SELECT * FROM LoaiHang"; // Native SQL
+    // private String Q_GET_ALL = "SELECT ig FROM ItemGroup ig"; // JPQL, HQL
 
     @Override
     public List<ItemGroup> getAll() {
         Session session = getCurrentSession();
         Transaction transaction = session.beginTransaction();
 
-        NativeQuery<ItemGroup> query = null;
+        // NativeQuery<ItemGroup> query = null;
+        Query<ItemGroup> query = null;
         try {
-            query = session.createNativeQuery(Q_GET_ALL, ItemGroup.class);
+            // Unknown entity: persistence.ItemGroup
+            // query = session.createNativeQuery(Q_GET_ALL, ItemGroup.class);
+            // query = session.createQuery(Q_GET_ALL, ItemGroup.class);
+
+            query = session.createNamedQuery(ItemGroup.Q_GET_ALL, ItemGroup.class);
 
             // transaction.commit();
         } catch (Exception e) {
@@ -26,17 +32,5 @@ public class HibernateItemGroupDAO extends AbstractHibernateDAO implements ItemG
         }
 
         return query.getResultList();
-    }
-
-    public static void main(String[] args) {
-        ItemGroupDao dao = new HibernateItemGroupDAO();
-        List<ItemGroup> itemGroups = dao.getAll();
-
-        System.out.println("=========================");
-
-        System.out.println("size: " + itemGroups.size());
-        for (ItemGroup itemGroup : itemGroups) {
-            System.out.println(itemGroup);
-        }
     }
 }

@@ -3,6 +3,7 @@ package provider;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
+import persistence.Item;
 import persistence.ItemGroup;
 
 import java.util.Properties;
@@ -36,11 +37,11 @@ public class HibernateProvider {
 
             // Scan Entities
             configuration.addAnnotatedClass(ItemGroup.class);
+            configuration.addAnnotatedClass(Item.class);
 
             sessionFactory = configuration.setProperties(getHibernateProps()).buildSessionFactory();
 
         }
-
         return sessionFactory;
     }
 
