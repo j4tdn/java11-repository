@@ -3,7 +3,7 @@ package dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import utils.HibernateProvider;
+import provider.HibernateProvider;
 
 public class AbstractHibernateDao {
 
