@@ -37,6 +37,7 @@ public class HibernateProvider {
 		if (sessionFactory == null) {
 			Configuration configuration = new Configuration();
 			
+			System.out.println("-------------------");
 			// Scan Entities
 			configuration.addAnnotatedClass(ItemGroup.class);
 			

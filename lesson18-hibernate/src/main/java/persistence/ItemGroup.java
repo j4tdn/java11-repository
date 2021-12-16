@@ -17,7 +17,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "LoaiHang")
 @NamedQueries({
+<<<<<<< HEAD
 	@NamedQuery(name= ItemGroup.Q_GET_ALL ,query = "FROM ItemGroup"	)
+=======
+	@NamedQuery(name = ItemGroup.Q_GET_ALL, query = "FROM ItemGroup")
+>>>>>>> 2651c26d (lesson18 - Hibernate 14.12.2021)
 })
 public class ItemGroup {
 	
@@ -29,6 +33,12 @@ public class ItemGroup {
 
 	@Column(name = "TenLH")
 	private String name;
+	
+	@OneToMany(mappedBy = "itemGroup")
+	private List<Item> items;
+	
+	// fetch type
+	// @OneToMany: default LAZY
 
 	/**
 	 * Hibernate Empty Constructor
@@ -69,6 +79,14 @@ public class ItemGroup {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public List<Item> getItems() {
+		return items;
+	}
+	
+	public void setItems(List<Item> items) {
+		this.items = items;
 	}
 
 	@Override

@@ -28,10 +28,16 @@ public class SqlUtils {
 		}
 	}
 	
+<<<<<<< HEAD
 	public static void breakLine() {
 		System.out.println("\n------------------------------------------------\n");
 	}
 	
+=======
+	public static void breakLine(String text) {
+		System.out.println("-----------------"+text+"-----------------");
+	}
+>>>>>>> 2651c26d (lesson18 - Hibernate 14.12.2021)
 	public static <T> void print(String prefix, T element) {
 		System.out.println(prefix + " >>> " +element);
 	}
