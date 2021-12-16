@@ -5,48 +5,42 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.lang.model.element.Element;
-
 public class SqlUtils {
-	public SqlUtils() {
-		// TODO Auto-generated constructor stub
+
+	private SqlUtils() {
 	}
+
 	public static void close(AutoCloseable... closeables) {
 		try {
-			for(AutoCloseable closeable: closeables) {
-				if(closeable!=null) {
+			for (AutoCloseable closeable : closeables) {
+				if (closeable != null) {
 					closeable.close();
 				}
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
-	public static <T> void print(List<T> elements) {
-		for(T element:elements) {
+
+	public static <Element> void print(List<Element> elements) {
+		for (Element element : elements) {
 			System.out.println(element);
 		}
 	}
-	
-<<<<<<< HEAD
-	public static void breakLine() {
-		System.out.println("\n------------------------------------------------\n");
+
+	public static <Element> void print(String prefix, Element element) {
+		System.out.println(prefix + " >>> " + element);
 	}
 	
-=======
 	public static void breakLine(String text) {
-		System.out.println("-----------------"+text+"-----------------");
+		System.out.println("\n\\\\\\\\\\==========" + text + "==========\\\\\\\\\\\\\\\\\\\\\n");
 	}
->>>>>>> 2651c26d (lesson18 - Hibernate 14.12.2021)
-	public static <T> void print(String prefix, T element) {
-		System.out.println(prefix + " >>> " +element);
-	}
-	
+
 	public static int getGeneratedKey(PreparedStatement pst) throws SQLException {
-		int generatedKey=-1;
-		ResultSet rs= pst.getGeneratedKeys();
-		if(rs.next()) {
-			generatedKey =rs.getInt(1);
+		int generatedKey = -1;
+		ResultSet rs = pst.getGeneratedKeys();
+		if (rs.next()) {
+			generatedKey = rs.getInt(1);
 		}
 		return generatedKey;
 	}

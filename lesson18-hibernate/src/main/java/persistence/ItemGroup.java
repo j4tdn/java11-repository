@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -17,11 +18,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "LoaiHang")
 @NamedQueries({
-<<<<<<< HEAD
-	@NamedQuery(name= ItemGroup.Q_GET_ALL ,query = "FROM ItemGroup"	)
-=======
 	@NamedQuery(name = ItemGroup.Q_GET_ALL, query = "FROM ItemGroup")
->>>>>>> 2651c26d (lesson18 - Hibernate 14.12.2021)
 })
 public class ItemGroup {
 	
@@ -43,20 +40,6 @@ public class ItemGroup {
 	/**
 	 * Hibernate Empty Constructor
 	 */
-	
-	@OneToMany(mappedBy = "itemGroup")
-	
-	private List<Item> items;
-	
-	
-	public List<Item> getItems() {
-		return items;
-	}
-
-	public void setItems(List<Item> items) {
-		this.items = items;
-	}
-
 	public ItemGroup() {
 	}
 
