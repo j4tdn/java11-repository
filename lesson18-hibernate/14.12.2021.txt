@@ -1,0 +1,25 @@
+Query: Native Query, Java Persistence Query || Hibernate Query
+
++ Native Query           >> Native SQL >> SELECT data from tables
+
++ Java Persistence Query >> JPQL       >> SELECT data from entities_name
+  + @NamedQueries >> @NamedQuery
+  + Caching
+  
++ Mapping
+>> @OneToMany(mappedBy = "")
+
+>> @ManyToOne
+   @JoinColumn(name = "FK_ClnName", refrenceColumnNamed="PK_refrerencedClName")
+   
++ Fetch Type
+  >> Lazy || Eager
+  
+  ====================================================================
+  
++ N-N Relationship
+>> No extra column --> Using @ManyToMany & @JoinTable
+>> Vice versa      --> Create Entity for N-N Table >> @Embeddable & @EmbeddedId
+
++ First Level Cache
+  

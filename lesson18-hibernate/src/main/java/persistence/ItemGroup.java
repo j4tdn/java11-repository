@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -74,6 +73,10 @@ public class ItemGroup {
 
 	@Override
 	public String toString() {
+		// N+1 problem >> 
+		
+		// EAGER
+		// A > B > C > D
 		return "ItemGroup [id=" + id + ", name=" + name + "]";
 	}
 }
