@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Hibernate.iml" filepath="$PROJECT_DIR$/.idea/Hibernate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson18-Hibernate/lesson18-Hibernate.iml" filepath="$PROJECT_DIR$/lesson18-Hibernate/lesson18-Hibernate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/untitled/lesson18-hibernate.iml" filepath="$PROJECT_DIR$/untitled/lesson18-hibernate.iml" />
+    </modules>
+  </component>
+</project>
