@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.hibernate.Hibernate;
 import org.hibernate.SessionFactory;
-
+import static utils.SqlUtils.*;
 import persistence.Item;
+import persistence.ItemDetail;
 import persistence.ItemGroup;
+import persistence.Size;
 import provider.HibernateProvider;
 import service.ItemGroupService;
 import service.ItemGroupServiceImpl;
@@ -15,26 +17,50 @@ import service.ItemServiceImpl;
 import utils.SqlUtils;
 
 public class App {
+	
+	private static int itemId;
+	private static int itemGroupId;
+
 	private static ItemGroupService itemGroupService;
 	private static ItemService itemService;
+
 	static {
+		itemId = 1;
+		itemGroupId = 1;
+		
 		itemGroupService = new ItemGroupServiceImpl();
 		itemService = new ItemServiceImpl();
 	}
-	
-	public static void main(String[] args) {
-		List<ItemGroup> itemGroups = itemGroupService.getAll();
-		SqlUtils.print(itemGroups);
-		
-		SqlUtils.breakLine("itemsByIgAtIdx1");
-		
-		ItemGroup itemGroup = itemGroups.get(1);
-		List<Item> itemsByIgAtIdx1 = itemGroup.getItems();
-		SqlUtils.print(itemsByIgAtIdx1);
-		
-		SqlUtils.breakLine("items");
-		List<Item> items = itemService.getAll();
-		SqlUtils.print(items);
-	}
 
+	public static void main(String[] args) {
+		// Câu 1: Liệt kê tất cả các loại hàng
+		List<ItemGroup> itemGroups = itemGroupService.getAll();
+		print(itemGroups);
+		
+		breakLine("Câu 1: Liệt kê tất cả các loại hàng");
+		
+		ItemGroup itemGroup = itemGroups.get(itemGroupId);
+		List<Item> itemsByIgAtIdx1 = itemGroup.getItems();
+		System.out.println(itemsByIgAtIdx1);
+		
+		breakLine("Câu 2||4: Liệt kê tất cả các mặt hàng chứa thông tin loại hàng &&& kích cỡ");
+		List<Item> items = itemService.getAll();
+		print(items);
+		
+		System.out.println("======================C4============================");
+		Item firstItem = items.get(1);
+		List<ItemDetail> itemDetails =  firstItem.getItemDetails();
+		System.out.println("itemDetails size: " + itemDetails.size());
+		
+		Size size = itemDetails.get(0).getSize();
+		System.out.println("Size#size: " + size);
+		
+		
+		
+		breakLine("Câu 3: Liệt kê tất các mặt hàng theo MaMH");
+		Item item = itemService.getItem(itemId);
+		print("item", item);
+		
+		// Câu 4: Liệt kê tất cả các mặt hàng chứa thông tin kích cỡ mặt hàng
+	}
 }
