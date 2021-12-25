@@ -9,20 +9,21 @@ public class AbstractHibernateDao {
 	
 	private SessionFactory factory;
 	
-	public AbstractHibernateDao() {
+	AbstractHibernateDao() {
 		factory = HibernateProvider.getSessionFactory();
 	}
-	
-	
-	//Option 1 : Using OpenSession >> Thread
+
+	// Option 1: Using openSession >> thread
+	//           Always create new thread, new session while calling openSession
 	Session openSession() {
 		return factory.openSession();
 	}
 	
-	//Option 2: Using getCurrentSession  >> thread
-	//			Only create ONE unique thread, session for each Session Factory
-	//			required a Transaction
+	// Option 2: Using getCurrentSession >> thread
+	//           Only create ONE unique thread, session for each Session Factory
+	//           Required a Transaction
 	Session getCurrentSession() {
 		return factory.getCurrentSession();
 	}
+	
 }

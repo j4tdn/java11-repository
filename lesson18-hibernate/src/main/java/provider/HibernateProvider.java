@@ -7,7 +7,9 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
 import persistence.Item;
+import persistence.ItemDetail;
 import persistence.ItemGroup;
+import persistence.Size;
 
 public class HibernateProvider {
 	
@@ -42,6 +44,9 @@ public class HibernateProvider {
 			configuration.addAnnotatedClass(ItemGroup.class);
 			
 			configuration.addAnnotatedClass(Item.class);
+			configuration.addAnnotatedClass(ItemDetail.class);
+			configuration.addAnnotatedClass(Size.class);
+
 			
 			sessionFactory = configuration.setProperties(getHibernateProps()).buildSessionFactory();
 			

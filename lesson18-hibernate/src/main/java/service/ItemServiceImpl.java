@@ -17,4 +17,9 @@ public class ItemServiceImpl implements ItemService{
 	public List<Item> getAll() {
 		return itemDao.getAll();
 	}
+	
+	public Item getItem(int itemId) {
+		
+		return itemDao.getItem(itemId);
+	}
 }
