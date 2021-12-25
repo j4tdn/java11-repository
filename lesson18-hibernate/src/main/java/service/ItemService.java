@@ -8,5 +8,4 @@ public interface ItemService {
 	List<Item> getAll();
 	Item getItem(int itemId);
 	
-	
 }

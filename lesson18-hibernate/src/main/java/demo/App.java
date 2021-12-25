@@ -8,6 +8,7 @@ import java.util.List;
 import persistence.Item;
 import persistence.ItemDetail;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 import persistence.Size;
 import service.ItemGroupService;
 import service.ItemGroupServiceImpl;
@@ -18,16 +19,16 @@ public class App {
 	
 	private static int itemId;
 	private static int itemGroupId;
-	
-	private static ItemGroupService itemGroupService;
-	private static ItemService itemService;
-	
+
+	private static ItemGroupService itemGroupService = new ItemGroupServiceImpl();
+	private static ItemService itemService = new ItemServiceImpl();
+
 	static {
 		itemId = 1;
 		itemGroupId = 1;
 		
-		itemGroupService = new ItemGroupServiceImpl();
-		itemService = new ItemServiceImpl();
+		// itemGroupService = new ItemGroupServiceImpl();
+		// itemService = new ItemServiceImpl();
 	}
 	
 	public static void main(String[] args) {
@@ -64,6 +65,8 @@ public class App {
 		
 		// Câu 4: Liệt kê tất cả các mặt hàng chứa thông tin kích cỡ mặt hàng
 		
-		
+		breakLine("Câu 5: Liệt kê tất cả các mặt hàng theo mã mặt hàng");
+		List<ItemGroupDto> itemsByIgId = itemGroupService.getItemsByItemGroupId();
+		print("itemsByIgId", itemsByIgId);
 	}
 }
