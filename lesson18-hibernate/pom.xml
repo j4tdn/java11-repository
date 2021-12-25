@@ -8,7 +8,7 @@
 	<name>Lesson 18 - Hibernate</name>
 	<description>Lesson 18 - Hibernate</description>
 
-
+	 <!-- Declare variables in  properties tag -->
 	<properties>
 		<mysql-connector.version>8.0.21</mysql-connector.version>
 		<hibernate.version>5.4.32.Final</hibernate.version>

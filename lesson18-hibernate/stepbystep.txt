@@ -1,7 +1,13 @@
-Step 1: Create a Maven project
+Step 1: Create a Maven simple project || archetype quickStart project
 Step 2: Add dependencies
   + mysql-connector
   + hibernate-core	
 Step 3: Configure Session Factory from Configuration 
 >> Configuration 
  + XML 
+ + Java, Anotation
+ 
+ 
+ 
+ ===============
+ 1. Compare openSession with getCurrentSession ?
