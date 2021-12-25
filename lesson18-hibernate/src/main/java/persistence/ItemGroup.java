@@ -10,6 +10,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 // Mapped with LoaiHang table
 // Entity: Java Class used for mapping properties with table columns
 // >> Get from Table >> Table's columns automatically set value into corresponding Class's properties 
@@ -19,6 +22,7 @@ import javax.persistence.Table;
 @NamedQueries({
 	@NamedQuery(name = ItemGroup.Q_GET_ALL, query = "FROM ItemGroup")
 })
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class ItemGroup {
 	
 	public static final String Q_GET_ALL = "Q_GET_ALL";
