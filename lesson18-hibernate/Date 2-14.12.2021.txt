@@ -13,3 +13,7 @@ Query: Native Query, Java Persistence Query || Hibernate Query
    
 + Fetch Type
   >> Lazy || Eager
+
+  =====================================================================
+  + N-N Relationship
+  
