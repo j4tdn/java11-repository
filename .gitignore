@@ -1,6 +1,7 @@
 # Ignore .metadata folder
 .metadata
 
+
 # Ignore Eclipse configuration file
 *.project
 *.classpath
@@ -10,7 +11,10 @@
 */.gitignore
 
 # Compiled class file
+*/bin/
 *.class
+target/
+build/
 
 # Log file
 *.log

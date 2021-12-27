@@ -23,13 +23,15 @@ public class HibernateProvider {
 	 * 
 	 * @return SessionFactory
 	 */
-	/*
-	 * public static SessionFactory getSessionFactory() { if (sessionFactory ==
-	 * null) { Configuration configuration = new Configuration(); sessionFactory =
-	 * configuration.configure(HIBERNATE_PROPERTIES_PATH).buildSessionFactory();
-	 * 
-	 * } return sessionFactory; }
-	 */
+	
+	//	public static SessionFactory getSessionFactory() {
+	//		if (sessionFactory == null) {
+	//			Configuration configuration = new Configuration();
+	//			sessionFactory = configuration.configure(HIBERNATE_PROPERTIES_PATH).buildSessionFactory();
+	//
+	//		}
+	//		return sessionFactory;
+	//	}
 
 	/**
 	 * JAVA Configuration
