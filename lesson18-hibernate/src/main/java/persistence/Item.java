@@ -1,47 +1,50 @@
 package persistence;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="MatHang")
+@Table(name = "MatHang")
 public class Item {
+	
 	@Id
-	@Column(name="MaMH")
+	@Column(name = "MaMH")
 	private Integer id;
 	
-	@Column(name="TenMH")
+	@Column(name = "TenMH")
 	private String name;
 	
-	@Column(name="MaSac")
+	@Column(name = "MaSac")
 	private String color;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="MaLH",referencedColumnName = "MaLH")
+	@JoinColumn(name = "MaLH", referencedColumnName = "MaLH")
 	private ItemGroup itemGroup;
 	
+	// fetch type
+	// @ManyToOne: EAGER FETCH
+	
+	@OneToMany(mappedBy = "item")
+	private List<ItemDetail> itemDetails;
+	
 	public Item() {
-		// TODO Auto-generated constructor stub
 	}
 	
-	
-	
 	public Item(Integer id, String name, String color) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.color = color;
 	}
 
-
-
 	public Item(Integer id, String name, String color, ItemGroup itemGroup) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.color = color;
@@ -80,17 +83,16 @@ public class Item {
 		this.itemGroup = itemGroup;
 	}
 
-
-
-	@Override
-	public String toString() {
-		return "Item [id=" + id + ", name=" + name + ", color=" + color + ", itemGroup=" + itemGroup + "]";
+	public List<ItemDetail> getItemDetails() {
+		return itemDetails;
 	}
 	
+	public void setItemDetails(List<ItemDetail> itemDetails) {
+		this.itemDetails = itemDetails;
+	}
 	
-	
-	
-	
-	
-
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", name=" + name + ", color=" + color + ", itemgroup=" + itemGroup  + "]";
+	}
 }

@@ -9,6 +9,7 @@
   <properties>
   	<mysql-connector.version>8.0.21</mysql-connector.version>
   	<hibernate-core.version>5.4.32.Final</hibernate-core.version>
+  	<hibernate-ehcache.version>5.4.21.Final</hibernate-ehcache.version>
   </properties>
   
   <dependencies>
@@ -24,6 +25,13 @@
     		<groupId>org.hibernate</groupId>
     		<artifactId>hibernate-core</artifactId>
     		<version>${hibernate-core.version}</version>
+		</dependency>
+  		
+  		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>${hibernate-ehcache.version}</version>
 		</dependency>
   		
   </dependencies>
