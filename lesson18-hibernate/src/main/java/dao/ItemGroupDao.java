@@ -1,9 +1,14 @@
 package dao;
 
-import persistence.ItemGroup;
-
 import java.util.List;
 
+import persistence.ItemGroup;
+import persistence.ItemGroupDto;
+
 public interface ItemGroupDao {
-    List<ItemGroup> getAll();
+	List<ItemGroup> getAll();
+	
+	List<ItemGroupDto> getItemsByItemGroupId();
+
+	void demoSlvCache();
 }

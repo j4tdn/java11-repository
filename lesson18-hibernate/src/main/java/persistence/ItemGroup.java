@@ -1,75 +1,86 @@
 package persistence;
 
-// Mapped with LoạiHang table
-// Entity: Java Class used for mapping properties with table columns
-// >> Get from Table >> Table's columns automatically set into corresponding Class's properties
-
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+// Mapped with LoaiHang table
+// Entity: Java Class used for mapping properties with table columns
+// >> Get from Table >> Table's columns automatically set value into corresponding Class's properties 
 
 @Entity
 @Table(name = "LoaiHang")
 @NamedQueries({
-        @NamedQuery(name = ItemGroup.Q_GET_ALL, query = "FROM ItemGroup")
+	@NamedQuery(name = ItemGroup.Q_GET_ALL, query = "FROM ItemGroup")
 })
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class ItemGroup {
+	
+	public static final String Q_GET_ALL = "Q_GET_ALL";
 
-    public static final String Q_GET_ALL = "Q_GET_ALL";
+	@Id
+	@Column(name = "MaLH")
+	private Integer id;
 
-    @Id
-    @Column(name = "MaLH")
-    private Integer id;
+	@Column(name = "TenLH")
+	private String name;
+	
+	@OneToMany(mappedBy = "itemGroup")
+	private List<Item> items;
+	
+	// fetch type
+	// @OneToMany: default LAZY
 
-    @Column(name = "TenLH")
-    private String name;
+	/**
+	 * Hibernate Empty Constructor
+	 */
+	public ItemGroup() {
+	}
 
-    // Mapping 1-N with Item
-    @OneToMany(mappedBy = "itemGroup")
-    private List<Item> items;
+	public ItemGroup(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+	}
 
-    // fetch type
-    // @OneToMany: LAZY FETCH
+	public Integer getId() {
+		return id;
+	}
 
-    /**
-     * Hibernate Empty Constructor
-     */
-    public ItemGroup() {
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public ItemGroup(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public List<Item> getItems() {
+		return items;
+	}
+	
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
-
-    @Override
-    public String toString() {
-        return "ItemGroup{" +
-               "id=" + id +
-               ", name='" + name + '\'' +
-               '}';
-    }
+	@Override
+	public String toString() {
+		// N+1 problem >> 
+		
+		// EAGER
+		// A > B > C > D
+		return "ItemGroup [id=" + id + ", name=" + name + "]";
+	}
 }

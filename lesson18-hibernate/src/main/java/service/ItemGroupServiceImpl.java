@@ -1,21 +1,29 @@
 package service;
 
-import dao.HibernateItemGroupDAO;
-import dao.ItemGroupDao;
-import persistence.ItemGroup;
-
 import java.util.List;
 
-public class ItemGroupServiceImpl implements ItemGroupService{
+import dao.HibernateItemGroupDao;
+import dao.ItemGroupDao;
+import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 
-    private ItemGroupDao itemGroupDao;
+public class ItemGroupServiceImpl implements ItemGroupService {
 
-    public ItemGroupServiceImpl() {
-        itemGroupDao = new HibernateItemGroupDAO();
-    }
+	private ItemGroupDao itemGroupDao;
 
-    @Override
-    public List<ItemGroup> getAll() {
-        return itemGroupDao.getAll();
-    }
+	public ItemGroupServiceImpl() {
+		itemGroupDao = new HibernateItemGroupDao();
+	}
+
+	public List<ItemGroup> getAll() {
+		return itemGroupDao.getAll();
+	}
+
+	public List<ItemGroupDto> getItemsByItemGroupId() {
+		return itemGroupDao.getItemsByItemGroupId();
+	}
+
+	public void demoSlvCache() {
+		itemGroupDao.demoSlvCache();
+	}
 }

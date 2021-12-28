@@ -1,9 +1,10 @@
 package dao;
 
-import persistence.Item;
-
 import java.util.List;
 
+import persistence.Item;
+
 public interface ItemDao {
-    List<Item> getAll();
+	List<Item> getAll();
+	Item getItem(int itemId);
 }
