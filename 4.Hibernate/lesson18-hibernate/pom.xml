@@ -7,6 +7,7 @@
   <description>Lesson 18 - Hibernate</description>
     <properties>
     	<hibernate.version>5.4.32.Final</hibernate.version>
+    		<hibernate-ehcache.version>5.4.21.Final</hibernate-ehcache.version>
     </properties>
   <dependencies>
     <dependency>
@@ -21,6 +22,12 @@
 	    <artifactId>hibernate-core</artifactId>
 	    <version>${hibernate.version}</version>
 	</dependency>
+	
+	<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>${hibernate-ehcache.version}</version>
+		</dependency>
   	
   </dependencies>
  

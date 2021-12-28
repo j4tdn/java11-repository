@@ -8,6 +8,7 @@ import static utils.SqlUtils.*;
 import persistence.Item;
 import persistence.ItemDetail;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 import persistence.Size;
 import provider.HibernateProvider;
 import service.ItemGroupService;
@@ -62,5 +63,10 @@ public class App {
 		print("item", item);
 		
 		// Câu 4: Liệt kê tất cả các mặt hàng chứa thông tin kích cỡ mặt hàng
+		
+
+		breakLine("Câu 5: Đếm số lượng các mặt hàng theo từng loại hàng");
+		List<ItemGroupDto> itemsByIgId = itemGroupService.getItemsByItemGroupId();
+		print("itemsByIgId", itemsByIgId);
 	}
 }
