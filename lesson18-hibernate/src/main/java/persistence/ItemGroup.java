@@ -21,8 +21,8 @@ import javax.persistence.Table;
 })
 public class ItemGroup {
 	
-	public static final String Q_GET_ALL = "Q_GET_ALL"; 
-	
+	public static final String Q_GET_ALL = "Q_GET_ALL";
+
 	@Id
 	@Column(name = "MaLH")
 	private Integer id;
@@ -34,7 +34,7 @@ public class ItemGroup {
 	private List<Item> items;
 	
 	// fetch type
-	// @OneToMany : default LAZY
+	// @OneToMany: default LAZY
 
 	/**
 	 * Hibernate Empty Constructor
@@ -73,6 +73,10 @@ public class ItemGroup {
 
 	@Override
 	public String toString() {
+		// N+1 problem >> 
+		
+		// EAGER
+		// A > B > C > D
 		return "ItemGroup [id=" + id + ", name=" + name + "]";
 	}
 }

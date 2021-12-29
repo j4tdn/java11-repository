@@ -22,10 +22,6 @@ public class SqlUtils {
 		}
 	}
 
-	public static void breakLine(String text) {
-		System.out.println("\n ========== " + text + " ========== \n");
-	}
-	
 	public static <Element> void print(List<Element> elements) {
 		for (Element element : elements) {
 			System.out.println(element);
@@ -34,6 +30,10 @@ public class SqlUtils {
 
 	public static <Element> void print(String prefix, Element element) {
 		System.out.println(prefix + " >>> " + element);
+	}
+	
+	public static void breakLine(String text) {
+		System.out.println("\n\\\\\\\\\\==========" + text + "==========\\\\\\\\\\\\\\\\\\\\\n");
 	}
 
 	public static int getGeneratedKey(PreparedStatement pst) throws SQLException {

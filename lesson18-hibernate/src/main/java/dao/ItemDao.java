@@ -6,4 +6,5 @@ import persistence.Item;
 
 public interface ItemDao {
 	List<Item> getAll();
+	Item getItem(int itemId);
 }
