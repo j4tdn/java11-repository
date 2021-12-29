@@ -20,5 +20,7 @@
 		<!-- Scan entity -->
 		<mapping class="persistence.ItemGroup" />
 		<mapping class="persistence.Item" />
+		<mapping class="persistence.ItemDetail" />
+		<mapping class="persistence.Size" />
 	</session-factory>
 </hibernate-configuration>

@@ -17,5 +17,7 @@ public class ItemServiceImpl implements ItemService {
 		return hibernateItemDao.getAll();
 	}
 	
-	
+	public Item getItem(int itemId) {
+		return hibernateItemDao.getItem(itemId);
+	}
 }
