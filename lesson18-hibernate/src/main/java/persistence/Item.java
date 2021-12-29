@@ -1,5 +1,7 @@
 package persistence;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +32,18 @@ public class Item {
 	@JoinColumn(name = "MaLH", referencedColumnName = "MaLH")
 	private ItemGroup itemGroup;
 	
+	@OneToMany(mappedBy = "item")
+	private List<ItemDetail> itemDetails;
+	
+	
+	public List<ItemDetail> getItemDetails() {
+		return itemDetails;
+	}
+
+	public void setItemDetails(List<ItemDetail> itemDetails) {
+		this.itemDetails = itemDetails;
+	}
+
 	public Item() {
 	}
 	
