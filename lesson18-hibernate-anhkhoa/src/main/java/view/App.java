@@ -20,6 +20,6 @@ public class App {
         //Q3 SqlUtils.print(departmentService.getSumBudget());
         //Q4 SqlUtils.print(departmentService.getListTotal());
         //Q5 SqlUtils.print(departmentService.getMaxBudget());
-        //Q6 select * from test as t where t.salary = (select max(t.salary) from test as t where t.managerid is not null)
+        //Q6 select * from test as t where t.salary>(select salary from test where test.id=t.managerid)
     }
 }
