@@ -3,7 +3,10 @@ package provider;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
+import persistence.Item;
+import persistence.ItemDetail;
 import persistence.ItemGroup;
+import persistence.Size;
 
 import java.util.Properties;
 
@@ -25,29 +28,32 @@ public class HibernateProvider {
      *
      * XML configure
      */
-    public static SessionFactory getSessionFactory() {
-        if(sessionFactory==null){
-            Configuration configuration = new Configuration();
-
-            sessionFactory = configuration.configure(HIBERNATE_PROPERTIES_PATH).buildSessionFactory();
-        }
-        return sessionFactory;
-    }
+//    public static SessionFactory getSessionFactory() {
+//        if(sessionFactory==null){
+//            Configuration configuration = new Configuration();
+//
+//            sessionFactory = configuration.configure(HIBERNATE_PROPERTIES_PATH).buildSessionFactory();
+//        }
+//        return sessionFactory;
+//    }
 
 
 
     /**
      * Java configure
      */
-//    public static SessionFactory getSessionFactory() {
-//        if(sessionFactory==null){
-//            Properties properties = getHibernateProps();
-//            Configuration configuration = new Configuration();
-//            configuration.addAnnotatedClass(ItemGroup.class);
-//           sessionFactory = configuration.setProperties(properties).buildSessionFactory();
-//        }
-//        return sessionFactory;
-//    }
+    public static SessionFactory getSessionFactory() {
+        if(sessionFactory==null){
+            Properties properties = getHibernateProps();
+            Configuration configuration = new Configuration();
+            configuration.addAnnotatedClass(ItemGroup.class);
+            configuration.addAnnotatedClass(Item.class);
+            configuration.addAnnotatedClass(Size.class);
+            configuration.addAnnotatedClass(ItemDetail.class);
+           sessionFactory = configuration.setProperties(properties).buildSessionFactory();
+        }
+        return sessionFactory;
+    }
 
     /**
      *
@@ -66,7 +72,9 @@ public class HibernateProvider {
         props.put(Environment.SHOW_SQL,"true");
         props.put(Environment.FORMAT_SQL,"true");
         props.put(Environment.CURRENT_SESSION_CONTEXT_CLASS,"thread");
-
+        props.put(Environment.USE_SECOND_LEVEL_CACHE,"true");
+        props.put(Environment.CACHE_REGION_FACTORY,"org.hibernate.cache.ehcache.internal.EhcacheRegionFactory");
+        props.put(Environment.CACHE_PROVIDER_CONFIG,"ehcache.xml");
         return props;
     }
 

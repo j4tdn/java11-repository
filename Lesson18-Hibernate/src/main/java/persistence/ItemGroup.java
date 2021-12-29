@@ -1,13 +1,16 @@
 package persistence;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "loaihang")
 @NamedQueries({
-        @NamedQuery(name =ItemGroup.Q_GET_ALL,query = "from ItemGroup")
+        @NamedQuery(name = ItemGroup.Q_GET_ALL, query = "from ItemGroup")
 })
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class ItemGroup {
 
     public final static String Q_GET_ALL = "Q_GET_ALL";
@@ -35,7 +38,6 @@ public class ItemGroup {
         return "ItemGroup{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", items=" + items +
                 '}';
     }
 

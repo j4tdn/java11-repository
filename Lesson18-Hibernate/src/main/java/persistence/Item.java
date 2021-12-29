@@ -1,15 +1,18 @@
 package persistence;
 
 
-import org.hibernate.annotations.FetchMode;
-
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.Fetch;
+import java.util.List;
 
 @Entity
 @Table(name = "mathang")
+
+@NamedQueries({
+        @NamedQuery(name = Item.Q_GET_ITEM,query = "from Item where id =:id")
+})
 public class Item {
+    public final static String Q_GET_ITEM = "Q_GET_ITEM";
+
     @Id
     @Column(name = "mamh")
     private Integer id;
@@ -19,12 +22,24 @@ public class Item {
     private String color;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "malh", referencedColumnName = "malh")
+    @JoinColumn(name = "malh", referencedColumnName = "malh",insertable = false,updatable = false)
     private ItemGroup itemGroup;
+
+    @OneToMany(mappedBy = "item")
+    List<ItemDetail> itemDetails;
 
     public Item() {
 
     }
+    public List<ItemDetail> getItemDetails() {
+        return itemDetails;
+    }
+
+    public void setItemDetails(List<ItemDetail> itemDetails) {
+        this.itemDetails = itemDetails;
+    }
+
+
 
 
     public ItemGroup getItemGroup() {
@@ -41,7 +56,8 @@ public class Item {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", color='" + color + '\'' +
-                ", itemGroup=" +
+                ", itemGroup=" + itemGroup +
+                ", itemDetails=" + itemDetails +
                 '}';
     }
 

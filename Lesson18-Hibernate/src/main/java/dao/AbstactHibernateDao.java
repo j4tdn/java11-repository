@@ -4,21 +4,19 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import provider.HibernateProvider;
 
-public  class AbstactHibernateDao {
+public class AbstactHibernateDao {
 
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
-    AbstactHibernateDao()
-    {
+    AbstactHibernateDao() {
         sessionFactory = HibernateProvider.getSessionFactory();
     }
 
-    Session openSession()
-    {
+    Session openSession() {
         return sessionFactory.openSession();
     }
-    Session getCurrentSession()
-    {
+
+    Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }
 }

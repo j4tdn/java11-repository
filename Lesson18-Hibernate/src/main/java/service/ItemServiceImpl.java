@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ItemServiceImpl implements  ItemService{
 
-    private ItemDao itemDao;
+    private final ItemDao itemDao;
 
     public ItemServiceImpl()
     {
@@ -18,5 +18,10 @@ public class ItemServiceImpl implements  ItemService{
     @Override
     public List<Item> getAll() {
         return itemDao.getAll();
+    }
+
+    @Override
+    public Item getItem(Integer id) {
+        return itemDao.getItem(id);
     }
 }
