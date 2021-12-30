@@ -13,3 +13,10 @@ Query: Native Query, Java Persistence Query
    
    + Fetch Type
    	>> Lazy || Eager
+   	
+===================================================
+   	+ N-N Relationship
+>> No extra column --> Using @ManyToMany & @JoinTable
+>> Vice versa      --> Create Entity for N-N Table >> @Embeddable & @EmbeddedId
+
++ First Level Cache

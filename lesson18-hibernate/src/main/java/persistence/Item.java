@@ -1,11 +1,14 @@
 package persistence;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +31,8 @@ public class Item {
 	
 	// fetch type
 	// @ManyToOne: EAGER FETCH
+	@OneToMany(mappedBy = "item")
+	private List<ItemDetail> itemDetails;
 	
 	public Item() {
 	}
@@ -75,6 +80,14 @@ public class Item {
 
 	public void setItemGroup(ItemGroup itemGroup) {
 		this.itemGroup = itemGroup;
+	}
+	
+	public void setItemDetails(List<ItemDetail> itemDetails) {
+		this.itemDetails = itemDetails;
+	}
+	
+	public List<ItemDetail> getItemDetails() {
+		return itemDetails;
 	}
 
 	@Override

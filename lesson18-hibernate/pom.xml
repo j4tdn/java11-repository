@@ -11,6 +11,7 @@
 	<properties>
 		<mysql-connector.version>8.0.21</mysql-connector.version>
 		<hibernate.vesion>5.4.32.Final</hibernate.vesion>
+		<hibernate-ehcache.version>5.4.21.Final</hibernate-ehcache.version>
 	</properties>
 
 	<dependencies>
@@ -24,6 +25,12 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.vesion}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>${hibernate-ehcache.version}</version>
 		</dependency>
 
 	</dependencies>
