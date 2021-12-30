@@ -9,6 +9,7 @@ import org.hibernate.cfg.Environment;
 import persistence.Item;
 import persistence.ItemDetail;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 import persistence.Size;
 
 public class HibernateProvider {
@@ -46,6 +47,7 @@ public class HibernateProvider {
 			configuration.addAnnotatedClass(Item.class);
 			configuration.addAnnotatedClass(ItemDetail.class);
 			configuration.addAnnotatedClass(Size.class);
+			configuration.addAnnotatedClass(ItemGroupDto.class);
 
 			
 			sessionFactory = configuration.setProperties(getHibernateProps()).buildSessionFactory();
@@ -53,6 +55,10 @@ public class HibernateProvider {
 		}
 		return sessionFactory;
 	}
+	
+	
+	
+
 	
 	private static Properties getHibernateProps() {
 		Properties props = new Properties();
@@ -66,6 +72,11 @@ public class HibernateProvider {
 		props.put(Environment.SHOW_SQL, "true");
 		props.put(Environment.FORMAT_SQL, "true");
 		props.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+		
+		// Second level cache 
+		props.put(Environment.USE_SECOND_LEVEL_CACHE,"true" );
+		props.put(Environment.CACHE_REGION_FACTORY,"org.hibernate.cache.ehcache.internal.EhcacheRegionFactory" );
+		props.put(Environment.CACHE_PROVIDER_CONFIG,"ehcache.xml" );
 		
 		return props;
 	}

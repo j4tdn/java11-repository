@@ -1,30 +1,40 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.hibernate</groupId>
-  <artifactId>lesson18-hibernate</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <name>Lesson18 - Hibernate</name>
-  <description>Lesson18 - Hibernate</description>
-  
-  <properties>
-  	<mysql-connector.version>8.0.21</mysql-connector.version>
-  	<hibernate-core.version>5.4.32.Final</hibernate-core.version>
-  </properties>
-  
-  <dependencies>
-  		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hibernate</groupId>
+	<artifactId>lesson18-hibernate</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<name>Lesson18 - Hibernate</name>
+	<description>Lesson18 - Hibernate</description>
+
+	<properties>
+		<mysql-connector.version>8.0.21</mysql-connector.version>
+		<hibernate-core.version>5.4.32.Final</hibernate-core.version>
+		<hibernate-ehcahe.version>5.4.21.Final</hibernate-ehcahe.version>
+	</properties>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql-connector.version}</version>
 		</dependency>
-  		
-  		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 		<dependency>
-    		<groupId>org.hibernate</groupId>
-    		<artifactId>hibernate-core</artifactId>
-    		<version>${hibernate-core.version}</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate-core.version}</version>
 		</dependency>
-  		
-  </dependencies>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>${hibernate-ehcahe.version}</version>
+		</dependency>
+
+
+	</dependencies>
 </project>

@@ -7,6 +7,7 @@ import java.util.List;
 import persistence.Item;
 import persistence.ItemDetail;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 import persistence.Size;
 import service.ItemGroupService;
 import service.ItemGroupServiceImpl;
@@ -58,6 +59,12 @@ public class App {
 		Item item = itemService.getItem(itemId);
 		print("item", item);
 		
-		// Câu 4: Liệt kê tất cả các mặt hàng chứa thông tin kích cỡ mặt hàng
+		
+		
+		breakLine("Cau 5 :Dem so luong mat hang theo tung loai hang");
+		
+		List<ItemGroupDto> itemByIgId = itemGroupService.getItemByItemGroupId();
+		print("itemByIgId:",itemByIgId);
+		
 	}
 }
