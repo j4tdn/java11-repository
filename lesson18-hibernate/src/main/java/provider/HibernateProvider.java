@@ -44,6 +44,7 @@ public class HibernateProvider {
 			configuration.addAnnotatedClass(ItemDetail.class);
 			configuration.addAnnotatedClass(Size.class);
 			
+			
 			sessionFactory = configuration.setProperties(getHibernateProps())
 										  .buildSessionFactory();
 		}
@@ -62,6 +63,11 @@ public class HibernateProvider {
 		props.put(Environment.SHOW_SQL, "true");
 		props.put(Environment.FORMAT_SQL, "true");
 		props.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+		
+		// Second Level Cache
+		props.put(Environment.USE_SECOND_LEVEL_CACHE, "true");
+		props.put(Environment.CACHE_REGION_FACTORY, "org.hibernate.cache.ehcache.internal.EhcacheRegionFactory");
+		props.put(Environment.CACHE_PROVIDER_CONFIG, "ehcache.xml");
 		
 		return props;
 	}
