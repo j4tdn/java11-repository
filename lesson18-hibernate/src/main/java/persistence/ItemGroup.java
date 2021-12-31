@@ -1,5 +1,9 @@
 package persistence;
 
+// Mapped with LoaiHang table
+// Entity
+// >> Get from table >> Tabl's column automatically set value into corrresponding Class's pro
+
 import java.util.List;
 
 import javax.persistence.Column;

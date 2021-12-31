@@ -21,11 +21,14 @@ public class HibernateProvider {
 	 * XML Configuration
 	 */
 	/*
-	 * public static SessionFactory getSessionFactory() { if (sessionFactory ==
-	 * null) { Configuration configuration = new Configuration(); sessionFactory =
-	 * configuration.configure("hibernate.cfg.xml").buildSessionFactory(); }
+	 * public static SessionFactory getSessionFactory() { 
+	 * 		if (sessionFactory == null) { 
+	 * 			Configuration configuration = new Configuration(); 
+	 * 			sessionFactory = configuration.configure("hibernate.cfg.xml").buildSessionFactory(); 
+	 * 		}
 	 * 
-	 * return sessionFactory; }
+	 * return sessionFactory; 
+	 * }
 	 */
 
 	/**

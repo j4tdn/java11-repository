@@ -32,6 +32,8 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.4.32.Final</version>
 		</dependency>
+		
+		
 
 	</dependencies>
 

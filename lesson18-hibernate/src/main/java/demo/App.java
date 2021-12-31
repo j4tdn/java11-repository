@@ -4,23 +4,43 @@ import java.util.List;
 
 import persistence.Item;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 import service.ItemGroupService;
 import service.ItemGroupServiceImpl;
 import service.ItemService;
 import service.ItemServiceImpl;
-import utils.SqlUtils;
+import static utils.SqlUtils.*;
 
 public class App {
+	
+	private static ItemGroupService itemGroupService;
+	private static ItemService itemService;
+	
+	static {
+		itemGroupService = new ItemGroupServiceImpl();
+		itemService = new ItemServiceImpl();
+	}
+	
 	public static void main(String[] args) {
-		ItemGroupService itemGroupService = new ItemGroupServiceImpl();
+		
 		List<ItemGroup> itemGroups = itemGroupService.getAll();
-		System.out.println("============================");
-		SqlUtils.print(itemGroups);
+		print(itemGroups);
 		
 		System.out.println("=============================");
-		ItemService itemService = new ItemServiceImpl();
 		List<Item> items = itemService.getAll();
-		SqlUtils.print(items);
+		print(items);
 		
+		System.out.println("===============================");
+		ItemGroup itemGroup = itemGroups.get(2);
+		List<Item> itemByIgs = itemGroup.getItems();
+		print(itemByIgs);
+		
+		System.out.println("===============================");
+		Item item = itemService.getItem(2);
+		print("item: ", item);
+		
+		System.out.println("===============================");
+		List<ItemGroupDto> itemByIgId = itemGroupService.getItemsByItemGroupId();
+		print(itemByIgId);
 	}
 }
