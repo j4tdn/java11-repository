@@ -1,18 +1,22 @@
 package persistence;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "MatHang")
 public class Item {
+	
 	@Id
-	@Column(name = "NaMH")
+	@Column(name = "MaMH")
 	private Integer id;
 	
 	@Column(name = "TenMH")
@@ -27,17 +31,19 @@ public class Item {
 	
 	// fetch type
 	// @ManyToOne: EAGER FETCH
+	
+	@OneToMany(mappedBy = "item")
+	private List<ItemDetail> itemDetails;
+	
 	public Item() {
-		
 	}
-
+	
 	public Item(Integer id, String name, String color) {
 		this.id = id;
 		this.name = name;
 		this.color = color;
 	}
 
-	
 	public Item(Integer id, String name, String color, ItemGroup itemGroup) {
 		this.id = id;
 		this.name = name;
@@ -77,9 +83,16 @@ public class Item {
 		this.itemGroup = itemGroup;
 	}
 
-	@Override
-	public String toString() {
-		return "Item [id=" + id + ", name=" + name + ", color=" + color + ", itemGroup=" + itemGroup + "]";
+	public List<ItemDetail> getItemDetails() {
+		return itemDetails;
 	}
 	
+	public void setItemDetails(List<ItemDetail> itemDetails) {
+		this.itemDetails = itemDetails;
+	}
+	
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", name=" + name + ", color=" + color + ", itemgroup=" + itemGroup  + "]";
+	}
 }

@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class SqlUtils {
-	private SqlUtils() {
 
+	private SqlUtils() {
 	}
 
 	public static void close(AutoCloseable... closeables) {
@@ -21,23 +21,27 @@ public class SqlUtils {
 			e.printStackTrace();
 		}
 	}
-	
-	public static <Element>void print(List<Element>elements) {
+
+	public static <Element> void print(List<Element> elements) {
 		for (Element element : elements) {
 			System.out.println(element);
 		}
 	}
-	
+
 	public static <Element> void print(String prefix, Element element) {
-		System.out.println(prefix + ">>>" + element);
+		System.out.println(prefix + " >>> " + element);
+	}
+	
+	public static void breakLine(String text) {
+		System.out.println("\n\\\\\\\\\\==========" + text + "==========\\\\\\\\\\\\\\\\\\\\\n");
 	}
 
 	public static int getGeneratedKey(PreparedStatement pst) throws SQLException {
-		int reneratedKey = -1;
+		int generatedKey = -1;
 		ResultSet rs = pst.getGeneratedKeys();
-		if(rs.next()) {
-			reneratedKey = rs.getInt(1);
+		if (rs.next()) {
+			generatedKey = rs.getInt(1);
 		}
-		return reneratedKey;
+		return generatedKey;
 	}
 }

@@ -1,18 +1,25 @@
 package service;
 
-import java.time.LocalDate;
 import java.util.List;
 
+import dao.HibernateItemDao;
 import dao.ItemDao;
 import persistence.Item;
 
-public class ItemServiceImpl implements ItemService {
-
+public class ItemServiceImpl implements ItemService{
+	
 	private ItemDao itemDao;
 	
 	public ItemServiceImpl() {
-		itemDao = new ItemDao() {
-			
-
+		itemDao = new HibernateItemDao();
+	}
 	
+	public List<Item> getAll() {
+		return itemDao.getAll();
+	}
+	
+	@Override
+	public Item getItem(int itemId) {
+		return itemDao.getItem(itemId);
+	}
 }
