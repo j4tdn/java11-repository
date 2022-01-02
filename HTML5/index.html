@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>HTML5's Website</title>
+	<style>
+		/*Define style of this HTML page*/
+		body{
+			background: lightblue;
+		}
+
+		/*
+			nth:  start:  idx=1;
+			fomular:  an + b;
+			a: repeat-cycle;
+			n: start at row 0 - use n;
+			b: start-offset;
+			-------------------------
+			nth-child(2n+1): start at offset 1 and repeat twice
+
+			highlight for last 3 elements: tbody tr: nth-last-child(-n+3);
+
+		*/
+		tbody tr:nth-last-child(-n+4){
+			background: lightgrey;
+		}
+	</style>
+</head>
+<body>
+	<h2 style="color: green;">Welcome to JAVA11's web page</h2>
+
+	<hr>
+
+	<a href="https://www.google.com/" target="_blank">Google's website</a>
+	<a href="page2.html">Life of Cat</a>
+	<a href="images/photo-cat.jpg" target="_blank">View cat picture</a>
+
+	<br>
+
+	<a href="tel:+0346688532"> Let's call</a>
+
+	<!--
+	<table width="50%" border="1" cellspacing="0" cellpadding="5">
+		<caption>Table 1.1: Student List</caption>
+		<thead>
+			<tr>
+				<th rowspan="2">Id</th>
+				<th rowspan="2">Name</th>
+				<th rowspan="2">Grade</th>
+				<th colspan="2">Phone</th>
+			</tr>
+			<tr>
+				<th>phone1</th>
+				<th>phone2</th>
+			</tr>
+		</thead>
+
+		<tbody align="center">
+			<tr>
+				<td>102</td>
+				<td>Vu Nguyen</td>
+				<td>17X2</td>
+				<td>123</td>
+				<td>242</td>
+			</tr>
+			<tr>
+				<td>184</td>
+				<td>Cuong Ngo</td>
+				<td>10T6</td>
+				<td>342</td>
+				<td>324</td>
+			</tr>
+			<tr>
+				<td>284</td>
+				<td>Hieu Le</td>
+				<td>12K3</td>
+				<td>432</td>
+				<td>253</td>
+			</tr>
+			<tr>
+				<td>284</td>
+				<td>Hieu Le</td>
+				<td>12K3</td>
+				<td>432</td>
+				<td>253</td>
+			</tr>
+			<tr>
+				<td>284</td>
+				<td>Hieu Le</td>
+				<td>12K3</td>
+				<td>432</td>
+				<td>253</td>
+			</tr>
+			<tr>
+				<td>284</td>
+				<td>Hieu Le</td>
+				<td>12K3</td>
+				<td>432</td>
+				<td>253</td>
+			</tr>
+		</tbody>
+	</table>
+	-->
+	<!--
+	<img src="photo-cat.jpg" alt="A cute cat" width="250">
+	-->
+
+	<!--
+	<h4>Menu</h4>
+	<ol type="1">
+		<li>Apple</li>
+		<li>Orange</li>
+		<li>Lemon</li>
+		<li>
+			Something
+			<ol>
+				<li>ST1</li>
+				<li>ST2</li>
+			</ol>
+		</li>
+	</ol>
+
+	<h4>Ingredients</h4>
+	<ul type="circle">
+		<li>Salt</li>
+		<li>Sugar</li>
+		<li>pepper</li>
+	</ul>
+	-->
+
+	<!--
+	<p><big>This</big> <small>is</small> a paragraph</p>
+	<p>This is another <b><i>paragraph</i></b></p>
+	<p><strong>Formula: </strong>H<sub>2</sub>O</p>
+	<p>Power: 10<sup>4</sup></p>
+	-->
+
+</body>
+
+</html>
