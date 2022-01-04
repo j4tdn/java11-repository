@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5's Website </title>
+    <style>
+        /*Define style of this HTML page*/
+        body{
+            background: lightblue;
+
+        }
+        /*nth : start : idx = 1;
+          Formula: an + b
+          a: repeat - cycle
+          n: start at row 0
+          b: start- offset
+          --------------------
+          2n + 1 : start at offset 1 and repeat twice
+          HighLight fof last 3 elements: tbody tr:nth-last-child(-n + 3)
+
+          */
+
+        tbody tr:nth-last-child(-2n + 4){
+            background: lightgray;
+        }
+    </style>
+</head>
+<body >
+    <h2 style="color: darkmagenta"  >Wellcome to JAVA11 's web page </h2>
+    <hr><br>
+
+    <table width="50%" border="1"  cellspacing="0" cellpadding="5" >
+        <caption align="left"> Table 1.: Student List</caption>
+        <thead >
+            <tr>
+               <th rowspan="2"> Id</th>
+               <th rowspan="2">Name</th>
+               <th rowspan="2">Grade</th>
+                <th colspan="2">Phone</th>
+            </tr>
+            <tr>
+                <th>Phone 1</th>
+                <th>Phone 2</th>
+            </tr>
+        </thead>
+        <tbody align="center">
+        <tr>
+
+            <td>102</td>
+            <td>Vũ Hoàng</td>
+            <td>17X2</td>
+            <td>1234</td>
+            <td>4567</td>
+
+        </tr>
+
+        <tr>
+            <td>103</td>
+            <td>Nguyên </td>
+            <td>17T</td>
+            <td>1234</td>
+            <td>4567</td>
+        </tr>
+
+        <tr>
+            <td>104</td>
+            <td>Vũ Văn Hóa Thạch</td>
+            <td>17DT2</td>
+            <td>1234</td>
+            <td>4567</td>
+        </tr> <tr>
+            <td>104</td>
+            <td>Vũ Văn Hóa Thạch</td>
+            <td>17DT2</td>
+            <td>1234</td>
+            <td>4567</td>
+        </tr> <tr>
+            <td>104</td>
+            <td>Vũ Văn Hóa Thạch</td>
+            <td>17DT2</td>
+            <td>1234</td>
+            <td>4567</td>
+        </tr>
+
+        </tbody>
+    </table>
+    <!--
+    
+    <img src="girl.jpeg"
+                alt="pretty girl" width="200px" height="300px">
+                -->
+
+    <!--
+     <h4>Menu</h4>
+
+    <ol type="i">
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Lemon</li>
+
+        <li>
+            Something
+            <ol>
+                <li>ST1</li>
+                <li>ST2</li>
+                <li>ST3</li>
+            </ol>
+        </li>
+    </ol>
+    <h4>Ingredients</h4>
+    <ul type="circle">
+        <li>Vu</li>
+        <li>Hoang</li>
+        <li>Le</li>
+
+    </ul>
+
+    -->
+
+
+
+    <!--
+    <p><big>This</big> <small>is</small> a paragraph </p>
+    <p>This is another <b><i>paragraph</i></b> </p>
+
+    <p><strong>Formula</strong>: H<sub>2</sub>O</p>
+
+    <p><em>Power</em>: 10<sup>4</sup></p>
+    -->
+</body>
+</html>
