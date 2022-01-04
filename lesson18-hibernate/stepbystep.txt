@@ -1,0 +1,27 @@
+Step 1: Create a maven Simple Project
+Step 2: Add dependencies
+	+mysql connector
+	+hibernate-core
+
+Step 3: Congifure Sessuin Factory from Configuration
+>>Configuration
++XML
++Java,Annotation
+
+Step 4: Exeute SQL statement
+
+1.Hibernate native API
+>>Dao: session
+
+2.JPA native API
+>>Dao:EntityManager
+
+
+3.Spring Data JPA
+>>Repository
+
+
+
+
+
+============================ phaan biệt open session và get curentSession=============
