@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Web Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<style type="text/css">
+		html {
+			font-size: 16px;
+		}
+		body, * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		header, footer {
+			height: 60px;
+			background: lightgray;
+		}
+
+		main {
+			min-height: 100vh;
+			margin: -60px 0;
+			padding: 70px 10px 10px 10px;
+		}
+
+		.header, .footer{
+			text-align: center;
+			line-height: 60px;
+		}
+
+		#search {
+            width: 200px;
+            height: 30px;
+            border-radius: 10px;
+            border: 2px solid black;
+            padding: 0px 8px;
+            font-size: 15px;
+        }
+
+        #add {
+            position: relative;
+            margin-top: 20px;
+            border: 1px solid black;
+            width: 230px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 2px solid black;
+            text-align: left;
+            padding: 8px;
+            height: 60px;
+            text-align: center;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #dddddd;
+        }
+        .action button {
+            font-size: 30px;
+        }
+
+	</style>
+</head>
+<body>
+	<!-- Semantic Tags -->
+	<header>
+		<h2 class="header">Student Web Page - Static Content - 2022</h2>
+	</header>
+
+	<main>
+        <div style="width: 220px;">
+            <p>Student Web App - Spring MVC</p><br>
+            <hr>
+        </div>
+        <br>
+        
+        <input type="text" placeholder="&#128269; Search" id="search">
+        
+        <a href="form.html" style="text-decoration: none;">
+            <button id="add">
+                <i class="fas fa-plus" style="position: absolute;font-size: 30px;left: 14px;"></i>
+                <i class="far fa-circle" style="font-size: 35px;margin-right: 5px;"></i>
+                <p> Add New Student</p>
+            </button>
+        </a>
+        <br><br>
+        <table>
+            <thead>
+                <th><input type="checkbox" name="" id=""></th>
+                <th>Name</th>
+                <th>Class</th>
+                <th></th>
+            </thead>
+            <tr>
+                <td><input type="checkbox" name="" id="" checked></td>
+                <td>John Smith</td>
+                <td>12T8</td>
+                <td class="action">
+                    <button style="border: 0; background-color: inherit;">
+                        <i class="far fa-edit"></i>
+                    </button>
+                    <button style="border: 0; background-color: inherit;">
+                        <i class="far fa-times-circle"></i>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>Mina Tan</td>
+                <td>10X3</td>
+                <td class="action">
+                    <button style="border: 0; background-color: inherit;">
+                        <i class="far fa-edit"></i>
+                    </button>
+                    <button style="border: 0; background-color: inherit;">
+                        <i class="far fa-times-circle"></i>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id="" checked></td>
+                <td>Lee Ha</td>
+                <td>14T2</td>
+                <td class="action">
+                    <button style="border: 0; background-color: inherit;">
+                        <i class="far fa-edit"></i>
+                    </button>
+                    <button style="border: 0; background-color: inherit;">
+                        <i class="far fa-times-circle"></i>
+                    </button>
+                </td>
+            </tr>
+        </table>
+
+        <br>
+
+        <div style="display: flex;">
+            <i class="fas fa-chevron-left" style="margin-top: 5px;"></i>
+            <div style="font-size: 25px; margin: 0 5px; position: relative;">
+                <i class="far fa-circle"></i>
+                <span style="position: absolute; left: 7px; font-size: 20px;">1</span>
+                <i class="far fa-circle"></i>
+                <span style="position: absolute; left: 39px; font-size: 20px;">2</span>
+                <i class="far fa-circle"></i>
+                <span style="position: absolute; left: 70px; font-size: 20px;">3</span>
+            </div>
+            <i class="fas fa-chevron-right" style="margin-top: 5px;"></i>
+        </div>
+		
+	</main>
+
+	<footer>
+		<p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
+	</footer>
+</body>
+</html>
