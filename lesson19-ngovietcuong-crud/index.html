@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Web Page</title>
+
+	<!-- Import CSS Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+	<style type="text/css">
+		html {
+			font-size: 16px;
+		}
+		body, * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		header, footer {
+			height: 60px;
+			background: lightgray;
+		}
+
+		main {
+			min-height: 100vh;
+			margin: -60px 0;
+			padding: 70px 10px 10px 10px;
+		}
+
+		.header, .footer{
+			text-align: center;
+			line-height: 60px;
+		}
+
+		/*TODO: Add your code style here*/
+		tbody tr:nth-last-child(2n + 1) {
+			background: lightgray;
+		}
+
+		i {
+			color: black;
+		}
+
+		.sr {
+			width: 120px;
+            height: 40px;
+            margin-top: 20px;
+		}
+
+		.btn {
+			width: 150px;
+            height: 40px;
+            margin-bottom: 20px;
+		}
+
+		.tr {
+			background: gray;
+		}
+
+		table tbody tr td{
+			padding-top: 30px;
+			padding-bottom: 20px;
+		}
+
+		.dv button {
+			width: 20px;
+            height: 20px;
+            margin-top: 20px;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- Semantic Tags -->
+	<header>
+		<h2 class="header">Student Web Page - Static Content - 2022</h2>
+	</header>
+
+	<main>
+		<!-- TODO: Add your code here -->
+		<p>Student Web App - Spring MVC</p>
+
+		<hr>
+
+		<form>
+			<input type="search" placeholder="&#128269; Search" class="sr">
+			<br> <br>
+			<button formaction="form.html" class="btn">
+				<i class="fas fa-plus-circle"></i>
+				Add New Student
+			</button>
+
+			<table width="50%" border="1" cellspacing="0" cellpadding="5" class="tb">
+				<thead>
+					<tr class="tr">
+						<th><input type="checkbox"></th>
+						<th>Name</th>
+						<th>Class</th>
+						<th></th>
+					</tr>
+				</thead>
+
+				<tbody align="center">
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>John Smith</td>
+						<td>12T8</td>
+						<td>
+							<a href="form.html"><i class="far fa-edit"></i> </a>
+							<i class="far fa-trash-alt"></i>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>Mina Tan</td>
+						<td>10X3</td>
+						<td>
+							<a href="form.html"><i class="far fa-edit"></i> </a>
+							<i class="far fa-trash-alt"></i>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>Lee Ha</td>
+						<td>14T2</td>
+						<td>
+							<a href="form.html"><i class="far fa-edit"></i> </a>
+							<i class="far fa-trash-alt"></i>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		<div class="dv">
+			<button><i class="fas fa-chevron-left"></i></button>
+			<button>&#9312;</button>
+			<button>&#9313;</button>
+			<button>&#9314;</button>
+			<button><i class="fas fa-chevron-right"></i></button>
+		</div>
+		</form>
+		
+	</main>
+
+	<footer>
+		<p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
+	</footer>
+</body>
+</html>

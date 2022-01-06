@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Web Page</title>
+
+	<!-- Import CSS Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+		<style type="text/css">
+		html {
+			font-size: 16px;
+		}
+		body, * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		header, footer {
+			height: 60px;
+			background: lightgray;
+		}
+
+		main {
+			min-height: 100vh;
+			margin: -60px 0;
+			padding: 70px 10px 10px 10px;
+		}
+
+		.header, .footer{
+			text-align: center;
+			line-height: 60px;
+		}
+
+		/*TODO: Add your code style here*/
+		.sub, .tx, .sl {
+			width: 70px;
+            height: 40px;
+		}
+
+		.tx, .sl {
+			width: 240px;
+            height: 40px;
+		}
+
+	</style>
+
+</head>
+<body>
+	<!-- Semantic Tags -->
+	<header>
+		<h2 class="header">Student Web Page - Static Content - 2022</h2>
+	</header>
+
+	<main>
+		<!-- TODO: Add your code here -->
+		<p>Student Page - Add</p>
+		<br>
+		<form>
+			<input type="text" placeholder="Enter your name" class="tx">
+
+			<br> <br>
+
+			<select class="sl">
+				<option>Class</option>
+				<option>12T8</option>
+				<option>10X3</option>
+				<option>14t2</option>
+			</select>
+
+			<br> <br>
+
+			<input type="submit" value="SAVE" class="sub">
+		</form>
+
+		<br> <hr> <br>
+
+		<a href="index.html">Back to Home Page</a>
+	</main>
+
+	<footer>
+		<p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
+	</footer>
+</body>
+</html>
