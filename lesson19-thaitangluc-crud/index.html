@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Web Page</title>
+	<link rel="stylesheet" href="./fonts/themify-icons/themify-icons.css">
+	<style type="text/css">
+		html {
+			font-size: 16px;
+		}
+		body, * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		header, footer {
+			height: 60px;
+			background: lightgray;
+		}
+
+		main {
+			min-height: 100vh;
+			margin: -60px 0;
+			padding: 70px 10px 10px 10px;
+		}
+
+		.header, .footer{
+			text-align: center;
+			line-height: 60px;
+		}
+
+		
+		/*TODO: Add your code style here*/
+		.input-icons i{
+			position: absolute;
+			padding-right: 10px;
+		}
+
+		.field{
+			padding: 5px;
+			text-align: center;
+			border-radius: 40px;
+			margin-bottom: 20px;
+		}
+
+		#add{
+			border-radius: 0px;
+			width: 200px;
+
+		}
+		i{
+			
+			padding: 6px 12px;
+			cursor: pointer;
+		}
+
+		table tr td, th{
+			padding: 20px;
+			border: 1px solid black;
+			text-align: center;
+		}
+
+		tr:nth-child(2n+1) {
+            background-color: gainsboro;
+        }
+
+		#pagging{
+			margin-top: 50px;
+		}
+
+		span{
+			border-radius: 70px;
+			padding: 5px 10px;
+			border: 1px solid black;
+		}
+		span:nth-child(3){
+			background-color: gainsboro;
+		}
+	</style>
+</head>
+<body>
+	<!-- Semantic Tags -->
+	<header>
+		<h2 class="header">Student Web Page - Static Content - 2022</h2>
+	</header>
+
+	<main>
+		<!-- TODO: Add your code here -->
+		<div>
+			<p style="padding-bottom: 10px;">Student Web App - Spring MVC</p>
+			<hr> <br>
+		</div>
+		
+		<div class="input-icons icon">
+			<i class="ti-search"></i>
+			<input class="field" type="search" name="search" id="search" placeholder="Search">
+			<br>
+			<a href="form.html"><i class="ti-plus"></i>
+				<button class="field" type="search" name="search" id="add">Add a new Student</button></a>
+		</div>
+
+		<div>
+			<form action="">
+				<table>
+					<thead>
+						<tr>
+							<th><input type="checkbox" name="" id=""></th>
+							<th>Name</th>
+							<th>Class</th>
+							<th></th>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="" id="" checked></td>
+							<td>John Smith</td>
+							<td>12T8</td>
+							<td><i class="ti-pencil-alt"></i><i class="ti-close"></i></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="" id=""></td>
+							<td>Mina Tan</td>
+							<td>10X3</td>
+							<td><i class="ti-pencil-alt"></i><i class="ti-close"></i></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="" id="" checked></td>
+							<td>Lee Ha</td>
+							<td>14T8</td>
+							<td><i class="ti-pencil-alt"></i><i class="ti-close"></i></td>
+						</tr>
+					</thead>
+				</table>
+			</form>
+		</div>
+
+		<div id="pagging">
+			<i class="ti-angle-left" fa></i>
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<i class="ti-angle-right" fa></i>
+		</div>
+	</main>
+
+	<footer>
+		<p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
+	</footer>
+</body>
+</html>
