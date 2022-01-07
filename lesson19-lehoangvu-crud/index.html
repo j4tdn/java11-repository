@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Web Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/fontawesome.min.css">
+
+    <style type="text/css">
+        html {
+            font-size: 16px;
+        }
+        body, * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header, footer {
+            height: 60px;
+            background: lightgray;
+        }
+
+        main {
+            min-height: 100vh;
+            margin: -60px 0;
+            padding: 70px 10px 10px 10px;
+        }
+
+        .header, .footer{
+            text-align: center;
+            line-height: 60px;
+        }
+        tbody tr:nth-last-child(-2n + 4) {
+            background: lightgray;
+        }
+        tbody tr:nth-last-child(-2n + 3) {
+            background: darkgray;
+        }
+        td{
+            padding: 20px;
+        }
+
+        th{
+            padding: 20px;
+        }
+        tr{
+            background: gray;
+
+        }
+
+        table{
+            margin-top: 11px;
+        }
+        u{
+            text-underline-position: under
+        }
+
+        form{
+            margin-top: 15px;
+        }
+        thead{
+            color: white;
+        }
+
+        /*TODO: Add your code style here*/
+
+    </style>
+</head>
+<body>
+<!-- Semantic Tags -->
+<header>
+    <h2 class="header">Student Web Page - Static Content - 2022</h2>
+</header>
+
+<main>
+    <div >
+        <p> Student Web App - Spring MVC</p>
+        <hr>
+    </div>
+
+
+
+
+    <input type="text" name="search" placeholder="search">
+    <br>
+
+    <div>
+        <a href="index.html">
+            <button>
+                <i class="fas fa-user-plus"></i> Add New Student
+            </button>
+        </a>
+    </div>
+
+    <table width="60%" border="1" cellpadding="0" cellspacing="5">
+        <thead>
+        <tr>
+            <th rowspan="2"><i class="far fa-square"></i></th>
+            <th rowspan="2"><u>Name</u></th>
+            <th rowspan="2">Class</th>
+            <th rowspan="2"></th>
+        </tr>
+        </thead>
+        <tbody align="center">
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>Vu LÊ</td>
+            <td>12</td>
+            <td><i class="far fa-edit"></i> <i class="far fa-times-circle"></i></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>Le Vu</td>
+            <td>13</td>
+            <td><i class="far fa-edit"></i> <i class="far fa-times-circle"></i></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>Vu Hoang</td>
+            <td>14</td>
+            <td><i class="far fa-edit"></i> <i class="far fa-times-circle"></i></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>Kha Banh</td>
+            <td>15</td>
+            <td><i class="far fa-edit"></i> <i class="far fa-times-circle"></i></td>
+        </tr>
+
+        </tbody>
+    </table>
+</main>
+<div class="pagination">
+    <a href="#">«</a>
+    <a href="#">&#9312;</a>
+    <a class="active" href="#">&#9313;
+    </a>
+    <a href="#">&#9314;</a>
+    <a href="#">&#9315;</a>
+    <a href="#">»</a>
+</div>
+
+</main>
+
+
+<footer>
+    <p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
+</footer>
+</body>
+</html>
