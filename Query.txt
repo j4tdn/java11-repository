@@ -1,0 +1,14 @@
+Query: Native Query, Java Persistence Query || Hibernate Query
+
++ Native Query 		 >> Native SQL >> SELECT * FROM TABLE
+
++ Java Persistence Query >> JPQL       >> SELECT * FROM ENTITIES NAME
+  - @NAMEDQUERIES >> @NAMEDQUERY
+
++ Mapping
+   >> @OneToMany(0
+   >> @ManyToOne()
+      @JoiColumn()
+
++Fetch Type
+   >> Lazy ||Eager

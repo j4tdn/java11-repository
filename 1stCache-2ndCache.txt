@@ -1,0 +1,15 @@
+Cache
+
+
+
+
+
+
+
+====================== Diffence evict vs clear in Hibernate ========================
+proxy được tạo ra khi một object là một entity có thuộc tính có quan hệ một nhiều nhiều một ... và được fetch lazy
+và khi chạy thì thuộc tính có quan hệ đó có sẽ được lưu vào proxy
+
+evict remove all object which be...
+
+clear remove all object and session, proxy...
