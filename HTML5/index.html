@@ -8,7 +8,7 @@
 	<style>
 		/*Define style of this HTML page*/
 		body{
-			background: lightblue;
+			/*background: lightblue;*/
 		}
 
 		/*
@@ -19,27 +19,186 @@
 			b: start-offset;
 			-------------------------
 			nth-child(2n+1): start at offset 1 and repeat twice
-
 			highlight for last 3 elements: tbody tr: nth-last-child(-n+3);
-
 		*/
-		tbody tr:nth-last-child(-n+4){
+		/*tbody tr:nth-last-child(-n+4){
 			background: lightgrey;
+		}
+
+		div.tableofcontent a:nth-child(3){
+			color: blue;
+		}*/
+
+		table tbody tr td {
+			padding-top: 5px;
+			padding-bottom: 5px;
 		}
 	</style>
 </head>
 <body>
 	<h2 style="color: green;">Welcome to JAVA11's web page</h2>
+	<hr>
+
+	<form>
+
+		<table>
+			<tbody>
+				<tr>
+					<td><label>Fisrt Name: </label></td>
+					<td><input type="text" placeholder="Enter your first name"></td>
+				</tr>
+				<tr>
+					<td><label>Last Name: </label></td>
+					<td><input type="text" placeholder="Enter your last name"></td>
+				</tr>
+				<tr>
+					<td><label>Gender: </label></td>
+					<td>
+						<input type="radio" name="gender_group" checked> <label>Male</label>
+						<input type="radio" name="gender_group"> <label>Female</label>
+					</td>
+				</tr>
+				<tr>
+					<td><label>Age: </label></td>
+					<td><input type="number" min="0" max="120"></td>
+				</tr>
+				<tr>
+					<td><label>University: </label></td>
+					<td>
+						<select>
+							<option>--Select--</option>
+							<option>DUT</option>
+							<option>EUD</option>
+							<option>FUD</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><label>Languages </label></td>
+					<td>
+						<input type="checkbox" id="java"> <label for="java">JAVA</label> 
+						<input type="checkbox" id="php"> <label for="php">PHP</label> 
+						<input type="checkbox" id="nodejs"> <label for="nodejs">NodeJS</label> 
+
+					</td>
+				</tr>
+				<tr>
+					<td><label>Date Of Birth: </label></td>
+					<td><input type="Date"</td>
+				</tr>
+				<tr>
+					<td><label>Email: </label></td>
+					<td><input type="Email"</td>
+				</tr>
+				<tr>
+					<td><label>Password: </label></td>
+					<td><input type="Password"</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<input type="submit" value="Sign up">
+		<input type="reset" value="Clear">
+	</form>
+
+
+
+	<hr>
+	<p> Designed by JAVA11 with &#129392; - &#169;
+ 2022 </p>
+
+ 	<!-- 
+ 	Table Of Content
+	<div class="tableofcontent">
+		<a href="#history">1. History</a>
+		<br>
+		<a href="#varieties">2. Varieties</a>
+		<br>
+		<a href="#other_varieties">3. Other varieties</a>
+
+	</div>
 
 	<hr>
 
-	<a href="https://www.google.com/" target="_blank">Google's website</a>
+	Content
+		b: object
+		(id, class) thuộc tính định danh
+		id: unique
+		class:
+		>> css, js	
+		+ Call ID      	>> #id
+		+ Call Class	>> .class
+	
+	<div class="contents">
+		<p><b id="history">History</b>
+		A drink made with lemons, dates, and honey was consumed in 13th and 14th century Egypt, including a lemon juice drink with sugar, known as qatarmizat.[4] In 1676, a company known as Compagnie de Limonadiers sold lemonade in Paris.[5]
+
+		While carbonated water was invented by Joseph Priestley in 1767, the first reference found to carbonated lemonade was in 1833 when the drink was sold in British refreshment stalls.[6] R. White's Lemonade has been sold in the UK since 1845.[7]</p>
+
+		<p><b id="varieties">Varieties</b>
+		Cloudy lemonade
+
+		Children operating a lemonade stand in La Cañada Flintridge, California, 1960
+		
+		The predominant form of lemonade found in the US, Canada, and India, cloudy lemonade, also known as traditional or old fashioned lemonade in the UK and Australia, is non-carbonated and made with fresh lemon juice; however, commercially produced varieties are also available. Generally served cold, cloudy lemonade may also be served hot as a remedy for congestion and sore throats,[8] frozen, or used as a mixer.
+
+		Traditionally, children in US and Canadian neighborhoods start lemonade stands to make money during the summer months. The concept has become iconic of youthful summertime Americana to the degree that parodies and variations on the concept exist across media. References can be found in comics and cartoons such as Peanuts, and the 1979 computer game Lemonade Stand.[9]
+
+		Pink lemonade
+		A popular variation of traditional lemonade, pink lemonade, is created by adding additional fruit juices, flavors, or food coloring to the recipe. Most store-bought pink lemonade is simply colored with concentrated grape juice or dyes.[10]
+
+		A 1912 obituary credited the invention of pink lemonade to circus worker Henry E. "Sanchez" Allott, saying he had dropped in red cinnamon candies by mistake.[11]
+
+		Another origin story credits another circus worker, Pete Conklin, in 1857. His brother George Conklin tells the story in his 1921 memoir. According to the story, Conklin's lemonade was a mixture of water, sugar and tartaric acid, with the tub garnished with a single lemon that he repeatedly used for the season. One day, he ran out of water. Searching desperately, he found a tub of water a bareback rider had recently used to rinse her pink tights. Adding in the sugar, acid and remaining bits of lemon, he offered the resulting mixture as "strawberry lemonade" and saw his sales double.[10][12]
+
+		Clear lemonade
+
+		British Formula One motor racing driver Jackie Stewart drinking carbonated lemonade in 1969
+		The predominant form of lemonade in the UK, Ireland and Australia is a clear, lemon-flavoured carbonated beverage. Schweppes, R. White's Lemonade and C&C are common brands, and shops usually carry a store-branded lemonade as well.[7] Schweppes uses a blend of lemon and lime oils.[13] Other fizzy drinks, soft-drinks (or pop) which are both lemon and lime flavoured may also sometimes be referred to as lemonade, such as Sprite and 7 up. There are also speciality flavours, such as Fentimans Rose Lemonade, which is sold in the UK, the US, and Canada. Shandy, a mixture of beer and clear lemonade, is often sold pre-bottled, or ordered in pubs.[14]
+
+		Brown lemonade
+		There are various drinks called brown lemonade. In Ulster, the northern province in Ireland, brown lemonade is flavoured with brown sugar.[15] A variant from Venezuela has cane sugar and lime.[16]
+		</p>
+
+
+		<p><b id="other_varieties">Other varieties</b>
+		In India and Pakistan, where it is commonly known as nimbu paani, and in Bangladesh, lemonades may also contain salt and/or ginger juice. Shikanjvi is a traditional lemonade from this region, and can also be flavored with saffron, cumin and other spices.[17][18][19]
+
+		Limonana, a type of lemonade made from freshly squeezed lemon juice and mint leaves, is a common summer drink in the Middle East.[20] In Northern Africa, a drink called cherbat is made of lemon, mint, and rose water.[citation needed]
+
+		Switcha is a version of the drink made in the Bahamas and Turks & Caicos that can also be made with limes instead of lemons.[citation needed]
+
+		Citron pressé
+
+		The French soft drink citron pressé, being diluted with water
+		In France, it is common for restaurants to offer citron pressé, an unmixed version of lemonade in which the customer is given lemon juice, syrup and water separately to be mixed in their preferred proportions.[21]</p>
+	</div>
+	-->	
+
+
+ 	<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/sv3TXMSv6Lw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+ 	<!-- <video width="260" height="180" controls poster="images/cake.jpg">
+		<source src="video/video.mp4">
+	</video>
+
+	<br> <br>
+
+	<video width="260" height="180" controls poster="images/candies.jpg" src="video/video.mp4">
+	</video>
+
+	<br> <br>
+
+	<audio controls src="audio/audio.mp3"></audio> -->
+
+
+	<!-- <a href="https://www.google.com/" target="_blank">Google's website</a>
 	<a href="page2.html">Life of Cat</a>
 	<a href="images/photo-cat.jpg" target="_blank">View cat picture</a>
 
 	<br>
 
-	<a href="tel:+0346688532"> Let's call</a>
+	<a href="tel:+0346688532"> Let's call</a> -->
 
 	<!--
 	<table width="50%" border="1" cellspacing="0" cellpadding="5">
@@ -56,7 +215,6 @@
 				<th>phone2</th>
 			</tr>
 		</thead>
-
 		<tbody align="center">
 			<tr>
 				<td>102</td>
@@ -121,7 +279,6 @@
 			</ol>
 		</li>
 	</ol>
-
 	<h4>Ingredients</h4>
 	<ul type="circle">
 		<li>Salt</li>
@@ -138,5 +295,3 @@
 	-->
 
 </body>
-
-</html>
