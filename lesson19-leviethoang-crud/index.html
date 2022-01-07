@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<title>Student Web Page</title>
+
+	<style type="text/css">
+		html {
+			font-size: 16px;
+		}
+		body, * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		header, footer {
+			height: 60px;
+			background: lightgray;
+		}
+
+		main {
+			min-height: 100vh;
+			margin: -60px 0;
+			padding: 70px 10px 10px 10px;
+		}
+
+		.header, .footer{
+			text-align: center;
+			line-height: 60px;
+		}
+
+		/*TODO: Add your code style here*/
+		#ip-search {
+			border-radius: 30px;
+			padding: 10px;
+			height: 30px;
+			width: 190px;
+		}
+
+		#btn-add {
+			width: 190px;
+			height: 45px;
+			cursor: pointer;
+			background: white;
+			font-size: 15px;
+
+		}
+
+		table,th,td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding: 10px 30px;
+			text-align: center;
+		}
+
+		tbody tr:nth-child(2n +1) {
+			background: #e4e2e2;
+		}
+
+
+		tbody> tr > td  i {
+			font-size: 35px;
+		}
+
+		.btn-page {
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			background: white;
+		}
+
+		.btn-page:nth-child(3) {
+			background: lightgray;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- Semantic Tags -->
+	<header>
+		<h2 class="header">Student Web Page - Static Content - 2022</h2>
+	</header>
+
+	<main>
+		<!-- TODO: Add your code here -->
+		<p>Student Web App - Spring MVC</p>
+		
+		<div style="border: 0.5px solid black; width: 220px;"></div>
+
+		<br>
+		<div>
+			<input id="ip-search" type="text" placeholder="&#128269; Search" >
+		</div>
+
+		<br>
+		<div>
+			<button id="btn-add" formaction="form.html">
+				<i class="fas fa-plus-circle" style="font-size: 30px;"></i>
+					<span> Add New Student</span>
+			</button>
+		</div>
+
+		<br>
+
+		<table width="50%" border="1" cellspacing="0" cellpadding="5">
+			<thead style="background:  #858585;">
+				<tr>
+					<th><input type="checkbox"></th>
+					<th>Name</th>
+					<th>Class</th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td><input type="checkbox" checked></td>
+					<td>John Smith</td>
+					<td>12T8</td>
+					<td>
+						<a href="form.html">
+						<i class="far fa-edit"></i> </a>
+						<i class="fas fa-calendar-times"></i>
+					</td>
+				</tr>	
+
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>Mina Tan</td>
+					<td>10X3</td>
+					<td>
+						<a href="form.html">
+						<i class="far fa-edit"></i> </a>
+						<i class="fas fa-calendar-times"></i>
+					</td>
+				</tr>	
+
+				<tr>
+					<td><input type="checkbox" checked></td>
+					<td>Lee Ha</td>
+					<td>14T2</td>
+					<td>
+						<a href="form.html">
+						<i class="far fa-edit"></i> </a>
+						<i class="fas fa-calendar-times"></i>
+					</td>
+				</tr>	
+			</tbody>
+		</table>
+
+		<br>
+
+		<div >
+			<a href="#"><i class="fas fa-chevron-left"></i></a>
+			<button class="btn-page"><a style="text-decoration: none" href="#">1</a></button>
+			<button class="btn-page"><a style="text-decoration: none" href="#">2</a></button>
+			<button class="btn-page"><a style="text-decoration: none" href="#">3</a></button>
+			<a href="#"><i class="fas fa-chevron-right"></i></a>
+		</div>
+
+			
+
+	</main>
+
+	<footer>
+		<p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
+	</footer>
+</body>
+</html>
