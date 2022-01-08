@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Web Page</title>
+	<link rel="shortcut icon" href="image/Header-Icon-User.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+	<style type="text/css">
+		html {
+			font-size: 16px;
+		}
+		body, * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		header, footer {
+			height: 60px;
+			background: lightgray;
+		}
+
+		main {
+			min-height: 100vh;
+			margin: -60px 0;
+			padding: 70px 10px 10px 10px;
+		}
+
+		hr{
+			width: 15%;
+			text-align: left;
+		}
+
+		.ip-search{
+			height: 30px;
+			width: 200px;
+			border: 2px solid #dadada;
+   			border-radius: 7px;
+   			border-color: #9ecaed;
+    		box-shadow: 0 0 10px #9ecaed;
+		}
+
+		.di-se{
+			height: 100%;
+			margin-bottom: 20px;
+		}
+
+		.ad-st{
+			height: 30px;
+			width: 200px;
+			margin-bottom: 20px;
+			
+		}
+
+		.table{
+			border: 1;
+			cellspacing: 0;
+			width: 30%;
+			line-height: 30px;
+			margin-bottom: 20px;
+		}
+
+		.header, .footer{
+			text-align: center;
+			line-height: 60px;
+		}
+
+		/*TODO: Add your code style here*/
+
+	</style>
+</head>
+<body>
+	<!-- Semantic Tags -->
+	<header>
+		<h2 class="header">Student Web Page - Static Content - 2022</h2>
+	</header>
+
+	<main>
+		<h4> Student web app - Spring MVC</h4>
+		<hr>
+		<br>
+		<div class="di-se">
+			<input type="text" class="ip-search" placeholder="🔍 Search..">
+		</div>
+		
+
+		<button onclick="window.location.href='form.html';" class="ad-st">
+			<i class="far fa-plus-square"></i>
+			Add New Student
+		</button>
+		
+		
+
+		<form>
+			<table class="table" border="1" cellspacing="0">
+				<tr>
+					<th><input type="checkbox"></th>
+					<th>Name</th>
+					<th>Class</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th><input type="checkbox"></th>
+					<th>John Smith</th>
+					<th>18H1</th>
+					<th>
+						<a href="form.html" i class="far fa-edit"></i> </i></a>
+						<a href="form.html" i class="far fa-plus-square"></a>
+					</th>
+				</tr>
+				<tr>
+					<th><input type="checkbox"></th>
+					<th>HoaLe</th>
+					<th>17Dt2</th>
+					<th>
+						<a href="form.html" i class="far fa-edit"></i> </i></a>
+						<a href="form.html" i class="far fa-plus-square"></a>
+					</th>
+				</tr>
+				<tr>
+					<th><input type="checkbox"></th>
+					<th>TeoLE</th>
+					<th>13A5</th>
+					<th>
+						<a href="form.html" i class="far fa-edit"></i> </i></a>
+						<a href="form.html" i class="far fa-plus-square"></a>
+					</th>
+				</tr>
+			</table>
+		</form>
+		
+		
+		<div>
+			<i class="fas fa-chevron-left"></i>
+			<button><a href="">1</a></button>
+			<button><a href="">2</a></button>
+			<button><a href="">3</a></button>
+			<i class="fas fa-chevron-right"></i>
+		</div>
+	</main>
+
+	<footer>
+		<p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
+	</footer>
+</body>
+</html>

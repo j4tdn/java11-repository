@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Web Page</title>
+	<link rel="shortcut icon" href="image/Header-Icon-User.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+	<style type="text/css">
+		html {
+			font-size: 16px;
+		}
+		body, * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		header, footer {
+			height: 60px;
+			background: lightgray;
+		}
+
+		main {
+			min-height: 100vh;
+			margin: -60px 0;
+			padding: 70px 10px 10px 10px;
+		}
+
+		.header, .footer{
+			text-align: center;
+			line-height: 60px;
+		}
+
+		.name{
+			height: 50px;
+		}
+
+		table tbody tr td{
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+
+		button{
+			padding: 10px 20px;
+			color: white;
+			font-size: 18px;
+			font-family: corbel;
+			background: grey;
+		}
+
+		.name, .class{
+			width: 200px;
+			height: 30px;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- Semantic Tags -->
+	<header>
+		<h2 class="header">Student Web Page - Static Content - 2022</h2>
+	</header>
+
+	<main>
+		<h3>
+			Student Page - Add
+		</h3>
+
+		<form>
+			<table>
+				<tbody>
+					<tr>
+						<td><input class="name" type="text" placeholder="Enter your name"></td>
+					</tr>
+
+					<tr>
+						<td>
+							<select class="class">
+							<option>Class</option>
+							<option>17DT2</option>
+							<option>12A3</option>
+							<option>16H1</option>
+						</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<button>
+								Save
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</form>
+
+		<hr width="20%">
+
+		<a href="index.html"> Back to Home Page</a>
+		
+
+		
+	</main>
+
+	<footer>
+		<p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
+	</footer>
+</body>
+</html>
