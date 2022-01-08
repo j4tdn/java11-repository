@@ -1,0 +1,50 @@
+/*
+    1. Text Style
+ */
+.clearfix{
+    clear: both;
+}
+
+article div.image{
+    background-color: lightblue;
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+article p.text{
+    clear: both;
+}
+
+header{
+    background-color: rgb(180, 240, 128);
+    height: 60px;
+}
+header p{
+    text-align: center;
+    font-size: 22px;
+    line-height: 60px;
+}
+ .text-selector{
+     font-size: 22px;
+     font-family: Corbel;
+     font-weight: bold;
+     font-style: italic;
+     text-decoration: underline;
+     text-transform: uppercase;
+ }
+
+.student{
+    list-style: url(../images/world.png);
+    padding: 50px;
+}
+
+/*p{
+    font-family: 'Licorice', cursive;
+    font-size: 5rem;
+}
+
+.container{
+    background-color: lightgray;
+    width: 200px;
+    height: 200px;
+}*/
