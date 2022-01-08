@@ -1,93 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Testing</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testing</title>
 
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
 
-	<style type="text/css">
-		.header, .footer{
-			text-align: center;
-			line-height: 60px;
-		}
-		header, footer {
-			height: 60px;
-			background: lightgray;
-		}
+    <style type="text/css">
+      .header,
+      .footer {
+        text-align: center;
+        line-height: 60px;
+      }
+      header,
+      footer {
+        height: 60px;
+        background: lightgray;
+      }
 
-		table tbody tr td{
-			padding-top: 8px;
-			padding-bottom: 8px;
-			width: 80px;
-			height: 15px;
-			padding-left: 15px;
+      table tbody tr td {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        width: 80px;
+        height: 15px;
+        padding-left: 15px;
+      }
+      hr {
+        border-width: 1px;
+        margin-top: 25px;
+        padding: 1px;
+        background: black;
+      }
+      p {
+        padding-left: 15px;
+      }
+      .btn {
+        margin-left: 15px;
+        height: 40px;
+        width: 100px;
+        font-size: 15px;
+      }
+      .InpName {
+        height: 40px;
+        width: 200px;
+      }
+      .choiceClass {
+        height: 40px;
+        width: 200px;
+        padding-left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2 class="header">Student Web Page - Static Content - 2022</h2>
+    </header>
 
-		}
-		hr{
-			border-width: 1px;
-			margin-top: 25px;
-			padding: 1px;
-			background: black;
-		}
-		p{
-			padding-left: 15px;
-		}
-		.btn{
-			margin-left: 15px;
-			height: 40px;
-			width: 100px;
-			font-size: 15px;
-		}
-		.InpName{
-			height: 40px;
-			width: 200px;
-		}
-		.choiceClass{
-			height: 40px;
-			width: 200px;
-			padding-left: 5px;
-		}
-	</style>
-</head>
-<body>
-	<header>
-		<h2 class="header">Student Web Page - Static Content - 2022</h2>
-	</header>
+    <main>
+      <p>Student Page - Add</p>
+      <form>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <input
+                  class="InpName"
+                  type="text"
+                  placeholder="Enter your name"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <select class="choiceClass">
+                  <option>Class</option>
+                  <option>DUT</option>
+                  <option>EUD</option>
+                  <option>FUD</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-	<main>
-		<p>Student Page - Add</p>
-		<form>
-		<table>
-			<tbody>
-				<tr>
-					<td><input class="InpName" type = "text" placeholder="Enter your name"></td>
-				</tr>
-				<tr>
-					<td >
-						<select class="choiceClass">
-							<option>Class</option>
-							<option>DUT</option>
-							<option>EUD</option>
-							<option>FUD</option>
-						</select>
-					</td>
-				</tr>
-			</tbody>		
-		</table>
+        <input class="btn" type="submit" value="SAVE" />
+      </form>
 
-		<input class="btn" type="submit" value="SAVE">
-	</form>
+      <hr />
 
-	<hr>
+      <p><a href="starter.html">Back to Home Page</a></p>
+    </main>
 
-	  <p><a href="starter.html">Back to Home Page</a></p>
-		
-	</main>
-
-	<footer>
-		<p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
-	</footer>
-</body>
+    <footer>
+      <p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
+    </footer>
+  </body>
 </html>
