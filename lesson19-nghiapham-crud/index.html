@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Web Page</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<style type="text/css">
+		html {
+			font-size: 16px;
+		}
+		body, * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		header, footer {
+			height: 60px;
+			background: lightgray;
+		}
+
+		main {
+			min-height: 100vh;
+			margin: -60px 0;
+			padding: 70px 10px 10px 10px;
+		}
+
+		.header, .footer{
+			text-align: center;
+			line-height: 60px;
+		}
+
+		#searchbtn{
+			border-radius: 25px;
+			border: 2px solid black;
+			padding: 20px; 
+			width: 180px;
+			height: 1px;    
+		}
+		.button{
+			border: 2px solid black;
+			background-color: white;
+			color: black;
+			padding: 14px 28px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+
+		#students{
+			border-collapse: collapse;
+  			width: 100%;
+		}
+		#students th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		background-color: #04AA6D;
+		color: white;
+		}
+		#students td {
+		text-align: center;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		}
+		#students td {
+		text-align: center;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		}
+		#students tr:nth-child(2n+0) {
+			background-color: #f2f2f2;
+		}
+		.btn-page{
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			background: white;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- Semantic Tags -->
+	<header>
+		<h2 class="header">Student Web Page - Static Content - 2022</h2>
+	</header>
+
+	<main>
+		<div>
+			<h3>  Student Web App - Sping MVC</h3>
+			<br>
+			<div style="border: 0.5px solid black; width: 250px"></div>
+			<br>
+			<br>
+		</div>
+		
+		<div>
+			<input type="text" placeholder="&#128269;Search" id="searchbtn">
+			<br> 
+			<br>
+		</div>
+		<div>
+			<button class="button">
+				<i class="fas fa-user-plus"></i>
+				Add new student
+			</button>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+		</div>
+
+		<table id="students">
+		<thead>
+			<tr>
+				<th rowspan="2"><i class="far fa-square" ></i></th>
+				<th rowspan="2">Name</th>
+				<th rowspan="2">Class</th>
+				<th rowspan="2"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="checkbox" ></td>
+				<td>Super idol</td>
+				<td>12T8</td>
+				<td><a href="edit.html">
+					<i class="far fa-edit"></i> </a>
+					<i class="fas fa-calendar-times"></i>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" ></td>
+				<td>Super idol</td>
+				<td>12T8</td>
+				<td><a href="edit.html">
+					<i class="far fa-edit"></i> </a>
+					<i class="fas fa-calendar-times"></i>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" ></td>
+				<td>Super idol</td>
+				<td>12T8</td>
+				<td><a href="edit.html">
+					<i class="far fa-edit"></i> </a>
+					<i class="fas fa-calendar-times"></i>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" ></td>
+				<td>Super idol</td>
+				<td>12T8</td>
+				<td><a href="edit.html">
+					<i class="far fa-edit"></i> </a>
+					<i class="fas fa-calendar-times"></i>
+				</td>
+			</tr>
+		</tbody>
+		</table>
+		
+		<br>
+		<br>
+		<div >
+			<a href=""><i class="fas fa-chevron-left"></i></a>
+			<button class="btn-page"><a style="text-decoration: none" href="">1</a></button>
+			<button class="btn-page"><a style="text-decoration: none" href="">2</a></button>
+			<button class="btn-page"><a style="text-decoration: none" href="">3</a></button>
+			<a href=""><i class="fas fa-chevron-right"></i></a>
+		</div>
+	</main>
+
+	<footer>
+		<p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Web Page</title>
+
+	<style type="text/css">
+		html {
+			font-size: 16px;
+		}
+		body, * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		header, footer {
+			height: 60px;
+			background: lightgray;
+		}
+
+		main {
+			min-height: 100vh;
+			margin: -60px 0;
+			padding: 70px 10px 10px 10px;
+		}
+
+		.header, .footer{
+			text-align: center;
+			line-height: 60px;
+		}
+
+		/*TODO: Add your code style here*/
+		form input[type=text] {
+			height: 40px;
+    		width: 201px;
+    		padding: 10px;
+    		font-size: 15px;
+		}
+
+		#select-class{
+			height: 40px;
+    		width: 201px;
+    		padding: 10px;
+    		font-size: 15px;
+		}
+
+		#btn-submit {
+			height: 40px;
+    		width: 100px;
+    		padding: 10px;
+    		font-size: 15px;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- Semantic Tags -->
+	<header>
+		<h2 class="header">Student Web Page - Static Content - 2022</h2>
+	</header>
+
+	<main>
+		<center>
+            <!-- TODO: Add your code here -->
+		<h3>Student Page - Add</h3>
+		<br>
+		<form>
+			<input type="text" placeholder="Enter your name">
+				<br> <br>
+			<div >
+            	<Select  id="select-class">
+                	<option>Class</option>
+                	<option>10</option>
+                	<option>11</option>
+            	</Select>
+        	</div>
+				<br> <br>
+			 <div>
+                <input id="btn-submit" type="submit" value="SAVE">
+        	</div>
+		</form>
+		<br>
+		<div style="border: 1px solid black;"></div>
+		<br>
+		 <div>
+            <a href="index.html" style="text-decoration: none; font-size: 20px; color: blue;">Back to Home Page</a>
+            <br>
+        </div>
+
+        <div style="border: 0.5px solid black; width: 160px"></div>
+        </center>
+	</main>
+
+	<footer>
+		<p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
+	</footer>
+</body>
+</html>
