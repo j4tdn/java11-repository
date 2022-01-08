@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Web Page</title>
+
+    <style type="text/css">
+        html {
+            font-size: 16px;
+        }
+        
+        body,
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        header,
+        footer {
+            height: 60px;
+            background: lightgray;
+        }
+        
+        main {
+            min-height: 100vh;
+            margin: -60px 0;
+            padding: 70px 10px 10px 10px;
+        }
+        
+        .header,
+        .footer {
+            text-align: center;
+            line-height: 60px;
+        }
+        /*TODO: Add your code style here*/
+        
+        main input[type=search] {
+            width: 182px;
+            min-height: 29px;
+            border-top-left-radius: 11px;
+            border-top-right-radius: 12px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 13px;
+        }
+        
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Semantic Tags -->
+    <header>
+        <h2 class="header">Student Web Page - Static Content - 2022</h2>
+    </header>
+
+    <main>
+        <!-- TODO: Add your code here -->
+        <h3>Student Web App - Spring MVC</h3>
+        <hr style="width: 300px;">
+        <input type="search" placeholder="Search" style="margin-top: 20px;">
+        <button style="display: block; margin-top: 30px; width: 150px;height: 50px;margin-left: 15px;margin-bottom: 50px;"><img src="https://cdn2.iconfinder.com/data/icons/basics-1/100/Add-512.png" style="width: 20px; height:20px;display: left; " onclick="document.location='form.html'"> <h6 font-size="20px">Add New Student</h6><a href="./form.html"></a></button>
+        <table style="width:100%">
+            <tr>
+                <th><input type="checkbox" style="display: inline-block;"></th>
+                <th>Name</th>
+                <th>Class</th>
+                <th></th>
+            </tr>
+
+            <tr>
+                <td><input type="checkbox" style="display: inline-block;"> </td>
+                <td>John Smith</td>
+                <td>12A8</td>
+                <td><button style=" width:37px ;height:38px; display:inline-block"><img src="https://cdn2.iconfinder.com/data/icons/basics-1/100/Add-512.png" style="width:20px; height:20px;"></button>
+                    <button style=" width:37px ;height:38px; display:inline-block"><img src="  https://mpng.subpng.com/20190904/epc/transparent-can-icon-delete-icon-remove-icon-5d7057e04a3774.382353531567643616304.jpg" style="width:20px; height:20px;"></button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" style="display: inline-block;"> </td>
+                <td>Mina Tan</td>
+                <td>10X3</td>
+                <td><button style=" width:37px ;height:38px; display:inline-block"><img src="https://cdn2.iconfinder.com/data/icons/basics-1/100/Add-512.png" style="width:20px; height:20px;"></button>
+                    <button style=" width:37px ;height:38px; display:inline-block"><img src="  https://mpng.subpng.com/20190904/epc/transparent-can-icon-delete-icon-remove-icon-5d7057e04a3774.382353531567643616304.jpg" style="width:20px; height:20px;"></button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" style="display: inline-block;"> </td>
+                <td>Lee ha</td>
+                <td>14T2</td>
+                <td><button style=" width:37px ;height:38px; display:inline-block"><img src="https://cdn2.iconfinder.com/data/icons/basics-1/100/Add-512.png" style="width:20px; height:20px;"></button>
+                    <button style=" width:37px ;height:38px; display:inline-block"><img src="  https://mpng.subpng.com/20190904/epc/transparent-can-icon-delete-icon-remove-icon-5d7057e04a3774.382353531567643616304.jpg" style="width:20px; height:20px;"></button></td>
+            </tr>
+        </table>
+    </main>
+
+    <footer>
+        <p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
+    </footer>
+</body>
+
+</html>
