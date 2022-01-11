@@ -7,7 +7,7 @@
 	<style>
 		/*Define style of this HTML page*/
 		body {
-			background: lightblue;
+			/*background: lightblue;*/
 		}
 
 		/*
@@ -22,8 +22,16 @@
 			highlight for last 3 elements:  tbody tr:nth-last-child(-n+3);
 		*/
 
-		tbody tr:nth-child(-2n+4) {
+		/*tbody tr:nth-child(-2n+4) {
 			background: lightgray;
+		}
+		div.tableofcontents a:nth-child(3) {
+			color: red;
+		}*/
+
+		table tbody tr td {
+			padding-top: 8px;
+			padding-bottom: 8px;
 		}
 	</style>
 </head>
@@ -32,7 +40,139 @@
 
 	<hr> 
 
-	<a href="https://www.google.com/" target="_blank">Goolge's website</a>
+	<form>
+		<table>
+			<tbody>
+				<tr>
+					<td><label>Firstname: </label></td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<td><label>Lastname: </label></td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<td><label>Gender: </label></td>
+					<td>
+						<label>Male</label><input type="radio" name="gender_group"checked>
+						<label>Female</label><input type="radio" name="gender_group">
+					</td>
+				</tr>
+				<tr>
+					<td><label>Age: </label></td>
+					<td><input type="number" min="0" max="120"></td>
+				</tr>
+				<tr>
+					<td><label>University: </label></td>
+					<td>
+						<select>
+							<option>-- Select --</option>
+							<option>DUT</option>
+							<option>EUD</option>
+							<option>FOD</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><label>Languages: </label></td>
+					<td>
+						<label for="java">JAVA</label> <input type="checkbox" id="java">
+						<label for="php">PHP</label> <input type="checkbox" id="php">
+						<label for="nodejs">NodeJS</label> <input type="checkbox" id="nodejs">
+					</td>
+				</tr>
+				<tr>
+					<td><label>DateOfBirth: </label></td>
+					<td><input type="date"></td>
+				</tr>
+				<tr>
+					<td><label>Email: </label></td>
+					<td><input type="email"></td>
+				</tr>
+				<tr>
+					<td><label>Password: </label></td>
+					<td><input type="password"></td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</form>
+
+	<input type="submit" value="Sign up">
+	<input type="reset" value="Clear">
+
+
+	<hr>
+
+	<p> Designed by JAVA11 with &#129392; - &#169; 2022 </p>
+
+
+	<!--  Table Of Content 
+	<div class="tableofcontents">
+		<a href="#history">1. History</a>
+		<br>
+		<a href="#varieties">2. Varieties</a>
+		<br>
+		<a href="#other_varieties">3. Other varieties</a>
+	</div>
+
+	Content 
+	b: object, 
+		(id, class) thuộc tính định danh 
+		id: unique
+		class: no unique
+		>>> css, js
+		+ Call ID >> #id
+		+ Call Class >> .class
+	
+	<div class="contents">
+		<p><b id="history">History</b>
+		A drink made with lemons, dates, and honey was consumed in 13th and 14th century Egypt, including a lemon juice drink with sugar, known as qatarmizat.[4] In 1676, a company known as Compagnie de Limonadiers sold lemonade in Paris
+		</p>
+		<p><b id="varieties">Varieties</b>
+			Cloudy lemonade
+
+			Children operating a lemonade stand in La Cañada Flintridge, California, 1960
+			The predominant form of lemonade found in the US, Canada, and India, cloudy lemonade, also known as traditional or old fashioned lemonade in the UK and Australia, is non-carbonated and made with fresh lemon juice; however, commercially produced varieties are also available. Generally served cold, cloudy lemonade may also be served hot as a remedy for congestion and sore throats,[8] frozen, or used as a mixer.
+		</p>
+		<p><b id="other_varieties">Other varieties</b>
+			In India and Pakistan, where it is commonly known as nimbu paani, and in Bangladesh, lemonades may also contain salt and/or ginger juice. Shikanjvi is a traditional lemonade from this region, and can also be flavored with saffron, cumin and other spices.[17][18][19]
+
+			Limonana, a type of lemonade made from freshly squeezed lemon juice and mint leaves, is a common summer drink in the Middle East.[20] In Northern Africa, a drink called cherbat is made of lemon, mint, and rose water.[citation needed]
+
+			Switcha is a version of the drink made in the Bahamas and Turks & Caicos that can also be made with limes instead of lemons.[
+		</p>
+	</div> -->
+
+	<!-- ================================== -->
+
+	<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/PCAwJs51D0k" title="The best homemade pizza" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+	<!-- <iframe src="https://www.w3schools.com/"></iframe> -->
+
+
+	<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/PCAwJs51D0k" title="The best homemade pizza" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+	<!-- <iframe src="https://www.w3schools.com/"></iframe> -->
+
+
+	<!--
+	<video width="260" height="180" controls loop poster="images/cake.jpg" src="video/video.mp4">
+	</video>
+
+	<br> <br>
+
+	<video width="260" height="180" controls loop poster="images/candies.jpg">
+		<source src="video/video.mp4">
+	</video>
+
+	<br> <br>
+
+	<audio controls src="audio/audio.mp3">
+		
+	</audio>  -->
+
+	<!-- <a href="https://www.google.com/" target="_blank">Goolge's website</a>
 
 	<a href="page2.html">Life of Cat</a>
 
@@ -40,7 +180,7 @@
 
 	<br>
 
-	<a href="tel:+0981021299">Let's call</a>
+	<a href="tel:+0981021299">Let's call</a> -->
 	<!--
 	<table width="50%" border="1" cellspacing="0" cellpadding="5">
 		<caption>Table 1.1: Student List</caption>
