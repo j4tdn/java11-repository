@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Web Page</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<style type="text/css">
+		html {
+			font-size: 16px;
+		}
+		body, * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		input{
+			height:30px;
+			width: 150px;
+			border-radius: 15px 15px 15px 15px;
+		}
+		.btn-add{
+			height: 50px;
+			width: 200px;
+
+		}
+		btn-add.i{
+			height: 35;
+		}
+
+		header, footer {
+			height: 60px;
+			background: lightgray;
+		}
+		.table{
+			column-width: 500;
+		}
+
+		main {
+			min-height: 100vh;
+			margin: -60px 0;
+			padding: 70px 10px 10px 10px;
+		}
+
+		.header, .footer{
+			text-align: center;
+			line-height: 60px;
+		}
+
+		table { 
+			table-layout: fixed;
+			 width: 100%; 
+		}
+
+        i{
+			
+			padding: 6px 12px;
+			cursor: pointer;
+		}
+		input[type=checkbox]{
+			transform: scale(0.5);
+
+			}
+		.btn-page{
+			background-color: darkgray;
+			font-size: 20px;
+			width: 25px;
+			margin: 8px ;
+			
+			border-radius: 12px 12px 12px 12px;
+		}
+
+		/*TODO: Add your code style here*/
+
+	</style>
+</head>
+<body>
+	<!-- Semantic Tags -->
+	<header>
+		<h2 class="header">Student Web Page - Static Content - 2022</h2>
+	</header>
+
+	<main>
+		<p>Student Web App-Spring MVC</p>
+		<div style="border: 0.5px solid black; width: 200px;"></div>
+		<br>
+		<div class="iput-search">
+			<input type="text" placeholder="  &#xF002; Search" style="font-family:Arial, FontAwesome" />
+		</div>
+		<br>
+		<div>
+			<button class="btn-add"><i class="fas fa-plus-circle">Add New Student</i></button>
+		</div>
+		<br>
+		<div class="iput-search">
+
+			<table width="65%" border="1" cellspacing="0" cellspacing="5" class="list">
+				<thead>
+					<tr align="center">
+						<th rowspan="2"><i class="far fa-square"></i></th>
+						<th rowspan="2"><u>Name</u></th>
+						<th rowspan="2">Class</th>
+						<th rowspan="2"></th>
+					</tr>
+				</thead>
+				<thead>
+					<tr align="center">
+						<td> <input type="checkbox" id="checkbox"></td>
+						<td>John Smith</td>
+						<td>10T8</td>
+						<td>&ensp;<i class="far fa-edit"></i> 	<i class="far fa-times-circle"></i></td>
+					</tr>
+				</thead>
+				<thead>
+					<tr align="center">
+						<td> <input type="checkbox" class="checkbox"></td>
+						<td>Mina Tan</td>
+						<td>10X3</td>
+						<td>&ensp;<i class="far fa-edit"></i> 	<i class="far fa-times-circle"></i></td>
+					</tr>
+				</thead>
+				<thead>
+					<tr align="center">
+						<td> <input type="checkbox" class="checkbox"></td>
+						<td>Lee Ha</td>
+						<td>14T2</td>
+						<td>&ensp;<i class="far fa-edit"></i> 	<i class="far fa-times-circle"></i></td>
+					</tr>
+				</thead>
+
+				
+			</table>
+		</div>
+		<div class="page">
+			<a href="#"><i class="fas fa-chevron-left"></i></a>
+			<button class="btn-page"><a style="text-decoration: none" href="#">1</a></button>
+			<button class="btn-page"><a style="text-decoration: none" href="#">2</a></button>
+			<button class="btn-page"><a style="text-decoration: none" href="#">3</a></button>
+			<a href="#"><i class="fas fa-chevron-right"></i></a>
+		</div>
+	</main>
+
+	<footer>
+		<p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
+	</footer>
+</body>
+</html>
