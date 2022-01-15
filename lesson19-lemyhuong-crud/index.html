@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Web Page</title>
+	<link rel="icon" href="images/world.png">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style type="text/css">
+		html {
+			font-size: 16px;
+			font-family: serif;
+
+		}
+		body, * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: serif;
+		}
+
+		header, footer {
+			height: 60px;
+			background: lightgray;
+			font-family: serif;
+		}
+
+		main {
+			min-height: 100vh;
+			margin: -60px 0;
+			padding: 70px 10px 10px 10px;
+			font-family: serif;
+		}
+
+		.header, .footer{
+			text-align: center;
+			line-height: 60px;
+			font-family: serif;
+		}
+
+		/*TODO: Add your code style here*/
+
+		hr {
+			width: 230px;
+			height: 3px;
+			background-color:grey;
+			margin-top: 5px;
+		}
+
+		div.search input[type="search"] {
+			border-radius: 500px;
+			padding: 7px 10px;
+			font-size: 15px;
+		}
+
+		div.add button {
+			font-size: 20px;
+			background-color: white;
+			padding: 8px 50px 8px 8px;
+			font-family: corbel;
+		}
+
+		div.pagination button {
+			width: 35px;
+			height: 35px;
+			font-size: 15px;
+			border-radius: 50%;
+		}
+
+		i{
+			color: black;
+			font-size: 20px;
+		}
+
+		table thead tr th {
+			padding-top: 10px;
+			padding-bottom: 10px;
+			background-color: darkgrey;
+		}
+
+
+		table tbody tr td {
+			padding-top: 10px;
+			padding-bottom: 10px;
+			
+		}
+
+		table tbody tr:nth-child(2n+1) {
+		background-color: lightgray;
+		}
+
+
+	</style>
+</head>
+
+
+<body>
+	<!-- Semantic Tags -->
+	<header>
+		<h2 class="header">Student Web Page - Static Content - 2022</h2>
+	</header>
+
+	<main>
+		<!-- TODO: Add your code here -->
+
+	<div class="firstline" style="width:300px">
+		<p>Student Web App - Spring MVC</p>
+		<hr>
+	</div>
+
+	<br>
+
+	<form>
+		<div class="search">
+			<input type="search"  placeholder="&#xF002; Search" style="font-family: FontAwesome, Arial; font-style: normal">
+		</div>
+
+		
+		<br>
+
+		<div class="add">
+			<a href="form.html">
+				<button type="button">
+					<i class="fa fa-plus-circle" style="font-size:20px"></i>
+					Add New Student
+				</button>
+			</a>
+		</div>
+
+		<br>
+		<table width="50%" border="1" cellspacing="0">
+			<thead>
+				<tr>
+					<th><input type="checkbox"></th>
+					<th>Name</th>
+					<th>Class</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody align="center">
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>John Smith</td>
+					<td>12T8</td>
+					<td>
+						<a href="form.html"><i class="fa fa-edit"></i></a>
+						<a href=""><i class="fa fa-trash"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>Mina Tan</td>
+					<td>10X3</td>
+					<td>
+						<a href="form.html"><i class="fa fa-edit"></i></a>
+						<a href=""><i class="fa fa-trash"></i></a>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>Lee Ha</td>
+					<td>14T2</td>
+					<td>
+						<a href="form.html"><i class="fa fa-edit"></i></a>
+						<a href=""><i class="fa fa-trash"></i></a>
+					</td>
+				</tr>
+				
+			</tbody>
+			
+		</table>
+
+		<br>
+
+		<div class="pagination">
+			<a href="#" class="button"><i class="fa fa-chevron-left"></i></a>
+			<button><a href="#" class="button"></a> 1</button>
+			<button><a href="#" class="button"></a> 2</button>
+			<button><a href="#" class="button"></a> 3</button>
+			<a href="#" class="button"><i class="fa fa-chevron-right"></i></a>
+
+		</div>
+
+	</form>
+
+	</main>
+
+	<footer>
+		<p class="footer">Designed by JAVA 11 with &#129392; - &copy; 2022</p>
+	</footer>
+</body>
+</html>
