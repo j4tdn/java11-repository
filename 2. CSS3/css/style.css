@@ -1,0 +1,56 @@
+/* p {
+    font-family: 'Licorice', cursive;
+    font-size: 5rem;
+} */
+
+/* .container {
+    background-color: yellow;
+    width: 200px;
+    height: 200px;
+} */
+
+
+/*
+==1. Text Style==
+*/
+
+header {
+    background: #ababab;
+    height: 60px;
+}
+
+header p {
+    text-align: center;
+    font-size: 22px;
+    line-height: 60px;
+}
+
+.text-selector {
+    font-size: 22px;
+    font-family: Corbel;
+    font-weight: 600;
+    font-style: italic;
+    text-decoration: underline;
+    text-transform: lowercase;
+    
+}
+
+.students {
+    list-style-image: url('../images/world.png');
+    padding-left: 26px;
+}
+
+article div.image{
+    background: lightblue;
+    width: 200px;
+    height: 200px;
+
+    float: left;
+}
+
+article p.text{
+}
+
+.clear-fix{
+    clear: both;
+}

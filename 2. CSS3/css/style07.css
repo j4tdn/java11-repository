@@ -1,0 +1,39 @@
+.block {
+    width: 100px;
+    height: 100px;
+
+    text-align: center;
+    line-height: 100px;
+}
+
+.bg-green {
+    background-color: green;
+}
+.bg-orange {
+    background-color: orange;
+    position: absolute;
+    left: 70px;
+    top: 40px;
+}
+.bg-blue {
+    background-color: blue;
+}
+
+.container {
+    width: 300px;
+    height: 300px;
+    background-color: #ececec;
+    border: 2px solid #2b2b2b;
+    margin: 100px auto;
+    position: relative;
+}
+
+.item {
+    width: 140px;
+    height: 140px;
+    background-color: lightcoral;
+    position: absolute;
+    left: 40px;
+    top: 40px;
+}
+
