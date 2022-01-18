@@ -1,0 +1,23 @@
+.block{
+    width: 100px;
+    height: 100px;
+
+    text-align: center;
+    line-height: 100px;
+
+    display: inline-block;
+    margin-left: 100px;
+}
+
+.bg-green{
+    background: green;
+}
+
+.bg-orange{
+    background: orange;
+    visibility: hidden;
+}
+
+.bg-blue{
+    background: blue;
+}
