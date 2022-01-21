@@ -1,0 +1,308 @@
+header {
+    width: 100%;
+    height: 66px;
+    background: #e7b938;
+}
+
+.wrapper {
+    width: 80%;
+
+    /* Horizontal-Alignment: center */
+    margin: 0 auto;
+}
+
+.header-image {
+    float: left;
+    margin-left: 140px;
+    margin-top: calc((66px - 19px)/2);
+}
+
+.header-navigation-1 {
+    float: left;
+    font-family: corbel;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #000000;
+    font-weight: bolder;
+}
+
+.header-navigation-2 {
+    float: right;
+    font-family: corbel;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: bolder;
+}
+
+.header-navigation-1 ul li {
+    float: left;
+    margin-left: 44px;
+    line-height: 66px;
+}
+
+.header-navigation-2 ul li {
+    float: left;
+    margin-left: 44px;
+    line-height: 66px;
+}
+
+#main-1 {
+    width: 73%;
+    float: left;
+    box-sizing: border-box;
+    padding-left: 90px;
+    padding-top: 40px;
+    padding-right: 20px;
+    padding-bottom: 70px;
+    border-right: 1px solid rgb(185, 185, 185);
+}
+
+#main-2 {
+    width: 27%;
+    float: right;
+    box-sizing: border-box;
+    padding: 90px 30px;
+}
+
+.content {
+    width: 100%;
+    height: 187px;
+    margin-bottom: 60px;
+}
+
+.img-content {
+    width: 30%;
+    float: left;
+    display: inline;
+}
+
+.text-content {
+    width: 60%;
+    height: 187px;
+    float: right;
+    line-height: 15px;
+    font-family: -webkit-pictograph;
+    color: #a8a8a8;
+    display: inline;
+}
+
+.over {
+    height: 60px;
+    overflow: hidden;
+}
+
+.text-content-1 {
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.text-content-2 {
+    font-size: 13px;
+}
+
+.fa-eye {
+    margin-right: 3px;
+}
+
+.fa-comment {
+    margin-left: 10px;
+    margin-right: 3px;
+}
+
+.view {
+    float: left;
+    color: #8b8b8b;
+}
+
+.comment {
+    float: left;
+    display: inline;
+    color: #8b8b8b;
+}
+
+.number-comments {  
+    display: inline;
+    color: #e7b938;
+    margin-right: 10px;
+}
+
+a {
+    text-decoration: none;
+    margin-right: 4px;
+}
+
+#btn {
+    display: flex;
+    justify-content: center;
+}
+
+#btn-content {
+    width: 150px;
+    height: 40px;
+    border-radius: 5px  ;
+    border: 1px solid rgb(226, 185, 71);
+    font-weight: bolder;
+}
+
+#ip-search {
+    width: 208px;
+    height: 25px;
+    font-size: 15px;
+    border-radius: 25px;
+    border: 1px solid rgb(165, 165, 165);
+    padding-left: 10px;
+}
+
+#calendar {
+    margin-top: 40px;
+}
+
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+/* Month header */
+.month {
+    padding: 10px 20px;
+    width: 220px;
+    height: 40px;
+    background: #ffffff;
+    text-align: center;   
+    border: 1px solid rgb(161, 161, 161);
+    box-sizing: border-box;
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: rgb(87, 87, 87);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+/* Next button */
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+    padding: 10px 20px;
+    width: 220px;
+    margin: 0;
+    padding: 10px 0;
+    background-color:rgb(245, 245, 245);
+    border-left: 1px solid rgb(161, 161, 161);
+    border-right: 1px solid rgb(161, 161, 161);
+    border-bottom: 1px solid rgb(161, 161, 161);
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+.weekdays li {
+  display: inline-grid;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+  margin: 0 -2px;
+  box-sizing: border-box;
+
+}
+
+/* Days (1-31) */
+.days {
+    padding: 10px 0px;
+    width: 220px;
+    background: rgb(255, 255, 255);
+    margin: 0;
+    box-sizing: border-box;
+    border: 1px solid rgb(161, 161, 161);
+    border-top: none;
+    display: table;
+    
+}
+
+.days li {
+    list-style-type: none;
+    width: 13.6%;
+    height: 16px;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+/* Highlight the "current" day */
+.active {
+    padding: 5px;
+    background:#e7b938;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    
+}
+
+footer {
+    width: 100%;
+    background: #e7b938;
+    display: block;
+    clear: both;
+    position: relative;
+    height: 66px;
+    margin-top: -200px;
+}
+
+.footer-navigation-1 {
+    float: left;
+    font-family: corbel;
+    font-size: 18px;
+    color: #000000;
+    font-weight: bolder;
+    margin-left: 150px;
+    box-sizing: border-box;
+}
+
+.footer-navigation-1 ul li {
+    float: left;
+    margin-left: 20px;
+    line-height: 66px;
+}
+
+.social {
+    float: left;
+    margin-top:24px;
+    font-family: corbel;
+    color: #6e4e1c;
+}
+
+.fa-copyright:before {
+    vertical-align: -2px;
+}
+
+.icon {
+    float: right;
+    margin-right: 15px;
+    margin-top: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    padding-top: 7px;
+    box-sizing: border-box;
+    color: #e7b938;
+}
