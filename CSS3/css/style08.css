@@ -1,0 +1,25 @@
+.block {
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+
+	/*block inline inline-block mono*/
+	display: block;
+	margin: 10px;
+}
+
+.bg-green {
+	background: green;
+}
+
+.bg-ogange {
+	background: orange;
+	position: static;
+	left: 70px;
+	top: 40px;
+}
+
+.bg-blue {
+	background: blue;
+}

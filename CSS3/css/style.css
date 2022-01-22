@@ -1,0 +1,23 @@
+/* 1 text style
+*/
+
+p {
+	font-weight: 700;
+}
+
+.text-selector {
+	font-size: 22px;
+	font-family: Corbel;
+	font-weight: bold;
+	text-decoration: underline;
+	text-transform: uppercase;
+}
+/*p {
+	font-family: ;
+}
+
+div {
+	background-color: lightgray;
+	width: 200px;
+	height: 200px;
+}*/
