@@ -1,0 +1,136 @@
+body {
+    font-family: 'Licorice', cursive;
+}
+
+header {
+    width: 100%;
+    height: 66px;
+    background-color: #2b2b2b;
+    position: fixed;
+}
+
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header-image {
+    float: left;
+    margin-top: calc((66px - 19px) / 2);
+}
+
+.header-navigation {
+    float: right;
+    
+    font-family: corbel;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.header-navigation ul li {
+    float: left;
+    margin-left: 44px;
+    line-height: 66px;
+}
+.background__img{
+    margin-bottom: -5px;
+}
+.background__img img{
+    width: 100%;
+}
+.container {
+    position: relative;
+    top: 68px;
+    z-index: -1;
+}
+.background__title {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 604px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.background__title h2 {
+    color: white;
+    font-size: 60px;
+    text-transform: uppercase;
+}
+
+.background__title p {
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.background__title button {
+    background-color: rgb(206, 0, 0);
+    color: white;
+    outline: none;
+    border: none;
+    width: 120px;
+    height: 40px;
+    margin-top: 30px;
+}
+
+.detail {
+    display: flex;
+    background: linear-gradient(-85deg, rgb(41, 40, 40) 50%, white 50%);
+}
+
+.dash {
+    width: 50px;
+    height: 4px;
+    background-color: red;
+    margin: 30px 0;
+}
+.detail__left {
+    color: black;
+    padding: 50px 120px;
+}
+.detail__right {
+    color: white;
+    padding: 50px 120px;
+}
+
+.detail__title {
+    font-size: 35px;
+}
+
+.detail__descript {
+    font-size: 25px;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.detail__content {
+
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding: 30px 120px;
+    background-color: rgb(27, 27, 27);
+    color: rgb(175, 175, 175);
+}
+.footer__dash {
+    width: 150px;
+    height: 2px;
+    background-color: rgb(58, 57, 57);
+    margin: 10px 0;
+}
+
+.footer__element{
+    margin-right: 180px;
+}
+.footer__element__list li{
+    margin-top: 10px;
+}
+.list__icon i{
+    margin-right: 20px;
+}
