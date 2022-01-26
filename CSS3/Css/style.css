@@ -1,0 +1,16 @@
+.container {
+	background-color: black;
+	width: 500px;
+	height: 200px;
+}
+
+p {
+	font-family: 'The Nautigal', cursive;
+	font-size: 100px;
+}
+
+.selector {
+	font-size: 20px;
+	font-family: Corbel;\
+	font-weight: normal;
+}
