@@ -1,0 +1,36 @@
+header {
+	width: 100%;
+	height: 66px;
+	background: #2b2b2b;
+	position: fixed;
+}
+
+.wrapper {
+	width: 80%;
+
+	/*Horizontal-Alignment: center;*/
+	margin: 0 auto;
+}
+
+.header-image {
+	float: left;
+	/*
+		header-height:  66px;
+		exoti-image:  19px;
+	*/
+	margin-top: calc((66px - 19px)/ 2);
+}
+
+.header-navigation {
+	float: right;
+	font-family: corbel;
+	font-size: 15px; 
+	text-transform: uppercase;
+	color: #fff;
+}
+
+.header-navigation ul li {
+	float: left;
+	margin-left: 44px;
+	line-height: 66px;
+}

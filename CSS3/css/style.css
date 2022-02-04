@@ -1,0 +1,33 @@
+/* 
+	==1. Text Style==
+*/
+
+header {
+	background: lightblue;
+}
+header p {
+	text-align: center;
+}
+
+.text-selector {
+	font-size: 22px;
+	font-family: Corbel;
+	font-weight: bold;
+	font-style: italic;
+	text-decoration: underline;
+	text-transform: uppercase;
+}
+
+/*p {
+	font-family: 'Licorice', cursive;
+	font-size: 5rem;
+}*/
+
+
+/* CSS container selector */
+/*.container {
+	background-color: lightgray;
+	width: 200px;
+	height:  200px;
+}*/
+

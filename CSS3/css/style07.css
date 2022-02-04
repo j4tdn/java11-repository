@@ -1,0 +1,52 @@
+.block {
+	width: 100px;
+	height: 100px;
+
+	text-align: center;
+	line-height: 100px;
+}
+
+.bg-green {
+	background: green;
+}
+
+/**
+ *	Position by left, top
+ * 	default:  static
+ * 	relative: positiond relative to inself(static);
+ * 	absolute:  position relative to it's parent;
+ * 			: parent:  required relative;
+ * 			:       : else --> parent is html element
+ */
+
+.bg-orange {
+	background: orange;
+	position: absolute;
+	left: 70px;
+	top: 80px;
+}
+
+.bg-blue {
+	background: blue;
+}
+
+.container {
+	background: #ececec;
+	width: 300px;
+	height: 300px;
+	margin-top: 100px;
+	border:  2px solid #2b2b2b;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
+.item {
+	width: 140px;
+	height: 140px;
+	background: lightblue;
+	position: absolute;
+	left: 100px;
+	top: 200px;
+}
+
