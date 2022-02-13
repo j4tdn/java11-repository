@@ -1,0 +1,157 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.header{
+	width: 100%;
+	height: 50px;
+	background-color: black;
+	position: relative; 
+    
+}
+.logo{
+	position: absolute;
+	margin-top: 15px;
+	margin-left: 120px;
+}
+
+.bar{
+    display: flex;
+    float: right;
+    align-items: center;
+	margin-right: 120px;
+    color:white;
+    text-align: right;
+}
+
+
+.bar ul{
+    display: inline-block;
+    list-style: none;
+}
+
+.bar ul li{
+    display: inline-block;
+    margin-right: 60px;
+}
+
+.bar ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+.banner{
+	position: relative;
+}
+
+.banner .img img{
+	width: 100%;
+}
+
+.banner .text{
+	position: absolute;
+	color: white;
+	text-align: center;
+	top: 250px;
+	left: 590px;
+}
+
+.banner .text button{
+	padding: 10px 30px;
+	color: white;
+	background-color: red;
+}
+
+.content{
+	position: relative;
+	font-size: 20px;
+	margin-top: -5px;
+	height: 736px;
+	width: 100%;
+	background: linear-gradient(99deg,white 50%,rgb(41, 39, 39) 50%);
+}
+
+.content hr{
+	width: 40px;
+	border: 1px solid red;
+	margin: 0;
+	margin-bottom: 20px;
+}
+
+.content h2{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.content p{
+	margin-top: 20px;
+}
+
+.content .left{
+	position: absolute;
+	top: 0;
+	left: 30px;
+	padding-left: 100px;
+	width: 30%;
+}
+
+.content .right{
+	position: absolute;
+	padding-right: 100px;
+	color: white;
+	top: 0px;
+	right: 20px;
+	width: 30%;
+}
+
+.footer {
+	width: 100%;
+	height: 230px;
+	margin-top: 0px;
+	
+	color: white;
+	
+}
+
+.footer .ft{
+	height:230px;
+	width: 25%;
+	float: left;
+	background-color: black;
+	padding-left: 100px;
+}
+
+.footer ul li{
+    list-style: none;
+    color: white;
+    line-height: 25px;
+}
+
+.footer hr{
+	width: 200px;
+	border: 1px solid gray;
+	margin-bottom: 20px;
+}
+
+.footer h2{
+	margin: 20px auto;
+
+}
+
+.footer ul li img{
+	width: 40px;
+	height: 40px;
+	background-color: black;
+	float: left;
+	margin-right: 20px;
+}
+
+.footer .ft .copy {
+	position: relative;
+	top: 50px;
+	clear: both;
+	
+	
+}
