@@ -1,0 +1,239 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 60px;
+    width: 100%;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .nav-list {
+    flex-basis: 30%;
+}
+
+header .nav-list ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+header .nav-list ul li {
+    list-style: none;
+}
+
+
+/* -------------------------------------------------- */
+
+header .logo img {
+    margin: 0 120px;
+}
+
+main {
+    width: 80%;
+    height: auto;
+    margin: 0 150px;
+    display: flex;
+}
+
+article {
+    flex-basis: 80%;
+}
+
+article h1 {
+    margin-top: 30px;
+}
+
+.row img {
+    margin-right: 15px;
+    height: 190px;
+    flex-basis: 40%;
+    padding-top: 10px;
+}
+
+main article .row {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.row .intro {
+    line-height: 22px;
+    margin: 10px 0;
+}
+
+.row .text .title {
+    font-size: 35px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.row .text .eye {
+    margin-right: 5px;
+}
+
+.row .text .far {
+    margin-left: 5px;
+}
+
+.color {
+    color: yellow;
+}
+
+.text p:last-child i {
+    margin-right: 10px;
+}
+
+
+/* --------------------------------------------- */
+
+main article button {
+    padding: 13px 30px;
+    background: white;
+    border: 1px solid orange;
+    border-radius: 8px;
+    margin: 70px 40%;
+}
+
+hr {
+    margin: 0 20px;
+}
+
+main aside {
+    flex-basis: 20%;
+}
+
+main aside .form {
+    position: relative;
+}
+
+main aside .form input {
+    width: 100%;
+    height: 25px;
+    padding-left: 28px;
+    margin-top: 65px;
+    border-radius: 15px;
+}
+
+main aside .form i {
+    position: absolute;
+    left: 8px;
+    top: 70px;
+}
+
+
+/* ------------------------------------------ */
+
+.calendar {
+    width: 100%;
+    margin: 25px 0px;
+    border: 1px solid #999;
+    border-collapse: collapse;
+}
+
+.calendar th {
+    height: 50px;
+}
+
+.calendar th span {
+    margin: 0 40px;
+}
+
+table tr td {
+    border: 1px solid rgb(228, 226, 226);
+    text-align: center;
+    height: 25px;
+}
+
+.calendar tbody tr:first-child {
+    background-color: #888;
+}
+
+.calendar tbody tr:nth-child(2) td:nth-child(-n+2) {
+    color: gray;
+}
+
+.calendar tbody tr:last-child td:nth-child(2) {
+    background: yellow;
+}
+
+.calendar tbody tr:last-child td:nth-child(n+6) {
+    color: #888;
+}
+
+aside h3 {
+    position: relative;
+}
+
+aside hr {
+    position: absolute;
+    top: 14px;
+    left: 110px;
+    width: 48%;
+    margin: 0 0;
+}
+
+aside .popular {
+    margin: 30px 0px;
+}
+
+
+/* ------------------------------------------- */
+
+footer {
+    height: 60px;
+    width: 100%;
+    background-color: yellow;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer .ft-list,
+.cd,
+.ct {
+    flex-basis: 30%;
+}
+
+footer .ft-list ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+footer .ft-list ul li {
+    font-weight: bolder;
+    list-style: none;
+}
+
+footer .cd p {
+    color: grey;
+}
+
+footer .ct {
+    display: flex;
+    padding-left: 223px;
+}
+
+footer .ct .icon {
+    margin: 0 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: white;
+}
+
+footer .ct .icon i {
+    line-height: 30px;
+    padding-left: 1px;
+}
+
+footer .cd {
+    text-align: center;
+}
+
+footer .ct {
+    text-align: center;
+}
