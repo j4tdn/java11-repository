@@ -1,0 +1,285 @@
+header {
+	background-color: #F0B63A;
+	height: 80px;
+	width: 100%;
+}
+
+main {
+	display: flex;
+}
+
+.wrapper {
+	width: 70%;	
+	margin: 0 auto;
+}
+
+.left-navigation ul li {
+	float: left;
+	line-height: 80px;
+	margin-right: 50px;
+	font-weight: 800;
+}
+
+.right-navigation ul li {
+	float: right;	
+	line-height: 80px;
+	margin-left: 50px;
+	font-weight: 800;
+}
+
+.logo {
+	text-align: center;
+	line-height: 100px;
+}
+
+article.content {
+ 	width: 60%;
+ 	border-right: 1px ridge #bababa;
+ 	padding: 50px 30px 100px 200px;
+ 	float: left;
+ }
+
+article.content h1 {
+	font-size: 25px;
+	margin-left: 20px;
+	font-weight: 1000;
+}
+
+.article {
+	padding: 20px 20px;
+}
+
+.image {
+	float: left;
+	padding-right: 20px;
+}
+
+article.content h2 {
+	font-size: 45px;
+	line-height: 45px;
+}
+
+.note {
+	display: flex;
+	margin: 20px;
+}
+
+.note p {
+	font-size: 16px;
+	padding: 0px 5px;
+}
+
+.text {
+	font-size: 20px;
+}
+
+.fa-angle-right {
+	margin-left: 5px;
+	color: darkorange;
+}
+
+.react {
+	display: flex;
+	padding: 15px 0px;
+}
+
+.react p {
+	font-size: 16px;
+	display: flex;
+	padding: 0px 5px;
+}
+
+
+.button {
+	margin: 0 auto;
+	text-align: center;
+	border-color: darkorange;
+
+	font-size: 25px;
+	background-color: white;
+	height: 70px;
+	width: 250px;
+	margin: 70px 400px;
+}
+
+.fa-solid {
+	text-decoration: none;
+}
+
+aside {
+	height: 1700px;
+}
+
+.container-search input#search{
+ 	width: 350px;
+ 	height: 35px;
+ 	font-size: 10pt;
+  	color: #63717f;
+  	padding-left: 45px;
+  	border-radius: 50px;
+  	margin-top: 80px;
+  	margin-left: 50px;
+  	border: 1px solid lightgrey;
+}
+
+.container-search .icon{
+	position: absolute;
+  	color: #4f5b66;
+  	margin-left: 70px;
+  	margin-top: 88px;
+}
+
+.container-calendar {
+	margin-top: 50px;
+	margin-left: 55px;
+}
+
+.month {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 340px;
+  border: 1px solid lightgrey;
+  height: 40px;
+}
+
+.month ul li {
+  color: black;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+
+.month .prev {
+  float: left;
+  padding-left: 20px;
+}
+
+.month .next {
+  float: right;
+  padding-right: 20px;
+}
+
+.weekdays {
+  width: 342px;
+  line-height: 30px;
+  background-color: #ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13%;
+  color: #666;
+  text-align: center;
+}
+
+.days {
+    width: 340px;
+    height: 240px;
+  	margin: auto;
+  	padding: 10px 0;
+  	margin: 0;
+  	border-bottom-left-radius: 10px;
+  	border-bottom-right-radius: 10px;
+  	border: 1px solid lightgrey;
+}
+
+.days li {
+  display: inline-block;
+  width: 13%;
+  height: 10%;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 18px;
+  color: #777;
+  border: lightgrey;
+}
+
+.days li .active {
+  padding: 8px;
+  background: orange;
+  color: white !important;
+}
+
+.other-new {
+	margin-top: 20px;
+	margin-left: 60px;
+	margin-right: 80px;
+	width: 340px;
+}
+
+.news {
+    margin-top: 30px;
+}
+
+.time_news {
+    color: gray;
+    font-size: 15px;
+
+}
+.title_news {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+
+.popular_news {
+	font-weight: 800;
+	font-size: 25px;
+	margin-top: 30px;
+}
+
+footer {
+	background-color: #F0B63A;
+	height: 80px;
+}
+
+.container-footer {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 100px;
+	padding-top: 30px;
+}
+
+.fa-regular {
+	margin-right: 7px;
+}
+
+.copyright {
+	display: flex;
+}
+
+.contact ul {
+	display: flex;
+}
+
+.contact ul li{
+	margin-right: 100px;
+	font-weight: 800;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+.contact ul li a {
+	text-decoration: none;
+	color: black;
+}
+
+
+.icon {
+
+}
+
+.fa-brands {
+  	width: 40px;
+  	height: 30px;
+  	border-radius: 50%;
+  	margin-right: 30px;
+  	margin-top: -10px;
+  	text-align: center;
+  	font-size: 1.5em;
+  	background-color: white;
+  	padding-top: 10px;
+  	color: darkorange;
+  	text-decoration: none;
+}
