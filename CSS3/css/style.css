@@ -1,0 +1,73 @@
+/*
+==3. Float*==
+Float-Left, Clear-Left*/
+
+.clearfix {
+	clear: both;
+}
+
+
+article div.images {
+	background: lightblue;
+	width: 200px;
+	height: 200px;
+
+	float: left;
+}
+
+article p.text {
+	
+}
+
+/*
+==1. Text Style==
+*/
+
+header {
+	background: #ababab;
+	height: 60px;
+}
+
+header p {
+	text-align: center;
+	font-size: 22px;
+	line-height: 60px;
+}
+
+p {
+	font-weight: 200;
+}
+.text-selector {
+	font-size: 22px;
+	font-family: Corbel;
+	font-weight: bold;
+	font-style: italic;
+	text-decoration: underline;
+	text-transform: uppercase;
+	
+}
+/*
+==2. List Style Type==
+*/
+
+ul {
+	list-style: url(../images/world.png);
+
+	/*Override padding of reset.css*/
+	padding: 32px;
+}
+
+
+
+/*p {
+	font-family: 'Inter', sans-serif;
+	font-family: 'Mochiy Pop P One', sans-serif;
+	font-size: 5rem;
+}*/
+
+/*CSS class, id selector
+.container {
+	background-color: lightgray;
+	width: 200px;
+	height: 200px;
+}*/

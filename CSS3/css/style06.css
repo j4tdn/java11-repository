@@ -1,0 +1,67 @@
+/*All element*/
+* {
+	box-sizing: border-box;
+}
+
+.mb-30px {
+	margin-bottom: 30px;
+}
+
+
+html {
+	padding: 8px;
+}
+
+.block1 {
+	width: 200px;
+	height: 200px;
+	background: yellow;
+
+	border: 2px solid #2b2b2b;
+}
+
+.block2 {
+	width: 200px;
+	height: 200px;
+	background: green;
+
+	color: white;
+	border: 2px solid #2b2b2b;
+	padding: 6px 6px;
+	text-align: justify;
+}
+
+/*margin-trick*/
+.block3 {
+	width: 60%;
+	height: 60px;
+	background: orange;
+
+	padding-top: calc((60px -20px)/2);
+}
+
+.sub-item {
+	width: 300px;
+	height: 20px;
+	background: blue;
+
+	margin: 0 auto;
+}
+
+.block4 {
+	width: 300px;
+	height: 300px;
+	background-color: green;
+	background-image: url(../images/cat.jfif);
+	background-size: 100px 100px;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.block5 {
+	width: 300px;
+	height: 300px;
+	background-color: green;
+	background-image: url(../images/cat.jfif);
+	background-size: cover;
+}

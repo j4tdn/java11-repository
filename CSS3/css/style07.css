@@ -1,0 +1,31 @@
+.block {
+	width: 100px;
+	height: 100px;
+
+	text-align: center;
+	line-height: 100px;
+}
+
+.bg-green {
+	background: green;
+}
+
+/*Position
+Position by left, top
+default: static
+relative: positioned relative to itself(static)
+absolute: positioned relative to it's parent;
+		: parent: required relative;
+		:		: else --> parent is html tag
+*/
+
+.bg-orange {
+	background: orange;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+.bg-blue{
+	background: blue;
+}
