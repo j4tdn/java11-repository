@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Index01 - FlexBox</title>
+	<style type="text/css">
+		.container {
+			width: 600px;
+			height: 400px;
+			border: 1px solid;
+			display: flex;
+			gap: 10px;
+			flex-direction: row;
+			justify-content: space-around;
+			margin: 0 auto;
+			flex-wrap: wrap;
+		}
+
+		.item {
+			width: 120px;
+			height: 120px;
+			background: orange;
+			color: #000;
+			font-size: 22px;
+			/*text-align: center;
+			line-height: 120px;*/
+			border: 1px solid #333;
+			/*margin: 1px; replace by gap property*/
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		/*.item-2 {
+			align-self: center;
+		}*/
+
+		.item-4 {
+			order: 4;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">Item 1</div>
+		<div class="item item-2">Item 2</div>
+		<div class="item">Item 3</div>
+		<div class="item item-4">Item 4</div>
+		<div class="item">Item 5</div>
+		<div class="item">Item 6</div>
+		<div class="item">Item 7</div>
+		<div class="item">Item 8</div>
+
+	</div>
+</body>
+</html>
