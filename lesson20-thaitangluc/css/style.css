@@ -1,0 +1,169 @@
+body{
+    margin: 0;
+	padding: 0;
+    font-family: Corbel;
+}
+header{
+    width: 100%;
+    height: 70px;
+    background-color: rgb(230, 205, 64);
+
+    display: flex;
+    justify-content: space-around;
+}
+
+header ul li{
+    font-weight: bold;
+    list-style: none;
+    float: left;
+    margin: 0 40px;
+    line-height: 37px;
+    align-items: center;
+}
+
+.logo{
+    margin-top: 20px;
+}
+
+main{
+    margin: -55px 100px;
+}
+
+.main-left{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    padding-right: 30px;
+    border-right: 1px solid rgb(102, 100, 100);
+}
+
+.content{
+    display: inline-block;
+}
+
+.content-img{
+    float: left;
+    margin: 0 30px 60px 0;
+}
+
+.icon{
+    padding-right: 6px;
+}
+
+.more-art{
+    margin-left: 400px;
+    padding: 10px 20px;
+    background-color: white;
+    border: 2px solid rgb(204, 202, 74);
+}
+
+.main-right{
+    position: relative;
+    margin-left: 1060px;
+}
+
+.input-search{
+    margin: 80px 0;
+    padding-top: 80px;
+}
+
+.input{
+    width: 200px;
+    height: 25px;
+    border-radius: 20px;
+    padding-left: 29px;
+    
+}
+
+.ti-search{
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 10px;
+}
+
+.calender{
+    text-align: center;
+    width: 235px;
+    height: 190px;
+}
+
+.th th{
+    border: 1px solid rgb(107, 105, 105);
+}
+
+.calender td{
+    border: 1px solid rgb(107, 105, 105);
+}
+
+.day{
+    background-color: rgb(196, 196, 196);
+}
+
+.days{
+    color: rgb(71, 71, 71);
+}
+
+.line-hor{
+    position: absolute;
+    left: 120px;
+    margin-top: -30px;
+    width: 130px;
+    height: 1px;
+    background-color: rgb(133, 128, 120);
+}
+
+.date{
+    font-size: 12px;
+    color: rgb(121, 120, 120);
+}
+
+.text-right{
+    margin-top: 6px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 780px;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(230, 205, 64);
+    text-align: center;
+}
+
+footer ul{
+    list-style: none;
+}
+
+.fab{
+    width: 45px;
+    height: 40px;
+    background-color: rgb(255, 248, 248);
+    text-align: center;
+    padding-top: 13px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    margin-top: 18px;
+}
+
+footer .foot-left{
+    margin-top: 28px;
+}
+
+footer .mid{
+    display: flex;
+}
+
+footer ul li{
+    font-weight: bold;
+    list-style: none;
+    float: left;
+    margin: 0 20px;
+    line-height: 37px;
+    align-items: center;
+}
+
