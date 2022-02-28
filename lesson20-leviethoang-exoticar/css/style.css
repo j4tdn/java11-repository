@@ -1,0 +1,168 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-family: "Tahoma";
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+header {
+    background: black;
+    width: 100%;
+    height: 65px;
+    position: fixed;
+    top: 0;    
+}
+
+header {
+	padding-top: 23px;
+}
+
+header .logo {
+    float: left;
+    padding-left: 75px;
+}
+
+header ul {
+	float: right;
+}
+
+header ul li {
+	display: inline-block;
+	margin-right: 100px;
+	font-size: 14px;
+	font-style: bold;
+}
+
+.banner {
+	width: 100%;
+	height: 700px;
+	background: url("../images/banner.png");
+	background-size: cover;
+	color: white;
+}
+
+.banner .banner-content {
+	text-align: center;
+	padding-top: 273px;
+}
+
+.banner .banner-title {
+	text-transform: uppercase;
+	font-size: 65px;
+}
+
+.banner .banner-subtitle {
+	margin: 25px 0;
+	font-size: 30px;
+	font-weight: 100;
+}
+
+.banner .banner-submit {
+	display: inline-block;
+	background: #CA0600;
+	padding: 15px 35px;
+}
+
+.banner-submit:hover {
+	color: #CA0600;
+	background: white;
+	font-weight: bold;
+}
+
+.content {
+	padding: 80px;
+	background: linear-gradient(95deg, #ffffff 0%, #ffffff 50%, #1D1D1D 49%, #1D1D1D 100%);
+	height: 700px;
+}
+
+.content .left-column {
+	float: left;
+	width: 40%;
+}
+
+.content .right-column {
+	float: right;
+	width: 40%;
+	color: white;
+}
+
+.content .title {
+	font-size: 45px;
+}
+
+.content .title:after {
+	content: '';
+    display: block;
+    height: 2px;
+    width: 45px;
+    background: #CA0600;
+    margin: 30px 0;
+}
+
+.content .line {
+    color: red;
+    font-style: bold;
+}
+
+.content .quote {
+    font-size: 22px;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.content .text {
+	margin-bottom: 35px;
+}
+
+footer {
+	padding: 40px 70px;
+	background: #111111;
+	height: 215px;
+}
+
+footer .footer-col {
+	float: left;
+	width: 25%;
+}
+
+footer .footer-col ul {
+	color: #858585;
+}
+
+footer .footer-col ul li {
+	line-height: 2;
+	font-size: 13px;
+}
+
+footer .footer-title {
+	color: white;
+	font-weight: normal;
+	text-transform: uppercase;
+	font-size: 15px;
+}
+
+footer .footer-title:after {
+	content: '';
+    display: block;
+    height: 1px;
+    width: 70%;
+    background: #292929;
+    margin: 15px 0;
+}
+
+footer .social-media li {
+	display: inline-block;
+	margin-right: 10px
+}
+
+footer .copyright {
+	color: #4B4B4B;
+	font-size: 13px;
+	margin-top: 40px;
+}
