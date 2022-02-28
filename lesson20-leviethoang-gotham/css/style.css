@@ -1,0 +1,437 @@
+/* ============================= */
+/* CSS Reset =================== */
+/* ============================= */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-spacing: 0;
+}
+/* ============================= */
+@font-face {
+    font-family: Roboto;
+    src: url('../fonts/Roboto-Regular.woff') format('woff'),
+         url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: Roboto;
+    src: url('../fonts/Roboto-Light.woff') format('woff'),
+         url('../fonts/Roboto-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+@font-face {
+    font-family: Proxima;
+    src: url('../fonts/ProximaNova-Light.woff') format('woff'),
+         url('../fonts/ProximaNova-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+@font-face {
+    font-family: Proxima;
+    src: url('../fonts/ProximaNova-Regular.woff') format('woff'),
+         url('../fonts/ProximaNova-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: Proxima;
+    src: url('../fonts/ProximaNova-Bold.woff') format('woff'),
+         url('../fonts/ProximaNova-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+
+/*=============================*/
+/*BASE ========================*/
+/*=============================*/
+
+body {
+    font-size: 16px;
+    font-family: Roboto;
+}
+
+/*=============================*/
+/*HEADER ======================*/
+/*=============================*/
+
+.page-header, .page-footer {
+    width: 100%;
+    height: 67px;
+    background-color: #f6c61c;
+}
+
+.page-header .wrapper,
+.page-footer .wrapper {
+    width: 1170px;
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.page-header nav ul {
+    display: flex;
+    column-gap: 66px;
+}
+
+.page-header nav a,
+.page-footer nav a {
+    font-family: Proxima;
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+/*=============================*/
+/*MAIN ======================*/
+/*=============================*/
+
+.main .wrapper {
+    width: 1170px;
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+}
+
+.main main {
+   width: 77%;
+}
+
+.main .right-sidebar {
+    width: 23%;
+}
+
+.main main h2 {
+    margin: 43px 0 18px;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: Proxima;
+}
+
+/*=============================*/
+/*MAIN - ARTICLES =============*/
+/*=============================*/
+
+.articles article {
+    display: flex;
+    margin-bottom: 65px;
+}
+
+.articles article .article-left {
+    width: 30%;
+}
+
+.articles article .article-right {
+    width: 70%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding-left: 30px;
+}
+
+.articles article .article-right h3{
+    font-size: 30px;
+    font-weight: 300;
+    font-family: Roboto;
+}
+
+.meta {
+    font-size: 13px;
+    color: #a9a9a9;
+}
+
+.meta span::after {
+    content: ' | ';
+    font-size: 14px;
+}
+
+.meta span.category::after {
+    display: none;
+}
+
+.meta .category {
+    color: #f6c61c;
+}
+
+.description {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.description::after {
+    content: '>';
+    color: #f6c61c;
+}
+
+.additional {
+    font-size: 14px;
+    color: #a9a9a9;
+}
+
+.additional .view::before {
+    content: '\f06e';
+    font-family: 'Font Awesome 5 Free';
+    margin-right: 8px;
+}
+
+.additional .view::after {
+    content: ' | ';
+    margin: 0 8px;
+}
+
+.additional .comments::before {
+    content: '\f075';
+    font-family: 'Font Awesome 5 Free';
+    margin-right: 8px;
+}
+
+button.article-more {
+    display: block;
+    width: 170px;
+    height: 42px;
+
+    border: 1px solid #f9cc33;
+    border-radius: 3px;
+    background: transparent;
+    color: #000;
+
+    text-transform: uppercase;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+/*=============================*/
+/*MAIN - SIDEBAR ==============*/
+/*=============================*/
+
+.right-sidebar{
+    margin-top: 87px;
+    border-left: 1px solid gray;
+    padding-left: 20px;
+}
+
+.search-box{
+    box-sizing: border-box;
+    border: 1px solid gray;
+    position: absolute;
+    padding: 2px;
+    border-radius: 50px;
+    display: flex;
+}
+
+.search-box .search-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.search-box .input-search{
+    outline: none;
+    border: 0;
+    border-radius: 50px;
+}
+
+.right-sidebar .calendar-box {
+    margin: 70px 0 0 0;
+   /* box-sizing: border-box;
+    border: 1px solid gray;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /*background-color: blue;*/
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+
+  /*box-sizing: border-box;
+  border: 1px solid gray;*/
+}
+ 
+td {
+  border: 1px solid  #cacaca;
+}
+
+.calendar thead td {
+  border: 1px solid  white;
+
+}
+ 
+.calendar-container header {
+    text-align: center;
+    /*background-color: red;*/
+
+}
+
+.calendar-container header::before {
+    content: '\f053';
+    font-family: 'Font Awesome 5 Free';
+    margin-right: 8px;
+    color: blue;
+}
+
+.calendar-container header::after {
+    content: '\f054';
+    font-family: 'Font Awesome 5 Free';
+    margin-right: 8px;
+    color: pink;
+}
+ 
+.month-year {
+    font-size: 14px;
+    line-height: 2;
+}
+ 
+.calendar {
+    background: #fff;
+    color: #555;
+    display: inline-block;
+}
+ 
+.calendar thead {
+    background-color: #cacaca;
+    text-transform: uppercase;
+    color: gray;
+}
+ 
+.calendar td {
+    padding: 9px;
+    text-align: center;
+}
+ 
+.calendar tbody td:hover {
+    background: #cacaca;
+    color: #fff;
+}
+ 
+.current-day {
+    color: white;
+    background-color: orange;
+}
+ 
+.prev-month,
+.next-month {
+    color: #cacaca;
+}
+
+.popular {
+    margin: 40px 0;
+}
+
+.popular-new {
+    font-weight: bold;
+    position: relative;
+}
+
+.popular-new::after {
+    border-top: 1.5px solid #dfdfdf;
+    content:"";
+    margin: 0 auto; 
+    position: absolute; 
+    top: 50%; left: 0; right: 0; bottom: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.popular-new span { 
+    background: #fff; 
+    padding-right: 10px; 
+}
+
+.main-content {
+     margin: 20px 0;
+}
+
+.sub-content {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/*=============================*/
+/*FOOTER ======================*/
+/*=============================*/
+
+.page-footer .wrapper {
+    justify-content: space-between;
+}
+
+.page-footer .copy {
+    font-family: Proxima;
+    font-weight: 300;
+    font-size: 13px;
+    color: #a78612;
+}
+
+.page-footer nav ul {
+    display: flex;
+    column-gap: 36px;
+}
+
+.page-footer nav a {
+    text-transform: none;
+}
+
+.page-footer .socials ul {
+    display: flex;
+    column-gap: 12px;
+}
+
+.page-footer .socials ul li {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 50%;
+    background-color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-footer .socials a {
+    /* Aligt sign for a-i element */
+    font-size: 24px;
+    color: #f9cc35;
+}
