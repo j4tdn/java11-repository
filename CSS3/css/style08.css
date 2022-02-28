@@ -1,0 +1,26 @@
+*{
+	box-sizing: border-box;
+}
+
+
+.block {
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	border: 1px solid #2b2b2b;
+	display: inline-block;
+}
+
+.bg-green {
+	background: green;
+}
+
+.bg-orange {
+	background: orange;
+	visibility: hidden;
+}
+
+.bg-blue {
+	background: blue;
+}
+

@@ -1,0 +1,47 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Index13 - Pseudo Elements</title>
+
+	<style>
+		.tittle::after {
+			content: "";
+			display: block;
+			width: 20px;
+			height: 2px;
+			background: red;
+			margin-top: 25px;
+		}
+
+		.text {
+			font-family: Corbel;
+			font-size: 18px;
+			line-height: 1.5px;
+		}
+
+		.text::before {
+			content: "---->";
+			color: red;
+		}
+
+		.text::after {
+			content: "---->";
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+
+	<h2 class="tittle">
+		Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Expedita, illum.
+	</h2>
+
+	<p class="text">
+		Lorem ipsum, dolor sit amet consectetur, adipisicing elit. Reiciendis eum inventore quam atque tempora maxime nam dolor architecto sint placeat veritatis a facere quidem numquam voluptatum aliquam nesciunt magnam, exercitationem.
+	</p>
+
+
+</body>
+</html>
