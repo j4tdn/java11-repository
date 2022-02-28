@@ -1,0 +1,191 @@
+header {
+	width: 100%;
+	height: 50px;
+	background: #ffff1a;
+    	margin-bottom: 50px;
+}
+
+.navigation {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.img-navigation {
+	margin-left: 450px;
+	line-height: 70px;
+}
+
+
+.header01 {
+    	float: left;
+    	font-family: corbel;
+    	font-size: 18px;
+    	text-transform: uppercase;
+    	color: #000000;
+    	font-weight: bolder;
+    	margin-top: -55px;
+
+}
+
+.header02 {
+    	float: right;
+    	font-family: corbel;
+    	font-size: 18px;
+    	text-transform: uppercase;
+    	color: #000;
+    	font-weight: bolder;
+    	margin-top: -55px;
+}
+
+
+.header01 ul li {
+    	float: left;
+    	margin-right: 65px;
+}
+
+.header02 ul li {
+    	float: left;
+    	margin-left: 65px;
+}
+
+.text01 {
+   	clear: both;
+    	font-family: corbel;
+    	font-weight: bold;
+    	font-size: 30px;
+    	margin-bottom: 30px;
+}
+
+.img {
+    	float: left;
+    	margin-right: 30px;
+}
+
+.div01 {
+    	width: 60%;
+    	margin-left: 100px;
+}
+
+.div01 div {
+    	margin-bottom: 50px;
+}
+
+.sub-div01 div {
+    	margin-bottom: 10px;
+}
+
+.text02 {
+    	font-size: 30px;
+}
+
+.text03 {
+    	float: left;
+    	margin-right: 5px;
+    	color: grey;
+}
+
+.text04 {
+    	font-weight: bold;
+    	color: #ffff4d;
+}
+
+.text05 {
+    	font-size: 20px;
+}
+
+.text06 {
+    	float: left;
+    	margin-right: 5px;
+}
+
+.more-articles {
+    	width: 150px;
+    	height: 50px;
+    	font-family: corbel;
+    	font-size: 18px;
+    	background: white;
+    	color: black;
+    	margin-left: 320px;
+    	border-color: yellow;   
+}
+
+.div01 {
+    	float: left;
+}
+
+.div02 {
+    	margin-right: 100px;
+}
+
+.line {
+  	height: 1550px;
+  	width: 1px;
+  	background: #bfbfbf;
+  	float: left;
+  	margin-left: 50px;
+  	margin-right: 50px;
+  	margin-top: -50px;
+}
+
+.text07 {
+    	float: left;
+    	font-family: corbel;
+    	font-weight: bold;
+    	font-size: 25px;
+    	margin-right: 10px;
+}
+
+.sub-div02 {
+    	margin-top: 50px;
+}
+
+.trick {
+    	width: auto;
+    	height: 5px;
+}
+
+.text08 {
+    	color: grey;
+    	font-size: 15px;
+}
+
+.text09 {
+    	font-family: corbel;
+    	font-size: 22px;
+}   
+
+.sub-div03 {
+    	margin-top: 25px;
+    	margin-bottom: 20px;
+}
+
+footer {
+    	clear: both;
+    	width: auto;
+    	height: 70px;
+    	background: #ffff1a;
+}
+
+footer div {
+    	float: left;
+    	margin-left: 140px;
+    	color: black;
+    	line-height: 70px;
+}
+
+footer div ul li {
+    	float: left;
+    	margin-left: 20px;
+}
+
+.ft1 {
+    	color: grey;
+}
+
+.ft2 {
+    	font-weight: bold;
+}
+
+.ft3 {
+    	margin-top: 10px;
+}
