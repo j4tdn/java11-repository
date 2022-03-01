@@ -1,0 +1,50 @@
+/*2.float   --- float left - clear left*/
+article div.image{
+	background: lightblue;
+	width: 200px;
+	height: 200px;
+	float: left;
+}
+article p.text{
+}
+.clearfix{
+	clear: both;
+}
+
+/*1. Text Style*/
+.text-selector{
+	font-size: 22px;
+	font-family: Corbel;
+	font-weight: bold;
+	font-style: italic;
+	text-decoration: underline;
+}
+ .header{
+ 	margin-bottom: 10px;
+ 	text-align: center;
+ 	font-size: 22px;
+ 	background: greenyellow; /*#edcdcd, rgb(120, 240, 120);, lightblue*/
+ 	height: 60px;
+ 	line-height: 60px;
+ }
+/* .students{
+ 	list-style: decimal ;
+
+ 	override padding of reset.css
+ 	padding: 16px;
+ }*/
+ ul{
+ 	list-style: url(../images/world.png);/*decimal*/
+ 	padding-left: 32px;	
+
+ }
+
+/*.container{
+	background-color: lightgray;
+	width: 200px;
+	height: 200px;
+}
+p{
+	font-family: 'Licorice', cursive;
+	font-size: 5em;
+}*/

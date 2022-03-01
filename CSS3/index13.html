@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Index13 - Pseudo Elements</title>
+	<style type="text/css">
+	
+		.text{
+			font-family: Corbel;
+			font-size: 18px;
+			line-height: 1.5;
+		}
+
+		.text::before{
+			content: "-------->";
+			color: green;
+
+		}
+		.text::after{
+			content: "<--------";
+			color: green;
+
+		}
+
+		.title::after{
+			content: "";
+			width: 64px;
+			height: 3px;
+			background: red;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	
+	<h2 class="title">B sports car, or sportscar, is a small, usually two-seater, two-door automobile designed for spirited performance</h2>
+	<p class="text">
+		B sports car, or sportscar, is a small, usually two-seater, two-door automobile designed for spirited performance and nimble handling. The term "sports car" was used in The Times, London in 1919. According to USA's Merriam-Webster dictionary, USA's first known use of the term was in 1928. Sports cars started to become popular during the 1920s.
+	</p>
+</body>
+</html>

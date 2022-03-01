@@ -1,0 +1,22 @@
+Coffee & Cake
+
+About Us
+
+We’ve been baking and brewing for over 10 years already! Anyone who’s tried our delicious cakes and our signature coffee at least once is now our loyal customer.
+
+Visit our fabulous little coffee shop, and each hour spent will leave a lasting impression for the rest of your week.
+Our menu:
+Deserts
+	Cupcakes
+		Chocolate
+		Vanilla
+		Red Velvet
+	Sweets
+Coffee
+	Americano
+	Espresso
+	Cappuccino
+How to place an order?
+	Select the cake that you like.
+	Call (000) 000-0000 and order your cake
+Contact us
