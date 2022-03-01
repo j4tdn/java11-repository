@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index13 - Pseudo Element</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.text {
+			font-family: Corbel;
+			font-size: 18px;
+			line-height: 1.5;
+		}
+
+		.title::after {
+			content: "";
+			display: block;
+			width: 50px;
+			height: 2px;
+			background: red;
+			margin-top: 20px;
+		}
+
+		.text::before {
+			content: "------>";
+			color: green;
+		}
+
+		.text::after {
+			content: "<------";
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<h2 class="title">Lorem insum coclorea site angae achehhlag aealwge aflekhgl</h2>
+
+	<p class="text">
+		Lorem insum coclorea site angae achehhlag aealwge aflekhgl. Qjghirt faeta ahtel a eaalt  lawel atelt a e oicsh t arewffhxo oa eoeiofjoo aoerer fage, aetlet, agjjelg. Qjghirt faeta ahtel a eaalt  lawel atelt a e oicsh Qjghirt faeta ahtel a eaalt  lawel atelt a e oicsh. Thkeal aeci talek alfleiha areal atelci atjlt, llafel tverum!
+	</p>
+</body>
+</html>
