@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index13 - Pseudo-element</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		
+		.title::after {
+			content: "";
+			width: 64px;
+			height: 3px;
+			background: red;
+			display: block;
+			margin-top: 25px;
+		}
+		.text {
+			font-family: Corbel;
+			font-size: 18px;
+			line-height: 1.5;
+		}
+
+		.text::before {
+			content: "---->";
+			color: red;
+		}
+
+		.text::after {
+			content: "<----";
+			color: blueviolet;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h2 class="title">
+		adassssssssssssssssssssssssssssssssfdasdfffffffffffffffffffffffffffffff
+	</h2>
+	<p class="text">
+		lorem4aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+		lorem4aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+		lorem4aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+		lorem4aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+		lorem4aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+		lorem4aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	</p>
+</body>
+</html>
