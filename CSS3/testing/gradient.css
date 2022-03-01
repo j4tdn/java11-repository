@@ -1,0 +1,30 @@
+* {
+	box-sizing: border-box;
+}
+.articles {
+	min-height: 400px;
+	border: 1px solid red;
+}
+
+/*using chrome to edit degree*/
+.articles {
+	background: linear-gradient(99deg, #fff 0%,
+										#fff 50%,
+										#000 50%,
+										#000 100%);
+}
+
+.articles div {
+	/*2 divs in a line*/
+	float: left;
+
+	/*a half in left, right*/
+	width: 50%;
+	padding-top: 30px;
+	
+}
+
+.articles div:nth-child(2) {
+	color: white;
+	padding-left: 50px;
+}
