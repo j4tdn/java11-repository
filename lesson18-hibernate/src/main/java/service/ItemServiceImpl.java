@@ -14,8 +14,13 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
-	public List<Item> get(String igName) {
+	public List<Item> getAll() {
 		return itemDao.getAll();
+	}
+
+	@Override
+	public Item getItem(int itemId) {
+		return itemDao.getItem(itemId);
 	}
 
 }
