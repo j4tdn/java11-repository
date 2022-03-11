@@ -1,0 +1,42 @@
+/*1. Text style*/
+header {
+	background-color: rgb(48, 117, 196);
+	height: 60px;
+}
+
+header p {
+	font-size: 40px;
+	text-align: center;
+	line-height: 60px;
+}
+.text-selector {
+	font-size: 30px;
+	font-family: Corbel;
+	font-weight: bold;
+	font-style: italic;
+	text-decoration: underline;
+}
+
+
+ul {
+	list-style: url(../images/world.png);
+	/*Overide padding of reset.css*/
+	padding-left: 20px;
+}
+
+/*2. Float*/
+
+article div.image {
+	background-color: lightblue;
+	width: 200px;
+	height: 200px;
+	float: left;
+}
+
+article p.text {
+	
+}
+
+.clearfix {
+	clear: both;
+}
