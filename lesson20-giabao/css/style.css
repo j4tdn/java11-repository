@@ -1,0 +1,329 @@
+/*==================*/
+/*= RESET CSS ======*/
+/*==================*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  font-family: Helvetica Neue, Helvetica, Arial, Utkal, sans-serif;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  text-decoration: none;
+}
+
+/*==================*/
+/*= CNN CSS  ======*/
+/*==================*/
+
+body {
+  font-size: 16px;
+}
+
+/*style for header */
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  background-color: #0c0c0c;
+  padding: 0 50px;
+  color: #fff;
+  cursor: pointer;
+}
+
+header .content-wrapper,
+header .icon-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+header .content-wrapper .logo img {
+  height: 24px;
+  width: 24px;
+}
+
+header .icon-side i {
+  padding: 0px 15px;
+}
+
+header .icon-side i:nth-child(1) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+header .icon-side .glyphicon {
+  font-size: 1.1em;
+}
+
+header .content-wrapper .logo {
+  padding: 8px 10px;
+  font-weight: 700;
+  background-color: #cc0000;
+}
+
+header .content-wrapper .navigation-link {
+  margin-left: 15px;
+  font-size: 0.9em;
+}
+
+/*style for hot conntent*/
+.hot-content {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.hot-content .link {
+  color: #0c0c0c;
+  font-size: 1.2em;
+  padding: 5px;
+  padding-right: 0;
+  cursor: pointer;
+}
+.hot-content .link::after {
+  content: "|";
+  padding: 5px;
+}
+
+.big-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 70px;
+}
+
+.hot-content .link:hover,
+.big-content:hover,
+.news-row .news .image-title:hover {
+  color: #cc0000;
+}
+
+/*style for main page */
+.width-460 {
+  width: 460px;
+}
+
+.width-300 {
+  width: 300px;
+}
+
+.width-350 {
+  width: 350px;
+}
+
+.news-wrapper {
+  height: 500px;
+}
+
+.news-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.news-row .news {
+  margin: 0 20px;
+}
+
+.news-row .news img {
+  width: 100%;
+  height: 100%;
+}
+
+.news-row .news .image-title {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/*style for footer */
+.footer {
+  background-color: #0c0c0c;
+  color: #fff;
+  padding: 50px;
+}
+
+.footer input {
+  width: 100%;
+  padding-left: 10px;
+  margin-bottom: 40px;
+  color: #404040;
+}
+
+.footer__grid {
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  -ms-grid-columns: (minmax(160px, 1fr)) [auto-fill];
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+.footer__grid span div {
+  margin: 3px 20px;
+  cursor: pointer;
+}
+
+.footer__grid span div:nth-child(1) {
+  margin: 20px;
+}
+
+.footer__grid__item {
+  margin-bottom: 10px;
+}
+
+.footer .terms {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.footer .terms span {
+  cursor: pointer;
+}
+
+.footer .copyright,
+.footer .terms {
+  font-size: 0.8em;
+  margin: 10px 0;
+}
