@@ -1,0 +1,191 @@
+/*==================*/
+/*= RESET CSS ======*/
+/*==================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+}
+
+
+/*==================*/
+/*= CNN CSS  ======*/
+/*==================*/
+header {
+	/*width: 100vh;*/
+	width: 100%;
+	height: 40px;
+	background: #2b2b2b;
+}
+
+.container-header{
+	width: 80%;
+	/*Horizontal-Alignment: center*/
+	margin: 0 auto;
+
+	display: flex;
+
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.header-right {
+	display: flex;
+	height: 40px;
+}
+
+.header-left {
+	display: flex;
+	justify-content: center;
+  	align-items: center;
+  	gap:  1.5rem;
+}
+
+.header-navigation{
+	display: flex;
+	height: 40px;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.header-navigation ul li{
+	display: inline;
+	justify-content: center;
+	color: white;
+	margin-right: 5px;
+	font-size: 14px;
+}
+
+.header-image {
+	
+}
+
+.item {
+	width: 120px;
+	height: 120px;
+	background: orange;
+
+	color: #000;
+	font-size: 22px;
+
+	border: 1px solid #333;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	/*text-align: center;
+	line-height: 120px;*/
+	/*margin: 1px; replace by gap property*/
+}
+
+main h1{
+	font-weight: bold;
+	font-size: 72px;
+}
+
+main h3 {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+footer {
+	/*width: 100vh;*/
+	width: 100%;
+	height: 600px;
+	background: #000;
+	color: white;
+}
+
+.container-footer {
+	width: 80%;
+	/*Horizontal-Alignment: center*/
+	margin: 0 auto;
+
+	display: flex;
+
+	flex-direction: column;
+}
+
+.search-box {
+  margin-top: 10px;
+}
+
+.search-box input[type=text] {
+  width: 100%;
+  height: 35px;
+  padding-right: 50px;
+}
+
+.search-box button {
+	padding: 0;
+	border: none;
+	background: none;
+  	margin-left: -130px;
+	height: 35px;
+	font-weight: bold;
+}
+
+footer h3{
+	font-weight: bold;
+}
+
+.footer-item {
+
+}
+
+div.footer-item ul li{
+	margin-top: 10px;
+}
+
+.footer-items {
+	display: flex;
+	gap: 4rem;
+	margin-top: 10px;
+
+	flex-direction: row;
+	justify-content: start;
+	flex-wrap: wrap;
+}
