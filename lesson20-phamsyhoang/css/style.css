@@ -1,0 +1,218 @@
+/*==================*/
+/*= RESET CSS ======*/
+/*==================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+
+
+/*==================*/
+/*= CNN CSS  ======*/
+/*==================*/
+
+header {
+	background: black;
+	height: 60px;
+	width: 100%;
+}
+
+.wrapper {
+	width: 70%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.page-header .logo {
+	position: absolute;
+	float: left;
+	margin-left: 220px;
+}
+
+.page-header .main-nav {
+	float: left;
+	margin-left: 20px;
+}
+
+.page-header .feature {
+	float: right;
+}
+
+.main-nav ul li {
+	color: white;
+	float: left;
+	margin-right: 10px;
+	line-height: 60px;
+}
+
+.main-nav ul li a {
+	color: white;
+}
+
+.far,.fas{
+	color: white;
+	margin-left: 20px;
+	font-size: 30px;
+	margin-top: 15px;
+}
+
+.topic ul li {
+	font-weight: bold;
+	float: left;
+	margin-right: 15px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.topic ul li a{
+	color: black;
+	line-height: bold;
+}
+
+.topic>ul>li::after {
+	content: "|";
+	color: lightgray;
+	padding-left: 15px;
+}
+
+.page-main .tilte {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.page-main .tilte a {
+	font-size: 70px;
+	font-weight: bold;
+	transition: all 0.2s ease;
+}
+
+.page-main .tilte a:hover {
+	color: red;
+}
+
+.page-main article .row {
+	height: 650px;
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 50px;
+}
+
+.col1,.col3 {
+	width: 30%;
+}
+.col2 {
+	width: 40%;
+}
+
+.article-img {
+	width: 100%;
+}
+
+.page-main article .row .col {
+	padding: 20px 10px;
+}
+
+.sub-article {
+	margin-bottom: 30px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.page-main article .row .col a{
+	transition: all 0.2s ease;
+}
+
+.page-main article .row .col a:hover{
+	color: red;
+}
+
+hr {
+
+  background: lightgray;
+  border: 0;
+  height: 1px;
+}
+
+.small-article {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.small-article img{
+	width: 30%;
+	margin-right: 20px;
+}
+
+footer {
+	background: black;
+	height: 300px;
+	width: 100%;
+}
+
+.search {
+	width: 100%;
+}
+.ip-txt {
+	width: 100%;
+	margin-top: 30px;
+}
+
+
+
+.ft-1 a {
+	color: white;
+	font-weight: none;
+
+}
+
+.ft-1 ul {
+	font-weight: bold;
+}
+
+.ft-1 ul li {
+	font-weight: none;
+}
