@@ -1,0 +1,221 @@
+/*==================*/
+/*= RESET CSS ======*/
+/*==================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+}
+
+
+/*==================*/
+/*= CNN CSS  ======*/
+/*==================*/
+.wrapper {
+	width: 80%;
+}
+
+
+/* ================= HEADER ================ */
+.navbar {
+	padding: 0 !important;
+	background-color: black !important;
+	color: white !important;
+	height: 50px;
+}
+
+.navbar a {
+	color: #e6e6e6;
+}
+
+.navbar a:hover {
+	color: white;
+}
+
+.navbar-brand {
+	padding: 0 !important;
+}
+
+.navbar-brand img {
+	width: 50px;
+}
+
+.nav-item__right {
+	display: flex;
+	align-items: center;
+	padding: 0 10px;
+}
+
+.nav-item__right-icon {
+	font-size: 20px;
+}
+
+.nav-item__edition::after {
+	content: ' >';
+}
+
+/* ================MAIN================ */
+.banner-topic {
+	display: flex;
+	justify-content: center;
+}
+
+.banner-topic li a {
+	text-decoration: none;
+	color: #262626;
+	font-weight: 600;
+}
+
+
+.banner-topic li a span {
+	color: #E30000;
+}
+
+.banner-topic li a::after {
+	content: '|';
+	padding: 0 10px;
+	color: #d9d9d9;
+}
+
+.banner-topic li a:hover {
+	color: #c00;
+}
+
+.top-articles {
+	cursor: pointer;
+}
+
+.top-articles__hot-news-title:hover {
+	color: #c00;
+}
+
+
+.top-articles__hot-news-title h2 {
+	text-align: center;
+	padding: 10px 20px;
+
+}
+
+.top-articles__hot-news-title .title {
+	font-size: 16px;
+	font-weight: 700;
+	padding: 5px 10px;
+	padding-left: 0;
+    margin-bottom: 5px;
+
+}
+
+.top-articles__hot-news-img img {
+	width: 100%;
+}
+
+.top-articles__hot-news-title_news {
+	padding-left: 0;
+}
+
+.top-articles__hot-news-title_news ul {
+	padding-left: 0;
+}
+
+.top-articles__hot-news-title_news ul li {
+	padding-left: 0;
+}
+
+.top-articles__hot-news-title_news ul a {
+	text-decoration: none;
+	color: #262626;
+}
+
+.top-articles__hot-news-title_news ul a:hover {
+	color: #c00;
+
+}
+
+.top-articles__hot-news-title_news ul li hr {
+	margin: 5px 0;
+
+}
+
+.top-articles__hot-news-title_news ul .decorate{
+	text-decoration: underline !important;
+	text-decoration-color: #d9d9d9 !important;
+}
+
+
+footer {
+    height: 500px;
+    background-color: black;
+  }
+  footer .wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    margin: 30px 0;
+    height: 50px;
+    border-radius: 5px;
+    position: relative;
+  }
+  .search {
+    position: absolute;
+    top: 40px;
+    right: 95px;
+    color: #09ff00;
+  }
+  .category {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    margin: 30px 0;
+  }
+  
+  .category h6 {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px 0;
+  }
