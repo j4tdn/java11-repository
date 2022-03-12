@@ -1,0 +1,212 @@
+/*==================*/
+/*= RESET CSS ======*/
+/*==================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/*==================*/
+/*= CNN CSS  ======*/
+/*==================*/
+
+/* ==== HEADER ==== */
+.page-header {
+	height: 40px;
+	background: #0c0c0c;
+}
+
+.page-header .logo img {
+	width: 40px;
+	height: 40px;
+}
+
+.page-header .wrapper {
+	width: 85%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.page-header ul {
+	display: flex;
+}
+
+.page-header ul li {
+	margin-left: 10px;
+}
+
+.page-header .left-nav {
+	padding-right: 350px
+}
+
+.page-header ul li a {
+	color: #effefe;
+	font-size: 14px;
+	line-height: 40px;
+}
+
+/* ==== FOOTER ==== */
+
+.page-footer {
+	margin-top: 200px;
+	background: #0c0c0c;
+}
+
+.page-footer .wrapper {
+	width: 85%;
+	margin: 0 auto;
+}
+
+.page-footer .search-box input {
+	width: 100%;
+	height: 35px;
+	margin-top: 70px;
+	margin-bottom: 40px;
+}
+
+.page-footer .search-box button {
+	position: absolute;
+	height: 20px;
+	top: 317px;
+	right: 203px;
+	border: none;
+}
+
+.page-footer .search-box button:after {
+	content: "\f356";
+}
+
+.page-footer .nav-section {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.page-footer .nav-section>* {
+	width: 14%;
+	padding-right: 10px;
+	padding-bottom: 20px;
+}
+
+.page-footer .nav-section .nav {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.page-footer .nav-section .nav li a {
+	color: #effefe;
+	font-size: 14px;
+}
+
+.page-footer .nav-section .nav>li:first-of-type a {
+	font-size: 18px;
+	display: inline-block;
+	margin-bottom: 10px;
+	font-weight: 700;
+}
+
+.page-footer .container {
+	display: flex;
+	color: #effefe;
+	justify-content: space-between;
+}
+
+.page-footer .container img	{
+	width: 40px;
+	height: 40px;
+}
+
+.page-footer .container .contact ul {
+	display: flex;
+}
+
+.page-footer .contact ul li {
+	padding-left: 10px;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 40px;
+}
+
+.page-footer .contact ul li:first-child::after {
+	content: "|";
+	font-weight: 50;
+	padding: 10px;
+}
+
+.page-footer .contact ul li:nth-child(n+2) {
+	font-size: 18px;
+}
+
+.page-footer .bottom-nav::before {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 1px;
+	background: #4d4d4d;
+	margin: 20px 0;
+}
+
+.page-footer .bottom-nav ul {
+	display: flex;
+	justify-content: space-between;
+}
+
+.page-footer .bottom-nav ul li a {
+	font-size: 11px;
+	color: #effefe;
+	padding-right: 1px;
+	font-weight: 100;
+}
+
+
+
+
+
