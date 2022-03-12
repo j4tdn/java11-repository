@@ -1,0 +1,419 @@
+/*==================*/
+/*= RESET CSS ======*/
+/*==================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+}
+
+
+/*==================*/
+/*= CNN CSS  ======*/
+/*==================*/
+
+.page-header {
+	background: black;
+	width: 100%;
+	height: 50px;
+	position: relative;
+	
+}
+
+.wrapper-header {
+	width: 70%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.header-left {
+	height: 50px;
+}
+
+.header-left  ul li {
+	display: inline-block;
+	margin-right: 20px;
+
+}
+
+.header-left  ul li img {
+	width: 50px;
+	height: 30px;
+	
+}
+
+
+.header-left  ul li a {
+	color: white;
+	line-height: 50px;
+	font-size: 15px;
+
+}
+
+.header-left  ul li a:hover {
+	color: #b7b3b3;
+
+}
+
+
+.header-right ul li {
+	display: inline-block;
+}
+
+
+.header-right li a {
+	font-size: 22px;
+	width: 44px;
+	height: 44px;
+	display: block;
+	background: #000;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 44px !important;
+	color: white;	
+}
+
+.header-right li a:hover {
+	background: #fff;
+	color: #000 !important;
+}
+
+
+/*==========================
+==========Main Page==========*/
+
+h3 {
+	margin-top: 20px;
+	font-size: 20px;
+	font-weight: 500;
+	margin-bottom: 10px;
+	background: #f2f2f2;
+}
+
+
+.wrapper-main {
+	width: 60%;
+	margin: 0 auto;
+}
+
+.nav-main ul li {
+	margin-top: 20px;
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.nav-main ul li a {
+	font-size: 15px;
+	color: black;
+}
+
+
+.nav-main ul li a:hover {
+	color: red;
+}
+
+span {
+	color: red;
+}
+
+.banner {
+	margin-top: 30px;
+}
+
+.banner a {
+	font-size: 70px;
+	color: black;
+	text-align: center;
+	display: block;
+	font-weight: 700;
+}
+
+.banner a:hover {
+	color: red;
+}
+
+
+
+.article {
+	display: flex;
+	margin-top: 15px;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+
+.news-left {
+	width: 300px;
+}
+
+.news-left div img {
+	width: 300px;
+	height: 200px;
+}
+
+.news-left div a {
+	font-size: 20px;
+	color: black;
+	font-weight: 500;
+}
+
+.news-left div a:hover {
+	color: red;
+}
+
+
+.news-center {
+	width: 500px;
+}
+
+.news-center img {
+	width: 500px;
+	height: 300px
+}
+
+.news-center a {
+	display: block;
+	font-size: 20px;
+	color: black;
+	font-weight: 500;
+}
+
+.news-center a::after {
+	content: "";
+	display: block;
+	width: 400px;
+	height: 1px;
+	background: grey;
+	margin: 5px 0 5px;
+}
+
+.news-center  a:hover {
+	color: red;
+}
+
+
+.news-right {
+	width: 300px;
+}
+
+.news-right img {
+	width: 300px;
+	height: 200px
+}
+
+.news-right a {
+	display: block;
+	font-size: 20px;
+	color: black;
+	font-weight: 500;
+}
+
+.news-right a::after {
+	content: "";
+	display: block;
+	width: 300px;
+	height: 1px;
+	background: grey;
+	margin: 5px 0 5px;
+}
+
+
+.news-right  a:hover {
+	color: red;
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+}
+
+
+.top-stories {
+	width: 300px;
+}
+
+.top-stories img {
+	width: 300px;
+	height: 200px
+}
+
+.top-stories a {
+	display: block;
+	font-size: 20px;
+	color: black;
+	font-weight: 500;
+}
+
+.top-stories a::after {
+	content: "";
+	display: block;
+	width: 300px;
+	height: 1px;
+	background: grey;
+	margin: 5px 0 5px;
+}
+
+
+.top-stories  a:hover {
+	color: red;
+}
+
+
+.featured {
+		width: 500px;
+}
+
+.featured a {
+	display: block;
+	font-size: 20px;
+	color: black;
+	font-weight: 500;
+	margin: 10px 0;
+	margin-left: 10px;
+}
+
+
+.featured a:hover {
+	color: red;
+}
+
+
+.featured > a::after {
+	content: "";
+	display: block;
+	width: 500px;
+	height: 1px;
+	background: grey;
+	margin: 5px 0 5px;
+}
+
+
+
+.featured > img {
+	width: 500px;
+	height: 300px
+}
+
+.featured div  {
+	display: flex
+}
+
+
+.featured div img {
+	width: 150px;
+	height: 100px;
+	margin: 5px 0;
+}
+
+.spotlight {
+	width: 300px;
+}
+
+.spotlight  > img {
+	width: 300px;
+	height: 200px
+}
+
+.spotlight div  {
+	display: flex
+}
+
+.spotlight div img {
+	width: 130px;
+	height: 100px;
+	margin: 10px 0;
+	margin-right: 10px;
+}
+
+.spotlight a {
+	margin-left: 10px;
+	margin: 10px 0;
+	display: block;
+	font-size: 20px;
+	color: black;
+	font-weight: 500;
+}
+
+.spotlight div img::after {
+	content: "";
+	display: block;
+	width: 300px;
+	height: 1px;
+	background: grey;
+	margin: 5px 0 5px;
+}
+
+.spotlight > a::after {
+	content: "";
+	display: block;
+	width: 300px;
+	height: 1px;
+	background: grey;
+	margin: 5px 0 5px;
+}
+
+
+.spotlight a:hover {
+	color: red;
+}
+
+
+/*======================
+=====Footer==============*/
+
+.page-footer {
+	background: black;
+	height: 1000px;
+	width: 100%;
+}
+
+
+.wrapper-main input {
+	display: block;
+	width: 100%;
+	border-radius: 10px;
+    height: 30px;
+}
