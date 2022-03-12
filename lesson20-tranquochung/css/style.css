@@ -1,0 +1,137 @@
+/*==================*/
+/*= RESET CSS ======*/
+/*==================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+}
+
+
+/*==================*/
+/*= CNN CSS  ======*/
+/*==================*/
+
+/*====HEADER=====*/
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	background-color: black;
+	color: white;
+}
+
+.cnn-logo {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.logo {
+	display: flex;
+	justify-content: center;
+	margin-left: 30px;
+}
+
+.logo img {
+	width: 40px;
+	height: 40px;
+}
+.nav li {
+	float: left;
+	margin-left: 20px;
+}
+
+.cnn-btn {
+	float: right;
+	margin-right: 50px;
+	display: flex;
+	align-items: center;
+}
+
+.cnn-btn i {
+	margin-left: 20px;
+}
+
+/*=== Main ===*/
+.main {
+	height: 150px;
+}
+
+/*==== Footer ===*/
+.footer {
+	 background-color: black;
+}
+
+.footer .list-footer {
+    height: 200px;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer .ft-list, {
+    flex-basis: 30%;
+}
+
+.input input{
+	width: 90%;
+	height: 25px;
+	margin: 15px 50px;
+}
+
+h5 {
+	font-weight: 20px;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+.ft-list-d {
+	color: black;
+}
+
+
+
+
