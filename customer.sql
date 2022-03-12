@@ -1,0 +1,8 @@
+SELECT * FROM MatHang;
+
+SELECT * FROM MatHang 
+WHERE MauSau = 'Xanh';
+EXPLAIN SELECT * FROM MatHang WHERE MauSac = 'Xanh';
+
+CREATE INDEX IDX_COLOR
+ON MatHang(MauSac);
