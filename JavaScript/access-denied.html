@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JavaScript Demo</title>
+
+	<style>
+		#rollback {
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<h2>Welcome to JavaScript - 15.03.2022</h2>
+	
+	<h2 style="color: red">Access denied - You have not authorized to access this resource</h2>
+
+	<h2>Redirect to HomePage after <span id="rollback">10</span> seconds</body></h2>
+
+	<hr>
+
+	<h3><a href="index.html">Redirect to HomePage</a></h3>
+
+	<script>
+		let counter = 10;
+		let runner = setInterval(function() {
+			counter--;
+			document.querySelector("#rollback").textContent = counter;
+			if (counter === 0) {
+				window.location.href = "index.html";
+				clearInterval(runner);
+			}
+			
+		}, 1000);
+
+	</script>
+</body>
+</html>
