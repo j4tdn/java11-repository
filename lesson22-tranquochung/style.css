@@ -1,0 +1,101 @@
+/* styling */
+.block {
+    float: left;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(to top, #333 0%, #666 30%, #333 100%);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 2px #333 inset;
+    box-sizing: border-box;
+    padding-top: 3px;
+    margin-left: 3px;
+}
+
+h3.heading {
+    font-size: 18px;
+    font-family: 'Arial';
+    text-align: center;
+}
+
+.vertical {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vertical input {
+    transform: rotate(90deg);
+    width: 85px;
+}
+
+.vertical label {
+    height: 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.horizontal input {
+    width: 100px;
+    margin-left: 22px;
+}
+
+.horizontal label {
+    display: flex;
+    justify-content: space-around;
+}
+
+.horizontal select {
+    width: 100px;
+}
+
+.horizontal button {
+    width: 50px;
+    margin-top: 7px;
+    border-radius: 4px;
+}
+
+.shape-horizontal {
+    display: flex;
+    align-items: center;
+}
+
+.hex-vertical {
+    display: flex;
+    justify-content: center;
+}
+
+.hex-vertical input {
+    width: 100px;
+    margin-left: 3px;
+}
+
+.vertical-rgba {
+    display: flex;
+    flex-direction: row;
+}
+
+.vertical-rgba input {
+    width: 75px;
+}
+
+.main {
+    clear: both;
+    padding-top: 20px;
+}
+
+.main .picture  {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: red;
+    transition: all 2s;
+}

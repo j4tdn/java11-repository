@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Block Manipulation</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div class="menu">
+
+		<!-- position y -->
+		<div class="block">
+			<h3 class="heading">
+				Position Y
+			</h3>
+			<div class="wrapper vertical">
+				<input type="range" min="0" max="600" value="0" id="pos-y">
+				<label for="pos-y">
+					<span>0</span>
+					<span>600</span>
+				</label>
+			</div>
+		</div>
+
+		<!-- position X -->
+		<div class="block">
+			<h3 class="heading">
+				Position X
+			</h3>
+			<div class="wrapper horizontal">
+				<label for="pos-x">
+					<span>0</span>
+					<span>800</span>
+				</label>
+				<input type="range" min="0" max="800" value="0" id="pos-x">
+			</div>
+		</div>
+
+		<!-- Size -->
+		<div class="block">
+			<h3 class="heading">
+				Size
+			</h3>
+			<div class="wrapper horizontal">
+				<label for="size">
+					<span>0</span>
+					<span>2</span>
+				</label>
+				<input type="range" min="0" max="2" step="0.001" value="0" id="size">
+			</div>
+		</div>
+
+		<!-- Opacity -->
+		<div class="block">
+			<h3 class="heading">
+				Opacity
+			</h3>
+			<div class="wrapper horizontal">
+				<label for="opacity">
+					<span>0</span>
+					<span>2</span>
+				</label>
+				<input type="range" min="0" max="1" step="0.001" value="0" id="opacity">
+			</div>
+		</div>
+
+		<!-- Shape Type -->
+		<div class="block">
+			<h3 class="heading">
+				Shape Type
+			</h3>
+			<div class="wrapper horizontal shape-horizontal">
+				<select id="shapeType">
+					<option value="S1">Square</option>
+					<option value="S2">Circle</option>
+					<option value="S3">Rhombus</option>
+				</select>
+				<button id="submitShape">Ok</button>
+			</div>
+		</div>
+
+		<!-- HEX -->
+		<div class="block">
+			<h3 class="heading">
+				HEX
+			</h3>
+			<div class="wrapper hex-vertical">
+				<label for="hex">#</label>
+				<input type="text" id="hex">
+			</div>
+		</div>
+
+		<!-- RGBA -->
+		<div class="block">
+			<h3 class="heading">
+				RGBA
+			</h3>
+			<div class="wrapper horizontal" id="rgba-container">
+				<input type="range" min="0" max="255" value="255" id="rgba-r">
+				<input type="range" min="0" max="255" value="0" id="rgba-g">
+				<input type="range" min="0" max="255" value="0" id="rgba-b">
+				<input type="range" min="0" max="255" value="255" id="rgba-a">
+				<div class="vertical-rgba">
+					
+					<label>r</label>
+				</div>
+				<div class="vertical-rgba">
+					<label>g</label>
+				</div>
+				<div class="vertical-rgba">
+					<label>b</label>
+				</div>
+				<div class="vertical-rgba">
+					<label>a</label>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="main">
+		<div class="picture" id="block">
+		</div>
+	</div>
+	<script src="script.js"></script>
+</body>
+
+</html>
