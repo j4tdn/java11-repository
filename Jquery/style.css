@@ -1,0 +1,66 @@
+p {
+	font-size: 18px;
+}
+
+input[type="text"] {
+	outline: none;
+}
+
+.btn-primary {
+	background: #ececec;
+	color: #fff;
+	font-size: 16px;
+}
+
+.btn-warning {
+	background: orange;
+	color: #000;
+	font-size: 16px;
+}
+
+.btn {
+	border: none;
+	cursor: pointer;
+	color: black;
+}
+
+.block {
+	width: 120px;
+	height: 80px;
+	font-size: 18px;
+	text-align: center;
+	line-height: 80px;
+	margin: 10px;
+}
+
+.block-show {
+	background: yellow;
+}
+
+.block-hide {
+	background: green;
+	color: #fff;
+}
+
+.block-toggle {
+	background: orange;
+}
+
+.visible {
+	visibility: hidden;
+}
+
+img {
+	display: inline;
+	width: 400px;
+	height: 300px;
+}
+
+.change {
+	display: block;
+}
+
+.choosefile {
+	display: block;
+	margin: 10px;
+}
