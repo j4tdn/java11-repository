@@ -6,7 +6,7 @@ let heightBalloon = 150;
 let score = 0;
 let gameOver = false;
 let auto = 0;
-// let total = 0;
+let total = 0;
 let game;
 
 // score winer game
