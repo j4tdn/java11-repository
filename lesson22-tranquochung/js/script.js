@@ -61,9 +61,9 @@ function showBlock(box) {
   block.style.display = "flex";
   pause();
   if (box == "block-lose") {
-    playSound("sounds/loser.mp3");
+    playSound("./sounds/loser.mp3");
   } else {
-    playSound("sounds/winner.mp3");
+    playSound("./sounds/winner.mp3");
   }
 }
 
@@ -79,6 +79,7 @@ function closeBlock(box) {
 document.addEventListener("click", (event) => {
   if (event.target.classList.contains("balloon")) {
     event.target.remove();
+    playSound("./sounds/pop.mp3");
     if (!gameOver) {
       score++;
     }
@@ -89,7 +90,6 @@ document.addEventListener("click", (event) => {
       updateTotal();
       clearInterval(game);
     }
-    playSound("./sounds/pop.mp3");
     updateScore();
   }
 });

@@ -16,23 +16,23 @@ body {
 }
 
 .balloon-blue {
-    background-image: url('/images/balloon-blue.png');
+    background-image: url('../images/balloon-blue.png');
 }
 
 .balloon-green {
-    background-image: url('/images/balloon-green.png');
+    background-image: url('../images/balloon-green.png');
 }
 
 .balloon-red {
-    background-image: url('/images/balloon-red.png');
+    background-image: url('../images/balloon-red.png');
 }
 
 .balloon-violet {
-    background-image: url('/images/balloon-violet.png');
+    background-image: url('../images/balloon-violet.png');
 }
 
 .balloon-yellow {
-    background-image: url('/images/balloon-yellow.png');
+    background-image: url('../images/balloon-yellow.png');
 }
 
 /* score-footer */
