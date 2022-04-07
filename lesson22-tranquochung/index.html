@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Balloons</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-	
+	<!-- balloon demo -->
+	<!-- <div class="balloon balloon-blue"></div> -->
+
+	<!-- block show score footer -->
+	<div class="score-footer">
+		<p>You poped <span class="score">0</span> balloons</p>
+	</div>
+
+	<!-- block finish -->
+	<div class="block-finish">
+
+		<!-- block lose -->
+		<div class="block-lose">
+			<p class="p-strong">Sorry!</p>
+			<img src="/images/sad.png" alt="picture sad">
+			<p class="p-strong">You poped <span class="total-score">0</span> balloons</p>
+			<p>Play again?</p>
+			<div class="play-ground">
+				<button class="btn btn-yes">yes</button>
+				<button class="btn btn-no">no</button>
+			</div>
+		</div>
+
+		<!-- block win -->
+		<div class="block-win">
+			<p class="p-strong">Congratulations!</p>
+			<img src="/images/happy.jpg" alt="picture happy">
+			<p class="p-strong">you popped all <span class="total-score">0</span> balloons.</p>
+			<p>You are a champion!</p>
+		</div>
+	</div>
+
+	<audio class="sound-play" src="sounds/bg-music.mp3" autoplay></audio>
+
 	<script src="js/script.js"></script>
 </body>
+
 </html>

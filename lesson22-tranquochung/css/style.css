@@ -1,1 +1,93 @@
 /* styling */
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* balloon */
+.balloon {
+    width: 75px;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 100vh;
+    position: absolute;
+}
+
+.balloon-blue {
+    background-image: url('/images/balloon-blue.png');
+}
+
+.balloon-green {
+    background-image: url('/images/balloon-green.png');
+}
+
+.balloon-red {
+    background-image: url('/images/balloon-red.png');
+}
+
+.balloon-violet {
+    background-image: url('/images/balloon-violet.png');
+}
+
+.balloon-yellow {
+    background-image: url('/images/balloon-yellow.png');
+}
+
+/* score-footer */
+.score-footer {
+    bottom: 0;
+    background: rgb(209 206 206);
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    position: absolute;
+    width: 200px;
+    margin-left: calc(50vw - 100px);
+    z-index: 100;
+}
+
+/* block-finish */
+.block-finish {
+    align-items: center;
+    background: rgb(187, 185, 185);
+    display: none;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+}
+
+/* block-lose */
+.block-finish .block-lose {
+    background: white;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    padding-bottom: 20px;
+    z-index: 100;
+}
+
+.block-finish .p-strong {
+    font-weight: bold;
+}
+
+/* block-win */
+.block-finish .block-win {
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    height: 500px;
+    z-index: 100;
+}
+
+.block-win img {
+    width: 250px;
+    height: 300px;
+}
