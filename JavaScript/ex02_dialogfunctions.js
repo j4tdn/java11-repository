@@ -23,7 +23,7 @@ if (isValidAge) {
 		console.log("a+b type: " + (typeof (a+b)) ) // number
 		// ===:  type checking, value checking
 		// ==: auto convert to the same type before checking value
-		if (result === (a + b)) { 
+		if (result == (a + b)) { 
 			alert("Correct");
 		} else {
 			alert("Wrong");

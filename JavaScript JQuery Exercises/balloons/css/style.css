@@ -1,0 +1,82 @@
+body{
+	overflow: hidden;
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+	font-family: Arial;
+}
+
+.balloon{
+	width: 100px;
+	height: 200px;
+	/* TODO: replace 100px */
+	top: 100vh; /*bottom: -200px*/
+	position: absolute;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.balloon-red{
+	background-image: url(../images/balloon-red.png);
+}
+.balloon-yellow{
+	background-image: url(../images/balloon-yellow.png);
+}
+.balloon-blue{
+	background-image: url(../images/balloon-blue.png);
+}
+.balloon-violet{
+	background-image: url(../images/balloon-violet.png);
+}
+.balloon-green{
+	background-image: url(../images/balloon-green.png);
+}
+
+.total-shadow{
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0,0,0,0.6);
+	/*TODO:  toggle to show container of win/lose*/
+	display: none; /*display: flex;*/
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	position: relative;
+}
+
+.total-block{
+	width: 380px;
+	background: #fff;
+	padding: 10px 0 40px;
+	border-radius: 10px;
+	text-align: center;
+	box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.total-block .win img {
+	width: 320px;
+}
+
+.lose{
+	/*toggle for lose game*/
+	display: none; /*display:  block*/
+}
+.win{
+	/*toggle for win game*/
+	display: none; /*display:  block*/
+}
+
+.score-block{
+	background: #efefef;
+	width: 300px;
+	height: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px 20px 0 0;
+	position: absolute;
+	bottom: 0;
+	left: calc(50% - 150px);
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HTML DOM</title>
+
+	<style>
+		.btn {
+			font-family: corbel;
+			font-size: 18px;
+			color: #fff;
+
+			border: 1px sold #f8f8f8;
+			border-radius: 2px;
+
+			width: 160px;
+			padding: 10px 40px;
+			margin: 10px 0;
+		}
+
+		.btn-green {
+			background: green;
+		}
+
+		.btn-red {
+			background: red;
+		}
+
+		.btn-blue {
+			background: blue;
+		}
+	</style>
+
+</head>
+<body>
+	
+	<h1 id="page-heading" class="red">DOM - JS Selectors</h1>
+
+	<hr>
+
+	<div class="btn btn-green">Hello - I'm green</div> 
+
+	<div class="btn btn-red" id="unique">Hello - I'm red</div> 
+
+	<div class="btn btn-blue">Hello - I'm blue</div> 
+
+	<script>
+		
+		let elements = document.getElementsByClassName('btn-green');
+		console.log(elements);
+
+		let uniqueElement = document.getElementById('unique');
+		console.log(uniqueElement);
+
+		let greenElement = document.querySelectorAll('.btn-green');
+		console.log(greenElement);
+
+		console.log('=========================');
+		let buttons = document.querySelectorAll('.btn');
+		for (let button of buttons) {
+			let currentText = button.textContent;
+			button.textContent = `Switch from ${currentText} to orange`;
+			button.style.backgroundColor = 'orange';
+		}
+
+
+	</script>
+
+</body>
+</html>

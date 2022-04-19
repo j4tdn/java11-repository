@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TodoList - App without styling</title>
+
+	<style>
+		* {
+			margin: 0;
+		}
+
+		main {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+		}
+
+		.todo::before {
+			content: '';
+			display: block;
+			margin: 20px 0;
+			width: 100px;
+			height: 2px;
+			background: green;
+		}
+
+		.add-button {
+			cursor: pointer;
+		}
+	</style>
+
+</head>
+<body>
+	<main>
+		<h2>Todo List</h2>
+		<!-- prevent default submit form event -->
+		<form action="javascript:void(0)">
+			<input class="task-content" type='text' placeholder="Add new task">
+			<button class="add-button">+</button>
+
+		</form>
+		<ul class="todo">
+			<li>Task 01: Homework</li>
+			<li>Task 02: Cleaning</li>
+		</ul>
+	</main>
+
+	<script>
+
+		let addButton = document.querySelector('.add-button');
+
+		addButton.addEventListener('click', function() {
+			let taskContent = document.querySelector('.task-content');
+			
+			let todolist = document.querySelector('.todo');
+			let newTask = createLiTask(taskContent.value);
+			todolist.append(newTask);
+
+			taskContent.value = '';
+		})
+
+		
+
+
+		let todolist = document.querySelector('.todo');
+		let newTask = createLiTask('Task 03: Coffee with friends');
+		todolist.append(newTask);
+
+
+		let task = createLiTask('Task Xz: Nothing');
+		todolist.insertBefore(task, todolist.children[1]);
+
+		function createLiTask(text) {
+			let task = document.createElement('li');
+			task.textContent = text;
+			return task;
+		}
+	</script>
+</body>
+</html>
