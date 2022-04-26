@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Listener</title>
+    <style>
+        .btn-info{
+            background: green;
+            padding: 10px 20px;
+            border: 1px solid #0ec;
+            border-radius: 10px;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Event Listener</h2>
+    <button class="btn-info click-me">
+        Click me
+    </button>
+
+    <script>
+        let component = document.querySelector('.click-me');
+        component.onclick = function() {
+            console.log("onclick ==> first");
+        }
+        component.onclick = function() {
+            console.log("onclick ==> second");
+        }
+
+        component.addEventListener = function() {
+            console.log("EventListener ==> first");
+        }
+
+        component.addEventListener = function() {
+            console.log("EventListener ==> second");
+        }
+
+    </script>
+</body>
+</html>

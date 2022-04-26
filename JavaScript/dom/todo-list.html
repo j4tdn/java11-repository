@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList - App without styling</title>
+
+    <style>
+        *{
+            margin: 0;
+        }
+        main{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        todo{
+            width: 200px;
+        }
+        .todo::before{
+            content: '';
+            display: block;
+            margin: 20px 0;
+            width: 100px;
+            height: 2px;
+            background: green;
+        }
+
+        .add-button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Todo List</h2>
+        <form action="javascript:void(0)">
+            <input class="task-content" type="text" placeholder="Add new Task">
+            <button class="add-button">+</button>
+            <button class="remove-button">-</button>
+        </form> 
+        <ul class="todo">    
+            <li>Task 01: Homeword</li>
+            <li>Task 02: Cleaning</li>
+        </ul>
+    </main>
+
+    <script>
+
+        let addButton = document.querySelector('.add-button');
+
+        addButton.addEventListener('click', function(){
+            let taskContent = document.querySelector('.task-content');
+            
+            let todoList = document.querySelector('.todo');
+            let newTask = createTask(taskContent.value);
+            todoList.append(newTask);
+        })
+
+        let removeButton = document.querySelector('.remove-button');
+        
+        
+        
+        
+        let task = createTask('Task Xz: nothing');
+        todoList.insertBefore(task, todoList.children[0]);
+
+        function createTask(text){
+            let task = document.createElement('li');
+            task.textContent = text;
+            return task;
+        }
+
+        function remove()Ơ
+        
+
+    </script>
+</body>
+</html>
