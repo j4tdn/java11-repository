@@ -1,0 +1,7 @@
+package dao.impl;
+
+import dao.EmployeeDao;
+
+public class HibernateEmployeeImpl  implements EmployeeDao{
+
+}

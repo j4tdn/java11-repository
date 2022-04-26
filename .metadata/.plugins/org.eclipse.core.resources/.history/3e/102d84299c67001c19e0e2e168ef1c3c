@@ -1,0 +1,14 @@
+package dao.impl;
+
+import java.util.List;
+
+import dao.EmployeeDao;
+import persistence.Employee;
+
+public class HibernateEmployeeDao  implements EmployeeDao{
+
+	public List<Employee> getAll() {
+		return null;
+	}
+
+}

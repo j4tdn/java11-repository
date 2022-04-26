@@ -1,0 +1,33 @@
+package demo;
+
+import java.util.List;
+
+import persistence.Department;
+import persistence.Employee;
+import service.DepartmentServiceImpl;
+import service.EmployeeServiceImpl;
+import service.departmentService;
+import service.employeeService;
+import static utils.SqlUtils.*;
+
+public class App {
+	private static String dept_id;
+	
+	private static employeeService employeeService;
+	private static departmentService departmentService;
+	
+	static {
+		employeeService = new EmployeeServiceImpl();
+		//departmentService = new DepartmentServiceImpl();
+		
+		dept_id = "mgm-dn";
+	}
+	public static void main(String[] args) {
+		//Ex01
+		breakLine("Employee by department_id");
+		List<Employee> employees = employeeService.getAll();
+		
+		print(employees);
+
+	}
+}

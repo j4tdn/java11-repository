@@ -1,0 +1,14 @@
+package dao;
+
+import java.util.List;
+
+import persistence.Department;
+
+public class HibernateDepartmentDao extends AbstractHibernateDao implements DepartmentDao{
+	private static final String Q_GET_ALL = "SELECT * FROM department";
+
+	public List<Department> getAll() {
+		return (List<Department>) openSession().createNamedQuery(Q_GET_ALL, Department.class).getResultList();
+	}
+
+}

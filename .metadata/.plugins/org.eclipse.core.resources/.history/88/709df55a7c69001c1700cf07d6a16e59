@@ -1,0 +1,39 @@
+package service;
+
+import java.util.List;
+
+import dao.DepartmentDao;
+import dao.HibernateDepartmentDao;
+import persistence.Department;
+import persistence.DepartmentBudgetDto;
+import persistence.DepartmentDetailBuget;
+
+public class DepartmentServiceImpl implements departmentService{
+	
+	private static DepartmentDao departmentDao;
+	
+	public DepartmentServiceImpl() {
+		departmentDao = new HibernateDepartmentDao();
+	}
+
+	public List<Department> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<DepartmentBudgetDto> getDeparmentProjectHaveBugetMoreThan(int buget) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<DepartmentDetailBuget> getTotalOfBugetEachDepartment() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<DepartmentBudgetDto> getDepartmentProjectHaveHighestBuget() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,57 @@
+package dao;
+
+import java.util.List;
+
+import org.hibernate.transform.Transformers;
+import org.hibernate.type.DoubleType;
+import org.hibernate.type.IntegerType;
+import org.hibernate.type.StringType;
+
+import persistence.Department;
+import persistence.DepartmentBudgetDto;
+
+public class HibernateDepartmentDao extends AbstractHibernateDao implements DepartmentDao{
+	private static final String Q_GET_ALL = "SELECT * FROM department";
+	
+	final String Q_GET_SUM_BUDGET_DEPARTMENT =
+            "select d.dept_name as " + DepartmentBudgetDto.DEPARRTMENT_NAME + " , p.pro_name as " + DepartmentBudgetDto.PROJECT_NAME + ", " +
+                    "p.budget as " + DepartmentBudgetDto.SUM_BUDGET + " from department as d inner" +
+                    " join project as p on d.dept_id=p.dept_id where " +
+                    "p.budget> :buget";
+	
+	
+	
+	final String Q_MAX_BUDGET_DEPARTMENT = "select d.dept_name as " + DepartmentBudgetDto.DEPARRTMENT_NAME+ " , p.pro_name as  "+ DepartmentBudgetDto.PROJECT_NAME+ " ,p.budget as "+ DepartmentBudgetDto.SUM_BUDGET+" from department " +
+            "as d inner join project as p on d.dept_id=p.dept_id" +
+            " where p.budget = (select max(budget) from project)";
+	
+	
+
+	public List<Department> getAll() {
+		return (List<Department>) openSession().createNamedQuery(Q_GET_ALL, Department.class)
+								.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<DepartmentBudgetDto> getDeparmentProjectHaveBugetMoreThan(int buget){
+		return (List<DepartmentBudgetDto>) openSession().createNativeQuery(Q_GET_SUM_BUDGET_DEPARTMENT)
+														.setParameter("buget", buget, IntegerType.INSTANCE)
+														.addScalar(DepartmentBudgetDto.DEPARRTMENT_NAME, StringType.INSTANCE)
+										                .addScalar(DepartmentBudgetDto.PROJECT_NAME, StringType.INSTANCE)
+										                .addScalar(DepartmentBudgetDto.SUM_BUDGET, DoubleType.INSTANCE)
+										                .setResultTransformer(Transformers.aliasToBean(DepartmentBudgetDto.class))
+										                .getResultList();
+														
+	}
+	
+	public List<DepartmentBudgetDto> getDepartmentProjectHaveHighestBuget(){
+		return (List<DepartmentBudgetDto>) openSession().createNativeQuery(Q_GET_SUM_BUDGET_DEPARTMENT)
+				.setParameter("buget", buget, IntegerType.INSTANCE)
+				.addScalar(DepartmentBudgetDto.DEPARRTMENT_NAME, StringType.INSTANCE)
+                .addScalar(DepartmentBudgetDto.PROJECT_NAME, StringType.INSTANCE)
+                .addScalar(DepartmentBudgetDto.SUM_BUDGET, DoubleType.INSTANCE)
+                .setResultTransformer(Transformers.aliasToBean(DepartmentBudgetDto.class))
+                .getResultList();
+	}
+
+}

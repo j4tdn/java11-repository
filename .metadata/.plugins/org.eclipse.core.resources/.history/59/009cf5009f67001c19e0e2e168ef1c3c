@@ -1,0 +1,24 @@
+package dao;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.type.StringType;
+
+import persistence.Employee;
+
+public class HibernateEmployeeDao extends AbstractHibernateDao  implements EmployeeDao{
+
+	private static final String Q_GET_ALL = "SELECT * FROM employee";
+	private static final String Q_GET = "SELECT * FROM employee WHERE dept_id = :dept_id";
+	public List<Employee> getAll() {
+		Session session = openSession();
+
+		return session.createNativeQuery(Q_GET_ALL, Employee.class).getResultList();
+	}
+	public List<Employee> get(String dept_id) {
+		return (List<Employee>) openSession().createNativeQuery(Q_GET, Employee.class)
+							.setParameter("dept_id", dept_id, StringType.INSTANCE);
+	}
+
+}

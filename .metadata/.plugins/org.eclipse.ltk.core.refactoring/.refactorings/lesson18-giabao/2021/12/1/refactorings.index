@@ -1,0 +1,13 @@
+1640665758554	Delete element
+1640667499984	Rename package 'service.impl'
+1640667509138	Delete element
+1640667952350	Rename type 'HibernateDepartmentImpl'
+1640667961942	Rename type 'HibernateEmployeeImpl'
+1640668084295	Move compilation unit
+1640668089134	Move compilation unit
+1640668095113	Move compilation unit
+1640668101426	Delete element
+1640668107408	Move compilation unit
+1640668111694	Move compilation unit
+1640668116758	Delete element
+1640871955982	Rename type 'DepartmentDto'

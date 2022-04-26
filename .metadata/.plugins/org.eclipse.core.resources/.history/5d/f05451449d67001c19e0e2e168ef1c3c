@@ -1,0 +1,24 @@
+package demo;
+
+import java.util.List;
+
+import persistence.Employee;
+import service.DepartmentServiceImpl;
+import service.EmployeeServiceImpl;
+import service.departmentService;
+import service.employeeService;
+
+public class App {
+	private static employeeService employeeService;
+	private static departmentService departmentService;
+	
+	static {
+		employeeService = new EmployeeServiceImpl();
+		//departmentService = new DepartmentServiceImpl();
+	}
+	public static void main(String[] args) {
+		//Testing
+		
+		List<Employee> employees = employeeService.getAll();
+	}
+}

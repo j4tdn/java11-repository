@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="javax.persistence.Table"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="javax.persistence.Column"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="javax.persistence.FetchType"/>
+    <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
+    <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="org.hibernate.Session"/>
+    <fullyQualifiedTypeName name="dao.EmployeeDao"/>
+    <fullyQualifiedTypeName name="service.EmployeeServiceImpl"/>
+    <fullyQualifiedTypeName name="dao.HibernateEmployeeDao"/>
+    <fullyQualifiedTypeName name="service.employeeService"/>
+    <fullyQualifiedTypeName name="service.DepartmentServiceImpl"/>
+    <fullyQualifiedTypeName name="dao.AbstractHibernateDao"/>
+    <fullyQualifiedTypeName name="persistence.Department"/>
+    <fullyQualifiedTypeName name="persistence.DepartmentDto"/>
+    <fullyQualifiedTypeName name="persistence.Employee"/>
+    <fullyQualifiedTypeName name="persistence.EmployeeDto"/>
+    <fullyQualifiedTypeName name="org.hibernate.type.IntegerType"/>
+    <fullyQualifiedTypeName name="org.hibernate.transform.Transformers"/>
+    <fullyQualifiedTypeName name="org.hibernate.type.StringType"/>
+    <fullyQualifiedTypeName name="org.hibernate.type.DoubleType"/>
+    <fullyQualifiedTypeName name="persistence.DeparmentDetailBuget"/>
+    <fullyQualifiedTypeName name="service.departmentService"/>
+    <fullyQualifiedTypeName name="dao.DepartmentDao"/>
+    <fullyQualifiedTypeName name="dao.HibernateDepartmentDao"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="persistence.DepartmentDetailBuget"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="persistence.DepartmentBudgetDto"/>
+</qualifiedTypeNameHistroy>

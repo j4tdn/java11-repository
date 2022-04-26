@@ -1,0 +1,9 @@
+package dao;
+
+import java.util.List;
+
+import persistence.Department;
+
+public interface DepartmentDao {
+	List<Department> getAll();
+}

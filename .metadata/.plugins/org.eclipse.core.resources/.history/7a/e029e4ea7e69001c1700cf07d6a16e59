@@ -1,0 +1,17 @@
+package service;
+
+import java.util.List;
+
+import persistence.Department;
+import persistence.DepartmentBudgetDto;
+import persistence.DepartmentDetailBuget;
+
+public interface departmentService {
+	List<Department> getAll();
+	
+	public List<DepartmentBudgetDto> getDeparmentProjectHaveBugetMoreThan(int buget);
+	
+	public List<DepartmentDetailBuget> getTotalOfBugetEachDepartment();
+	
+	public List<DepartmentBudgetDto> getDepartmentProjectHaveHighestBuget();
+}

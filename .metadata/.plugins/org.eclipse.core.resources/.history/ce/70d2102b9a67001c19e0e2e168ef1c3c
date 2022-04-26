@@ -1,0 +1,27 @@
+package persistence;
+
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="department")
+public class Department {
+	@Id
+	@Column(name = "dept_id")
+	private String dept_id;
+	
+	@Column(name ="dept_name")
+	private String dept_name;
+	
+	
+	@OneToMany(mappedBy = "departments")
+	private List<Employee> employees;
+	
+	public Department() {
+	}
+}

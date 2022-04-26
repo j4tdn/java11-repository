@@ -1,0 +1,36 @@
+package persistence;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="employee")
+public class Employee {
+	@Id
+	@Column(name ="emp_id")
+	private String empId;
+	
+	@Column(name="emp_name")
+	private String name;
+	
+	@Column(name="age")
+	private Integer age;
+	
+	@Column(name="salary")
+	private Double salary;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="dept_id", referencedColumnName = "dept_id")
+	private Department  department;
+
+	public Employee() {
+	}
+	
+	
+	
+}

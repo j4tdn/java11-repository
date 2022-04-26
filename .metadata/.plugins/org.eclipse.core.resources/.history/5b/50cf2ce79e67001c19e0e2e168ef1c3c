@@ -1,0 +1,18 @@
+package dao;
+
+import java.util.List;
+
+import org.hibernate.Session;
+
+import persistence.Employee;
+
+public class HibernateEmployeeDao extends AbstractHibernateDao  implements EmployeeDao{
+
+	private static final String Q_GET_ALL = "SELECT * FROM employee";
+	public List<Employee> getAll() {
+		Session session = openSession();
+
+		return session.createNativeQuery(Q_GET_ALL, Employee.class).getResultList();
+	}
+
+}

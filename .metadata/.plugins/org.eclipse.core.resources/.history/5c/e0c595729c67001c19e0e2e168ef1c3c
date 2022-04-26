@@ -1,0 +1,14 @@
+package dao;
+
+import java.util.List;
+
+import persistence.Employee;
+
+public class HibernateEmployeeDao  implements EmployeeDao{
+
+	private static final String Q_GET_ALL = "SELECT * FROM employee";
+	public List<Employee> getAll() {
+		return null;
+	}
+
+}

@@ -1,0 +1,14 @@
+package dao;
+
+import java.util.List;
+
+import persistence.Department;
+
+public class HibernateDepartmentDao extends AbstractHibernateDao implements DepartmentDao{
+	private static final String Q_GET_ALL = "SELECT * FROM department";
+	public List<Department> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
