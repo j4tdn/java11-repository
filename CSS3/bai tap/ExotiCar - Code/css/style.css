@@ -1,0 +1,249 @@
+/*=========RESET CSS=========*/ /*<!-- ExotiCar CSS -->*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*========= YOUR CODE =========*/
+.wrapper {
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.page-header{
+	background-color: rgba(0, 0, 0, 0.8);
+	height: 66px;
+	width: 100%;
+	position: fixed;
+}
+
+.page-header .logo{
+	float: left;
+	padding-top: 23px;
+}
+
+.page-header .main-nav{
+	float: right;
+}
+
+.main-nav ul li{
+	float: left;
+	margin-left: 90px;
+	line-height: 66px;
+	
+}
+
+.main-nav ul li a{
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.5s ease-out;
+}
+
+.main-nav ul li a:hover{
+	color: #f00;
+}
+
+.page-main .banner{
+	background-image: url(../images/banner.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 612px;
+	width: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.banner-container{
+	text-align: center;
+}
+
+.banner-container>*{
+	margin: 30px 0;
+}
+
+.banner-container .title{
+	font-size: 60px;
+	text-transform: uppercase;
+	color: #a8bb4f;
+	
+}
+
+.banner-container .subtitle{
+	font-size: 24px;
+	text-transform: uppercase;
+	color: #a8bb4f;
+	margin-bottom: 50px;
+}
+
+.banner-container .learn-more{
+	background: #c00;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 10px 20px;
+	border: 1px solid orange;
+	border-radius: 8px;
+	text-decoration: none;
+
+}
+
+.banner-container .learn-more:hover{
+	background-color: #fff;
+	color: #c00;
+	border: none;
+}
+
+.articles{
+	background: linear-gradient(97deg, #fff 0%, #fff 50%, #1b1b1b 50%, #1b1b1b 100%);
+}
+.articles>.wrapper{
+	display: flex;
+}
+
+.articles .car-layout{
+	color: #e8e8e8;
+	padding-left: 65px;
+}
+
+.articles .title{
+	font-size: 36px;
+	font-weight: 300;
+	padding: 50px 0;
+}
+
+.articles .title::after{
+	content: "";
+	display: block;
+	width: 40px;
+	height: 1px;
+	background: #ca0500;
+	max-width: 25px;
+	margin-top: 30px;
+}
+
+.articles .quote{
+	font-size: 22px;
+	font-style: italic;
+	font-weight: 300;
+	margin-bottom: 25px;
+}
+
+.articles .text{
+	font-weight: 300;
+	margin-bottom: 60px;
+	line-height: 1.2;
+}
+
+/* ========= FOOTER ========== */
+.page-footer {
+	background: #111;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+.page-footer .footer-column {
+	width: 25%;
+	float: left;
+}
+
+/* Reset footer height after set float left with  */
+.page-footer .wrapper::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.footer-column h3 {
+	color: #fff;
+	font-size: 22px;
+	text-transform: uppercase;
+}
+
+.footer-column h3::after {
+	content: "";
+	display: block;
+	width: 90%;
+	height: 1px;
+	background: gray;
+	margin: 14px 0;
+}
+
+.footer-column ul li a {
+	font-size: 13px;
+	color: #999;
+	line-height: 1.6;
+}
+
+.footer-column ul li a:hover {
+	color: #fff;
+	cursor: pointer;
+}
+
+.social li {
+	display: inline-block;
+	margin: 0 3px;
+}
+
+.social li a {
+	font-size: 22px !important;
+	width: 44px;
+	height: 44px;
+	display: block;
+	background: #fff;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 44px !important;
+}
+
+.social li a:hover {
+	background: #fff;
+	color: #d00 !important;
+}
+
+.footer-text {
+	margin-top: 20px;
+	color: #999;
+}

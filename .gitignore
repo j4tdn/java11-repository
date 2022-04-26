@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /CSS3/.idea/.gitignore
 /HTML5/.idea/.gitignore
 /lesson19-vunguyen/.idea/.gitignore
@@ -26,3 +27,6 @@
 /HTML5/.idea/vcs.xml
 /lesson19-vunguyen/.idea/vcs.xml
 /lesson19-vunguyen-crud/.idea/vcs.xml
+=======
+.idea/
+>>>>>>> Stashed changes

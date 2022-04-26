@@ -1,0 +1,155 @@
+/* ============================= */
+/* CSS Reset =================== */
+/* ============================= */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-spacing: 0;
+}
+
+table {
+	border-spacing: 0;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+/* ============================= */
+@font-face {
+	font-family: Roboto;
+	src: url('../fonts/Roboto-Regular.woff') format('woff'),
+		 url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: Roboto;
+	src: url('../fonts/Roboto-Light.woff') format('woff'),
+		 url('../fonts/Roboto-Light.ttf') format('truetype');
+	font-weight: 300;
+}
+@font-face {
+	font-family: Proxima;
+	src: url('../fonts/ProximaNova-Light.woff') format('woff'),
+		 url('../fonts/ProximaNova-Light.ttf') format('truetype');
+	font-weight: 300;
+}
+@font-face {
+	font-family: Proxima;
+	src: url('../fonts/ProximaNova-Regular.woff') format('woff'),
+		 url('../fonts/ProximaNova-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: Proxima;
+	src: url('../fonts/ProximaNova-Bold.woff') format('woff'),
+		 url('../fonts/ProximaNova-Bold.ttf') format('truetype');
+	font-weight: bold;
+}
+body {
+	font-size: 16px;
+	font-family: Roboto;
+}
+
+/*============== YOUR CODE ==============*/
+.wrapper {
+	margin: 0 auto;
+	width: 80%;
+}
+
+/* ====== HEADER ====== */
+.page-header,
+.page-footer {
+	width: 100%;
+	height: 68px;
+	background: #f7c61d;
+}
+
+.page-header .wrapper,
+.page-footer .wrapper {
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.page-header .wrapper>*,
+.page-footer .wrapper>* {
+	width: 33%;
+}
+
+.page-header .left-nav ul,
+.page-header .right-nav ul {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.page-logo {
+	text-align: center;
+}
+
+.page-header ul li {
+	text-transform: uppercase;
+}
+
+.page-footer .wrapper {
+	justify-content: space-between;
+}
+
+.page-footer .footer-nav ul {
+	display: flex;
+	justify-content: space-around;
+}
+
+.page-footer .socials {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.page-footer .socials a {
+	color: #f7c61d;
+	font-size: 24px;
+	margin: 0 8px;
+	width: 44px;
+	height: 44px;
+	background: #fff;
+	line-height: 44px;
+	text-align: center;
+	border-radius: 50%;
+}
+
