@@ -1,0 +1,21 @@
+.container-fluid {
+	justify-content: flex-end !important;
+}
+
+.d-flex {
+	display: flex !important;
+	justify-content: flex-end !important;
+}
+
+.btn-outline-success{
+	border-color: blue !important;
+	color: blue !important;
+}
+
+footer {
+	display: flex;
+}
+
+.btn-primary{
+	justify-content: space-between !important;
+}
