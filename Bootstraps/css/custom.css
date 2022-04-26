@@ -1,0 +1,22 @@
+.row>div {
+	min-height: 100px;
+	/*background-color: #ff0;*/
+	border: 1px solid #000;
+}
+
+#orange>div{
+	background: orange;
+}
+
+#yellow>div{
+	background: yellow;
+}
+
+#green>div{
+	background: green;
+}
+
+.container-fluid {
+	/*justify-content: flex-end !important;*/
+
+}

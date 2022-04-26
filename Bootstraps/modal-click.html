@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bootstrap Modals</title>
+	<style>
+		.modal-popup{
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="modal modal-popup">
+		<div class="modal header">
+			<h3>Modal Title</h3>
+		</div>
+		<hr>
+		<div class="modal main">
+			<p>Body #1</p>
+			<p>Body #2</p>
+			<p>Body #3</p>
+		</div>
+		<hr>
+		<div class="modal footer">
+			<button>Close</button>
+			<button>Save changes</button>
+		</div>
+		
+	</div>
+
+
+	<script>
+		document.addEventListener('click', function(event){
+			let target = event.target.classList;
+			let parent = event.target.parentElement.classList;
+
+			if (!target.cotains('modal') && !parent.contains('modal')){
+				document.querySelector('.modal-popup').style.display = 'none';
+			}
+		});
+	</script>
+	
+</body>
+</html>

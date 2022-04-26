@@ -1,0 +1,56 @@
+p {
+	font-size: 18px;
+}
+
+input[type = "text"] {
+	outline: none;
+}
+
+img {
+	display: block;
+	width: 200px;
+	height: 140px;
+	margin: 10px;
+}
+
+.btn {
+	border: none;
+	cursor: pointer;
+}
+
+.btn-primary {
+	background: #ececec;
+	color: #fff;
+	font-size: 16px;
+}
+
+.btn-success {
+	background: green;
+	color: #000;
+	font-size: 16px;	
+}
+
+.block {
+	margin: 5px auto;
+	width: 120px;
+	height: 80px;
+	text-align: center;
+	line-height: 80px;
+	font-size: 18px;
+}
+.block-show{
+	background: yellow;
+}
+
+.block-hide{
+	background: green;
+	color: #fff;
+}
+
+.block-toggle{
+	background: orange;
+}
+
+.visible {
+	visibility: hidden;
+}
