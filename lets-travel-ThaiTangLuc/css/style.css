@@ -1,0 +1,18 @@
+
+.carousel{
+    margin: 10px;
+}
+main{   
+    margin: 10px;
+}
+
+.row {
+    margin-left: 0.5px;
+}
+footer{
+    margin: 50px 10px;
+}
+
+footer span{
+    font-size: 20px;
+}
