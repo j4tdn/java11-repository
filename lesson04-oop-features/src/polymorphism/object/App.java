@@ -19,6 +19,12 @@ public class App {
 		
 		Shape s2 = new Square();
 		s2.drawing();
+		
+		Rectangle r1 = new Rectangle();
+		Square r2 = new Square();
+		
+		s2 = s1;
+		
 		System.out.println("RST2 :"  + s2.getClass().getName());
 		
 		s1 = s2;

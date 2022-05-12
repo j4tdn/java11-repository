@@ -5,5 +5,8 @@ public class Square extends Shape {
 	void drawing() {
 		System.out.println("Square >> drawing");
 	}
+	void asfv() {
+		
+	}
 
 }
