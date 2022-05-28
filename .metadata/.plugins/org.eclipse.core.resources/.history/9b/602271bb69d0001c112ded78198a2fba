@@ -1,0 +1,13 @@
+package spring.core.demo;
+
+/**
+ * Hello world!
+ *
+ */
+public class Applaction 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+}
