@@ -6,16 +6,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring.aop.service.MovieService;
 
 public class Application {
-private static final String PATH = "aop-jointpoint-advice-proxy.xml";
+private static final String PATH = "aop-jointpoint-advisor-auto-proxy.xml";
 	
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(PATH);
 		
 		// Get bean proxy and return joinpoint type at runtime
-		MovieService service = context.getBean("movieServiceProxy", MovieService.class);
+		// MovieService service = context.getBean("movieServiceProxy", MovieService.class);
 		
 		// Auto proxy
-		// MovieService service = context.getBean("movieService", MovieService.class);
+		MovieService service = context.getBean("movieService", MovieService.class);
 		service.printName();
 		
 		System.out.println("====================");
