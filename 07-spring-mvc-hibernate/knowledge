@@ -1,0 +1,22 @@
+Steps connect Spring MVC with Database using Hibernate
+
+1. Creat new Maven Project --> Maven Archetype Webapp
+
+2. Add dependencies and plugins
+	+ maven-war-plugin
+	+ JSP, JSTL, Servlet
+	+ web-mvc
+	+ hibernate-validator
+	+ java-annotation-api
+
+3. Add hibernate needed dependencies
+Require: 
+	  
+	+ session factory, session, transaction
+===> Add dependencies
+	+ hibernate core 
+	+ spring orm ---> ORM mapping
+	+ spring tx  ---> @Transactional
+	
+	+ application.properties ---> consists connection parameters
+	  username, password, url, driver

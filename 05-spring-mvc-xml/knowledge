@@ -1,0 +1,20 @@
+0. Create project using Maven
+--> File - New Maven Project - Maven Archetype Web App
+
+1. Import dependencies
+
+2. Configure DispatcherSevlet || FrontController
+	+ XML : web.xmxl
+	+ JAVA 
+	==> Configure necessary parameters for Spring MVC Application
+		+ spring-mvc-config.xml
+		
+3. Controller
+
+4. View
+
+Some Issues
+1. Right click -> Properties -> Project Facets -> JAVA 1.8
+2. Open project folder -> .setting -> ...facet.core.xml
+   Edit --> jst.web = 3.1
+   		--> java	= 1.8
