@@ -21,17 +21,14 @@
 		<property name="pointcut" ref="moviePointCut"></property>
 	</bean>
 	
-	
 	<!-- 2.1 Define Advice -->
-	<bean id="movieServiceAroundAdvice"
-		class="spring.aop.aspect.MovieAopAroundAdvice"></bean>
-		
+	<bean id="movieServiceAroundAdvice" class="spring.aop.aspect.MovieAopAroundAdvice"></bean>
+
 	<!-- 2.2 Define PointCut -->
-	<bean id = "moviePointCut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+	<bean id="moviePointCut" class="org.springframework.aop.support.NameMatchMethodPointcut">
 		<property name="mappedName" value="printName"></property>
 	</bean>
-			
-
+	
 	<!-- 3. Define Proxy -->
 	<bean id="movieServiceProxy"
 		class="org.springframework.aop.framework.ProxyFactoryBean">

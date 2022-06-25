@@ -1,6 +1,6 @@
 package spring.aop.service;
 
-public class MovieServiceImpl implements MovieService{
+public class MovieServiceImpl implements MovieService {
 	@Override
 	public void addMovie() {
 		System.out.println("MovieServiceImpl --> addMovie ##");
@@ -20,5 +20,4 @@ public class MovieServiceImpl implements MovieService{
 	public String getMovie() {
 		return "MovieServiceImpl --> getMovie ##";
 	}
-
 }

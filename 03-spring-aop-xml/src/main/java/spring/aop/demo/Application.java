@@ -12,10 +12,10 @@ private static final String PATH = "aop-jointpoint-advisor-auto-proxy.xml";
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(PATH);
 		
 		// Get bean proxy and return joinpoint type at runtime
-		MovieService service = context.getBean("movieService", MovieService.class);
+		// MovieService service = context.getBean("movieServiceProxy", MovieService.class);
 		
 		// Auto proxy
-		// MovieService service = context.getBean("movieService", MovieService.class);
+		MovieService service = context.getBean("movieService", MovieService.class);
 		service.printName();
 		
 		System.out.println("====================");

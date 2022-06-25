@@ -16,13 +16,9 @@
 	</bean>
 
 	<!-- 2. Define Advice -->
-	<bean id="movieServiceBeforeAdvice"
-		class="spring.aop.aspect.MovieAopBeforeAdvice"></bean>
-	<bean id="movieServiceAfterAdvice"
-		class="spring.aop.aspect.MovieAopAfterAdvice"></bean>
-	<bean id="movieServiceAroundAdvice"
-		class="spring.aop.aspect.MovieAopAroundAdvice"></bean>
-		
+	<bean id="movieServiceBeforeAdvice" class="spring.aop.aspect.MovieAopBeforeAdvice"></bean>
+	<bean id="movieServiceAfterAdvice" class="spring.aop.aspect.MovieAopAfterAdvice"></bean>
+	<bean id="movieServiceAroundAdvice" class="spring.aop.aspect.MovieAopAroundAdvice"></bean>
 
 	<!-- 3. Define Proxy -->
 	<bean id="movieServiceProxy"
@@ -34,8 +30,8 @@
 		<!-- 3.2: Advice/Advisor -->
 		<property name="interceptorNames">
 			<list>
-<!-- 			<value>movieServiceBeforeAdvice</value>
-				<value>movieServiceAfterAdvice</value> -->
+				<!-- <value>movieServiceBeforeAdvice</value> -->
+				<!-- <value>movieServiceAfterAdvice</value> -->
 				<value>movieServiceAroundAdvice</value>
 			</list>
 		</property>

@@ -1,0 +1,17 @@
+.header {
+	color: green;
+	font-size: 28px;
+}
+
+.btn-add {
+	color: green;
+	font-size: 22px;
+	background: aqua;
+	border: 1px solid black;
+	border-radius: 2px;
+	display: inline-block;
+	width: 80px;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
+}

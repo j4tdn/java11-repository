@@ -1,0 +1,14 @@
+0. Create project using Maven
+--> File - New Maven Project - Maven Archetype Web App
+
+1. Import dependencies
+
+2. Configure DispatcherServlet || FrontController
+   + XML  : web.xml
+   + JAVA : .......
+   ==> Configure necessary parameters for Spring MVC Application
+      + spring-mvc-config.xml
+
+3. Controller
+
+4. View

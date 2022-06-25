@@ -21,5 +21,4 @@ public class MovieAspectConfig {
 	public MovieLogAspect movieLogAspect() {
 		return new MovieLogAspect();
 	}
-
 }

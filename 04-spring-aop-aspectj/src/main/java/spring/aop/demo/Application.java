@@ -9,12 +9,12 @@ import spring.aop.service.MovieService;
 public class Application {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-		 
+	
 		MovieService movieService = context.getBean("movieService", MovieService.class);
+		
 		movieService.addMovie();
 		movieService.updateMovie();
 		
 		context.close();
 	}
-
 }
