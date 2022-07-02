@@ -12,3 +12,10 @@
 3. Controller
 
 4. View
+
+
+Some Issues
+1. Right click -> Properties -> Project Facets -> JAVA 1.8
+2. Open project folder -> .settings -> ...facet.core.xml
+   Edit --> jst.web = 3.1
+        --> java    = 1.8

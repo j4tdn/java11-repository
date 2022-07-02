@@ -3,12 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>spring.mvc</groupId>
-	<artifactId>06-spring-mvc-annotation</artifactId>
+	<artifactId>07-spring-mvc-hibernate</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>06-spring-mvc-annotation Maven Webapp</name>
+	<name>07-spring-mvc-hibernate Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-
 	<properties>
 		<springframework.version>5.3.12</springframework.version>
 		<hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
@@ -16,6 +15,11 @@
 		<javax.servlet.version>3.1.0</javax.servlet.version>
 		<jstl.version>1.2</jstl.version>
 		<javax.annotation.version>1.3.2</javax.annotation.version>
+		
+		<mysql-connector-java.version>8.0.16</mysql-connector-java.version>
+		<hibernate.version>5.4.32.Final</hibernate.version>
+		<commons-dbcp.version>1.4</commons-dbcp.version>
+		
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -39,7 +43,47 @@
 			<artifactId>javax.annotation-api</artifactId>
 			<version>${javax.annotation.version}</version>
 		</dependency>
+		
+		<!-- Spring MVC - Hibernate -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector-java.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
+		<!-- Connection Pool -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
+		<dependency>
+			
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons-dbcp.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
 
+		<!-- JSP/JSTL/Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jsp-api</artifactId>
@@ -61,10 +105,8 @@
 		</dependency>
 
 	</dependencies>
-
-
 	<build>
-		<finalName>06-spring-mvc-annotation</finalName>
+		<finalName>07-spring-mvc-hibernate</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
