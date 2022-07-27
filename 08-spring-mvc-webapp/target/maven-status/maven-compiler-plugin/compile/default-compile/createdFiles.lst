@@ -1,0 +1,12 @@
+spring\mvc\webapp\controller\StuffController.class
+spring\mvc\webapp\configuration\WebAppConfigurer.class
+spring\mvc\webapp\dao\HibernateCustomerDao.class
+spring\mvc\webapp\entity\Customer.class
+common\Application.class
+spring\mvc\webapp\service\CustomerService.class
+spring\mvc\webapp\controller\HomePageController.class
+spring\mvc\webapp\dao\CustomerDao.class
+spring\mvc\webapp\controller\CustomerController.class
+spring\mvc\webapp\service\CustomerServiceImpl.class
+spring\mvc\webapp\dao\AbstractHibernateDao.class
+spring\mvc\webapp\configuration\WebAppInitializer.class

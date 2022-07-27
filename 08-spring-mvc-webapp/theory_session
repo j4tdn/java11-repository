@@ -1,0 +1,10 @@
+getCurrentSession
++ select/save/update/delete:
+  . need transaction
+  . without transaction: no display errors
+
+openSession
++ select: no need transaction
++ save/update/delete: 
+  . need transaction
+  . without transaction: display errors

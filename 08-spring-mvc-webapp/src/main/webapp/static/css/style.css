@@ -1,0 +1,10 @@
+.toolbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.toolbar .info-message {
+	padding-top: 22px;
+	box-sizing: border-box;
+}
