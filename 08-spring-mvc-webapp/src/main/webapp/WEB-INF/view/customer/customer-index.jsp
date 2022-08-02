@@ -68,10 +68,55 @@
 		<table class="table table-bordered table-striped">
 			<thead class="table-dark">
 				<tr>
-					<th><a href="">Id</a></th>
-					<th><a href="">First name</a></th>
-					<th><a href="">Last name</a></th>
-					<th><a href="">Email</a></th>
+					<th>
+						<!-- Nếu hiện tại đang sắp xếp theo id thì reverseOrder, ngược lại sắp xếp theo id bằng sortDir hiện tại  -->
+						<c:if test="${sortField == 'id'}">
+							<c:set var="orderLink" value="${contextPath}/customer/page/${currentPage}?sortField=id&sortDir=${reversedOrder}"></c:set>
+						</c:if>
+						<c:if test="${sortField != 'id'}">
+							<c:set var="orderLink" value="${contextPath}/customer/page/${currentPage}?sortField=id&sortDir=${sortDir}"></c:set>
+						</c:if>
+						<a href="${orderLink}" class="text-white">Id</a>
+						<c:if test="${sortField == 'id'}">
+							<span class="${sortDir == 'asc' ? 'fas fa-sort-up' : 'fas fa-sort-down'}"></span>
+						</c:if>
+					</th>
+					<th>
+						<c:if test="${sortField == 'firstName'}">
+							<c:set var="orderLink" value="${contextPath}/customer/page/${currentPage}?sortField=firstName&sortDir=${reversedOrder}"></c:set>
+						</c:if>
+						<c:if test="${sortField != 'firstName'}">
+							<c:set var="orderLink" value="${contextPath}/customer/page/${currentPage}?sortField=firstName&sortDir=${sortDir}"></c:set>
+						</c:if>
+						<a href="${orderLink}" class="text-white">First name</a>
+						<c:if test="${sortField == 'firstName'}">
+							<span class="${sortDir == 'asc' ? 'fas fa-sort-up' : 'fas fa-sort-down'}"></span>
+						</c:if>
+					</th>
+					<th>
+						<c:if test="${sortField == 'lastName'}">
+							<c:set var="orderLink" value="${contextPath}/customer/page/${currentPage}?sortField=lastName&sortDir=${reversedOrder}"></c:set>
+						</c:if>
+						<c:if test="${sortField != 'lastName'}">
+							<c:set var="orderLink" value="${contextPath}/customer/page/${currentPage}?sortField=lastName&sortDir=${sortDir}"></c:set>
+						</c:if>
+						<a href="${orderLink}" class="text-white">Last name</a>
+						<c:if test="${sortField == 'lastName'}">
+							<span class="${sortDir == 'asc' ? 'fas fa-sort-up' : 'fas fa-sort-down'}"></span>
+						</c:if>
+					</th>
+					<th>
+						<c:if test="${sortField == 'email'}">
+							<c:set var="orderLink" value="${contextPath}/customer/page/${currentPage}?sortField=email&sortDir=${reversedOrder}"></c:set>
+						</c:if>
+						<c:if test="${sortField != 'email'}">
+							<c:set var="orderLink" value="${contextPath}/customer/page/${currentPage}?sortField=email&sortDir=${sortDir}"></c:set>
+						</c:if>
+						<a href="${orderLink}" class="text-white">Email</a>
+						<c:if test="${sortField == 'email'}">
+							<span class="${sortDir == 'asc' ? 'fas fa-sort-up' : 'fas fa-sort-down'}"></span>
+						</c:if>
+					</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -96,23 +141,23 @@
 		<nav class="float-end">
 			<ul class="pagination">
 				<li class="page-item ${currentPage <= 1 ? 'disabled' : ''}">
-			      <a class="page-link" href="${contextPath}/customer/page/1">First</a>
+			      <a class="page-link" href="${contextPath}/customer/page/1?sortField=${sortField}&sortDir=${sortDir}">First</a>
 			    </li>
 				<li class="page-item ${currentPage <= 1 ? 'disabled' : ''}">
-			      <a class="page-link" href="${contextPath}/customer/page/${currentPage-1}">Previous</a>
+			      <a class="page-link" href="${contextPath}/customer/page/${currentPage-1}?sortField=${sortField}&sortDir=${sortDir}">Previous</a>
 			    </li>
 				
 				<c:forEach var="i" begin="1" end="${totalPages}">
 			    <li class="page-item ${i == currentPage ? 'active' : ''}">
-			    	<a class="page-link" href="${contextPath}/customer/page/${i}">${i}</a>
+			    	<a class="page-link" href="${contextPath}/customer/page/${i}?sortField=${sortField}&sortDir=${sortDir}">${i}</a>
 			    </li>
 			    </c:forEach>
 			    
 			    <li class="page-item ${currentPage == totalPages ? 'disabled' : ''}">
-			      <a class="page-link" href="${contextPath}/customer/page/${currentPage+1}">Next</a>
+			      <a class="page-link" href="${contextPath}/customer/page/${currentPage+1}?sortField=${sortField}&sortDir=${sortDir}">Next</a>
 			    </li>
 			    <li class="page-item ${currentPage == totalPages ? 'disabled' : ''}">
-			      <a class="page-link" href="${contextPath}/customer/page/${totalPages}">Last</a>
+			      <a class="page-link" href="${contextPath}/customer/page/${totalPages}?sortField=${sortField}&sortDir=${sortDir}">Last</a>
 			    </li>
 			</ul>
 		</nav>
