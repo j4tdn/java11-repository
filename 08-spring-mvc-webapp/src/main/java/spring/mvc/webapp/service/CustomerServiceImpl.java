@@ -24,8 +24,8 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	@Override
 	@Transactional
-	public List<Customer> findAll(Pageable pageable) {
-		return customerDao.findAll(pageable);
+	public List<Customer> findAll(Pageable pageable, String sortField, String sortDir) {
+		return customerDao.findAll(pageable, sortField, sortDir);
 	}
 	
 	@Override

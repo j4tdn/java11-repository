@@ -8,7 +8,7 @@ import spring.mvc.webapp.entity.Customer;
 public interface CustomerDao {
 	List<Customer> findAll();
 
-	List<Customer> findAll(Pageable pageable);
+	List<Customer> findAll(Pageable pageable, String sortField, String sortDir);
 	
 	int countTotalItems();
 

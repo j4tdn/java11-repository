@@ -8,3 +8,9 @@ openSession
 + save/update/delete: 
   . need transaction
   . without transaction: display errors
+  
+https://stackoverflow.com/questions/1606435/jstl-if-statement-inside-html-attribute
+https://findnerd.com/list/view/How-to-create-a-custom-Function-for-JSTL/2869/  
+
+https://getbootstrap.com/docs/4.0/components/pagination/
+https://getbootstrap.com/docs/4.0/utilities/colors/

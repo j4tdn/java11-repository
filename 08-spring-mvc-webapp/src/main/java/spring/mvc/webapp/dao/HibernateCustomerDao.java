@@ -24,11 +24,12 @@ public class HibernateCustomerDao extends AbstractHibernateDao implements Custom
 	
 	// HQL/JPQL does not support LIMIT native
 	// --> setMaxResults
+	// sortField --> entity attribute || table column(native)
 	@Override
-	public List<Customer> findAll(Pageable pageable) {
+	public List<Customer> findAll(Pageable pageable, String sortField, String sortDir) {
 		return getCurrentSession().createQuery(
 				  "SELECT c FROM Customer c \n"
-				+ "ORDER BY c.id DESC", Customer.class)
+				+ "ORDER BY c." + sortField + " " + sortDir , Customer.class)
 				.setFirstResult(pageable.getOffset())
 				.setMaxResults(pageable.getRowCount())
 				.getResultList();

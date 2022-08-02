@@ -32,27 +32,29 @@ public class CustomerController {
 	private CustomerService customerService;
 	
 	@GetMapping
-	public String listUsers(Model model) {
-		List<Customer> customers = customerService.findAll();
-		
-		model.addAttribute("customers", customers);
-		
-		return Application.CUSTOMER_INDEX_PAGE;
+	public String listCustomers(Model model) {
+		return listCustomersByPage(model, 1, "firstName", "asc");
 	}
 	
+	// http://localhost:8080/08-spring-mvc-webapp/customer/page/1?sortField=firstName&sortDir=asc
 	@GetMapping("/page/{pageNum}")
-	public String listUsersByPage(Model model,
-			@PathVariable(name = "pageNum") int pageNum) {
+	public String listCustomersByPage(Model model,
+			@PathVariable(name = "pageNum") int pageNum,
+			@RequestParam(name = "sortField") String sortField,
+			@RequestParam(name = "sortDir") String sortDir) {
 		
 		int totalItems = customerService.countTotalItems();
 		int totalPages = (int)Math.ceil((float)totalItems/pageSize);
 		int currentPage = pageNum > totalPages ? totalPages : pageNum;
 		
-		List<Customer> customers = customerService.findAll(Pageable.of(currentPage, pageSize));
+		List<Customer> customers = customerService.findAll(Pageable.of(currentPage, pageSize), sortField, sortDir);
 		model.addAttribute("customers", customers);
 		model.addAttribute("totalItems", totalItems);
 		model.addAttribute("totalPages", totalPages);
 		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("sortField", sortField);
+		model.addAttribute("sortDir", sortDir);
+		model.addAttribute("reversedOrder", "asc".equals(sortDir) ? "desc" : "asc");
 		
 		System.out.println("totalItems = " + totalItems + ", totalPages = " + totalPages + ", size = " + customers.size());
 		return Application.CUSTOMER_INDEX_PAGE;
