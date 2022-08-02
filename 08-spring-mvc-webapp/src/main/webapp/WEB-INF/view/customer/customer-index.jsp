@@ -68,6 +68,7 @@
 		<table class="table table-bordered table-striped">
 			<thead class="table-dark">
 				<tr>
+					<th><a href="">Id</a></th>
 					<th><a href="">First name</a></th>
 					<th><a href="">Last name</a></th>
 					<th><a href="">Email</a></th>
@@ -78,6 +79,7 @@
 			<tbody>
 				<c:forEach var="customer" items="${customers}">
 				<tr>
+					<td>${customer.id}</td>
 					<td>${customer.firstName}</td>
 					<td>${customer.lastName}</td>
 					<td>${customer.email}</td>
@@ -93,19 +95,24 @@
 
 		<nav class="float-end">
 			<ul class="pagination">
-
-				<li class="page-item">
-					<a href="" aria-label="Previous" class="page-link">
-						<span aria-hidden="true">&laquo;</span>
-					</a>
-				</li>
-			    <li class="page-item"><a class="page-link" href="#">1</a></li>
-			    <li class="page-item"><a class="page-link bg-warning" href="#">2</a></li>
-			    <li class="page-item"><a class="page-link" href="#">3</a></li>
-			    <li class="page-item">
-			    	<a href="" aria-label="Next" class="page-link"> 
-						<span aria-hidden="true">&raquo;</span>
-					</a>
+				<li class="page-item ${currentPage <= 1 ? 'disabled' : ''}">
+			      <a class="page-link" href="${contextPath}/customer/page/1">First</a>
+			    </li>
+				<li class="page-item ${currentPage <= 1 ? 'disabled' : ''}">
+			      <a class="page-link" href="${contextPath}/customer/page/${currentPage-1}">Previous</a>
+			    </li>
+				
+				<c:forEach var="i" begin="1" end="${totalPages}">
+			    <li class="page-item ${i == currentPage ? 'active' : ''}">
+			    	<a class="page-link" href="${contextPath}/customer/page/${i}">${i}</a>
+			    </li>
+			    </c:forEach>
+			    
+			    <li class="page-item ${currentPage == totalPages ? 'disabled' : ''}">
+			      <a class="page-link" href="${contextPath}/customer/page/${currentPage+1}">Next</a>
+			    </li>
+			    <li class="page-item ${currentPage == totalPages ? 'disabled' : ''}">
+			      <a class="page-link" href="${contextPath}/customer/page/${totalPages}">Last</a>
 			    </li>
 			</ul>
 		</nav>

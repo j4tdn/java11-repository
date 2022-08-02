@@ -2,8 +2,10 @@ package spring.mvc.webapp.dao;
 
 import java.util.List;
 
+import org.hibernate.type.IntegerType;
 import org.springframework.stereotype.Repository;
 
+import common.Pageable;
 import spring.mvc.webapp.entity.Customer;
 
 @Repository
@@ -18,6 +20,26 @@ public class HibernateCustomerDao extends AbstractHibernateDao implements Custom
 		return getCurrentSession()
 				.createQuery("SELECT c FROM Customer c ORDER BY c.id DESC", Customer.class)
 				.getResultList();
+	}
+	
+	// HQL/JPQL does not support LIMIT native
+	// --> setMaxResults
+	@Override
+	public List<Customer> findAll(Pageable pageable) {
+		return getCurrentSession().createQuery(
+				  "SELECT c FROM Customer c \n"
+				+ "ORDER BY c.id DESC", Customer.class)
+				.setFirstResult(pageable.getOffset())
+				.setMaxResults(pageable.getRowCount())
+				.getResultList();
+	}
+	
+	@Override
+	public int countTotalItems() {
+		final String sql = "SELECT COUNT(*) AS totalRecords FROM customer";
+		return (int) getCurrentSession().createNativeQuery(sql)
+					  .addScalar("totalRecords", IntegerType.INSTANCE)
+					  .getSingleResult();
 	}
 	
 	@Override

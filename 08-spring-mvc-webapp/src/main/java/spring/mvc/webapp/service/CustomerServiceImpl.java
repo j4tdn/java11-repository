@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import common.Pageable;
 import spring.mvc.webapp.dao.CustomerDao;
 import spring.mvc.webapp.entity.Customer;
 
@@ -19,6 +20,18 @@ public class CustomerServiceImpl implements CustomerService{
 	@Transactional
 	public List<Customer> findAll() {
 		return customerDao.findAll();
+	}
+	
+	@Override
+	@Transactional
+	public List<Customer> findAll(Pageable pageable) {
+		return customerDao.findAll(pageable);
+	}
+	
+	@Override
+	@Transactional
+	public int countTotalItems() {
+		return customerDao.countTotalItems();
 	}
 	
 	@Override
